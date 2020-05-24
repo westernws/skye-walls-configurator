@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--site-max-width: 1500px;
+}
+
+body {
+	@apply bg-gray-lighter p-0;
+}
+img {
+	@apply w-full h-auto;
+}
+
+.SiteNav {
+	@apply bg-white pr-6 pl-6 m-auto;
+	max-width: var(--site-max-width);
+}
+.SiteNav-wrap {
+	@apply flex items-center;
+	height: 80px;
+}
+.SiteNav-logo {
+	width: 120px;
+}
