@@ -23,6 +23,7 @@ module.exports = {
 			md: '770px',
 			lg: '851px',
 			xl: '1024px',
+			'2xl': '1500px',
 		},
 	},
 	variants: {},

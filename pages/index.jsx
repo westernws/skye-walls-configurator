@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const Home = () => {
 	return (
-		<div className="Main">
+		<div className="text-sm md:text-lg">
 			<Head>
 				<title>Skye Walls Configurator &mdash; Western Window Systems</title>
 				<meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0" />
@@ -44,7 +44,23 @@ export const Home = () => {
 						</div>
 					</div>
 				</nav>
+				<div className="Hero">
+					<img className="Hero-image" src="http://placeimg.com/1000/477/arch" alt="" />
+				</div>
 			</header>
+			<main className="Main">
+				<section className="Panel">
+					<div className="Panel-intro">
+						<div className="w-12/12 md:w-7/12 mt-6">
+							<h1 className="HeadingRuled md:text-5xl">Design Your Door</h1>
+							<p>
+								No two transformations are exactly alike. That’s why we designed moving glass walls from
+								Skye Walls to be customizable to your aesthetics and lifestyle.
+							</p>
+						</div>
+					</div>
+				</section>
+			</main>
 		</div>
 	);
 };
