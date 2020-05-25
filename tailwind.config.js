@@ -1,5 +1,11 @@
 module.exports = {
-	purge: [],
+	// purge: {
+	// 	enabled: true,
+	// 	content: [
+	// 		'./pages/**/*.jsx',
+	// 		'./pages/**/*.html',
+	// 	],
+	// },
 	theme: {
 		colors: {
 			black: '#000',

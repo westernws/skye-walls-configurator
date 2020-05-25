@@ -6,7 +6,7 @@ export const Home = () => (
 	<div className="text-sm md:text-lg">
 		<Head>
 			<title>Skye Walls Configurator &mdash; Western Window Systems</title>
-			<meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0" />
+			<meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, minimum-scale=1" />
 			<meta name="description" content="FPO" />
 			<meta name="google" content="nositelinkssearchbox" />
 			<meta property="og:url" content="https://example.com/page.html" />
@@ -33,7 +33,7 @@ export const Home = () => (
 			<link rel="stylesheet" href="//use.typekit.net/kex0feu.css" />
 		</Head>
 		<header className="bg-white">
-			<nav className="SiteNav pl-0 xxl:pl-6">
+			<nav className="SiteNav">
 				<div className="SiteNav-wrap">
 					<div className="SiteNav-logo">
 						<Link href="/">
@@ -42,7 +42,7 @@ export const Home = () => (
 							</a>
 						</Link>
 					</div>
-					<ul className="SiteNav-menu">
+					<ul className="SiteNav-menu xxl:hidden">
 						<li>
 							<Link href="#">
 								<a>
@@ -67,7 +67,7 @@ export const Home = () => (
 				</div>
 			</nav>
 		</header>
-		<div className="bg-black">
+		<div className="bg-black hidden xxl:block">
 			<nav className="SiteSubnav">
 				<div className="SiteSubnav-wrap space-x-10">
 					<button className="BackToTop space-x-1" type="button">
