@@ -1,4 +1,8 @@
 module.exports = {
+	env: {
+		browser: true,
+		node: true,
+	},
 	extends: ['airbnb'],
 	// plugins: ['prettier'],
 	rules: {
@@ -6,6 +10,7 @@ module.exports = {
 		'indent': [2, 'tab'],
 		'jsx-a11y/anchor-is-valid': 'off',
 		'max-len': [2, { code: 120, tabWidth: 4 }],
+		'no-console': 'off',
 		'no-tabs': 'off',
 		'quote-props': [2, 'consistent'],
 		'react/jsx-indent': [2, 'tab'],

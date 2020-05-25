@@ -1,5 +1,6 @@
 .Hero {
 	@apply relative;
+	margin: 60px 0 0;
 	&::after {
 		@apply block h-0 w-full;
 		padding-bottom: 29.8%;

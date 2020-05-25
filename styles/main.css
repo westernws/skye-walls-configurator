@@ -16,3 +16,6 @@
 .Icon {
 	@apply w-8;
 }
+.Header {
+	@apply bg-white;
+}
