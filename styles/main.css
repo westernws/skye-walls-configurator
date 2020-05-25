@@ -1,61 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import '_includes.css';
 
-:root {
-	--site-max-width: 1500px;
-}
-
-body {
-	@apply bg-gray-lighter p-0 text-gray;
-	min-height: 3000px;
-}
-img {
-	@apply w-full h-auto;
-}
-.Hero {
-	@apply relative;
-}
-.Hero::after {
-	@apply block h-0 w-full;
-	padding-bottom: 47.7%;
-	content: ' ';
-
-}
-.Hero-image {
-	@apply absolute top-0 left-0 w-full;
-}
-.SiteHeader {
-	@apply bg-white;
-}
-.SiteNav {
-	@apply pr-6 pl-6 m-auto;
-	max-width: var(--site-max-width);
-}
-.SiteNav-wrap {
-	@apply flex items-center;
-	height: 80px;
-}
-.SiteNav-logo {
-	width: 120px;
-}
-.Heading {
-	@apply text-4xl;
-}
-.HeadingRuled {
-	@apply text-4xl;
-}
-.HeadingRuled::after {
-	@apply mt-4 mb-4 block;
-	content: ' ';
-	border-bottom: 2px solid theme('colors.gray.default');
-	width: 50px;
-
-}
 .Main {
 	@apply pr-6 pl-6 m-auto;
 	max-width: var(--site-max-width);
 }
-.Panel-intro {
-	@apply flex justify-center;
+.PanelGroup {
+	@apply flex;
+}
+.Panel {
+	@apply bg-gray-lighter;
+}
+.BackToTop {
+	@apply text-xl uppercase flex items-center;
+}
+.Icon {
+	@apply w-8;
 }

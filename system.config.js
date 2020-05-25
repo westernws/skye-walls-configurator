@@ -4,5 +4,6 @@
 System.config({
 	paths: {
 		'~/*': '/*',
+		'#/*': '/styles/*'
 	},
 });

@@ -1,0 +1,11 @@
+.SiteNav {
+	@apply pr-6 pl-6 m-auto;
+	max-width: var(--site-max-width);
+}
+.SiteNav-wrap {
+	@apply flex items-center;
+	height: 80px;
+}
+.SiteNav-logo {
+	width: 120px;
+}

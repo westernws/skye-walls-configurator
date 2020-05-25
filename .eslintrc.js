@@ -1,10 +1,13 @@
 module.exports = {
-	extends: ['airbnb', 'prettier'],
-	plugins: ['prettier'],
+	extends: ['airbnb'],
+	// plugins: ['prettier'],
 	rules: {
 		'import/prefer-default-export': 'off',
+		'indent': [2, 'tab'],
 		'jsx-a11y/anchor-is-valid': 'off',
-		'prettier/prettier': ['error'],
+		'max-len': [2, { code: 120, tabWidth: 4 }],
+		'no-tabs': 'off',
+		'quote-props': [2, 'consistent'],
 		'react/jsx-indent': [2, 'tab'],
 		'react/jsx-indent-props': [2, 'tab'],
 		'react/jsx-one-expression-per-line': 'off',
@@ -16,6 +19,7 @@ module.exports = {
 			alias: {
 				map: [
 					['~', './'],
+					['#', './styles/']
 				],
 				extensions: ['.js', '.jsx'],
 			}

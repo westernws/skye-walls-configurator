@@ -1,0 +1,11 @@
+.Hero {
+	@apply relative;
+	&::after {
+		@apply block h-0 w-full;
+		padding-bottom: 29.8%;
+		content: ' ';
+	}
+}
+.Hero-image {
+	@apply absolute top-0 left-0 w-full;
+}
