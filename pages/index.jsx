@@ -33,7 +33,7 @@ export const Home = () => (
 			<link rel="stylesheet" href="//use.typekit.net/kex0feu.css" />
 		</Head>
 		<header className="bg-white">
-			<nav className="SiteNav">
+			<nav className="SiteNav pl-0 xxl:pl-6">
 				<div className="SiteNav-wrap">
 					<div className="SiteNav-logo">
 						<Link href="/">
@@ -42,6 +42,28 @@ export const Home = () => (
 							</a>
 						</Link>
 					</div>
+					<ul className="SiteNav-menu">
+						<li>
+							<Link href="#">
+								<a>
+									<div className="Icon">
+										<img src="/images/bars-solid.svg" alt="Menu" />
+										<span>Other</span>
+									</div>
+								</a>
+							</Link>
+						</li>
+						<li>
+							<Link href="#">
+								<a>
+									<div className="Icon">
+										<img src="/images/bars-solid.svg" alt="Menu" />
+										<span>Menu</span>
+									</div>
+								</a>
+							</Link>
+						</li>
+					</ul>
 				</div>
 			</nav>
 		</header>
@@ -93,9 +115,9 @@ export const Home = () => (
 			<section className="space-y-20">
 				<div className="space-y-12">
 					<h2 className="Heading Heading--bordered">
-						<span className="Header-rule" />
+						<span className="Heading-rule" />
 						Sliding
-						<span className="Header-rule" />
+						<span className="Heading-rule" />
 					</h2>
 					<div className="flex justify-center">
 						<div className="w-12/12 md:w-7/12">

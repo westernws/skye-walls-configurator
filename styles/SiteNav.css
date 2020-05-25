@@ -1,11 +1,22 @@
 .SiteNav {
-	@apply pr-6 pl-6 m-auto;
+	@apply m-auto;
 	max-width: var(--site-max-width);
 }
 .SiteNav-wrap {
-	@apply flex items-center;
+	@apply flex items-center justify-between;
 	height: 80px;
 }
 .SiteNav-logo {
 	width: 120px;
+}
+.SiteNav-menu {
+	li {
+		border-left: 1px solid theme('colors.black');
+	}
+	a {
+		@apply pl-6 pr-6 block;
+	}
+	span {
+		@apply text-sm;
+	}
 }

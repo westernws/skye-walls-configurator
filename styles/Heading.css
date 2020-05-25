@@ -9,7 +9,7 @@
 
 		}
 	}
-	.Header-rule {
+	.Heading-rule {
 		@apply mt-2 ml-4 mr-4;
 		width: 30px;
 		border-bottom: 2px solid theme('colors.gray.default');
