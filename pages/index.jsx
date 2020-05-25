@@ -1,63 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import classNames from 'classnames';
+import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
 export const Home = () => {
-	const [isNavSticky, setIsNavSticky] = useState(null);
-
-	useEffect(() => {
-		if (!process.browser) {
-			return () => {};
-		}
-		let boxElement;
-		let prevRatio = 0.0;
-		const handleIntersect = (entries) => {
-			entries.forEach((entry) => {
-				if (entry.intersectionRatio > prevRatio) {
-					console.log('appearing', entry.intersectionRatio);
-				} else {
-					console.log('dissappearing', entry.intersectionRatio);
-				}
-				setIsNavSticky(!entry.intersectionRatio);
-				prevRatio = entry.intersectionRatio;
-			});
-		};
-		const buildThresholdList = () => {
-			const thresholds = [];
-			const numSteps = 100;
-
-			for (let i = 1.0; i <= numSteps; i += 1) {
-				const ratio = i / numSteps;
-				thresholds.push(ratio);
-			}
-
-			thresholds.push(0);
-			return thresholds;
-		};
-		const createObserver = () => {
-			const options = {
-				root: null,
-				rootMargin: '0px',
-				threshold: buildThresholdList(),
-			};
-			const observer = new IntersectionObserver(handleIntersect, options);
-
-			observer.observe(boxElement);
-		};
-		const onLoadHandler = () => {
-			boxElement = document.querySelector('#header');
-
-			createObserver();
-		};
-
-		window.addEventListener('load', onLoadHandler, false);
-		return () => {
-			console.log('cleaning up!');
-			window.removeEventListener('load', onLoadHandler);
-		};
-	}, []);
-
 	return (
 		<div className="text-sm md:text-lg">
 			<Head>
@@ -123,14 +68,7 @@ export const Home = () => {
 					</div>
 				</nav>
 			</header>
-			<div className={classNames('bg-black hidden xxl:block', {
-				// 'z-10': isNavSticky,
-				// 'fixed': isNavSticky,
-				// 'w-full': isNavSticky,
-				// 'top-0': isNavSticky,
-				'is-nav-sticky': isNavSticky,
-			})}
-			>
+			<div className="sticky top-0 z-10 bg-black hidden xxl:block">
 				<nav className="SiteSubnav">
 					<div className="SiteSubnav-wrap space-x-10">
 						<button className="BackToTop space-x-1" type="button">

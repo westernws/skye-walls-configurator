@@ -6,6 +6,7 @@ module.exports = {
 	extends: ['airbnb'],
 	// plugins: ['prettier'],
 	rules: {
+		'arrow-body-style': 'off',
 		'import/prefer-default-export': 'off',
 		'indent': [2, 'tab'],
 		'jsx-a11y/anchor-is-valid': 'off',
