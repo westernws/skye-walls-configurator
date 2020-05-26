@@ -10,6 +10,18 @@
 .Panel {
 	@apply bg-gray-lighter;
 }
+.BackToTop {
+	@apply text-xl uppercase flex items-center;
+}
+.BackToTop-icon {
+	@apply w-8 opacity-0 transition-all duration-500 ease-in-out;
+	margin-left: -32px;
+}
+.BackToTop.is-icon-visible {
+	.BackToTop-icon {
+		@apply opacity-100 ml-0;
+	}
+}
 .Icon {
 	@apply w-8;
 }

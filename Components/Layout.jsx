@@ -1,14 +1,10 @@
 import Link from 'next/link';
+import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
 import noop from 'lodash/noop';
-import classNames from 'classnames';
 
 import { IntersectionObserverFactory } from '~/util/IntersectionObserver';
 import { Meta } from '~/Components/Meta';
-import { BackToTop } from '~/Components/BackToTop';
-
-import siteNavStyles from '~/styles/SiteNav.module.css';
-import siteSubnavStyles from '~/styles/SiteSubnav.module.css';
 
 export const Layout = ({ children }) => {
 	const [isNavSticky, setIsNavSticky] = useState(null);
@@ -28,16 +24,16 @@ export const Layout = ({ children }) => {
 		<div className="text-sm md:text-lg">
 			<Meta />
 			<header id="header" className="Header">
-				<nav className={siteNavStyles.SiteNav}>
-					<div className={siteNavStyles['SiteNav-wrap']}>
-						<div className={siteNavStyles['SiteNav-logo']}>
+				<nav className="SiteNav">
+					<div className="SiteNav-wrap">
+						<div className="SiteNav-logo">
 							<Link href="/">
 								<a className="Logo">
 									<img src="/images/wws-logo.gif" alt="Western Window Systems" />
 								</a>
 							</Link>
 						</div>
-						<ul className={classNames(siteNavStyles['SiteNav-menu'], 'xxl:hidden')}>
+						<ul className="SiteNav-menu xxl:hidden">
 							<li>
 								<Link href="#">
 									<a>
@@ -63,10 +59,18 @@ export const Layout = ({ children }) => {
 				</nav>
 			</header>
 			<div className="sticky top-0 z-10 bg-black hidden xxl:block">
-				<nav className={siteSubnavStyles.SiteSubnav}>
-					<div className={classNames(siteSubnavStyles['SiteSubnav-wrap'], 'space-x-10')}>
-						<BackToTop isIconVisible={isNavSticky} />
-						<ul className={siteSubnavStyles['SiteSubnav-items']}>
+				<nav className="SiteSubnav">
+					<div className="SiteSubnav-wrap space-x-10">
+						<button
+							className={classNames('BackToTop space-x-1', {
+								'is-icon-visible': isNavSticky,
+							})}
+							type="button"
+						>
+							<img className="BackToTop-icon" src="/images/arrow-alt-circle-up-regular.svg" alt="" aria-hidden />
+							<strong>All Models</strong>
+						</button>
+						<ul className="SiteSubnav-items">
 							<li>
 								<Link href="/one">
 									<a><strong>One</strong></a>
