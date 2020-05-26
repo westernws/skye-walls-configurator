@@ -3,7 +3,7 @@
 	top: -80px;
 }*/
 .SiteSubnav {
-	@apply bg-black text-white pr-6 pl-6 m-auto flex sticky top-0;
+	@apply bg-black text-white pr-6 pl-6 m-auto flex sticky top-0 transition-all duration-200 ease-in-out;
 	min-height: 60px;
 	max-width: var(--site-max-width);
 }

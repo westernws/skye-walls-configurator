@@ -1,8 +1,63 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
 import Head from 'next/head';
 import Link from 'next/link';
 
 export const Home = () => {
+	const [isNavSticky, setIsNavSticky] = useState(null);
+
+	useEffect(() => {
+		if (!process.browser) {
+			return () => {};
+		}
+		let boxElement;
+		let prevRatio = 0.0;
+		const handleIntersect = (entries) => {
+			entries.forEach((entry) => {
+				if (entry.intersectionRatio > prevRatio) {
+					console.log('appearing', entry.intersectionRatio);
+				} else {
+					console.log('dissappearing', entry.intersectionRatio);
+				}
+				setIsNavSticky(!entry.intersectionRatio);
+				prevRatio = entry.intersectionRatio;
+			});
+		};
+		const buildThresholdList = () => {
+			const thresholds = [];
+			const numSteps = 1;
+
+			for (let i = 1.0; i <= numSteps; i += 1) {
+				const ratio = i / numSteps;
+				thresholds.push(ratio);
+			}
+
+			thresholds.push(0);
+			return thresholds;
+		};
+		const createObserver = () => {
+			const options = {
+				root: null,
+				rootMargin: '0px',
+				threshold: buildThresholdList(),
+			};
+			const observer = new IntersectionObserver(handleIntersect, options);
+
+			observer.observe(boxElement);
+		};
+		const onLoadHandler = () => {
+			boxElement = document.querySelector('#header');
+
+			createObserver();
+		};
+
+		window.addEventListener('load', onLoadHandler, false);
+		return () => {
+			console.log('cleaning up!');
+			window.removeEventListener('load', onLoadHandler);
+		};
+	}, []);
+
 	return (
 		<div className="text-sm md:text-lg">
 			<Head>
@@ -71,8 +126,13 @@ export const Home = () => {
 			<div className="sticky top-0 z-10 bg-black hidden xxl:block">
 				<nav className="SiteSubnav">
 					<div className="SiteSubnav-wrap space-x-10">
-						<button className="BackToTop space-x-1" type="button">
-							<img className="Icon" src="/images/arrow-alt-circle-up-regular.svg" alt="" aria-hidden />
+						<button
+							className={classNames('BackToTop space-x-1', {
+								'is-icon-visible': isNavSticky,
+							})}
+							type="button"
+						>
+							<img className="BackToTop-icon" src="/images/arrow-alt-circle-up-regular.svg" alt="" aria-hidden />
 							<strong>All Models</strong>
 						</button>
 						<ul className="SiteSubnav-items">
@@ -101,7 +161,11 @@ export const Home = () => {
 				</nav>
 			</div>
 			<div className="Hero">
-				<img className="Hero-image" src="http://placeimg.com/1600/477/arch" alt="" />
+				<img
+					className="Hero-image"
+					src="http://www.gifpng.com/1600x477/324aa8/ffffff?border-width=1&border-type=rectangle&border-color=ff00ff&font-size=48&text=FPO"
+					alt=""
+				/>
 			</div>
 			<main className="Main space-y-20">
 				<section className="flex justify-center mb-10">
