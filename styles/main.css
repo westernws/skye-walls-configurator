@@ -14,6 +14,7 @@
 
 
 .PanelGroup {
+	--repeat: 1;
 	@apply grid gap-12;
 	grid-template-columns: repeat(var(--repeat, auto-fit), minmax(330px, 1fr))
 }

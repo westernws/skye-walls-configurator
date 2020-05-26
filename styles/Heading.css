@@ -1,5 +1,4 @@
 .Heading {
-	@apply text-4xl;
 	&.Heading--ruled {
 		&::after {
 			@apply mt-4 mb-4 block;
@@ -14,7 +13,11 @@
 		width: 30px;
 		border-bottom: 2px solid theme('colors.gray.default');
 	}
+	.Heading-centerRule {
+		width: 30px;
+		border-bottom: 2px solid theme('colors.gray.default');
+	}
 	&.Heading--bordered {
-		@apply text-center flex justify-center items-center uppercase text-3xl;
+		@apply text-center flex justify-center items-center uppercase;
 	}
 }
