@@ -4,27 +4,59 @@
 	@apply pr-6 pl-6 m-auto;
 	max-width: var(--site-max-width);
 }
-.PanelGroup {
-	@apply flex;
-}
-.Panel {
-	@apply bg-gray-lighter;
-}
-.BackToTop {
-	@apply text-xl uppercase flex items-center;
-}
-.BackToTop-icon {
-	@apply w-8 opacity-0 transition-all duration-500 ease-in-out;
-	margin-left: -32px;
-}
-.BackToTop.is-icon-visible {
-	.BackToTop-icon {
-		@apply opacity-100 ml-0;
-	}
-}
 .Icon {
 	@apply w-8;
 }
 .Header {
 	@apply bg-white;
 }
+
+
+
+.PanelGroup {
+	@apply grid gap-12;
+	grid-template-columns: repeat(var(--repeat, auto-fit), minmax(330px, 1fr))
+}
+.Panel {
+	@apply bg-gray-lighter p-8 pb-10;
+}
+.Panel-title {
+	@apply uppercase;
+}
+.Button {
+	@apply text-base bg-red text-white p-2 text-center uppercase transition-all duration-200 ease-in-out;
+	border-radius: 1rem;
+	&:hover {
+		@apply bg-blue;
+	}
+}
+/*
+1060px
+1.5rem gap = 24px
+1.5rem page padding = 48
+*/
+@sreen xs {
+	.PanelGroup {
+		--repeat: 1;
+	}
+}
+@screen lg {
+	.PanelGroup {
+		--repeat: 2;
+	}
+}
+@screen xxxl {
+	.PanelGroup {
+		--repeat: 3;
+	}
+}
+/*
+Keeping this around for a more "natural" approach to responsive panels rather than based on strict screen widths
+
+@media (min-width: calc((330px * 3) + (24px * 4))) {
+	.PanelGroup {
+		--repeat: 3;
+	}
+}
+*/
+

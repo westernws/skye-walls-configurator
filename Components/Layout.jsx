@@ -39,16 +39,6 @@ export const Layout = ({ children }) => {
 									<a>
 										<div className="Icon">
 											<img src="/images/bars-solid.svg" alt="Menu" />
-											<span>Other</span>
-										</div>
-									</a>
-								</Link>
-							</li>
-							<li>
-								<Link href="#">
-									<a>
-										<div className="Icon">
-											<img src="/images/bars-solid.svg" alt="Menu" />
 											<span>Menu</span>
 										</div>
 									</a>

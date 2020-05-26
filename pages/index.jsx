@@ -1,15 +1,15 @@
 import React from 'react';
+import times from 'lodash/times';
+import uniqueId from 'lodash/uniqueId';
+
 import { Layout } from '~/Components/Layout';
+import { DummyImage } from '~/Components/DummyImage';
 
 export default () => {
 	return (
 		<Layout>
 			<div className="Hero">
-				<img
-					className="Hero-image"
-					src="http://www.gifpng.com/1600x477/324aa8/ffffff?border-width=1&border-type=rectangle&border-color=ff00ff&font-size=48&text=FPO"
-					alt=""
-				/>
+				<DummyImage className="Hero-image" width="1600" height="477" />
 			</div>
 			<main className="Main space-y-20">
 				<section className="flex justify-center mb-10">
@@ -37,9 +37,25 @@ export default () => {
 								</p>
 							</div>
 						</div>
-						<div className="PanelGroup">
-							<div className="Panel" />
-						</div>
+						<ul className="PanelGroup">
+							{
+								times(4, () => (
+									<li className="Panel space-y-6" key={uniqueId('panel-')}>
+										<div className="Panel-img w-full">
+											<DummyImage width="720" height="546" />
+										</div>
+										<div className="Panel-title text-2xl lg:text-4xl">Aluminum</div>
+										<p className="Panel-short-desc">
+											Used in contemporary living spaces, it can be finished in a variety of
+											colors and does not require regular maintenance.
+										</p>
+										<div className="Panel-cta">
+											<button className="Button w-full" type="button"><strong>Design Yours</strong></button>
+										</div>
+									</li>
+								))
+							}
+						</ul>
 					</div>
 				</section>
 			</main>
