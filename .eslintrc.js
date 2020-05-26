@@ -1,12 +1,21 @@
 module.exports = {
 	env: {
 		browser: true,
+		commonjs: true,
+		es6: true,
 		node: true,
 	},
 	extends: ['airbnb'],
-	// plugins: ['prettier'],
+	parser: 'babel-eslint',
+	parserOptions: {
+		ecmaFeatures: {
+			jsx: true,
+		},
+		sourceType: 'module',
+	},
 	rules: {
 		'arrow-body-style': 'off',
+		'class-methods-use-this': 'off',
 		'import/prefer-default-export': 'off',
 		'indent': [2, 'tab'],
 		'jsx-a11y/anchor-is-valid': 'off',
