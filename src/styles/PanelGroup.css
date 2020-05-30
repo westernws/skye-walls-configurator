@@ -1,0 +1,4 @@
+.PanelGroup {
+	--repeat: 1;
+	@apply flex justify-center flex-wrap -ml-12 -mt-6;
+}
