@@ -58,7 +58,7 @@ export const Layout = ({ children }) => {
 							type="button"
 						>
 							<img className="BackToTop-icon" src="/images/arrow-alt-circle-up-regular.svg" alt="" aria-hidden />
-							<strong>All Models</strong>
+							<strong className="BackToTop-text">All Models</strong>
 						</button>
 						<ul className="SiteSubnav-items">
 							<li>

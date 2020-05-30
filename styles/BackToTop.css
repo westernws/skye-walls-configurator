@@ -1,12 +1,18 @@
 .BackToTop {
-	@apply text-xl uppercase flex items-center;
+	@apply text-xl uppercase flex items-center transition-all duration-500 ease-in-out;
+	flex-shrink: 0;
+	min-width: 130px;
 }
 .BackToTop-icon {
 	@apply w-8 opacity-0 transition-all duration-500 ease-in-out;
 	margin-left: -32px;
 }
 .BackToTop.is-icon-visible {
+	min-width: 165px;
 	.BackToTop-icon {
 		@apply opacity-100 ml-0;
 	}
+}
+.BackToTop-text {
+	min-width: 130px;
 }
