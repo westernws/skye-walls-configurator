@@ -62,27 +62,31 @@ export default () => {
 						<div className="overflow-x-hidden">
 							<ul className="PanelGroup">
 								<li className="Panel space-y-6" key={uniqueId('panel-')}>
-									<div className="Panel-img w-full">
-										<DummyImage width="720" height="546" />
+									<div className="Panel-details space-y-6">
+										<div className="Panel-img w-full">
+											<DummyImage width="720" height="546" />
+										</div>
+										<div className="Panel-title text-2xl lg:text-4xl">Aluminum</div>
+										<p className="Panel-short-desc">
+											Used in contemporary living spaces, it can be finished in a variety of
+											colors and does not require regular maintenance.
+										</p>
 									</div>
-									<div className="Panel-title text-2xl lg:text-4xl">Aluminum</div>
-									<p className="Panel-short-desc">
-										Used in contemporary living spaces, it can be finished in a variety of
-										colors and does not require regular maintenance.
-									</p>
 									<div className="Panel-cta">
 										<button className="Button w-full" type="button"><strong>Design Yours</strong></button>
 									</div>
 								</li>
 								<li className="Panel space-y-6" key={uniqueId('panel-')}>
-									<div className="Panel-img w-full">
-										<DummyImage width="720" height="546" />
+									<div className="Panel-details space-y-6">
+										<div className="Panel-img w-full">
+											<DummyImage width="720" height="546" />
+										</div>
+										<div className="Panel-title text-2xl lg:text-4xl">Vinyl</div>
+										<p className="Panel-short-desc">
+											The most economical solution to transform your home, it stands up to the elements
+											and is nearly maintenance-free.
+										</p>
 									</div>
-									<div className="Panel-title text-2xl lg:text-4xl">Vinyl</div>
-									<p className="Panel-short-desc">
-										The most economical solution to transform your home, it stands up to the elements
-										and is nearly maintenance-free.
-									</p>
 									<div className="Panel-cta">
 										<button className="Button w-full" type="button"><strong>Design Yours</strong></button>
 									</div>
@@ -112,37 +116,43 @@ export default () => {
 						<div className="overflow-x-hidden">
 							<ul className="PanelGroup">
 								<li className="Panel space-y-6" key={uniqueId('panel-')}>
-									<div className="Panel-img w-full">
-										<DummyImage width="720" height="546" />
+									<div className="Panel-details space-y-6">
+										<div className="Panel-img w-full">
+											<DummyImage width="720" height="546" />
+										</div>
+										<div className="Panel-title text-2xl lg:text-4xl">Classic Aluminum Bi-Fold Door</div>
+										<p className="Panel-short-desc">
+											Smooth operation meets clean design.
+										</p>
 									</div>
-									<div className="Panel-title text-2xl lg:text-4xl">Classic Aluminum Bi-Fold Door</div>
-									<p className="Panel-short-desc">
-										Smooth operation meets clean design.
-									</p>
 									<div className="Panel-cta">
 										<button className="Button w-full" type="button"><strong>Design Yours</strong></button>
 									</div>
 								</li>
 								<li className="Panel space-y-6" key={uniqueId('panel-')}>
-									<div className="Panel-img w-full">
-										<DummyImage width="720" height="546" />
+									<div className="Panel-details space-y-6">
+										<div className="Panel-img w-full">
+											<DummyImage width="720" height="546" />
+										</div>
+										<div className="Panel-title text-2xl lg:text-4xl">Performance Aluminum Bi-Fold Door</div>
+										<p className="Panel-short-desc">
+											Energy efficiency and strength.
+										</p>
 									</div>
-									<div className="Panel-title text-2xl lg:text-4xl">Performance Aluminum Bi-Fold Door</div>
-									<p className="Panel-short-desc">
-										Energy efficiency and strength.
-									</p>
 									<div className="Panel-cta">
 										<button className="Button w-full" type="button"><strong>Design Yours</strong></button>
 									</div>
 								</li>
 								<li className="Panel space-y-6" key={uniqueId('panel-')}>
-									<div className="Panel-img w-full">
-										<DummyImage width="720" height="546" />
+									<div className="Panel-details space-y-6">
+										<div className="Panel-img w-full">
+											<DummyImage width="720" height="546" />
+										</div>
+										<div className="Panel-title text-2xl lg:text-4xl">Simulated Steel Aluminum Bi-Fold Door</div>
+										<p className="Panel-short-desc">
+											The look of steel but more affordable.
+										</p>
 									</div>
-									<div className="Panel-title text-2xl lg:text-4xl">Simulated Steel Aluminum Bi-Fold Door</div>
-									<p className="Panel-short-desc">
-										The look of steel but more affordable.
-									</p>
 									<div className="Panel-cta">
 										<button className="Button w-full" type="button"><strong>Design Yours</strong></button>
 									</div>

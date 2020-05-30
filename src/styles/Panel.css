@@ -3,7 +3,7 @@
 	--panel-gap-x-multiplier: 0;
 	--panel-max-width: none;
 
-	@apply bg-gray-lighter p-6 mt-6 mb-6 ml-12;
+	@apply bg-gray-lighter p-6 mt-6 mb-6 ml-12 flex flex-col justify-between;
 	width: calc(var(--panel-width) - (theme('spacing[12]') * var(--panel-gap-x-multiplier)));
 	max-width: var(--panel-max-width);
 }
