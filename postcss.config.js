@@ -3,7 +3,7 @@ module.exports = {
 		[
 			'postcss-import',
 			{
-				path: './styles',
+				path: './src/styles',
 			},
 		],
 		'tailwindcss',
