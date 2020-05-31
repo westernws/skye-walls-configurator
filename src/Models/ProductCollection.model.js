@@ -11,4 +11,9 @@ export const ProductCollectionModel = types
 		description: '',
 		productGroups: types.optional(types.array(ProductGroupModel), []),
 		products: types.optional(types.array(ProductModel), []),
-	});
+	})
+	.views(self => ({
+		get productsAndGroups() {
+			return self.products.concat(self.productGroups);
+		},
+	}));

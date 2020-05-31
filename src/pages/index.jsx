@@ -1,4 +1,5 @@
 import React from 'react';
+import { uniqueId } from '~/util/uniqueId';
 
 import { Provider, appStore } from '~/Stores/App.store';
 import { Layout } from '~/Components/Layout';
@@ -31,7 +32,32 @@ export default () => {
 							</p>
 						</div>
 					</section>
-					<PanelCollection
+					{
+						appStore.productCollections.map((collection) => {
+							return (
+								<PanelCollection
+									key={uniqueId()}
+									title={collection.displayName}
+									desc={collection.description}
+								>
+									<PanelGroup>
+										{
+											collection.productsAndGroups.map((product) => {
+												return (
+													<Panel
+														key={uniqueId()}
+														title={product.displayName}
+														shortDesc={product.description}
+													/>
+												);
+											})
+										}
+									</PanelGroup>
+								</PanelCollection>
+							);
+						})
+					}
+					{/* <PanelCollection
 						title="Sliding"
 						desc="
 							Also called multi-slide or panoramic doors, our sliding doors feature large panels
@@ -48,7 +74,7 @@ export default () => {
 								"
 							/>
 						</PanelGroup>
-					</PanelCollection>
+					</PanelCollection> */}
 				</main>
 			</Layout>
 		</Provider>

@@ -23,6 +23,6 @@ export const useMst = () => {
 
 if (process.browser) {
 	global.app = appStore;
-	console.log(appStore);
+	// console.log(appStore);
 	console.log(appStore.toJSON());
 }

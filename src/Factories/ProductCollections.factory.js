@@ -14,12 +14,8 @@ export const ProductCollectionsFactory = (productCollections) => {
 			name,
 			displayName,
 			description,
-			...(productGroups.length) && {
-				productGroups: ProductGroupsFactory(productGroups),
-			},
-			...(products.length) && {
-				products: ProductsFactory(products),
-			},
+			productGroups: productGroups?.length ? ProductGroupsFactory(productGroups) : [],
+			products: products?.length ? ProductsFactory(products) : [],
 		});
 	});
 };
