@@ -8,7 +8,7 @@ export const ProductModel = types
 		name: '',
 		displayName: types.string,
 		description: types.string,
-		features: [],
+		features: types.array(types.string),
 		optionGroups: types.array(OptionGroupModel),
 	})
 	.views(self => ({

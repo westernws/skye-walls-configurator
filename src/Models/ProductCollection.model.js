@@ -1,6 +1,7 @@
 import { types } from 'mobx-state-tree';
 
 import { ProductGroupModel } from '~/Models/ProductGroup.model';
+import { ProductModel } from '~/Models/Product.model';
 
 export const ProductCollectionModel = types
 	.model('ProductCollectionModel', {
@@ -8,5 +9,6 @@ export const ProductCollectionModel = types
 		name: '',
 		displayName: types.string,
 		description: '',
-		productGroups: types.array(ProductGroupModel),
+		productGroups: types.optional(types.array(ProductGroupModel), []),
+		products: types.optional(types.array(ProductModel), []),
 	});

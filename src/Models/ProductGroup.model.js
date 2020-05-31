@@ -1,4 +1,5 @@
 import { types } from 'mobx-state-tree';
+import { ProductModel } from '~/Models/Product.model';
 
 export const ProductGroupModel = types
 	.model('ProductGroupModel', {
@@ -6,4 +7,5 @@ export const ProductGroupModel = types
 		name: '',
 		displayName: types.string,
 		description: '',
+		products: types.optional(types.array(ProductModel), []),
 	});

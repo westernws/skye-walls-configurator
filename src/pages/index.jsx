@@ -7,6 +7,13 @@ import { PanelCollection } from '~/Components/PanelCollection';
 import { PanelGroup } from '~/Components/PanelGroup';
 import { Panel } from '~/Components/Panel';
 
+export async function getStaticProps() {
+	return {
+		props: {
+			appStore,
+		},
+	};
+}
 export default () => {
 	return (
 		<Provider value={appStore}>
