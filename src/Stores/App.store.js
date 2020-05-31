@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 import { uniqueId } from '~/util/uniqueId';
 import productCollectionsData from '~/Data/productCollections';
@@ -39,6 +39,14 @@ export const appStore = AppModel.create({
 	id: `AppModel_${uniqueId()}`,
 	productCollections,
 });
+export const useMst = () => {
+	const store = useContext(AppStoreContext);
+
+	if (store === null) {
+		throw new Error('Store cannot be null, please add a context provider.');
+	}
+	return store;
+};
 
 global.app = appStore;
 console.log(global.app);

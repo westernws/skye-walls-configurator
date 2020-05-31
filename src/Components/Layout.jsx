@@ -2,22 +2,27 @@ import Link from 'next/link';
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
 import noop from 'lodash/noop';
+import { observer } from 'mobx-react-lite';
+import 'mobx-react-lite/batchingForReactDom';
+import { useMst } from '~/Stores/App.store';
 
 import { IntersectionObserverFactory } from '~/util/IntersectionObserver';
 import { Meta } from '~/Components/Meta';
 
-export const Layout = ({ children }) => {
+export const Layout = observer(({ children }) => {
+	const { id } = useMst();
 	const [isNavSticky, setIsNavSticky] = useState(null);
 
+	console.log(id);
 	useEffect(() => {
 		if (!process.browser) {
 			return noop;
 		}
-		const obs = IntersectionObserverFactory.create('#header', ({ intersectionRatio }) => {
+		const iObs = IntersectionObserverFactory.create('#header', ({ intersectionRatio }) => {
 			setIsNavSticky(!intersectionRatio);
 		});
 
-		return obs.cleanup;
+		return iObs.cleanup;
 	}, []);
 
 	return (
@@ -88,4 +93,4 @@ export const Layout = ({ children }) => {
 			{children}
 		</div>
 	);
-};
+});
