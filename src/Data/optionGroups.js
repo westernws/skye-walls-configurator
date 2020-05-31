@@ -2,6 +2,32 @@ export default [
 	{
 		name: 'color',
 		displayName: 'Color',
+		options: [
+			{
+				name: 'ba',
+				displayName: 'Bronze Anodized',
+			},
+			{
+				name: 'sa',
+				displayName: 'Satin Anodized',
+			},
+			{
+				name: 'white',
+				displayName: 'White',
+			},
+			{
+				name: 'warmtone',
+				displayName: 'Warmtone',
+			},
+			{
+				name: 'black',
+				displayName: 'Black',
+			},
+			{
+				name: 'almond',
+				displayName: 'Almond',
+			},
+		],
 	},
 	{
 		name: 'floor-tracks',
