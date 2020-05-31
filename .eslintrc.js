@@ -15,6 +15,7 @@ module.exports = {
 	},
 	rules: {
 		'arrow-body-style': 'off',
+		'arrow-parens': [2, 'as-needed', { requireForBlockBody: true }],
 		'class-methods-use-this': 'off',
 		'import/prefer-default-export': 'off',
 		'indent': [2, 'tab'],
