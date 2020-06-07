@@ -39,6 +39,7 @@ export default () => {
 									key={uniqueId()}
 									title={collection.displayName}
 									desc={collection.description}
+									id={collection.name}
 								>
 									<PanelGroup>
 										{

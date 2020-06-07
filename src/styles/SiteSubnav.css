@@ -15,8 +15,9 @@
 			border: 1px solid theme('colors.transparent');
 			border-left: none;
 			border-right: none;
-			&:hover {
-				@apply text-black bg-white;
+			&:hover,
+			&.is-active {
+				@apply text-black bg-white transition-all duration-200 ease-in-out;
 				border: 1px solid theme('colors.gray.lighter');
 				border-left: none;
 				border-right: none;

@@ -1,19 +1,19 @@
 import Link from 'next/link';
-import classNames from 'classnames';
+import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
 import noop from 'lodash/noop';
 import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
-import { useMst } from '~/Stores/App.store';
 
 import { IntersectionObserverFactory } from '~/util/IntersectionObserver';
 import { Meta } from '~/Components/Meta';
+import { useMst } from '~/Stores/App.store';
 
 export const Layout = observer(({ children }) => {
-	const { id } = useMst();
+	const { productCollections } = useMst();
 	const [isNavSticky, setIsNavSticky] = useState(null);
+	const [isSlidingActive, setIsSlidingActive] = useState(null);
 
-	console.log(id);
 	useEffect(() => {
 		if (!process.browser) {
 			return noop;
@@ -21,8 +21,14 @@ export const Layout = observer(({ children }) => {
 		const iObs = IntersectionObserverFactory.create('#header', ({ intersectionRatio }) => {
 			setIsNavSticky(!intersectionRatio);
 		});
+		const iObs2 = IntersectionObserverFactory.create('#sliding', ({ intersectionRatio }) => {
+			setIsSlidingActive(intersectionRatio);
+		});
 
-		return iObs.cleanup;
+		return () => {
+			iObs.cleanup();
+			iObs2.cleanup();
+		};
 	}, []);
 
 	return (
@@ -57,35 +63,36 @@ export const Layout = observer(({ children }) => {
 				<nav className="SiteSubnav">
 					<div className="SiteSubnav-wrap space-x-10">
 						<button
-							className={classNames('BackToTop space-x-1', {
+							className={cn('BackToTop space-x-1', {
 								'is-icon-visible': isNavSticky,
 							})}
 							type="button"
+							onClick={() => {
+								window.scrollTo(0, 0);
+							}}
 						>
 							<img className="BackToTop-icon" src="/images/arrow-alt-circle-up-regular.svg" alt="" aria-hidden />
 							<strong className="BackToTop-text">All Models</strong>
 						</button>
 						<ul className="SiteSubnav-items">
-							<li>
-								<Link href="/one">
-									<a><strong>One</strong></a>
-								</Link>
-							</li>
-							<li>
-								<Link href="/two">
-									<a><strong>Two</strong></a>
-								</Link>
-							</li>
-							<li>
-								<Link href="/three">
-									<a><strong>Three</strong></a>
-								</Link>
-							</li>
-							<li>
-								<Link href="/Four">
-									<a><strong>Four</strong></a>
-								</Link>
-							</li>
+							{
+								productCollections.map((collection) => {
+									return (
+										<li key={collection.name}>
+											<Link href={`#${collection.name}`}>
+												<a
+													data-collection={collection.name}
+													className={cn('uppercase', {
+														'is-active': isSlidingActive,
+													})}
+												>
+													<strong>{collection.displayName}</strong>
+												</a>
+											</Link>
+										</li>
+									);
+								})
+							}
 						</ul>
 					</div>
 				</nav>

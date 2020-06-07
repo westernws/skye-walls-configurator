@@ -10,7 +10,7 @@ export const Panel = ({ tagName = 'li', title, shortDesc }) => {
 				<div className="Panel-img w-full">
 					<DummyImage width="720" height="546" />
 				</div>
-				<div className="Panel-title text-2xl lg:text-4xl">{title}</div>
+				<div className="Panel-title text-2xl lg:text-3xl">{title}</div>
 				<p className="Panel-short-desc">{shortDesc}</p>
 			</div>
 			<div className="Panel-cta">

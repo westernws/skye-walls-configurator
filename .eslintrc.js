@@ -23,11 +23,13 @@ module.exports = {
 		'max-len': ['off', { code: 120, tabWidth: 4 }],
 		'no-console': 'off',
 		'no-tabs': 'off',
+		'operator-linebreak': 'off',
 		'quote-props': [2, 'consistent'],
 		'react/jsx-indent': [2, 'tab'],
 		'react/jsx-indent-props': [2, 'tab'],
 		'react/jsx-one-expression-per-line': 'off',
 		'react/jsx-props-no-spreading': 'off',
+		'react/jsx-wrap-multilines': 'off',
 		'react/prop-types': 'off',
 	},
 	settings: {
