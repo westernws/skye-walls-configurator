@@ -25,22 +25,14 @@ class IntersectionObs {
 	}
 
 	handleIntersect(entries) {
-		console.log(entries);
 		entries.forEach((entry) => {
 			// (intersectionRatio > prevRatio) -- element coming into view.
 			// (intersectionRatio < prevRatio) -- element exiting out of view.
 			// (intersectionRatio === 0) -- element is completely out of view.
 			this.intersectionRatio = entry.intersectionRatio;
-			const {
-				target, isVisible, isIntersecting, boundingClientRect,
-			} = entry;
 			this.callback({
 				intersectionRatio: this.intersectionRatio,
 				prevRatio: this.prevRatio,
-				target,
-				isVisible,
-				isIntersecting,
-				boundingClientRect,
 			});
 			this.prevRatio = entry.intersectionRatio;
 		});

@@ -29,22 +29,15 @@ export const Layout = observer(({ children }) => {
 		);
 		productCollections.forEach((collection) => {
 			observers.push(
-				IntersectionObserverFactory.create(`#${collection.name}`, ({
-					intersectionRatio, prevRatio, target, isVisible, isIntersecting, boundingClientRect,
-				}) => {
-					const { id } = target;
-					console.table({
-						id, boundingClientRect, isVisible, isIntersecting,
-					});
+				IntersectionObserverFactory.create(`#${collection.name}`, ({ intersectionRatio, prevRatio }) => {
 					const name = snakeCase(upperCase(collection.name));
 
 					if (intersectionRatio > prevRatio) {
 						setActiveMenu(name);
-					} else if (prevRatio !== 0 && intersectionRatio > prevRatio) {
+					} else if (prevRatio && intersectionRatio > prevRatio) {
 						setActiveMenu(name);
 					}
 				}, {
-					// numSteps: 20,
 					threshold: [0.25, 1],
 					rootMargin: '-0% 0px -0% 0px',
 				}),

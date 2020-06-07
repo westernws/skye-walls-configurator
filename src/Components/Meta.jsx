@@ -5,7 +5,7 @@ export const Meta = () => {
 	return (
 		<Head>
 			<title>Skye Walls Configurator &mdash; Western Window Systems</title>
-			<meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, minimum-scale=1" />
+			<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 			<meta name="description" content="FPO" />
 			<meta name="google" content="nositelinkssearchbox" />
 			<meta property="og:url" content="https://example.com/page.html" />
