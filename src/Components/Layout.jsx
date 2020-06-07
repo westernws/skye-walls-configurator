@@ -39,7 +39,6 @@ export const Layout = observer(({ children }) => {
 					}
 				}, {
 					threshold: [0.25, 1],
-					rootMargin: '-0% 0px -0% 0px',
 				}),
 			);
 		});
@@ -64,7 +63,7 @@ export const Layout = observer(({ children }) => {
 								</a>
 							</Link>
 						</div>
-						<ul className="SiteNav-menu xxl:hidden">
+						<ul className="SiteNav-menu 2xl:hidden">
 							<li>
 								<Link href="#">
 									<a>
@@ -79,7 +78,7 @@ export const Layout = observer(({ children }) => {
 					</div>
 				</nav>
 			</header>
-			<div className="sticky top-0 z-10 bg-black hidden xxl:block">
+			<div className="sticky top-0 z-10 bg-black hidden 2xl:block">
 				<nav className="SiteSubnav">
 					<div className="SiteSubnav-wrap space-x-10">
 						<button

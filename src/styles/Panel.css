@@ -22,7 +22,7 @@
 		--panel-max-width: 427.5px;
 	}
 }
-@screen xxxl {
+@screen 3xl {
 	.Panel {
 		--panel-gap-x-multiplier: 2;
 		--panel-width: theme('width[4/12]');

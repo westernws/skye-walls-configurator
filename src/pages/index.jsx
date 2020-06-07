@@ -22,7 +22,7 @@ export default () => {
 				<div className="Hero">
 					<DummyImage className="Hero-image" width="1600" height="477" />
 				</div>
-				<main className="Main space-y-20">
+				<main className="Main space-y-20 pb-20">
 					<section className="flex justify-center mb-10">
 						<div className="w-12/12 md:w-7/12 mt-6">
 							<h1 className="Heading Heading--ruled text-4xl md:text-5xl">Design Your Door</h1>
@@ -58,24 +58,6 @@ export default () => {
 							);
 						})
 					}
-					{/* <PanelCollection
-						title="Sliding"
-						desc="
-							Also called multi-slide or panoramic doors, our sliding doors feature large panels
-							that slide open and stack or tuck away out of sight to connect the indoors with the
-							outside. Panels can move in one direction or part in the center.
-						"
-					>
-						<PanelGroup>
-							<Panel
-								title="Aluminum"
-								shortDesc="
-									Used in contemporary living spaces, it can be finished in a variety of
-									colors and does not require regular maintenance.
-								"
-							/>
-						</PanelGroup>
-					</PanelCollection> */}
 				</main>
 			</Layout>
 		</Provider>

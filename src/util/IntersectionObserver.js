@@ -75,13 +75,13 @@ export const IntersectionObserverFactory = {
 		}
 		const instance = new IntersectionObs(querySelector, callback, options);
 		const onLoadHandler = () => {
-			console.log('onload');
+			console.info('IntersectionObserver loaded');
 			instance.onLoadHandler();
 		};
 
 		window.addEventListener('load', onLoadHandler, false);
 		instance.cleanup = () => {
-			console.log('cleanup');
+			console.info('IntersectionObserver unloaded');
 			window.removeEventListener('load', onLoadHandler);
 		};
 		global.inst = instance;
