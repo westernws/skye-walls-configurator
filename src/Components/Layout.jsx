@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import noop from 'lodash/noop';
 import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
+import upperCase from 'lodash/upperCase';
+import snakeCase from 'lodash/snakeCase';
 
 import { IntersectionObserverFactory } from '~/util/IntersectionObserver';
 import { Meta } from '~/Components/Meta';
@@ -12,22 +14,47 @@ import { useMst } from '~/Stores/App.store';
 export const Layout = observer(({ children }) => {
 	const { productCollections } = useMst();
 	const [isNavSticky, setIsNavSticky] = useState(null);
-	const [isSlidingActive, setIsSlidingActive] = useState(null);
+	const [activeMenu, setActiveMenu] = useState(null);
 
 	useEffect(() => {
 		if (!process.browser) {
 			return noop;
 		}
-		const iObs = IntersectionObserverFactory.create('#header', ({ intersectionRatio }) => {
-			setIsNavSticky(!intersectionRatio);
-		});
-		const iObs2 = IntersectionObserverFactory.create('#sliding', ({ intersectionRatio }) => {
-			setIsSlidingActive(intersectionRatio);
+		const observers = [];
+
+		observers.push(
+			IntersectionObserverFactory.create('#header', ({ intersectionRatio }) => {
+				setIsNavSticky(!intersectionRatio);
+			}),
+		);
+		productCollections.forEach((collection) => {
+			observers.push(
+				IntersectionObserverFactory.create(`#${collection.name}`, ({
+					intersectionRatio, prevRatio, target, isVisible, isIntersecting, boundingClientRect,
+				}) => {
+					const { id } = target;
+					console.table({
+						id, boundingClientRect, isVisible, isIntersecting,
+					});
+					const name = snakeCase(upperCase(collection.name));
+
+					if (intersectionRatio > prevRatio) {
+						setActiveMenu(name);
+					} else if (prevRatio !== 0 && intersectionRatio > prevRatio) {
+						setActiveMenu(name);
+					}
+				}, {
+					// numSteps: 20,
+					threshold: [0.25, 1],
+					rootMargin: '-0% 0px -0% 0px',
+				}),
+			);
 		});
 
 		return () => {
-			iObs.cleanup();
-			iObs2.cleanup();
+			observers.forEach((obs) => {
+				obs.cleanup();
+			});
 		};
 	}, []);
 
@@ -83,7 +110,7 @@ export const Layout = observer(({ children }) => {
 												<a
 													data-collection={collection.name}
 													className={cn('uppercase', {
-														'is-active': isSlidingActive,
+														'is-active': activeMenu === snakeCase(upperCase(collection.name)),
 													})}
 												>
 													<strong>{collection.displayName}</strong>

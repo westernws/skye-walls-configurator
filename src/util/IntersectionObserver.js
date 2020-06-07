@@ -17,7 +17,7 @@ class IntersectionObs {
 		const options = {
 			root: this.root,
 			rootMargin: this.rootMargin,
-			threshold: this.buildThresholdList(),
+			threshold: this.threshold || this.buildThresholdList(),
 		};
 		const observer = new IntersectionObserver(this.handleIntersect.bind(this), options);
 
@@ -25,14 +25,22 @@ class IntersectionObs {
 	}
 
 	handleIntersect(entries) {
+		console.log(entries);
 		entries.forEach((entry) => {
 			// (intersectionRatio > prevRatio) -- element coming into view.
 			// (intersectionRatio < prevRatio) -- element exiting out of view.
 			// (intersectionRatio === 0) -- element is completely out of view.
 			this.intersectionRatio = entry.intersectionRatio;
+			const {
+				target, isVisible, isIntersecting, boundingClientRect,
+			} = entry;
 			this.callback({
 				intersectionRatio: this.intersectionRatio,
 				prevRatio: this.prevRatio,
+				target,
+				isVisible,
+				isIntersecting,
+				boundingClientRect,
 			});
 			this.prevRatio = entry.intersectionRatio;
 		});
