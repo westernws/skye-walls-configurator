@@ -49,6 +49,7 @@ export default () => {
 														key={uniqueId()}
 														title={product.displayName}
 														shortDesc={product.description}
+														link={appStore.getProductLink(product)}
 													/>
 												);
 											})

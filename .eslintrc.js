@@ -22,6 +22,7 @@ module.exports = {
 		'jsx-a11y/anchor-is-valid': 'off',
 		'max-len': ['off', { code: 120, tabWidth: 4 }],
 		'no-console': 'off',
+		'no-param-reassign': [2, { props: false }],
 		'no-tabs': 'off',
 		'operator-linebreak': 'off',
 		'quote-props': [2, 'consistent'],

@@ -8,13 +8,14 @@ export const ProductGroupsFactory = (productGroups) => {
 
 	return selectedProductGroups.map((productGroup) => {
 		const {
-			name, displayName, description, products,
+			name, displayName, displayGroupName, description, products,
 		} = productGroup;
 
 		return ProductGroupModel.create({
 			id: `ProductGroupModel_${uniqueId()}`,
 			name,
 			displayName,
+			displayGroupName,
 			description,
 			...(products.length) && {
 				products: ProductsFactory(products),

@@ -6,6 +6,9 @@
 	@apply bg-gray-lighter p-6 mt-6 mb-6 ml-12 flex flex-col justify-between;
 	width: calc(var(--panel-width) - (theme('spacing[12]') * var(--panel-gap-x-multiplier)));
 	max-width: var(--panel-max-width);
+	&.Panel--product {
+		@apply bg-white;
+	}
 }
 .Panel-title {
 	@apply uppercase leading-tight;
@@ -24,7 +27,8 @@
 }
 @screen 3xl {
 	.Panel {
+		width: auto;
 		--panel-gap-x-multiplier: 2;
-		--panel-width: theme('width[4/12]');
+		--panel-max-width: 30.13%;
 	}
 }

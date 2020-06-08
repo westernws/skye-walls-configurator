@@ -1,7 +1,7 @@
 @import '_includes.css';
 
 .Main {
-	@apply pr-6 pl-6 m-auto;
+	@apply pr-6 pl-6 m-auto h-full;
 	max-width: var(--site-max-width);
 }
 .Icon {

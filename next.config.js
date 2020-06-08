@@ -6,7 +6,7 @@ module.exports = {
 			// exclude detection of files based on a RegExp
 			exclude: /node_modules/,
 			// add errors to webpack instead of warnings
-			failOnError: true,
+			failOnError: false,
 			allowAsyncCycles: false,
 			cwd: process.cwd(),
 		}));
