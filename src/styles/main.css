@@ -11,7 +11,7 @@
 	@apply bg-white;
 }
 .Button {
-	@apply text-base bg-red text-white p-2 text-center uppercase transition-all duration-200 ease-in-out;
+	@apply inline-block text-base bg-red text-white p-2 text-center uppercase transition-all duration-200 ease-in-out;
 	border-radius: 1rem;
 	&:hover {
 		@apply bg-blue;

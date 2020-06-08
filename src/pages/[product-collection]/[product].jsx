@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { Provider, appStore } from '~/Stores/App.store';
 import { LayoutProduct } from '~/Components/LayoutProduct';
 import { PanelGroup } from '~/Components/PanelGroup';
-import { Panel } from '~/Components/Panel';
+import { PanelProduct } from '~/Components/PanelProduct';
 
 export default () => {
 	const router = useRouter();
@@ -25,14 +25,16 @@ export default () => {
 			<LayoutProduct>
 				{
 					Boolean(selectedProducts?.length) &&
-					<main className="Main pb-20">
-						<h1 className="Heading mt-10 mb-5 text-2xl lg:text-3xl">Customize Your {selectedProductGroup.displayGroupName}</h1>
+					<main className="Main pb-20 space-y-6">
+						<h1 className="Heading Heading--bordered flex-col text-2xl lg:text-3xl lg:flex-row mt-12">
+							Customize Your {selectedProductGroup.displayGroupName}
+							<span className="Heading-centerRule block mt-2 lg:hidden" />
+						</h1>
 						<PanelGroup className="mt-0">
 							{
 								selectedProducts.map((product) => {
 									return (
-										<Panel
-											className="Panel--product"
+										<PanelProduct
 											key={product.name}
 											title={product.displayName}
 											shortDesc={product.description}
