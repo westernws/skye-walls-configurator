@@ -38,7 +38,7 @@ export default () => {
 											key={product.name}
 											title={product.displayName}
 											shortDesc={product.description}
-											link={appStore.getProductLink(product)}
+											link={product.link}
 										/>
 									);
 								})

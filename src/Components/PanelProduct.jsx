@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 
@@ -9,15 +9,45 @@ export const PanelProduct = ({
 }) => {
 	const TagName = tagName;
 	const [isOpen, setIsOpen] = useState(false);
+	const [rootHeight, setRootHeight] = useState('auto');
+	const [detailsHeight, setDetailsHeight] = useState('auto');
+	const panelProductRef = useRef(null);
+	const detailsRef = useRef(null);
+
+	useEffect(() => {
+		const onLoadHandler = () => {
+			const deactiveHeight = panelProductRef.current.getBoundingClientRect().height;
+			console.log('deactiveHeight', deactiveHeight);
+			if (rootHeight === 'auto') {
+				setRootHeight(deactiveHeight);
+			}
+		};
+
+		window.addEventListener('load', onLoadHandler);
+		return () => {
+			window.removeEventListener('load', onLoadHandler);
+		};
+	}, []);
+	useEffect(() => {
+		if (rootHeight === 'auto') {
+			return;
+		}
+		setDetailsHeight(detailsRef.current.getBoundingClientRect().height);
+	}, [rootHeight]);
 
 	return (
 		<TagName
-			onClick={() => { setIsOpen(!isOpen); }}
-			className={cn('PanelProduct space-y-2', className, {
+			ref={panelProductRef}
+			className={cn('PanelProduct', className, {
 				'is-open': isOpen,
 			})}
+			style={{ height: isOpen ? rootHeight + detailsHeight : rootHeight }}
 		>
-			<div className="PanelProduct-hero space-x-3 flex items-start">
+			<div
+				onClick={() => { setIsOpen(!isOpen); }}
+				className="PanelProduct-hero space-x-3 flex items-start"
+				role="presentation"
+			>
 				<div className="PanelProduct-img">
 					<DummyImage width="420" height="233" />
 				</div>
@@ -28,7 +58,12 @@ export const PanelProduct = ({
 					</button>
 				</h2>
 			</div>
-			<div className="PanelProduct-details space-y-4">
+			<div
+				ref={detailsRef}
+				className={cn('PanelProduct-details pt-8 space-y-4', {
+					hidden: rootHeight === 'auto',
+				})}
+			>
 				<div className="PanelProduct-colorOptions">
 					<h3 className="text-gray-light mt-4">Color Options:</h3>
 					<ul className="text-xs">
