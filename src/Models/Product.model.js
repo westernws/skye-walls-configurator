@@ -1,10 +1,11 @@
 import { types } from 'mobx-state-tree';
 import kebabCase from 'lodash/kebabCase';
 
+import { TreeHelpers } from '~/Models/TreeHelpers';
 import { OptionGroupModel } from '~/Models/OptionGroup.model';
 
-export const ProductModel = types
-	.model('ProductModel', {
+const Product = types
+	.model({
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ProductModel_') === 0),
 		name: '',
 		displayName: types.string,
@@ -19,4 +20,18 @@ export const ProductModel = types
 		get slug() {
 			return kebabCase(self.displayName);
 		},
+		get link() {
+			const href = ['[product-collection]', '[product]'];
+			const productGroup = self.getParentOfName('ProductGroup');
+			const collection = self.getParentOfName('ProductCollection');
+			const productSlug = [productGroup?.slug, self.slug].filter(Boolean);
+			const as = [collection?.slug, productSlug.join('-')];
+
+			return {
+				href: href.join('/'),
+				as: as.join('/'),
+			};
+		},
 	}));
+
+export const ProductModel = types.compose(Product, TreeHelpers).named('Product');

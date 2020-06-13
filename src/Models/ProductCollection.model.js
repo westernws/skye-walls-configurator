@@ -5,7 +5,7 @@ import { ProductGroupModel } from '~/Models/ProductGroup.model';
 import { ProductModel } from '~/Models/Product.model';
 
 export const ProductCollectionModel = types
-	.model('ProductCollectionModel', {
+	.model('ProductCollection', {
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ProductCollectionModel_') === 0),
 		name: '',
 		displayName: types.string,

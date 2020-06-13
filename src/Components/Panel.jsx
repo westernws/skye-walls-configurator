@@ -18,11 +18,14 @@ export const Panel = ({
 				<h2 className="Panel-title text-2xl lg:text-3xl">{title}</h2>
 				<p className="Panel-short-desc">{shortDesc}</p>
 			</div>
-			<div className="Panel-cta">
-				<Link href={link.href} as={link.as}>
-					<a className="Button w-full" type="button"><strong>Design Yours</strong></a>
-				</Link>
-			</div>
+			{
+				Boolean(link?.href) && Boolean(link?.as) &&
+				<div className="Panel-cta">
+					<Link href={link.href} as={link.as}>
+						<a className="Button w-full" type="button"><strong>Design Yours</strong></a>
+					</Link>
+				</div>
+			}
 		</TagName>
 	);
 };

@@ -46,10 +46,10 @@ export default () => {
 											collection.productsAndGroups.map((product) => {
 												return (
 													<Panel
-														key={uniqueId()}
+														key={product.name}
 														title={product.displayName}
 														shortDesc={product.description}
-														link={appStore.getProductLink(product)}
+														link={product.link}
 													/>
 												);
 											})
