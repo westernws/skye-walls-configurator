@@ -3,21 +3,32 @@
 	--panel-gap-x-multiplier: 0;
 	--panel-max-width: none;
 
-	@apply bg-white pt-4 pr-4 pb-4 pl-4 mt-6 mb-6 ml-12 flex flex-col justify-between overflow-hidden transition-all duration-500 ease-in-out;
+	@apply
+		border-b-4 border-transparent bg-white pt-4 pr-4 pb-4 pl-4 mt-6 mb-6 ml-12 flex flex-col justify-between
+		overflow-hidden transition-all duration-500 ease-in-out;
 	width: calc(var(--panel-width) - (theme('spacing[12]') * var(--panel-gap-x-multiplier)));
 	max-width: var(--panel-max-width);
 	&.is-open {
-		@apply border-b-4 border-red pb-12 h-full;
+		@apply border-b-4 border-red h-auto;
 		.PanelProduct-details {
 		}
 	}
 }
+.PanelProduct-hero {
+	@apply h-20;
+}
+.PanelProduct-heroInside {
+	@apply flex h-full;
+}
 .PanelProduct-img {
+	@apply h-full;
+	max-width: 144px;
 }
 .PanelProduct-details {
+	@apply pb-12;
 }
 .PanelProduct-title {
-	@apply uppercase leading-tight font-bold;
+	@apply uppercase leading-tight font-bold pl-2;
 }
 .PanelProduct-checklist {
 	li {

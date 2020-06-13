@@ -13,11 +13,11 @@ export const PanelProduct = ({
 	const [detailsHeight, setDetailsHeight] = useState('auto');
 	const panelProductRef = useRef(null);
 	const detailsRef = useRef(null);
+	const heroRef = useRef(null);
 
 	useEffect(() => {
 		const onLoadHandler = () => {
 			const deactiveHeight = panelProductRef.current.getBoundingClientRect().height;
-			console.log('deactiveHeight', deactiveHeight);
 			if (rootHeight === 'auto') {
 				setRootHeight(deactiveHeight);
 			}
@@ -41,22 +41,27 @@ export const PanelProduct = ({
 			className={cn('PanelProduct', className, {
 				'is-open': isOpen,
 			})}
-			style={{ height: isOpen ? rootHeight + detailsHeight : rootHeight }}
+			style={{
+				height: isOpen ? rootHeight + detailsHeight : rootHeight,
+			}}
 		>
 			<div
 				onClick={() => { setIsOpen(!isOpen); }}
 				className="PanelProduct-hero space-x-3 flex items-start"
 				role="presentation"
+				ref={heroRef}
 			>
-				<div className="PanelProduct-img">
-					<DummyImage width="420" height="233" />
+				<div className="PanelProduct-heroInside">
+					<div className="PanelProduct-img">
+						<DummyImage width="420" height="233" />
+					</div>
+					<h2 className="PanelProduct-title space-x-1 text-xl lg:text-3xl">
+						<span>{title}</span>
+						<button className="PanelProduct-moreInfo inline-block w-4" type="button">
+							<img src="/images/info-circle-solid.svg" alt="More Info" />
+						</button>
+					</h2>
 				</div>
-				<h2 className="PanelProduct-title space-x-1 text-xl lg:text-3xl">
-					<span>{title}</span>
-					<button className="PanelProduct-moreInfo inline-block w-4" type="button">
-						<img src="/images/info-circle-solid.svg" alt="More Info" />
-					</button>
-				</h2>
 			</div>
 			<div
 				ref={detailsRef}
