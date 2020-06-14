@@ -1,10 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import delay from 'lodash/delay';
+import { observable, when } from 'mobx';
 
 import { DummyImage } from '~/Components/DummyImage';
 
+// Need MobX when because iPhone refuses to invoke window load event within useEffect.
+const isLoaded = observable.box(false);
+const onLoadHandler = () => {
+	isLoaded.set(true);
+};
+
+if (process.browser) {
+	window.addEventListener('load', onLoadHandler);
+}
 export const PanelProduct = ({
 	tagName = 'li', title, link, className = '',
 }) => {
@@ -18,24 +27,20 @@ export const PanelProduct = ({
 	const linkProps = {
 		className: 'Button w-full',
 		...(!isOpen) && {
+			// Prevent hidden buttons from showing up when keyboard nav.
 			tabIndex: '-1',
 		},
 	};
 
 	useEffect(() => {
-		const onLoadHandler = () => {
+		when(() => isLoaded, () => {
 			const deactiveHeight = panelProductRef.current.getBoundingClientRect().height;
+
 			if (rootHeight === 'auto') {
 				console.log('deactiveHeight', deactiveHeight);
 				setRootHeight(deactiveHeight);
 			}
-		};
-
-		// delay(onLoadHandler, 1000);
-		window.addEventListener('load', onLoadHandler);
-		return () => {
-			window.removeEventListener('load', onLoadHandler);
-		};
+		});
 	}, []);
 	useEffect(() => {
 		if (rootHeight === 'auto') {
@@ -43,7 +48,7 @@ export const PanelProduct = ({
 		}
 		const { height } = detailsRef.current.getBoundingClientRect();
 
-		console.log('detailsHeight', height);
+		// console.log('detailsHeight', height);
 		setDetailsHeight(height);
 	}, [rootHeight]);
 
