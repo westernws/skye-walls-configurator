@@ -1,8 +1,10 @@
 @import 'BackToTop';
+@import 'ColorOptions';
 @import 'Hero';
 @import 'Heading';
 @import 'Panel';
 @import 'PanelGroup';
 @import 'PanelProduct';
+@import 'Select';
 @import 'SiteNav';
 @import 'SiteSubnav';

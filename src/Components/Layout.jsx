@@ -51,7 +51,7 @@ export const Layout = observer(({ children }) => {
 	}, []);
 
 	return (
-		<div className="text-sm md:text-lg">
+		<div className="text-sm md:text-lg h-full">
 			<Meta />
 			<header id="header" className="Header">
 				<nav className="SiteNav">
@@ -59,7 +59,7 @@ export const Layout = observer(({ children }) => {
 						<div className="SiteNav-logo">
 							<Link href="/">
 								<a className="Logo">
-									<img src="/images/wws-logo.gif" alt="Western Window Systems" />
+									<img src="/images/sw-logo-lite.svg" alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems" />
 								</a>
 							</Link>
 						</div>

@@ -7,6 +7,7 @@ export const Meta = () => {
 			<title>Skye Walls Configurator &mdash; Western Window Systems</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 			<meta name="description" content="FPO" />
+
 			<meta name="google" content="nositelinkssearchbox" />
 			<meta property="og:url" content="https://example.com/page.html" />
 			<meta property="og:type" content="website" />
@@ -29,6 +30,15 @@ export const Meta = () => {
 				content="A text description of the image conveying the essential nature of an image to users who are
 					visually impaired. Maximum 420 characters."
 			/>
+
+			<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+			<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+			<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+			<link rel="manifest" href="/site.webmanifest" />
+			<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#c62032" />
+			<meta name="msapplication-TileColor" content="#ffc40d" />
+			<meta name="theme-color" content="#ffffff" />
+
 			<link rel="stylesheet" href="//use.typekit.net/kex0feu.css" />
 		</Head>
 	);

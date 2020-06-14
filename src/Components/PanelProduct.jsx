@@ -87,17 +87,17 @@ export const PanelProduct = ({
 				})}
 				aria-hidden={!isOpen}
 			>
-				<div className="PanelProduct-colorOptions">
-					<h3 className="text-gray-light mt-4">Color Options:</h3>
-					<ul className="text-xs">
+				<div className="PanelProduct-colorOptions text-xs">
+					<h3 className="text-gray-light uppercase">Color Options:</h3>
+					<ul className="ColorOptions">
 						<li>Black</li>
 						<li>Red</li>
 						<li>Yellow</li>
 					</ul>
 				</div>
-				<div className="PanelProduct-includes space-y-4">
-					<h3 className="text-gray-light">Includes:</h3>
-					<ul className="PanelProduct-checklist text-xs">
+				<div className="PanelProduct-includes space-y-4 text-xs">
+					<h3 className="text-gray-light uppercase">Includes:</h3>
+					<ul className="PanelProduct-checklist">
 						<li>Include 01</li>
 						<li>Include 02</li>
 						<li>Include 03</li>

@@ -15,7 +15,8 @@
 	}
 }
 .PanelProduct-hero {
-	@apply h-20;
+	height: 5rem;
+	min-height: 5rem;
 }
 .PanelProduct-heroInside {
 	@apply flex h-full;
@@ -47,12 +48,7 @@
 		@apply opacity-100;
 	}
 }
-@screen md {
-	.PanelProduct {
-		--panel-gap-x-multiplier: 1;
-		--panel-width: theme('width[6/12]');
-	}
-}
+
 @screen xl {
 	.PanelProduct {
 		--panel-gap-x-multiplier: 1;

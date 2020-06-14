@@ -26,10 +26,22 @@ export default () => {
 				{
 					Boolean(selectedProducts?.length) &&
 					<main className="Main pb-20 space-y-6">
-						<h1 className="Heading Heading--bordered flex-col text-2xl lg:text-3xl lg:flex-row mt-12">
-							Customize Your {selectedProductGroup.displayGroupName}
-							<span className="Heading-centerRule block mt-2 lg:hidden" />
-						</h1>
+						<header className="flex flex-col flex-wrap space-y-4 items-center mt-12 lg:flex-row lg:flex-nowrap lg:space-y-0 lg:justify-between">
+							<h1 className="Heading Heading--bordered flex-col text-2xl lg:text-3xl lg:flex-row">
+								Customize Your {selectedProductGroup.displayGroupName}
+								<span className="Heading-centerRule block mt-2 lg:hidden" />
+							</h1>
+							{
+								Boolean(selectedCollection.productGroups?.length > 1) &&
+								<select className="Select" defaultValue={selectedProductGroup.name}>
+									{
+										selectedCollection.productGroups.map(productGroup => (
+											<option key={productGroup.name} value={productGroup.name}>{productGroup.displayName}</option>
+										))
+									}
+								</select>
+							}
+						</header>
 						<PanelGroup className="mt-0">
 							{
 								selectedProducts.map((product) => {

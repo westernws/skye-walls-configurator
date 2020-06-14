@@ -1,0 +1,10 @@
+.Select {
+	@apply
+		border border-solid border-gray-light rounded-none
+		font-bold text-base bg-white
+		pt-2 pr-16 pb-2 pl-4
+		appearance-none
+	;
+	background: url(/images/chevron-down-solid.svg) no-repeat 90% 50% theme('colors.white');
+	background-size: 17px;
+}
