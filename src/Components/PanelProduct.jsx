@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
+import delay from 'lodash/delay';
 
 import { DummyImage } from '~/Components/DummyImage';
 
@@ -14,15 +15,23 @@ export const PanelProduct = ({
 	const panelProductRef = useRef(null);
 	const detailsRef = useRef(null);
 	const heroRef = useRef(null);
+	const linkProps = {
+		className: 'Button w-full',
+		...(!isOpen) && {
+			tabIndex: '-1',
+		},
+	};
 
 	useEffect(() => {
 		const onLoadHandler = () => {
 			const deactiveHeight = panelProductRef.current.getBoundingClientRect().height;
 			if (rootHeight === 'auto') {
+				console.log('deactiveHeight', deactiveHeight);
 				setRootHeight(deactiveHeight);
 			}
 		};
 
+		// delay(onLoadHandler, 1000);
 		window.addEventListener('load', onLoadHandler);
 		return () => {
 			window.removeEventListener('load', onLoadHandler);
@@ -32,7 +41,10 @@ export const PanelProduct = ({
 		if (rootHeight === 'auto') {
 			return;
 		}
-		setDetailsHeight(detailsRef.current.getBoundingClientRect().height);
+		const { height } = detailsRef.current.getBoundingClientRect();
+
+		console.log('detailsHeight', height);
+		setDetailsHeight(height);
 	}, [rootHeight]);
 
 	return (
@@ -47,7 +59,7 @@ export const PanelProduct = ({
 		>
 			<div
 				onClick={() => { setIsOpen(!isOpen); }}
-				className="PanelProduct-hero space-x-3 flex items-start"
+				className="PanelProduct-hero space-x-3"
 				role="presentation"
 				ref={heroRef}
 			>
@@ -57,7 +69,7 @@ export const PanelProduct = ({
 					</div>
 					<h2 className="PanelProduct-title space-x-1 text-xl lg:text-3xl">
 						<span>{title}</span>
-						<button className="PanelProduct-moreInfo inline-block w-4" type="button">
+						<button className="PanelProduct-moreInfo" type="button">
 							<img src="/images/info-circle-solid.svg" alt="More Info" />
 						</button>
 					</h2>
@@ -68,6 +80,7 @@ export const PanelProduct = ({
 				className={cn('PanelProduct-details pt-8 space-y-4', {
 					hidden: rootHeight === 'auto',
 				})}
+				aria-hidden={!isOpen}
 			>
 				<div className="PanelProduct-colorOptions">
 					<h3 className="text-gray-light mt-4">Color Options:</h3>
@@ -87,7 +100,7 @@ export const PanelProduct = ({
 				</div>
 				<div className="PanelProduct-cta">
 					<Link href={link.href} as={link.as}>
-						<a className="Button w-full" type="button"><strong>Continue Building</strong></a>
+						<a {...linkProps}><strong>Continue Building</strong></a>
 					</Link>
 				</div>
 			</div>

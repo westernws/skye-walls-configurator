@@ -21,8 +21,13 @@
 	@apply flex h-full;
 }
 .PanelProduct-img {
-	@apply h-full;
 	max-width: 144px;
+	max-width: 25%;
+	img {
+		width: auto;
+		max-width: 100%;
+		max-height: 100%;
+	}
 }
 .PanelProduct-details {
 	@apply pb-12;
@@ -34,6 +39,12 @@
 	li {
 		@apply pl-6 mb-2;
 		background: url(/images/check-solid.svg) no-repeat 0 50%;
+	}
+}
+.PanelProduct-moreInfo {
+	@apply inline-block w-4 opacity-50 transition-all duration-500 ease-in-out;
+	&:hover {
+		@apply opacity-100;
 	}
 }
 @screen md {
