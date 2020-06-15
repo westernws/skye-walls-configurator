@@ -1,10 +1,10 @@
 .Radio {
 	&.Radio--color {
 		.Radio-group {
-			@apply mt-2 ml-6;
+			@apply flex mt-2 ml-6;
 		}
 		.Radio-fieldGroup {
-			@apply float-left text-4xl;
+			@apply text-4xl;
 		}
 		.Radio-label {
 			@apply relative float-left rounded-full cursor-pointer;
@@ -18,7 +18,7 @@
 			}
 		}
 		.Radio-control {
-			@apply opacity-0;
+			@apply opacity-0 absolute;
 			&:focus ~ .Radio-label {
 				box-shadow: 0 0 0 2px theme("colors.outline");
 			}

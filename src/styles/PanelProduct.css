@@ -38,8 +38,17 @@
 }
 .PanelProduct-checklist {
 	li {
-		@apply pl-6 mb-2;
-		background: url(/images/check-solid-red.svg) no-repeat 0 50%;
+		@apply flex mb-2;
+		&::before {
+			content: ' ';
+			background: url(/images/check-solid-red.svg) no-repeat 0 50%;
+			background-size: contain;
+			width: 1.5em;
+			height: 1.5em;
+			display: inline-block;
+			left: 0;
+			margin: 0 1.4em 0 0;
+		}
 	}
 }
 .PanelProduct-moreInfo {

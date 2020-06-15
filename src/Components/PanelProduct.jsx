@@ -90,10 +90,10 @@ export const PanelProduct = ({ product }) => {
 					})}
 					aria-hidden={!isOpen}
 				>
-					<form className="Form Form--colorOptionsForm" method="POST">
+					<form className="Form Form--colorOptionsForm space-y-6" method="POST">
 						<fieldset className="Radio Radio--color text-xs">
 							<legend className="Radio-legend text-gray-light uppercase">Color Options:</legend>
-							<div className="Radio-group">
+							<div className="Radio-group space-x-2">
 								{
 									colorOptionGroup.options.map((colorOptions) => {
 										const id = `${colorOptions.name}-${colorOptionGroup.name}-control-colorOptionsForm`;
