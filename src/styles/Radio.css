@@ -1,0 +1,40 @@
+.Radio {
+
+	&.Radio--color {
+		.Radio-group {
+			@apply mt-2 ml-6;
+		}
+		.Radio-fieldGroup {
+			@apply float-left text-4xl;
+		}
+		.Radio-label {
+			@apply relative float-left rounded-full cursor-pointer;
+			width: 1em;
+			height: 1em;
+			background-color: #bada55;
+			&:active {
+				@apply outline-none;
+			}
+		}
+		.Radio-control {
+			@apply opacity-0;
+			&:focus ~ .Radio-label {
+				box-shadow: 0 0 0 2px theme('colors.outline');
+			}
+			&:checked ~ .Radio-label {
+				@apply border-2 border-solid border-white;
+				box-shadow: 0 0 0 1px theme('colors.red');
+				&::after {
+					@apply absolute rounded-full;
+					content: ' ';
+					background: url(/images/check-solid-white.svg) no-repeat 50% 50% theme('colors.red');
+					background-size: 0.3em;
+					width: 0.5em;
+					height: 0.5em;
+					top: -0.1em;
+					left: 0.55em;
+				}
+			}
+		}
+	}
+}

@@ -6,5 +6,6 @@ export const OptionsFactory = (options) => {
 		id: `OptionModel_${uniqueId()}`,
 		name: option.name,
 		displayName: option.displayName,
+		selected: typeof option.selected !== 'undefined',
 	}));
 };

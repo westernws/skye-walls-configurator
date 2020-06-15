@@ -5,4 +5,5 @@ export const OptionModel = types
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('OptionModel_') === 0),
 		name: types.string,
 		displayName: types.string,
+		selected: types.boolean,
 	});

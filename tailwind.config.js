@@ -1,3 +1,11 @@
+const camelCase = require('lodash/camelCase');
+const optionGroups = require('./src/Data/optionGroups');
+
+const colorOptionGroup = optionGroups.find(optGroup => optGroup.name === 'color');
+const productColors = colorOptionGroup.options.map(({ displayName, hex }) => ({
+	[camelCase(displayName)]: hex,
+}));
+
 module.exports = {
 	// purge: {
 	// 	enabled: true,
@@ -21,6 +29,10 @@ module.exports = {
 			red: '#b54633',
 			white: '#fff',
 			transparent: 'transparent',
+			outline: '#e59700',
+			products: {
+				...productColors,
+			},
 		},
 		extend: {},
 		fontFamily: {

@@ -32,6 +32,9 @@ const Product = types
 				as: as.join('/'),
 			};
 		},
+		get colorOptionGroup() {
+			return self.optionGroups?.find?.(optGroup => optGroup.name === 'color') || {};
+		},
 	}));
 
 export const ProductModel = types.compose(Product, TreeHelpers).named('Product');

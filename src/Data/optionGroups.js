@@ -1,4 +1,5 @@
-export default [
+// This must be in CommonJS syntax since Tailwind needs to read from it.
+module.exports = [
 	{
 		name: 'color',
 		displayName: 'Color',
@@ -6,26 +7,34 @@ export default [
 			{
 				name: 'ba',
 				displayName: 'Bronze Anodized',
+				hex: '#000',
+				// selected: true,
 			},
 			{
 				name: 'sa',
 				displayName: 'Satin Anodized',
+				hex: '#c7c8ca',
+				// selected: true,
 			},
 			{
 				name: 'white',
 				displayName: 'White',
+				hex: '#fff',
 			},
 			{
 				name: 'warmtone',
 				displayName: 'Warmtone',
+				hex: '#a79e8f',
 			},
 			{
 				name: 'black',
 				displayName: 'Black',
+				hex: '#000',
 			},
 			{
 				name: 'almond',
 				displayName: 'Almond',
+				hex: '#f5ede0',
 			},
 		],
 	},

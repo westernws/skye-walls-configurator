@@ -16,7 +16,7 @@ export const OptionGroupsFactory = (optionGroups) => {
 			name,
 			displayName,
 			...(options.length) && {
-				options: OptionsFactory(options),
+				options: OptionsFactory(options, optionGroup.name),
 			},
 		});
 	});

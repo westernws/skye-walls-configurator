@@ -1,10 +1,13 @@
 @import '_includes.css';
 
-html, body, body > *:first-child {
-	height: 100%;
+html, body, #__next {
+	@apply h-full;
+}
+*:focus {
+	outline-color: theme('colors.outline') !important;
 }
 .Main {
-	@apply pr-6 pl-6 m-auto h-full;
+	@apply pr-6 pl-6 m-auto;
 	max-width: var(--site-max-width);
 }
 .Icon {

@@ -46,12 +46,7 @@ export default () => {
 							{
 								selectedProducts.map((product) => {
 									return (
-										<PanelProduct
-											key={product.name}
-											title={product.displayName}
-											shortDesc={product.description}
-											link={product.link}
-										/>
+										<PanelProduct key={product.name} product={product} />
 									);
 								})
 							}

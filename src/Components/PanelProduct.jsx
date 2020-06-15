@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { observable, when } from 'mobx';
 
 import { DummyImage } from '~/Components/DummyImage';
+import { useInput } from '~/util/useInput';
 
 // Need MobX when because iPhone refuses to invoke window load event within useEffect.
 const isLoaded = observable.box(false);
@@ -14,9 +15,10 @@ const onLoadHandler = () => {
 if (process.browser) {
 	window.addEventListener('load', onLoadHandler);
 }
-export const PanelProduct = ({
-	tagName = 'li', title, link, className = '',
-}) => {
+export const PanelProduct = ({ product }) => {
+	const {
+		colorOptionGroup, tagName = 'li', displayName, link, className = '',
+	} = product;
 	const TagName = tagName;
 	const [isOpen, setIsOpen] = useState(false);
 	const [rootHeight, setRootHeight] = useState('auto');
@@ -31,13 +33,13 @@ export const PanelProduct = ({
 			tabIndex: '-1',
 		},
 	};
+	const { bind } = useInput();
 
 	useEffect(() => {
 		when(() => isLoaded, () => {
 			const deactiveHeight = panelProductRef.current.getBoundingClientRect().height;
 
 			if (rootHeight === 'auto') {
-				console.log('deactiveHeight', deactiveHeight);
 				setRootHeight(deactiveHeight);
 			}
 		});
@@ -48,7 +50,6 @@ export const PanelProduct = ({
 		}
 		const { height } = detailsRef.current.getBoundingClientRect();
 
-		// console.log('detailsHeight', height);
 		setDetailsHeight(height);
 	}, [rootHeight]);
 
@@ -73,42 +74,71 @@ export const PanelProduct = ({
 						<DummyImage width="420" height="233" />
 					</div>
 					<h2 className="PanelProduct-title space-x-1 text-xl lg:text-3xl">
-						<span>{title}</span>
+						<span>{displayName}</span>
 						<button className="PanelProduct-moreInfo" type="button">
 							<img src="/images/info-circle-solid.svg" alt="More Info" />
 						</button>
 					</h2>
 				</div>
 			</div>
-			<div
-				ref={detailsRef}
-				className={cn('PanelProduct-details pt-8 space-y-4', {
-					hidden: rootHeight === 'auto',
-				})}
-				aria-hidden={!isOpen}
-			>
-				<div className="PanelProduct-colorOptions text-xs">
-					<h3 className="text-gray-light uppercase">Color Options:</h3>
-					<ul className="ColorOptions">
-						<li>Black</li>
-						<li>Red</li>
-						<li>Yellow</li>
-					</ul>
+			{
+				Boolean(colorOptionGroup) &&
+				<div
+					ref={detailsRef}
+					className={cn('PanelProduct-details pt-8 space-y-4', {
+						hidden: rootHeight === 'auto',
+					})}
+					aria-hidden={!isOpen}
+				>
+					<form className="Form Form--colorOptionsForm" method="POST">
+						<fieldset className="Radio Radio--color text-xs">
+							<legend className="Radio-legend text-gray-light uppercase">Color Options:</legend>
+							<div className="Radio-group">
+								{
+									colorOptionGroup.options.map((colorOptions) => {
+										const id = `${colorOptions.name}-${colorOptionGroup.name}-control-colorOptionsForm`;
+
+										return (
+											<div key={id} className="Radio-fieldGroup">
+												<input
+													type="radio"
+													name={colorOptionGroup.name}
+													value={colorOptions.name}
+													id={id}
+													className="Radio-control"
+													defaultChecked={colorOptions.selected}
+													// data-background-color={colorOptions.hex}
+													{...bind}
+												/>
+												<label
+													className="Radio-label"
+													htmlFor={id}
+													{...bind}
+												>
+													<span className="sr-only">{colorOptions.displayName}</span>
+												</label>
+											</div>
+										);
+									})
+								}
+							</div>
+						</fieldset>
+						<div className="PanelProduct-includes space-y-4 text-xs">
+							<h3 className="text-gray-light uppercase">Includes:</h3>
+							<ul className="PanelProduct-checklist">
+								<li>Include 01</li>
+								<li>Include 02</li>
+								<li>Include 03</li>
+							</ul>
+						</div>
+						<div className="PanelProduct-cta">
+							<Link href={link.href} as={link.as}>
+								<a {...linkProps}><strong>Continue Building</strong></a>
+							</Link>
+						</div>
+					</form>
 				</div>
-				<div className="PanelProduct-includes space-y-4 text-xs">
-					<h3 className="text-gray-light uppercase">Includes:</h3>
-					<ul className="PanelProduct-checklist">
-						<li>Include 01</li>
-						<li>Include 02</li>
-						<li>Include 03</li>
-					</ul>
-				</div>
-				<div className="PanelProduct-cta">
-					<Link href={link.href} as={link.as}>
-						<a {...linkProps}><strong>Continue Building</strong></a>
-					</Link>
-				</div>
-			</div>
+			}
 		</TagName>
 	);
 };
