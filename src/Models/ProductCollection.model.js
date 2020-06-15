@@ -9,6 +9,7 @@ export const ProductCollectionModel = types
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ProductCollectionModel_') === 0),
 		name: '',
 		displayName: types.string,
+		displayGroupName: types.string,
 		description: '',
 		productGroups: types.optional(types.array(ProductGroupModel), []),
 		products: types.optional(types.array(ProductModel), []),

@@ -8,13 +8,11 @@ module.exports = [
 				name: 'ba',
 				displayName: 'Bronze Anodized',
 				hex: '000',
-				// selected: true,
 			},
 			{
 				name: 'sa',
 				displayName: 'Satin Anodized',
 				hex: 'c7c8ca',
-				// selected: true,
 			},
 			{
 				name: 'white',

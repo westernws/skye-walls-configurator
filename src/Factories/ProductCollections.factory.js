@@ -6,13 +6,14 @@ import { ProductsFactory } from '~/Factories/Products.factory';
 export const ProductCollectionsFactory = (productCollections) => {
 	return productCollections.map((productCollection) => {
 		const {
-			name, displayName, description, productGroups = [], products = [],
+			name, displayName, displayGroupName, description, productGroups = [], products = [],
 		} = productCollection;
 
 		return ProductCollectionModel.create({
 			id: `ProductCollectionModel_${uniqueId()}`,
 			name,
 			displayName,
+			displayGroupName,
 			description,
 			productGroups: productGroups?.length ? ProductGroupsFactory(productGroups) : [],
 			products: products?.length ? ProductsFactory(products) : [],

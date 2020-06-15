@@ -14,4 +14,12 @@ export const OptionGroupModel = types
 		get displayNames() {
 			return self.options.map(option => option.displayName);
 		},
+		get defaultSelected() {
+			const result = self.options.find(option => option.selected);
+
+			if (!result) {
+				return self.options[0];
+			}
+			return result;
+		},
 	}));

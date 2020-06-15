@@ -2,6 +2,7 @@ const camelCase = require('lodash/camelCase');
 const optionGroups = require('./src/Data/optionGroups');
 
 const colorOptionGroup = optionGroups.find(optGroup => optGroup.name === 'color');
+// Do I really need this?
 const productColors = colorOptionGroup.options.map(({ displayName, hex }) => ({
 	[camelCase(displayName)]: hex,
 }));

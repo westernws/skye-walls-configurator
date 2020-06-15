@@ -6,7 +6,7 @@ import { observable, when } from 'mobx';
 import { DummyImage } from '~/Components/DummyImage';
 import { useInput } from '~/util/useInput';
 
-// Need MobX when because iPhone refuses to invoke window load event within useEffect.
+// Need MobX when() because iPhone refuses to invoke window load event within useEffect.
 const isLoaded = observable.box(false);
 const onLoadHandler = () => {
 	isLoaded.set(true);
@@ -17,7 +17,7 @@ if (process.browser) {
 }
 export const PanelProduct = ({ product }) => {
 	const {
-		colorOptionGroup, tagName = 'li', displayName, link, className = '',
+		colorOptionGroup, tagName = 'li', displayName, link, className = '', features = [],
 	} = product;
 	const TagName = tagName;
 	const [isOpen, setIsOpen] = useState(false);
@@ -34,6 +34,7 @@ export const PanelProduct = ({ product }) => {
 		},
 	};
 	const { bind } = useInput();
+	const hasColorOptions = Boolean(colorOptionGroup?.options?.length);
 
 	useEffect(() => {
 		when(() => isLoaded, () => {
@@ -81,16 +82,16 @@ export const PanelProduct = ({ product }) => {
 					</h2>
 				</div>
 			</div>
-			{
-				Boolean(colorOptionGroup) &&
-				<div
-					ref={detailsRef}
-					className={cn('PanelProduct-details pt-8 space-y-4', {
-						hidden: rootHeight === 'auto',
-					})}
-					aria-hidden={!isOpen}
-				>
-					<form className="Form Form--colorOptionsForm space-y-6" method="POST">
+			<div
+				ref={detailsRef}
+				className={cn('PanelProduct-details pt-8 space-y-4', {
+					hidden: rootHeight === 'auto',
+				})}
+				aria-hidden={!isOpen}
+			>
+				<form className="Form Form--colorOptionsForm space-y-6" method="POST">
+					{
+						hasColorOptions &&
 						<fieldset className="Radio Radio--color text-xs">
 							<legend className="Radio-legend text-gray-light uppercase">Color Options:</legend>
 							<div className="Radio-group space-x-2">
@@ -106,7 +107,7 @@ export const PanelProduct = ({ product }) => {
 													value={colorOptions.name}
 													id={id}
 													className="Radio-control"
-													defaultChecked={colorOptions.selected}
+													defaultChecked={colorOptionGroup.defaultSelected.name === colorOptions.name}
 													{...bind}
 												/>
 												<label
@@ -123,22 +124,38 @@ export const PanelProduct = ({ product }) => {
 								}
 							</div>
 						</fieldset>
+					}
+					{
+						Boolean(features.length) &&
 						<div className="PanelProduct-includes space-y-4 text-xs">
 							<h3 className="text-gray-light uppercase">Includes:</h3>
 							<ul className="PanelProduct-checklist">
-								<li>Include 01</li>
-								<li>Include 02</li>
-								<li>Include 03</li>
+								{
+									features.map(feature => (
+										<li key={feature}>{feature}</li>
+									))
+								}
 							</ul>
 						</div>
-						<div className="PanelProduct-cta">
-							<Link href={link.href} as={link.as}>
-								<a {...linkProps}><strong>Continue Building</strong></a>
-							</Link>
-						</div>
-					</form>
-				</div>
-			}
+					}
+					<div className="PanelProduct-cta">
+						<Link href={link.href} as={link.as}>
+							<a {...linkProps}>
+								<strong>
+									{
+										hasColorOptions &&
+										'Continue Building'
+									}
+									{
+										!hasColorOptions &&
+										'Design Yours'
+									}
+								</strong>
+							</a>
+						</Link>
+					</div>
+				</form>
+			</div>
 		</TagName>
 	);
 };
