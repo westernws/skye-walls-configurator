@@ -7,13 +7,13 @@ const productColors = colorOptionGroup.options.map(({ displayName, hex }) => ({
 }));
 
 module.exports = {
-	purge: {
-		// enabled: true,
-		content: [
-			'./pages/**/*.jsx',
-			'./pages/**/*.html',
-		],
-	},
+	// purge: {
+	// 	enabled: true,
+	// 	content: [
+	// 		'./pages/**/*.jsx',
+	// 		'./pages/**/*.html',
+	// 	],
+	// },
 	theme: {
 		colors: {
 			black: '#000',
