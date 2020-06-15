@@ -107,12 +107,12 @@ export const PanelProduct = ({ product }) => {
 													id={id}
 													className="Radio-control"
 													defaultChecked={colorOptions.selected}
-													// data-background-color={colorOptions.hex}
 													{...bind}
 												/>
 												<label
 													className="Radio-label"
 													htmlFor={id}
+													style={{ backgroundColor: `#${colorOptions.hex}` }}
 													{...bind}
 												>
 													<span className="sr-only">{colorOptions.displayName}</span>

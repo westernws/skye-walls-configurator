@@ -1,5 +1,4 @@
 .Radio {
-
 	&.Radio--color {
 		.Radio-group {
 			@apply mt-2 ml-6;
@@ -11,7 +10,9 @@
 			@apply relative float-left rounded-full cursor-pointer;
 			width: 1em;
 			height: 1em;
-			background-color: #bada55;
+			/*background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='50%' cy='50%' r='6' stroke-width='1' stroke='%23000' fill='transparent' /%3E%3C/svg%3E");*/
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' preserveAspectRatio='none'%3E%3Ccircle cx='50%' cy='50%' r='4' stroke-width='1' stroke='%23000' fill='transparent' /%3E%3C/svg%3E") no-repeat 50% 50%;
+			background-size: 1.35em;
 			&:active {
 				@apply outline-none;
 			}
@@ -19,15 +20,16 @@
 		.Radio-control {
 			@apply opacity-0;
 			&:focus ~ .Radio-label {
-				box-shadow: 0 0 0 2px theme('colors.outline');
+				box-shadow: 0 0 0 2px theme("colors.outline");
 			}
 			&:checked ~ .Radio-label {
-				@apply border-2 border-solid border-white;
-				box-shadow: 0 0 0 1px theme('colors.red');
+				/*@apply border-2 border-solid border-white;*/
+				border: 0.075em solid theme('colors.white');
+				box-shadow: 0 0 0 0.03em theme("colors.red");
 				&::after {
 					@apply absolute rounded-full;
-					content: ' ';
-					background: url(/images/check-solid-white.svg) no-repeat 50% 50% theme('colors.red');
+					content: " ";
+					background: url(/images/check-solid-white.svg) no-repeat 50% 50% theme("colors.red");
 					background-size: 0.3em;
 					width: 0.5em;
 					height: 0.5em;
