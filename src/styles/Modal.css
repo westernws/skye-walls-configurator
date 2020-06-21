@@ -1,0 +1,20 @@
+.Modal-backdrop {
+	@apply w-screen h-screen fixed top-0 left-0;
+	background: rgba(0, 0, 0, 0.90);
+}
+.Modal-container {
+	@apply bg-white fixed;
+	width: 90vw;
+	height: 90vh;
+	top: calc(50% - (var(--modal-height) / 2));
+	left: calc(50% - (var(--modal-width) / 2));
+	z-index: 10;
+}
+.Modal-closeBtn {
+	@apply absolute bg-red rounded-full;
+	top: -10px;
+	right: -10px;
+}
+.Modal-closeBtnImg {
+	@apply w-8 h-8 p-1;
+}

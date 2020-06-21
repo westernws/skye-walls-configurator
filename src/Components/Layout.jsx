@@ -10,6 +10,7 @@ import snakeCase from 'lodash/snakeCase';
 import { IntersectionObserverFactory } from '~/util/IntersectionObserver';
 import { Meta } from '~/Components/Meta';
 import { useMst } from '~/Stores/App.store';
+import { Modal } from '~/Components/Modal';
 
 export const Layout = observer(({ children }) => {
 	const { productCollections } = useMst();
@@ -53,6 +54,7 @@ export const Layout = observer(({ children }) => {
 	return (
 		<div className="text-sm md:text-lg h-full">
 			<Meta />
+			<Modal />
 			<header id="header" className="Header">
 				<nav className="SiteNav">
 					<div className="SiteNav-wrap">
