@@ -13,7 +13,24 @@ export default [
 			'Contemporary hardware',
 			'After-market screening solution',
 		],
-		optionGroups: ['color', 'floor-tracks', 'handles', 'screen'],
+		optionGroups: [
+			{
+				name: 'color',
+				options: ['ba', 'sa', 'white', 'warmtone'],
+			},
+			{
+				name: 'floor-tracks',
+				options: ['wbs', 'fs', 'ts'],
+			},
+			{
+				name: 'handles',
+				options: ['fm', 'premium', 'contemporary'],
+			},
+			{
+				name: 'screen',
+				options: ['screen'],
+			},
+		],
 	},
 	{
 		name: 'pamsd',
@@ -24,7 +41,24 @@ export default [
 			'Design pressure (DP) rating of 50 for durability',
 			'Compliant with California’s rigorous Title 24 requirements',
 		],
-		optionGroups: ['color', 'floor-tracks', 'handles', 'screen'],
+		optionGroups: [
+			{
+				name: 'color',
+				options: ['ba', 'sa', 'white', 'warmtone'],
+			},
+			{
+				name: 'floor-tracks',
+				options: ['wbs', 'fs', 'ts'],
+			},
+			{
+				name: 'handles',
+				options: ['fm', 'contemporary'],
+			},
+			{
+				name: 'screen',
+				options: ['screen'],
+			},
+		],
 	},
 	{
 		name: 'ssamsd',
@@ -35,7 +69,24 @@ export default [
 			'Design pressure (DP) rating of 50 for durability',
 			'Compliant with California’s rigorous Title 24 requirements',
 		],
-		optionGroups: ['color', 'floor-tracks', 'handles', 'screen'],
+		optionGroups: [
+			{
+				name: 'color',
+				options: ['ba', 'sa', 'white', 'warmtone'],
+			},
+			{
+				name: 'floor-tracks',
+				options: ['wbs', 'fs', 'ts'],
+			},
+			{
+				name: 'handles',
+				options: ['fm', 'contemporary'],
+			},
+			{
+				name: 'screen',
+				options: ['screen'],
+			},
+		],
 	},
 	{
 		name: 'vmsd',
@@ -53,7 +104,12 @@ export default [
 			'Flush-mounted handle so panels easily slide past each other',
 			'After-market screening solution',
 		],
-		// option groups?
+		optionGroups: [
+			{
+				name: 'color',
+				options: ['black', 'white', 'almond'],
+			},
+		],
 	},
 	{
 		name: 'cabfd',
@@ -68,7 +124,20 @@ export default [
 			'Optional single swinging access door for everyday use',
 		],
 		screeningNotAvailable: true,
-		optionGroups: ['color', 'floor-tracks', 'handles'],
+		optionGroups: [
+			{
+				name: 'color',
+				options: ['ba', 'sa', 'white', 'warmtone'],
+			},
+			{
+				name: 'floor-tracks',
+				options: ['wbs', 'fs'],
+			},
+			{
+				name: 'handles',
+				options: ['handles', 'pm', 'dsph', 'ilh'],
+			},
+		],
 	},
 	{
 		name: 'pabfd',
@@ -80,7 +149,20 @@ export default [
 			'Compliant with California’s rigorous Title 24 requirements',
 		],
 		afterMarketScreening: true,
-		optionGroups: ['color', 'floor-tracks', 'handles'],
+		optionGroups: [
+			{
+				name: 'color',
+				options: ['ba', 'sa', 'white', 'warmtone'],
+			},
+			{
+				name: 'floor-tracks',
+				options: ['wbs', 'fs'],
+			},
+			{
+				name: 'handles',
+				options: ['handles', 'pm', 'dsph', 'ilh'],
+			},
+		],
 	},
 	{
 		name: 'ssabfd',
@@ -90,6 +172,19 @@ export default [
 			'Beveled glass stops',
 			'Simulated divided lights to emulate a putty glaze',
 		],
-		optionGroups: ['color', 'floor-tracks', 'handles'],
+		optionGroups: [
+			{
+				name: 'color',
+				options: ['ba', 'sa', 'white', 'warmtone'],
+			},
+			{
+				name: 'floor-tracks',
+				options: ['wbs', 'fs'],
+			},
+			{
+				name: 'handles',
+				options: ['handles', 'pm', 'dsph', 'ilh'],
+			},
+		],
 	},
 ];

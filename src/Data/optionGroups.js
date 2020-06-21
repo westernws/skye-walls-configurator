@@ -41,17 +41,17 @@ module.exports = [
 		displayName: 'Floor Tracks',
 		options: [
 			{
-				name: 'water-barrier-sill',
+				name: 'wbs',
 				displayName: 'Water Barrier Sill',
 				description: 'Designed for effectiveness in most climates, a built-in self-drainage weep system helps to safeguard against water intrusion.',
 			},
 			{
-				name: 'flush-sill',
+				name: 'fs',
 				displayName: 'Flush Sill',
 				description: 'When ease of entry is more important than performance against the elements. Lines up with most interior flooring.',
 			},
 			{
-				name: 'thinline-sill',
+				name: 'ts',
 				displayName: 'Thinline Sill',
 				description: 'Ideal for projects where a continuation of flooring from the inside to the outdoors needs to appear virtually seamless.',
 			},
@@ -62,7 +62,7 @@ module.exports = [
 		displayName: 'Handles',
 		options: [
 			{
-				name: 'flush-mounted',
+				name: 'fm',
 				displayName: 'Flush-Mounted',
 				description: 'Clean narrow design allows panels to easily slide past each other. Available in brushed nickel or black.',
 			},
@@ -82,7 +82,7 @@ module.exports = [
 				description: 'Each of our bi-fold doors features three high-quality, contemporary handles available in brushed nickel or black.',
 			},
 			{
-				name: 'premium02',
+				name: 'ph',
 				displayName: 'Premium Handle',
 				description: 'Located on the swinging panel, making it convenient for everyday use.',
 			},

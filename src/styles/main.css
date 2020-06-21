@@ -1,8 +1,5 @@
 @import '_includes.css';
 
-html, body, #__next {
-	@apply h-full;
-}
 *:focus {
 	outline-color: theme('colors.outline') !important;
 }

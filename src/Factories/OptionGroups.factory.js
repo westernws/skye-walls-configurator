@@ -3,10 +3,20 @@ import { OptionGroupModel } from '~/Models/OptionGroup.model';
 import { uniqueId } from '~/util/uniqueId';
 import { OptionsFactory } from '~/Factories/Options.factory';
 
-export const OptionGroupsFactory = (optionGroups) => {
-	const selectedOptionGroups = optionGroupData.filter(optionGroup => optionGroups.includes(optionGroup.name));
+export const OptionGroupsFactory = (productOptionGroups) => {
+	const optionGroups = productOptionGroups.map((prodOptGrp) => {
+		const selectedOptGrpData = optionGroupData.find(optionGroup => optionGroup.name === prodOptGrp.name);
+		const selectedOptionsData = selectedOptGrpData?.options?.filter((option) => {
+			return prodOptGrp.options.includes(option.name);
+		});
 
-	return selectedOptionGroups.map((optionGroup) => {
+		return {
+			...selectedOptGrpData,
+			options: selectedOptionsData,
+		};
+	});
+
+	return optionGroups.map((optionGroup) => {
 		const {
 			name, displayName, options = [],
 		} = optionGroup;
