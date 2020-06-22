@@ -19,7 +19,7 @@ export const ProductSummary = ({ product }) => {
 							return null;
 						}
 						return (
-							<div className="ml-2 md:ml-8">
+							<div key={optionGroup.name} className="ml-2 md:ml-8">
 								<h3 className="text-xs uppercase font-bold mb-4">
 									{optionGroup.summaryDisplayName || optionGroup.displayName}
 								</h3>
@@ -27,13 +27,13 @@ export const ProductSummary = ({ product }) => {
 									{
 										Boolean(optionGroup.summaryOptions) &&
 										optionGroup.summaryOptions.map(option => (
-											<li>{option.displayName}</li>
+											<li key={option.displayName}>{option.displayName}</li>
 										))
 									}
 									{
 										!optionGroup.summaryOptions &&
 										optionGroup.options.map(option => (
-											<li>{option.displayName}</li>
+											<li key={option.name}>{option.displayName}</li>
 										))
 									}
 								</ul>

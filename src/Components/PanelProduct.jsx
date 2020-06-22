@@ -114,13 +114,13 @@ export const PanelProduct = observer(({ product }) => {
 							<div className="Radio-group space-x-2">
 								{
 									colorOptionGroup.options.map((colorOptions) => {
-										const id = `${colorOptions.name}-${colorOptionGroup.name}-control-colorOptionsForm`;
+										const id = `${product.name}-${colorOptions.name}-${colorOptionGroup.name}-control-colorOptionsForm`;
 
 										return (
 											<div key={id} className="Radio-fieldGroup">
 												<input
 													type="radio"
-													name={colorOptionGroup.name}
+													name={`${product.name}-${colorOptionGroup.name}`}
 													value={colorOptions.name}
 													id={id}
 													className="Radio-control"

@@ -10,8 +10,6 @@
 	max-width: var(--panel-max-width);
 	&.is-open {
 		@apply border-b-4 border-red h-auto;
-		.PanelProduct-details {
-		}
 	}
 }
 .PanelProduct-hero {
