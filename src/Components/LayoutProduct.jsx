@@ -8,11 +8,11 @@ import { Meta } from '~/Components/Meta';
 import { Modal } from '~/Components/Modal';
 
 export const LayoutProduct = observer(({ children }) => {
-	const appStore = useMst();
+	const { modal } = useMst();
 
 	return (
 		<>
-			<Modal appStore={appStore} />
+			<Modal modal={modal} />
 			<div className="text-sm md:text-lg bg-gray-lighter h-full">
 				<Meta />
 				<header id="header" className="Header">

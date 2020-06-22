@@ -20,3 +20,7 @@
 		@apply bg-blue;
 	}
 }
+.Rule {
+	width: 50px;
+	border-bottom: 2px solid theme('colors.gray.default');
+}

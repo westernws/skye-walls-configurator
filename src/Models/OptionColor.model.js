@@ -9,5 +9,4 @@ const OptionColorModel = OptionModel
 	})
 	.named('OptionColorModel');
 
-global.ocm = OptionColorModel;
 export { OptionColorModel };

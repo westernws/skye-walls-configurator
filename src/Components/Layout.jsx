@@ -13,7 +13,7 @@ import { useMst } from '~/Stores/App.store';
 import { Modal } from '~/Components/Modal';
 
 export const Layout = observer(({ children }) => {
-	const { productCollections } = useMst();
+	const { productCollections, modal } = useMst();
 	const [isNavSticky, setIsNavSticky] = useState(null);
 	const [activeMenu, setActiveMenu] = useState(null);
 
@@ -52,73 +52,75 @@ export const Layout = observer(({ children }) => {
 	}, []);
 
 	return (
-		<div className="text-sm md:text-lg h-full">
-			<Meta />
-			<Modal />
-			<header id="header" className="Header">
-				<nav className="SiteNav">
-					<div className="SiteNav-wrap">
-						<div className="SiteNav-logo">
-							<Link href="/">
-								<a className="Logo">
-									<img src="/images/sw-logo-lite.svg" alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems" />
-								</a>
-							</Link>
-						</div>
-						<ul className="SiteNav-menu 2xl:hidden">
-							<li>
-								<Link href="#">
-									<a>
-										<div className="Icon">
-											<img src="/images/bars-solid.svg" alt="Menu" />
-											<span>Menu</span>
-										</div>
+		<>
+			<Modal modal={modal} />
+			<div className="text-sm md:text-lg h-full">
+				<Meta />
+				<header id="header" className="Header">
+					<nav className="SiteNav">
+						<div className="SiteNav-wrap">
+							<div className="SiteNav-logo">
+								<Link href="/">
+									<a className="Logo">
+										<img src="/images/sw-logo-lite.svg" alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems" />
 									</a>
 								</Link>
-							</li>
-						</ul>
-					</div>
-				</nav>
-			</header>
-			<div className="sticky top-0 z-10 bg-black hidden 2xl:block">
-				<nav className="SiteSubnav">
-					<div className="SiteSubnav-wrap space-x-10">
-						<button
-							className={cn('BackToTop space-x-1', {
-								'is-icon-visible': isNavSticky,
-							})}
-							type="button"
-							onClick={() => {
-								window.scrollTo(0, 0);
-							}}
-						>
-							<img className="BackToTop-icon" src="/images/arrow-alt-circle-up-regular.svg" alt="" aria-hidden />
-							<strong className="BackToTop-text">All Models</strong>
-						</button>
-						<ul className="SiteSubnav-items">
-							{
-								productCollections.map((collection) => {
-									return (
-										<li key={collection.name}>
-											<Link href={`#${collection.name}`}>
-												<a
-													data-collection={collection.name}
-													className={cn('uppercase', {
-														'is-active': activeMenu === snakeCase(upperCase(collection.name)),
-													})}
-												>
-													<strong>{collection.displayName}</strong>
-												</a>
-											</Link>
-										</li>
-									);
-								})
-							}
-						</ul>
-					</div>
-				</nav>
+							</div>
+							<ul className="SiteNav-menu 2xl:hidden">
+								<li>
+									<Link href="#">
+										<a>
+											<div className="Icon">
+												<img src="/images/bars-solid.svg" alt="Menu" />
+												<span>Menu</span>
+											</div>
+										</a>
+									</Link>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</header>
+				<div className="sticky top-0 z-10 bg-black hidden 2xl:block">
+					<nav className="SiteSubnav">
+						<div className="SiteSubnav-wrap space-x-10">
+							<button
+								className={cn('BackToTop space-x-1', {
+									'is-icon-visible': isNavSticky,
+								})}
+								type="button"
+								onClick={() => {
+									window.scrollTo(0, 0);
+								}}
+							>
+								<img className="BackToTop-icon" src="/images/arrow-alt-circle-up-regular.svg" alt="" aria-hidden />
+								<strong className="BackToTop-text">All Models</strong>
+							</button>
+							<ul className="SiteSubnav-items">
+								{
+									productCollections.map((collection) => {
+										return (
+											<li key={collection.name}>
+												<Link href={`#${collection.name}`}>
+													<a
+														data-collection={collection.name}
+														className={cn('uppercase', {
+															'is-active': activeMenu === snakeCase(upperCase(collection.name)),
+														})}
+													>
+														<strong>{collection.displayName}</strong>
+													</a>
+												</Link>
+											</li>
+										);
+									})
+								}
+							</ul>
+						</div>
+					</nav>
+				</div>
+				{children}
 			</div>
-			{children}
-		</div>
+		</>
 	);
 });

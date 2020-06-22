@@ -1,12 +1,12 @@
 .Modal-backdrop {
 	@apply w-screen h-screen fixed top-0 left-0;
+	z-index: 10;
 	background: rgba(0, 0, 0, 0.90);
 }
 .Modal-container {
-	@apply bg-white fixed;
+	@apply bg-white absolute;
 	width: 90vw;
-	height: 90vh;
-	top: calc(50% - (var(--modal-height) / 2));
+	top: 30px;
 	left: calc(50% - (var(--modal-width) / 2));
 	z-index: 10;
 }
@@ -17,4 +17,7 @@
 }
 .Modal-closeBtnImg {
 	@apply w-8 h-8 p-1;
+}
+.Modal-content {
+	@apply p-12;
 }

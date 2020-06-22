@@ -22,4 +22,23 @@ export const OptionGroupModel = types
 			}
 			return result;
 		},
+		get isColor() {
+			return self.name === 'color';
+		},
+		get summaryDisplayName() {
+			if (!self.isColor) {
+				return '';
+			}
+			return 'Colors';
+		},
+		get summaryOptions() {
+			if (!self.isColor || !self.options.length) {
+				return '';
+			}
+			const isPlural = self.options.length > 1;
+
+			return [{
+				displayName: `Choice of ${self.options.length} Color${isPlural && 's'}`,
+			}];
+		},
 	}));

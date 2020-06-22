@@ -2,9 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 import { observable, when } from 'mobx';
+import { observer } from 'mobx-react-lite';
+import 'mobx-react-lite/batchingForReactDom';
 
+import { useMst } from '~/Stores/App.store';
 import { DummyImage } from '~/Components/DummyImage';
 import { useInput } from '~/util/useInput';
+import { ProductSummary } from '~/Components/ProductSummary';
 
 // Need MobX when() because iPhone refuses to invoke window load event within useEffect.
 const isLoaded = observable.box(false);
@@ -15,7 +19,8 @@ const onLoadHandler = () => {
 if (process.browser) {
 	window.addEventListener('load', onLoadHandler);
 }
-export const PanelProduct = ({ product }) => {
+export const PanelProduct = observer(({ product }) => {
+	const { modal } = useMst();
 	const {
 		colorOptionGroup, tagName = 'li', displayName, link, className = '', features = [],
 	} = product;
@@ -65,7 +70,10 @@ export const PanelProduct = ({ product }) => {
 			}}
 		>
 			<div
-				onClick={() => { setIsOpen(!isOpen); }}
+				onClick={(event) => {
+					console.log(event);
+					setIsOpen(!isOpen);
+				}}
 				className="PanelProduct-hero space-x-3"
 				role="presentation"
 				ref={heroRef}
@@ -76,7 +84,16 @@ export const PanelProduct = ({ product }) => {
 					</div>
 					<h2 className="PanelProduct-title space-x-1 text-xl lg:text-3xl">
 						<span>{displayName}</span>
-						<button className="PanelProduct-moreInfo" type="button">
+						<button
+							className="PanelProduct-moreInfo"
+							type="button"
+							onClick={(event) => {
+								event.stopPropagation();
+								modal.open({
+									content: <ProductSummary product={product} />,
+								});
+							}}
+						>
 							<img src="/images/info-circle-solid.svg" alt="More Info" />
 						</button>
 					</h2>
@@ -129,7 +146,7 @@ export const PanelProduct = ({ product }) => {
 						Boolean(features.length) &&
 						<div className="PanelProduct-includes space-y-4 text-xs">
 							<h3 className="text-gray-light uppercase">Includes:</h3>
-							<ul className="PanelProduct-checklist">
+							<ul className="Checklist">
 								{
 									features.map(feature => (
 										<li key={feature}>{feature}</li>
@@ -158,4 +175,4 @@ export const PanelProduct = ({ product }) => {
 			</div>
 		</TagName>
 	);
-};
+});

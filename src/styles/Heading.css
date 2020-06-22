@@ -5,7 +5,6 @@
 			content: ' ';
 			border-bottom: 2px solid theme('colors.gray.default');
 			width: 50px;
-
 		}
 	}
 	.Heading-rule {
@@ -17,7 +16,8 @@
 		width: 30px;
 		border-bottom: 2px solid theme('colors.gray.default');
 	}
+
 	&.Heading--bordered {
-		@apply text-center flex justify-center items-center uppercase;
+		@apply flex justify-center uppercase;
 	}
 }
