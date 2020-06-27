@@ -68,9 +68,9 @@ export default () => {
 						</header>
 						<PanelGroup className="mt-0">
 							{
-								selectedProducts.map((product) => {
+								selectedProducts.map((product, i) => {
 									return (
-										<PanelProduct key={product.name} product={product} />
+										<PanelProduct index={i} key={product.name} product={product} />
 									);
 								})
 							}

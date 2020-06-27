@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import { observable, when } from 'mobx';
+import { observable, when, observe } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
 import resolveConfig from 'tailwindcss/resolveConfig';
@@ -13,20 +13,25 @@ import { DummyImage } from '~/Components/DummyImage';
 import { useInput } from '~/util/useInput';
 import { ProductSummary } from '~/Components/ProductSummary';
 
+const fullConfig = resolveConfig(tailwindConfig);
 // Need MobX when() because iPhone refuses to invoke window load event within useEffect.
 const isLoaded = observable.box(false);
+const isXlMediaQuery = observable.box(undefined);
 const onLoadHandler = () => {
 	isLoaded.set(true);
 };
-const fullConfig = resolveConfig(tailwindConfig);
+const onMqChangeHandler = (mql) => {
+	isXlMediaQuery.set(mql.matches);
+};
 const xlMediaQueryStr = buildMediaQuery(fullConfig.theme.screens.xl);
 let matchXlMq;
 
 if (process.browser) {
 	window.addEventListener('load', onLoadHandler);
 	matchXlMq = window.matchMedia(xlMediaQueryStr);
+	matchXlMq.addListener(onMqChangeHandler);
 }
-export const PanelProduct = observer(({ product }) => {
+export const PanelProduct = observer(({ index, product }) => {
 	const { activePanelProduct, modal, setActivePanelProduct } = useMst();
 	const {
 		name, colorOptionGroup, tagName = 'li', displayName, link, className = '', features = [],
@@ -51,11 +56,33 @@ export const PanelProduct = observer(({ product }) => {
 	useEffect(() => {
 		when(() => isLoaded, () => {
 			const deactiveHeight = panelProductRef.current.getBoundingClientRect().height;
+			let offset = 0;
 
 			if (rootHeight === 'auto') {
+				if (matchXlMq.matches) {
+					offset = -45;
+				}
+				setRootHeight(deactiveHeight + offset);
+			}
+			if (!activePanelProduct && !index) {
+				setActivePanelProduct(product);
+			}
+		});
+		const dispose = observe(isXlMediaQuery, (change) => {
+			if (typeof change.oldValue === 'undefined' && !change.newValue) {
+				return;
+			}
+			if (!change.newValue) {
+				const deactiveHeight = panelProductRef.current.getBoundingClientRect().height;
+
 				setRootHeight(deactiveHeight);
 			}
 		});
+
+		return () => {
+			matchXlMq.removeListener(onMqChangeHandler);
+			dispose();
+		};
 	}, []);
 	useEffect(() => {
 		if (rootHeight === 'auto') {
