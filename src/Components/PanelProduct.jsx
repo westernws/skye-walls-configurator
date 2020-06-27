@@ -27,9 +27,9 @@ if (process.browser) {
 	matchXlMq = window.matchMedia(xlMediaQueryStr);
 }
 export const PanelProduct = observer(({ product }) => {
-	const { modal } = useMst();
+	const { activePanelProduct, modal, setActivePanelProduct } = useMst();
 	const {
-		colorOptionGroup, tagName = 'li', displayName, link, className = '', features = [],
+		name, colorOptionGroup, tagName = 'li', displayName, link, className = '', features = [],
 	} = product;
 	const TagName = tagName;
 	const [isOpen, setIsOpen] = useState(false);
@@ -70,8 +70,15 @@ export const PanelProduct = observer(({ product }) => {
 		<TagName
 			ref={panelProductRef}
 			className={cn('PanelProduct', className, {
+				'is-active': activePanelProduct?.name === name,
 				'is-open': isOpen,
 			})}
+			onMouseEnter={() => {
+				if (!matchXlMq?.matches) {
+					return;
+				}
+				setActivePanelProduct(product);
+			}}
 			style={{
 				height: isOpen ? rootHeight + detailsHeight : rootHeight,
 			}}

@@ -50,6 +50,9 @@
 		&.is-open {
 			@apply border-b-0 opacity-100;
 		}
+		&.is-active {
+			@apply opacity-100;
+		}
 	}
 	.PanelProduct-hero {
 		@apply h-auto;
