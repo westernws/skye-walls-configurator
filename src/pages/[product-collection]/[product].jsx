@@ -75,6 +75,7 @@ export default () => {
 								})
 							}
 						</PanelGroup>
+						<p className="italic text-gray-light text-center">Please select a product to continue&hellip;</p>
 					</main>
 				}
 			</LayoutProduct>

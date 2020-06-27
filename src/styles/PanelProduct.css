@@ -4,7 +4,7 @@
 	--panel-max-width: none;
 
 	@apply
-		border-b-4 border-transparent bg-white pt-4 pr-4 pb-4 pl-4 mt-6 mb-6 ml-12 flex flex-col
+		border-b-4 border-transparent bg-white p-4 mt-6 mb-6 ml-12 flex flex-col
 		overflow-hidden transition-all duration-500 ease-in-out;
 	width: calc(var(--panel-width) - (theme('spacing[12]') * var(--panel-gap-x-multiplier)));
 	max-width: var(--panel-max-width);
@@ -21,7 +21,7 @@
 }
 .PanelProduct-img {
 	max-width: 144px;
-	max-width: 25%;
+	/*max-width: 25%;*/
 	img {
 		width: auto;
 		max-width: 100%;
@@ -32,7 +32,7 @@
 	@apply pb-12 relative;
 }
 .PanelProduct-title {
-	@apply uppercase leading-tight font-bold pl-2;
+	@apply uppercase leading-tight font-bold pl-4;
 }
 .PanelProduct-moreInfo {
 	@apply inline-block w-4 opacity-50 transition-all duration-500 ease-in-out;
@@ -43,14 +43,28 @@
 
 @screen xl {
 	.PanelProduct {
-		--panel-gap-x-multiplier: 1;
-		--panel-max-width: 427.5px;
-	}
-}
-@screen 3xl {
-	.PanelProduct {
-		width: auto;
+		@apply w-auto opacity-50;
+		height: auto !important;
 		--panel-gap-x-multiplier: 2;
-		--panel-max-width: 30.13%;
+		--panel-max-width: calc(33.3333% - (1.5rem * var(--panel-gap-x-multiplier)));
+		&.is-open {
+			@apply border-b-0 opacity-100;
+		}
+	}
+	.PanelProduct-hero {
+		@apply h-auto;
+		min-height: auto;
+	}
+	.PanelProduct-heroInside {
+		@apply h-auto flex-col-reverse;
+	}
+	.PanelProduct-title {
+		@apply pl-0;
+	}
+	.PanelProduct-moreInfo {
+		@apply flex w-auto items-center;
+	}
+	.PanelProduct-img {
+		@apply max-w-none;
 	}
 }

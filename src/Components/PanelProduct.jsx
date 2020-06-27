@@ -4,6 +4,9 @@ import cn from 'classnames';
 import { observable, when } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
+import resolveConfig from 'tailwindcss/resolveConfig';
+import buildMediaQuery from 'tailwindcss/lib/util/buildMediaQuery';
+import tailwindConfig from '-/tailwind.config';
 
 import { useMst } from '~/Stores/App.store';
 import { DummyImage } from '~/Components/DummyImage';
@@ -15,9 +18,13 @@ const isLoaded = observable.box(false);
 const onLoadHandler = () => {
 	isLoaded.set(true);
 };
+const fullConfig = resolveConfig(tailwindConfig);
+const xlMediaQueryStr = buildMediaQuery(fullConfig.theme.screens.xl);
+let matchXlMq;
 
 if (process.browser) {
 	window.addEventListener('load', onLoadHandler);
+	matchXlMq = window.matchMedia(xlMediaQueryStr);
 }
 export const PanelProduct = observer(({ product }) => {
 	const { modal } = useMst();
@@ -70,19 +77,21 @@ export const PanelProduct = observer(({ product }) => {
 			}}
 		>
 			<div
-				onClick={(event) => {
-					console.log(event);
+				onClick={() => {
+					if (matchXlMq?.matches) {
+						return;
+					}
 					setIsOpen(!isOpen);
 				}}
 				className="PanelProduct-hero space-x-3"
 				role="presentation"
 				ref={heroRef}
 			>
-				<div className="PanelProduct-heroInside">
+				<div className="PanelProduct-heroInside xl:space-y-4 xl:space-y-reverse">
 					<div className="PanelProduct-img">
 						<DummyImage width="420" height="233" />
 					</div>
-					<h2 className="PanelProduct-title space-x-1 text-xl lg:text-3xl">
+					<h2 className="PanelProduct-title space-x-1 text-xl xl:text-2xl xl:space-x-0 xl:space-y-1">
 						<span>{displayName}</span>
 						<button
 							className="PanelProduct-moreInfo"
@@ -94,7 +103,9 @@ export const PanelProduct = observer(({ product }) => {
 								});
 							}}
 						>
-							<img src="/images/info-circle-solid.svg" alt="More Info" />
+							<span className="hidden text-xs uppercase font-bold xl:inline-block">More Info</span>
+							<img className="inline-block xl:hidden" src="/images/info-circle-solid.svg" alt="More Info" />
+							<img className="hidden transform -rotate-90 xl:inline-block xl:w-2 xl:ml-1" src="/images/chevron-down-solid.svg" alt="More Info" />
 						</button>
 					</h2>
 				</div>
@@ -111,7 +122,7 @@ export const PanelProduct = observer(({ product }) => {
 						hasColorOptions &&
 						<fieldset className="Radio Radio--color text-xs">
 							<legend className="Radio-legend text-gray-light uppercase">Color Options:</legend>
-							<div className="Radio-group space-x-2">
+							<div className="Radio-group space-x-2 xl:space-x-4">
 								{
 									colorOptionGroup.options.map((colorOptions) => {
 										const id = `${product.name}-${colorOptions.name}-${colorOptionGroup.name}-control-colorOptionsForm`;
