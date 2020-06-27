@@ -1,13 +1,15 @@
-import React from 'react';
-import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
+import Router, { useRouter } from 'next/router';
 
 import { Provider, appStore } from '~/Stores/App.store';
 import { LayoutProduct } from '~/Components/LayoutProduct';
 import { PanelGroup } from '~/Components/PanelGroup';
 import { PanelProduct } from '~/Components/PanelProduct';
+import { useInput } from '~/util/useInput';
 
 export default () => {
 	const router = useRouter();
+	const { bind, value, setValue } = useInput();
 	const { product: productSlug } = router.query;
 	const collectionSlug = router.query['product-collection'];
 	const selectedCollection = appStore.productCollections.find(collection => collection.slug === collectionSlug);
@@ -20,6 +22,26 @@ export default () => {
 	} else if (selectedCollection) {
 		selectedProducts = selectedCollection.productsAndGroups;
 	}
+	useEffect(() => {
+		if (!selectedCollection?.showProductGroupSelectControl) {
+			return;
+		}
+		const pg = selectedCollection.productGroups?.find?.(productGroup => productGroup.name === value);
+
+		if (!pg) {
+			return;
+		}
+		const { link } = pg;
+		router.push(link.href, link.as);
+	}, [value]);
+	useEffect(() => {
+		Router.events.on('routeChangeComplete', () => {
+			if (selectedCollection?.productGroups?.length <= 1) {
+				return;
+			}
+			setValue(Router.query.product);
+		});
+	}, []);
 	return (
 		<Provider value={appStore}>
 			<LayoutProduct>
@@ -32,11 +54,13 @@ export default () => {
 								<span className="Heading-centerRule block mt-2 lg:hidden" />
 							</h1>
 							{
-								Boolean(selectedCollection.productGroups?.length > 1) &&
-								<select className="Select" defaultValue={selectedProductGroup.name}>
+								selectedCollection.showProductGroupSelectControl &&
+								<select className="Select" defaultValue={router.query.product} {...bind}>
 									{
 										selectedCollection.productGroups.map(productGroup => (
-											<option key={productGroup.name} value={productGroup.name}>{productGroup.displayName}</option>
+											<option key={productGroup.name} value={productGroup.name}>
+												{productGroup.displayName}
+											</option>
 										))
 									}
 								</select>

@@ -23,8 +23,8 @@ const ProductGroup = types
 			const as = [collection?.slug, self.slug];
 
 			return {
-				href: href.join('/'),
-				as: as.join('/'),
+				href: `/${href.join('/')}`,
+				as: `/${as.join('/')}`,
 			};
 		},
 	}));

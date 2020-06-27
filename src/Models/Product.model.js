@@ -28,8 +28,8 @@ const Product = types
 			const as = [collection?.slug, productSlug.join('-')];
 
 			return {
-				href: href.join('/'),
-				as: as.join('/'),
+				href: `/${href.join('/')}`,
+				as: `/${as.join('/')}`,
 			};
 		},
 		get colorOptionGroup() {

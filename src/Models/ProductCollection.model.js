@@ -24,4 +24,7 @@ export const ProductCollectionModel = types
 		get slug() {
 			return kebabCase(self.displayName);
 		},
+		get showProductGroupSelectControl() {
+			return self.productGroups.length > 1;
+		},
 	}));
