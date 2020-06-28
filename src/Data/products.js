@@ -35,7 +35,7 @@ export default [
 	{
 		name: 'pamsd',
 		displayName: 'Performance Aluminum Multi-Slide Door',
-		description: 'Energy effeciency and strength,',
+		description: 'Energy effeciency and strength.',
 		features: [
 			'Available in bigger and taller sizes',
 			'Design pressure (DP) rating of 50 for durability',
