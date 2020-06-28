@@ -36,6 +36,8 @@ export default [
 		name: 'pamsd',
 		displayName: 'Performance Aluminum Multi-Slide Door',
 		description: 'Energy effeciency and strength.',
+		inheritedFeatures: 'Everything in Classic',
+		inheritedFeaturesLong: 'Including everything from our CLASSIC models and more.',
 		features: [
 			'Available in bigger and taller sizes',
 			'Design pressure (DP) rating of 50 for durability',
@@ -64,6 +66,8 @@ export default [
 		name: 'ssamsd',
 		displayName: 'Simulated Steel Aluminum Multi-Slide Door',
 		description: 'The look of steel but more affordable.',
+		inheritedFeatures: 'Everything in Performance and Classic',
+		inheritedFeaturesLong: 'Including everything from our PERFORMANCE and CLASSIC models and more.',
 		features: [
 			'Available in bigger and taller sizes',
 			'Design pressure (DP) rating of 50 for durability',
@@ -143,6 +147,8 @@ export default [
 		name: 'pabfd',
 		displayName: 'Performance Aluminum Bi-Fold Door',
 		description: 'Energy efficiency and strength',
+		inheritedFeatures: 'Everything in Classic',
+		inheritedFeaturesLong: 'Including everything from our CLASSIC models and more.',
 		features: [
 			'Available in bigger and taller sizes',
 			'Design pressure (DP) rating of 50 for durability',
@@ -168,6 +174,8 @@ export default [
 		name: 'ssabfd',
 		displayName: 'Simulated Steel Aluminum Bi-Fold Door',
 		description: 'The look of steel but more affordable.',
+		inheritedFeatures: 'Everything in Performance',
+		inheritedFeaturesLong: 'Including everything from our PERFORMANCE models and more.',
 		features: [
 			'Beveled glass stops',
 			'Simulated divided lights to emulate a putty glaze',

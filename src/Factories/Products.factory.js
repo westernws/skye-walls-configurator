@@ -8,7 +8,13 @@ export const ProductsFactory = (products) => {
 
 	return selectedProducts.map((product) => {
 		const {
-			name, displayName, description, features, optionGroups = [],
+			name,
+			displayName,
+			description,
+			inheritedFeatures = '',
+			inheritedFeaturesLong = '',
+			features,
+			optionGroups = [],
 		} = product;
 
 		return ProductModel.create({
@@ -16,6 +22,8 @@ export const ProductsFactory = (products) => {
 			name,
 			displayName,
 			description,
+			inheritedFeatures,
+			inheritedFeaturesLong,
 			features,
 			optionGroups: OptionGroupsFactory(optionGroups),
 		});

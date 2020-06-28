@@ -11,6 +11,8 @@ const Product = types
 		name: '',
 		displayName: types.string,
 		description: types.string,
+		inheritedFeatures: '',
+		inheritedFeaturesLong: '',
 		features: types.array(types.string),
 		optionGroups: types.array(OptionGroupModel),
 		isActive: false,

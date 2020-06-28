@@ -1,15 +1,17 @@
 import React from 'react';
 
 export const ProductSummary = ({ product }) => {
-	console.log(product);
-	const { displayName, description } = product;
+	const {
+		displayName, description, inheritedFeaturesLong,
+	} = product;
+
 	return (
 		<div className="ProductSummary space-y-5">
 			<div>
 				<h2 className="Heading font-bold uppercase flex-col text-l md:text-2xl lg:flex-row">
 					{displayName}
 				</h2>
-				<p className="text-sm">{description}</p>
+				<p className="text-sm">{inheritedFeaturesLong} {description}</p>
 			</div>
 			<span className="Rule block mt-2" />
 			<div className="space-y-5 xl:flex xl:space-y-0 xl:flex-wrap">

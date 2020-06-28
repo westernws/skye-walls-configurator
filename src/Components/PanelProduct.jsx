@@ -152,7 +152,13 @@ export const PanelProduct = observer(({ product }) => {
 					{
 						Boolean(features.length) &&
 						<div className="PanelProduct-includes space-y-4 text-xs">
-							<h3 className="text-gray-light uppercase">Includes:</h3>
+							<h3 className="text-gray-light uppercase">
+								Includes:
+								{
+									Boolean(product.inheritedFeatures) &&
+									<strong className="uppercase font-bold text-base text-black pl-1">{product.inheritedFeatures}</strong>
+								}
+							</h3>
 							<ul className="Checklist">
 								{
 									features.map(feature => (
