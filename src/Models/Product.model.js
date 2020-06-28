@@ -12,6 +12,7 @@ const Product = types
 		description: types.string,
 		features: types.array(types.string),
 		optionGroups: types.array(OptionGroupModel),
+		isActive: false,
 	})
 	.views(self => ({
 		get featureList() {
@@ -34,6 +35,14 @@ const Product = types
 		},
 		get colorOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'color') || {};
+		},
+	}))
+	.actions(self => ({
+		setColor(colorName) {
+			self.colorOptionGroup.setSelected(colorName);
+		},
+		setIsActive(isActive) {
+			self.isActive = isActive;
 		},
 	}));
 

@@ -32,15 +32,37 @@ export default () => {
 			return;
 		}
 		const { link } = pg;
+
 		router.push(link.href, link.as);
 	}, [value]);
 	useEffect(() => {
-		Router.events.on('routeChangeComplete', () => {
+		const collectionChangeHandler = () => {
 			if (selectedCollection?.productGroups?.length <= 1) {
 				return;
 			}
+			if (selectedProducts?.length) {
+				appStore.setActivePanelProduct(selectedProducts[0]);
+			}
 			setValue(Router.query.product);
-		});
+		};
+
+		Router.events.on('routeChangeComplete', collectionChangeHandler);
+		return () => {
+			Router.events.off('routeChangeComplete', collectionChangeHandler);
+		};
+	}, []);
+	useEffect(() => {
+		const updateActivePanelProduct = () => {
+			if (selectedProducts?.length) {
+				appStore.setActivePanelProduct(selectedProducts[0]);
+			}
+		};
+
+		Router.events.on('routeChangeComplete', updateActivePanelProduct);
+		updateActivePanelProduct();
+		return () => {
+			Router.events.off('routeChangeComplete', updateActivePanelProduct);
+		};
 	}, []);
 	return (
 		<Provider value={appStore}>

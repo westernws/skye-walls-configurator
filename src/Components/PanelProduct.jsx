@@ -31,10 +31,10 @@ if (process.browser) {
 	matchXlMq = window.matchMedia(xlMediaQueryStr);
 	matchXlMq.addListener(onMqChangeHandler);
 }
-export const PanelProduct = observer(({ index, product }) => {
-	const { activePanelProduct, modal, setActivePanelProduct } = useMst();
+export const PanelProduct = observer(({ product }) => {
+	const { modal, setActivePanelProduct } = useMst();
 	const {
-		name, colorOptionGroup, tagName = 'li', displayName, link, className = '', features = [],
+		isActive, colorOptionGroup, tagName = 'li', displayName, link, className = '', features = [],
 	} = product;
 	const TagName = tagName;
 	const [isOpen, setIsOpen] = useState(false);
@@ -64,11 +64,8 @@ export const PanelProduct = observer(({ index, product }) => {
 				}
 				setRootHeight(deactiveHeight + offset);
 			}
-			if (!activePanelProduct && !index) {
-				setActivePanelProduct(product);
-			}
 		});
-		const dispose = observe(isXlMediaQuery, (change) => {
+		const disposeMq = observe(isXlMediaQuery, (change) => {
 			if (typeof change.oldValue === 'undefined' && !change.newValue) {
 				return;
 			}
@@ -81,7 +78,7 @@ export const PanelProduct = observer(({ index, product }) => {
 
 		return () => {
 			matchXlMq.removeListener(onMqChangeHandler);
-			dispose();
+			disposeMq();
 		};
 	}, []);
 	useEffect(() => {
@@ -97,7 +94,7 @@ export const PanelProduct = observer(({ index, product }) => {
 		<TagName
 			ref={panelProductRef}
 			className={cn('PanelProduct', className, {
-				'is-active': activePanelProduct?.name === name,
+				'is-active': isActive,
 				'is-open': isOpen,
 			})}
 			onMouseEnter={() => {

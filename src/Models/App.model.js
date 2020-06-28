@@ -3,16 +3,17 @@ import flattenDeep from 'lodash/flattenDeep';
 
 import { ProductCollectionModel } from '~/Models/ProductCollection.model';
 import { ModalModel } from '~/Models/Modal.model';
-import { ProductModel } from '~/Models/Product.model';
 
 export const AppModel = types
 	.model('App', {
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('AppModel_') === 0),
 		productCollections: types.array(ProductCollectionModel),
 		modal: ModalModel,
-		activePanelProduct: types.maybeNull(types.reference(ProductModel)),
 	})
 	.views(self => ({
+		get activePanelProduct() {
+			return self.allProducts.find(product => product.isActive) || {};
+		},
 		get allProducts() {
 			const products = flattenDeep(self.productCollections.map((productCollection) => {
 				if (productCollection.productGroups.length) {
@@ -28,6 +29,10 @@ export const AppModel = types
 			return self.allProducts.find(product => product.name === productName) || {};
 		},
 		setActivePanelProduct(product) {
-			self.activePanelProduct = product;
+			self.allProducts.forEach(p => p.setIsActive(false));
+			if (!product) {
+				return;
+			}
+			product.setIsActive(true);
 		},
 	}));
