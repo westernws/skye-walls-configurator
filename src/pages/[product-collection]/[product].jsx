@@ -40,9 +40,6 @@ export default () => {
 			if (selectedCollection?.productGroups?.length <= 1) {
 				return;
 			}
-			if (selectedProducts?.length) {
-				appStore.setActivePanelProduct(selectedProducts[0]);
-			}
 			setValue(Router.query.product);
 		};
 
@@ -52,18 +49,11 @@ export default () => {
 		};
 	}, []);
 	useEffect(() => {
-		const updateActivePanelProduct = () => {
-			if (selectedProducts?.length) {
-				appStore.setActivePanelProduct(selectedProducts[0]);
-			}
-		};
-
-		Router.events.on('routeChangeComplete', updateActivePanelProduct);
-		updateActivePanelProduct();
-		return () => {
-			Router.events.off('routeChangeComplete', updateActivePanelProduct);
-		};
-	}, []);
+		if (!selectedProducts?.length) {
+			return;
+		}
+		appStore.setActivePanelProduct(selectedProducts[0]);
+	}, [selectedProducts]);
 	return (
 		<Provider value={appStore}>
 			<LayoutProduct>
@@ -90,9 +80,9 @@ export default () => {
 						</header>
 						<PanelGroup className="mt-0">
 							{
-								selectedProducts.map((product, i) => {
+								selectedProducts.map((product) => {
 									return (
-										<PanelProduct index={i} key={product.name} product={product} />
+										<PanelProduct key={product.name} product={product} />
 									);
 								})
 							}
