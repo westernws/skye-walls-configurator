@@ -2,6 +2,7 @@
 	li {
 		@apply flex mb-2;
 		&::before {
+			@apply flex-shrink-0;
 			content: ' ';
 			background: url(/images/check-solid-red.svg) no-repeat 0 50%;
 			background-size: contain;

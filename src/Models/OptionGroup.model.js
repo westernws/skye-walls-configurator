@@ -1,4 +1,5 @@
 import { types } from 'mobx-state-tree';
+import isString from 'lodash/isString';
 
 import { OptionModel } from '~/Models/Option.model';
 import { OptionColorModel } from '~/Models/OptionColor.model';
@@ -40,5 +41,16 @@ export const OptionGroupModel = types
 			return [{
 				displayName: `Choice of ${self.options.length} Color${isPlural && 's'}`,
 			}];
+		},
+	}))
+	.actions(self => ({
+		setSelected(option) {
+			const optionName = isString(option) ? option : option.name;
+			const selectedOption = self.options.find(o => o.name === optionName);
+
+			self.options.forEach((o) => {
+				o.selected = false;
+			});
+			self.options.find(o => o.name === selectedOption.name).selected = true;
 		},
 	}));

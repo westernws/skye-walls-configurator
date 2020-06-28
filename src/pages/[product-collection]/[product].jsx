@@ -48,6 +48,7 @@ export default () => {
 			Router.events.off('routeChangeComplete', collectionChangeHandler);
 		};
 	}, []);
+	// Activate the first product if there are none activated.
 	useEffect(() => {
 		if (!selectedProducts?.length) {
 			return;

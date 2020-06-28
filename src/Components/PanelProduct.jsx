@@ -10,8 +10,8 @@ import tailwindConfig from '-/tailwind.config';
 
 import { useMst } from '~/Stores/App.store';
 import { DummyImage } from '~/Components/DummyImage';
-import { useInput } from '~/util/useInput';
 import { ProductSummary } from '~/Components/ProductSummary';
+import { Color } from '~/Components/Color';
 
 const fullConfig = resolveConfig(tailwindConfig);
 // Need MobX when() because iPhone refuses to invoke window load event within useEffect.
@@ -50,7 +50,6 @@ export const PanelProduct = observer(({ product }) => {
 			tabIndex: '-1',
 		},
 	};
-	const { bind } = useInput();
 	const hasColorOptions = Boolean(colorOptionGroup?.options?.length);
 
 	useEffect(() => {
@@ -149,41 +148,7 @@ export const PanelProduct = observer(({ product }) => {
 				aria-hidden={!isOpen}
 			>
 				<form className="Form Form--colorOptionsForm space-y-6" method="POST">
-					{
-						hasColorOptions &&
-						<fieldset className="Radio Radio--color text-xs">
-							<legend className="Radio-legend text-gray-light uppercase">Color Options:</legend>
-							<div className="Radio-group space-x-2 xl:space-x-4">
-								{
-									colorOptionGroup.options.map((colorOptions) => {
-										const id = `${product.name}-${colorOptions.name}-${colorOptionGroup.name}-control-colorOptionsForm`;
-
-										return (
-											<div key={id} className="Radio-fieldGroup">
-												<input
-													type="radio"
-													name={`${product.name}-${colorOptionGroup.name}`}
-													value={colorOptions.name}
-													id={id}
-													className="Radio-control"
-													defaultChecked={colorOptionGroup.defaultSelected.name === colorOptions.name}
-													{...bind}
-												/>
-												<label
-													className="Radio-label"
-													htmlFor={id}
-													style={{ backgroundColor: `#${colorOptions.hex}` }}
-													{...bind}
-												>
-													<span className="sr-only">{colorOptions.displayName}</span>
-												</label>
-											</div>
-										);
-									})
-								}
-							</div>
-						</fieldset>
-					}
+					<Color product={product} />
 					{
 						Boolean(features.length) &&
 						<div className="PanelProduct-includes space-y-4 text-xs">
