@@ -16,6 +16,7 @@
 	},
 	"dependencies": {
 		"autoprefixer": "^9.8.0",
+		"axios": "^0.19.2",
 		"circular-dependency-plugin": "^5.2.0",
 		"classnames": "^2.2.6",
 		"lodash": "^4.17.15",

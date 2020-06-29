@@ -23,11 +23,11 @@
 			}
 			&:checked ~ .Radio-label {
 				border: 0.075em solid theme('colors.white');
-				box-shadow: 0 0 0 0.03em theme("colors.red");
+				box-shadow: 0 0 0 0.03em theme('colors.red');
 				&::after {
 					@apply absolute rounded-full;
-					content: " ";
-					background: url(/images/check-solid-white.svg) no-repeat 50% 50% theme("colors.red");
+					content: ' ';
+					background: url(/images/check-solid-white.svg) no-repeat 50% 50% theme('colors.red');
 					background-size: 0.3em;
 					width: 0.5em;
 					height: 0.5em;

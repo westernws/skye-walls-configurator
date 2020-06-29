@@ -20,6 +20,7 @@ module.exports = {
 		'import/prefer-default-export': 'off',
 		'indent': [2, 'tab'],
 		'jsx-a11y/anchor-is-valid': 'off',
+		'jsx-a11y/label-has-associated-control': 'off',
 		'max-len': ['off', { code: 120, tabWidth: 4 }],
 		'no-console': 'off',
 		'no-param-reassign': [2, { props: false }],

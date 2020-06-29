@@ -1,0 +1,28 @@
+.CheckboxField {
+	@apply flex;
+	.CheckboxField-label {
+		@apply font-bold pl-10 cursor-pointer;
+	}
+	.CheckboxField-control {
+		@apply absolute w-0 h-0;
+		&:focus {
+			@apply outline-none;
+		}
+		&:focus::after {
+			@apply border-black;
+		}
+		&::after {
+			@apply cursor-pointer block bg-white text-base border border-solid border-gray-light;
+			content: ' ';
+			width: 2rem;
+			height: 2rem;
+			&::focus {
+				@apply outline-none border-black;
+			}
+		}
+		&:checked::after {
+			background: url(/images/check-solid-gray.svg) no-repeat 50% 50% theme('colors.white');
+			background-size: 20px;
+		}
+	}
+}

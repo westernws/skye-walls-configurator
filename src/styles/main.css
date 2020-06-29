@@ -14,7 +14,9 @@
 	@apply bg-white;
 }
 .Button {
-	@apply inline-block text-base bg-red text-white p-2 text-center uppercase transition-all duration-200 ease-in-out;
+	@apply
+		inline-block text-base bg-red text-white px-4 py-2 text-center uppercase font-bold
+		transition-all duration-200 ease-in-out;
 	border-radius: 1rem;
 	&:hover {
 		@apply bg-blue;
@@ -23,4 +25,19 @@
 .Rule {
 	width: 50px;
 	border-bottom: 2px solid theme('colors.gray.default');
+}
+.Sociables {
+	@apply list-none m-0 p-0;
+	.Sociables-facebook svg {
+		width: 16px;
+	}
+	.Sociables-instagram svg {
+		width: 25px;
+	}
+	.Sociables-pinterest svg {
+		width: 20px;
+	}
+	.Sociables-youtube svg {
+		width: 25px;
+	}
 }
