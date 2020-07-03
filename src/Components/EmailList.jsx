@@ -28,7 +28,15 @@ export const EmailList = () => {
 								className="TextField-label text-base md:text-sm"
 							>First Name
 							</label>
-							<input id="firstName-emailListForm" name="firstName" className="TextField-control" />
+							<input
+								id="firstName-emailListForm"
+								name="firstName"
+								className="TextField-control"
+								required
+								pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
+								title="Please enter a valid first name"
+								minLength="2"
+							/>
 						</div>
 						<div className="TextField space-y-2 md:w-1/2">
 							<label
@@ -36,7 +44,15 @@ export const EmailList = () => {
 								className="TextField-label text-base md:text-sm"
 							>Last Name
 							</label>
-							<input id="lastName-emailListForm" name="lastName" className="TextField-control" />
+							<input
+								id="lastName-emailListForm"
+								name="lastName"
+								className="TextField-control"
+								required
+								pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
+								title="Please enter a valid last name"
+								minLength="2"
+							/>
 						</div>
 					</div>
 					<div className="space-y-2 md:flex md:space-y-0 md:space-x-12">
@@ -44,10 +60,16 @@ export const EmailList = () => {
 							<label
 								htmlFor="email-emailListForm"
 								className="TextField-label text-base md:text-sm"
-								type="email"
 							>Email
 							</label>
-							<input id="email-emailListForm" name="email" className="TextField-control" />
+							<input
+								type="email"
+								required
+								pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+								id="email-emailListForm"
+								name="email"
+								className="TextField-control"
+							/>
 						</div>
 						<div className="TextField space-y-2 md:w-1/2">
 							<label
@@ -55,7 +77,16 @@ export const EmailList = () => {
 								className="TextField-label text-base md:text-sm"
 							>ZIP Code
 							</label>
-							<input id="email-emailListForm" name="zipCode" className="TextField-control" />
+							<input
+								id="email-emailListForm"
+								name="zipCode"
+								className="TextField-control"
+								required
+								pattern="^\d{5}$"
+								minLength="5"
+								maxLength="5"
+								title="Please enter a valid ZIP code"
+							/>
 						</div>
 					</div>
 				</div>
