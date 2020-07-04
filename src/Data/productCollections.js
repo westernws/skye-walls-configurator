@@ -13,7 +13,7 @@ export default [
 	{
 		name: 'folding',
 		displayName: 'Folding',
-		displayGroupName: 'Folding Door',
+		displayGroupName: 'Aluminum Bi-Fold Door',
 		description: `
 			Sometimes referred to as bi-fold or accordion doors, our folding doors slide open and feature panels that
 			fold up against a wall for a true indoor-outdoor experience. Available with a swinging access door for

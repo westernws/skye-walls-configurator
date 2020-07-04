@@ -34,7 +34,7 @@ if (process.browser) {
 export const PanelProduct = observer(({ product }) => {
 	const { modal, setActivePanelProduct } = useMst();
 	const {
-		isActive, colorOptionGroup, tagName = 'li', displayName, link, className = '', features = [],
+		isActive, colorOptionGroup, tagName = 'li', displayName, configLink, className = '', features = [],
 	} = product;
 	const TagName = tagName;
 	const [isOpen, setIsOpen] = useState(false);
@@ -169,7 +169,7 @@ export const PanelProduct = observer(({ product }) => {
 						</div>
 					}
 					<div className="PanelProduct-cta">
-						<Link href={link.href} as={link.as}>
+						<Link href={configLink.href} as={configLink.as}>
 							<a {...linkProps}>
 								<strong>
 									{

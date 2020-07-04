@@ -23,3 +23,15 @@
 		@apply text-sm;
 	}
 }
+
+.SiteNav.SiteNav--tight {
+	& {
+		@apply pl-3;
+	}
+	.SiteNav-wrap {
+	}
+	.SiteNav-logo {
+		@apply mr-3;
+		width: 80px;
+	}
+}

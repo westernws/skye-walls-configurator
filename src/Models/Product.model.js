@@ -18,11 +18,22 @@ const Product = types
 		isActive: false,
 	})
 	.views(self => ({
+		get displayGroupName() {
+			return self.getParentOfName('ProductCollection').displayGroupName;
+		},
+		get colorOptionGroup() {
+			return self.optionGroups?.find?.(optGroup => optGroup.name === 'color') || {};
+		},
+		get configLink() {
+			const { link } = self;
+
+			return {
+				href: `/config${link.href}`,
+				as: `/config${link.as}`,
+			};
+		},
 		get featureList() {
 			return self.features.map(feature => feature.featureText);
-		},
-		get slug() {
-			return kebabCase(self.displayName);
 		},
 		get link() {
 			const href = ['[product-collection]', '[product]'];
@@ -36,11 +47,11 @@ const Product = types
 				as: `/${as.join('/')}`,
 			};
 		},
-		get colorOptionGroup() {
-			return self.optionGroups?.find?.(optGroup => optGroup.name === 'color') || {};
-		},
 		get selectedColor() {
 			return self.colorOptionGroup.options.find(option => option.selected);
+		},
+		get slug() {
+			return kebabCase(self.displayName);
 		},
 	}))
 	.actions(self => ({

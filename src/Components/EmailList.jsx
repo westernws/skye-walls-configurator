@@ -1,11 +1,9 @@
 import React from 'react';
-import Router from 'next/router';
 
 export const EmailList = () => {
-	console.log(Router);
 	return (
 		<form
-			action={`http://go.westernwindowsystems.com/l/694473/2020-06-28/35sr32?success_location=${encodeURIComponent('http://localhost:3000/?form-success=emailListForm')}&error_location=${encodeURIComponent('http://localhost:3000/?form-error=emailListForm')}`}
+			action="http://go.westernwindowsystems.com/l/694473/2020-06-28/35sr32"
 			method="post"
 			className="divide-y divide-gray-light divide-opacity-50 space-y-6 md:w-2/3"
 		>
