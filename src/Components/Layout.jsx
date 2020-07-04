@@ -11,6 +11,7 @@ import { IntersectionObserverFactory } from '~/util/IntersectionObserver';
 import { Meta } from '~/Components/Meta';
 import { useMst } from '~/Stores/App.store';
 import { Modal } from '~/Components/Modal';
+import { BarsSolid } from '~/Components/svg/BarsSolid.svg';
 
 export const Layout = observer(({ children }) => {
 	const { productCollections, modal } = useMst();
@@ -66,12 +67,12 @@ export const Layout = observer(({ children }) => {
 									</a>
 								</Link>
 							</div>
-							<ul className="SiteNav-menu 2xl:hidden">
+							<ul className="Menu 2xl:hidden">
 								<li>
 									<Link href="#">
 										<a>
 											<div className="Icon">
-												<img src="/images/bars-solid.svg" alt="Menu" />
+												<BarsSolid />
 												<span>Menu</span>
 											</div>
 										</a>

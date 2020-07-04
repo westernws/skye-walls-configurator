@@ -9,6 +9,9 @@
 }
 .Icon {
 	@apply w-8;
+	&.Icon--sm {
+		@apply w-6;
+	}
 }
 .Header {
 	@apply bg-white;

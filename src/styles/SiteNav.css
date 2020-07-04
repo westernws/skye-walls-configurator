@@ -10,25 +10,13 @@
 	@apply mr-6;
 	width: 120px;
 }
-.SiteNav-menu {
-	@apply flex self-stretch;
-	li {
-		@apply flex;
-		border-left: 1px solid theme('colors.black');
-	}
-	a {
-		@apply flex items-center pl-6 pr-6;
-	}
-	span {
-		@apply text-sm;
-	}
-}
 
 .SiteNav.SiteNav--tight {
 	& {
 		@apply pl-3;
 	}
 	.SiteNav-wrap {
+		height: 70px;
 	}
 	.SiteNav-logo {
 		@apply mr-3;

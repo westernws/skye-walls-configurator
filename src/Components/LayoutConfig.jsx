@@ -9,6 +9,7 @@ import { Meta } from '~/Components/Meta';
 import { Modal } from '~/Components/Modal';
 import { ConfigPageModel } from '~/Models/ConfigPage.model';
 import { uniqueId } from '~/util/uniqueId';
+import { Menu } from '~/Components/Menu';
 
 export const LayoutConfig = observer(({ children }) => {
 	const {
@@ -56,18 +57,7 @@ export const LayoutConfig = observer(({ children }) => {
 									<div className="text-xs text-gray-light">{selectedProduct.displayGroupName}</div>
 								</div>
 							</div>
-							<ul className="SiteNav-menu 2xl:hidden">
-								<li>
-									<Link href="#">
-										<a>
-											<div className="Icon">
-												<img src="/images/bars-solid.svg" alt="Menu" />
-												<span>Menu</span>
-											</div>
-										</a>
-									</Link>
-								</li>
-							</ul>
+							<Menu />
 						</div>
 					</nav>
 				</header>

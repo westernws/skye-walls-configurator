@@ -35,7 +35,11 @@ module.exports = {
 				...productColors,
 			},
 		},
-		extend: {},
+		extend: {
+			zIndex: {
+				'-10': '-10',
+			},
+		},
 		fontFamily: {
 			sans: ['acumin-pro', 'Arial', 'Helvetica', 'sans-serif'],
 		},

@@ -1,5 +1,8 @@
 .Modal {
-	@apply relative;
+	@apply relative transition-all duration-300 ease-in-out opacity-0 -z-10;
+	&.is-open {
+		@apply z-auto opacity-100;
+	}
 }
 .Modal-backdrop {
 	@apply w-screen h-screen fixed top-0 left-0;
@@ -18,9 +21,22 @@
 	top: calc(5% - 16px);
 	right: calc(5% - 16px);
 }
-.Modal-closeBtnImg {
+.Modal-closeBtnImg svg {
 	@apply w-8 h-8 p-1;
 }
 .Modal-content {
 	@apply p-12;
+}
+.Modal.Modal--menu {
+	.Modal-container {
+		width: 100%;
+		left: 0;
+		overflow-y: auto;
+	}
+	.Modal-closeBtn {
+		@apply hidden;
+	}
+	.Modal-content {
+		@apply p-0;
+	}
 }

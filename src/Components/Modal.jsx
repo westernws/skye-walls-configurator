@@ -3,20 +3,44 @@ import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
 import cn from 'classnames';
 
+import { TimesSolid } from '~/Components/svg/TimesSolid.svg';
+
 export const Modal = observer(({ modal }) => {
-	const { isOpen, close, content } = modal;
+	const {
+		backdropOffset, close, content, isOpen, type,
+	} = modal;
 
 	return (
-		<div className={cn('Modal', { hidden: !isOpen })}>
-			<div className="Modal-backdrop" />
+		<div className={cn('Modal', {
+			'is-open': isOpen,
+			'is-closed': !isOpen,
+			'Modal--menu': type === 'MENU',
+		})}
+		>
+			<div
+				className="Modal-backdrop"
+				style={{
+					left: `${backdropOffset.left}px`,
+					top: `${backdropOffset.top}px`,
+				}}
+			/>
 			<button
 				className="Modal-closeBtn"
 				type="button"
 				onClick={close}
 			>
-				<img className="Modal-closeBtnImg" src="/images/times-solid.svg" alt="Close modal" />
+				<div className="Modal-closeBtnImg">
+					<TimesSolid />
+				</div>
 			</button>
-			<div className="Modal-container">
+			<div
+				className="Modal-container"
+				style={{
+					...(type === 'MENU') && {
+						top: `${backdropOffset.top}px`,
+					},
+				}}
+			>
 				<div className="Modal-content">{content}</div>
 			</div>
 		</div>

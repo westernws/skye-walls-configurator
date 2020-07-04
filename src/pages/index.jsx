@@ -8,10 +8,10 @@ import { PanelCollection } from '~/Components/PanelCollection';
 import { PanelGroup } from '~/Components/PanelGroup';
 import { Panel } from '~/Components/Panel';
 import { EmailList } from '~/Components/EmailList';
-import { Facebook } from '~/Components/Facebook.svg';
-import { Instagram } from '~/Components/Instagram.svg';
-import { Pinterest } from '~/Components/Pinterest.svg';
-import { YouTube } from '~/Components/YouTube.svg';
+import { Facebook } from '~/Components/svg/Facebook.svg';
+import { Instagram } from '~/Components/svg/Instagram.svg';
+import { Pinterest } from '~/Components/svg/Pinterest.svg';
+import { YouTube } from '~/Components/svg/YouTube.svg';
 
 export async function getStaticProps() {
 	return {

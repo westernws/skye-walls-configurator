@@ -4,16 +4,14 @@ import cn from 'classnames';
 import { observable, when, observe } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
-import resolveConfig from 'tailwindcss/resolveConfig';
 import buildMediaQuery from 'tailwindcss/lib/util/buildMediaQuery';
-import tailwindConfig from '-/tailwind.config';
 
 import { useMst } from '~/Stores/App.store';
 import { DummyImage } from '~/Components/DummyImage';
 import { ProductSummary } from '~/Components/ProductSummary';
 import { Color } from '~/Components/Color';
+import { themeConfig } from '~/util/themeConfig';
 
-const fullConfig = resolveConfig(tailwindConfig);
 // Need MobX when() because iPhone refuses to invoke window load event within useEffect.
 const isLoaded = observable.box(false);
 const isXlMediaQuery = observable.box(undefined);
@@ -23,7 +21,7 @@ const onLoadHandler = () => {
 const onMqChangeHandler = (mql) => {
 	isXlMediaQuery.set(mql.matches);
 };
-const xlMediaQueryStr = buildMediaQuery(fullConfig.theme.screens.xl);
+const xlMediaQueryStr = buildMediaQuery(themeConfig.theme.screens.xl);
 let matchXlMq;
 
 if (process.browser) {
