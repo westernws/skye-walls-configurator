@@ -1,12 +1,16 @@
 import React from 'react';
+import cn from 'classnames';
 
-export const ChevronSolid = () => (
+export const ChevronSolid = ({ direction = 'up' }) => (
 	<svg
 		aria-hidden="true"
 		focusable="false"
 		data-prefix="fas"
 		data-icon="chevron-up"
-		className="svg-inline--fa fa-chevron-up fa-w-14"
+		className={cn('svg-inline--fa fa-chevron-up fa-w-14 transform', {
+			'rotate-180': direction === 'down',
+			'rotate-90': direction === 'right',
+		})}
 		role="img"
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 448 512"

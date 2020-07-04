@@ -75,7 +75,14 @@ export const MenuModal = () => {
 						<li className="Menu-subItem">
 							<Link href="color" as="color">
 								<a className="Menu-subHeading" href="color">
-									<div className="Menu-label">Exit Configurator</div>
+									<div className="Menu-leftCol">
+										<div className="Menu-label">Exit Configurator</div>
+									</div>
+									<div className="Menu-rightCol">
+										<div className="Menu-control">
+											<ChevronSolid direction="right" />
+										</div>
+									</div>
 								</a>
 							</Link>
 						</li>

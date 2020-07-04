@@ -39,5 +39,5 @@
 	@apply font-bold uppercase;
 }
 .Menu-subHeading {
-	@apply block w-full py-4 pr-4 pl-12;
+	@apply block w-full py-4 pr-4 pl-12 flex justify-between items-center;
 }
