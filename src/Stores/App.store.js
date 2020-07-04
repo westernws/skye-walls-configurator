@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react';
+import Router from 'next/router';
 
 import { uniqueId } from '~/util/uniqueId';
 import { AppModel } from '~/Models/App.model';
@@ -25,6 +26,9 @@ export const useMst = () => {
 	return store;
 };
 
+Router.events.on('routeChangeComplete', () => {
+	appStore.modal.close();
+});
 if (process.browser) {
 	global.app = appStore;
 	console.log(appStore.toJSON());

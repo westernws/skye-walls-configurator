@@ -47,6 +47,9 @@ const Product = types
 				as: `/${as.join('/')}`,
 			};
 		},
+		get optionGroupDisplayNames() {
+			return self.optionGroups?.map?.(optionGroup => optionGroup.displayName) || [];
+		},
 		get selectedColor() {
 			return self.colorOptionGroup.options.find(option => option.selected);
 		},

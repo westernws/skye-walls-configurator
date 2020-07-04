@@ -34,6 +34,7 @@ export const LayoutConfig = observer(({ children }) => {
 	}
 	const selectedProduct = page.product;
 
+	global.selectedProduct = selectedProduct;
 	console.log('selectedProduct', selectedProduct);
 
 	return (
@@ -57,7 +58,10 @@ export const LayoutConfig = observer(({ children }) => {
 									<div className="text-xs text-gray-light">{selectedProduct.displayGroupName}</div>
 								</div>
 							</div>
-							<Menu />
+							<Menu
+								selectedProduct={selectedProduct}
+								categories={selectedProduct.optionGroupDisplayNames}
+							/>
 						</div>
 					</nav>
 				</header>

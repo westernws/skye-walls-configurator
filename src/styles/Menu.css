@@ -41,3 +41,10 @@
 .Menu-subHeading {
 	@apply block w-full py-4 pr-4 pl-12 flex justify-between items-center;
 }
+.Menu-itemModelCollectionImg {
+	max-width: 125px;
+}
+.Menu-itemModelProductImg {
+	max-width: 100px;
+	margin-right: 25px;
+}
