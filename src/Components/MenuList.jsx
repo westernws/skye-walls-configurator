@@ -8,11 +8,13 @@ import { FlagSolid } from '~/Components/svg/FlagSolid.svg';
 import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 import { SyncAltSolid } from '~/Components/svg/SyncAltSolid.svg';
 import { UndoAltSolid } from '~/Components/svg/UndoAltSolid.svg';
+import { DoorOpenSolid } from '~/Components/svg/DoorOpenSolid';
 import { MenuListCollection } from '~/Components/MenuListCollection';
 import { MenuListItemParent } from '~/Components/MenuListItemParent';
 import { MenuListItem } from '~/Components/MenuListItem';
 import { useMst } from '~/Stores/App.store';
 import { MenuListItemCollection } from '~/Components/MenuListItemCollection';
+import { StartOver } from '~/Components/StartOver';
 
 export const MenuList = observer(({ categories = [], selectedProduct }) => {
 	const { productCollections, menu, modal } = useMst();
@@ -133,29 +135,16 @@ export const MenuList = observer(({ categories = [], selectedProduct }) => {
 					modal.open({
 						type: 'FROSTY',
 						title: 'Start Over?',
-						content: (
-							<div className="space-y-4">
-								<p>
-									Just a heads-up — you’re about to remove all the options you’ve selected and start
-									from scratch. Are you sure you want to do that?
-								</p>
-								<div className="space-x-1 pt-4">
-									<button
-										className="Button"
-										type="button"
-									>
-										Yes, I want to start over
-									</button>
-									<button
-										className="Button Button--secondary"
-										type="button"
-									>
-										Oops, no I don’t
-									</button>
-								</div>
-							</div>
-						),
+						content: <StartOver />,
 					});
+				}}
+			/>
+			<MenuListItem
+				Icon={DoorOpenSolid}
+				label="Exit Config"
+				link={{
+					href: '/',
+					as: '/',
 				}}
 			/>
 		</ul>
