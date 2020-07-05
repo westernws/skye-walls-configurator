@@ -1,9 +1,11 @@
 import { types } from 'mobx-state-tree';
 import flattenDeep from 'lodash/flattenDeep';
+import buildMediaQuery from 'tailwindcss/lib/util/buildMediaQuery';
 
 import { ProductCollectionModel } from '~/Models/ProductCollection.model';
 import { ModalModel } from '~/Models/Modal.model';
 import { ConfigPageModel } from '~/Models/ConfigPage.model';
+import { themeConfig } from '~/util/themeConfig';
 
 export const AppModel = types
 	.model('App', {
@@ -12,6 +14,7 @@ export const AppModel = types
 		modal: ModalModel,
 		menu: ModalModel,
 		page: types.maybeNull(ConfigPageModel),
+		isMediaQueryXl: false,
 	})
 	.views(self => ({
 		get activePanelProduct() {
@@ -28,6 +31,18 @@ export const AppModel = types
 		},
 	}))
 	.actions(self => ({
+		afterCreate() {
+			if (!process.browser) {
+				return;
+			}
+			const xlMediaQueryStr = buildMediaQuery(themeConfig.theme.screens.xl);
+			const matchXlMq = window.matchMedia(xlMediaQueryStr);
+
+			self.setIsMediaQueryXl(matchXlMq.matches);
+			matchXlMq.addListener((mql) => {
+				self.setIsMediaQueryXl(mql.matches);
+			});
+		},
 		getProductByName(productName) {
 			return self.allProducts.find(product => product.name === productName) || {};
 		},
@@ -43,5 +58,8 @@ export const AppModel = types
 		},
 		setPage(pageModel) {
 			self.page = pageModel;
+		},
+		setIsMediaQueryXl(value) {
+			self.isMediaQueryXl = value;
 		},
 	}));

@@ -1,43 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import { observable, when, observe } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
-import buildMediaQuery from 'tailwindcss/lib/util/buildMediaQuery';
 
 import { useMst } from '~/Stores/App.store';
 import { DummyImage } from '~/Components/DummyImage';
 import { ProductSummary } from '~/Components/ProductSummary';
 import { Color } from '~/Components/Color';
-import { themeConfig } from '~/util/themeConfig';
 
-// Need MobX when() because iPhone refuses to invoke window load event within useEffect.
-const isLoaded = observable.box(false);
-const isXlMediaQuery = observable.box(undefined);
-const onLoadHandler = () => {
-	isLoaded.set(true);
-};
-const onMqChangeHandler = (mql) => {
-	isXlMediaQuery.set(mql.matches);
-};
-const xlMediaQueryStr = buildMediaQuery(themeConfig.theme.screens.xl);
-let matchXlMq;
-
-if (process.browser) {
-	window.addEventListener('load', onLoadHandler);
-	matchXlMq = window.matchMedia(xlMediaQueryStr);
-	matchXlMq.addListener(onMqChangeHandler);
-}
 export const PanelProduct = observer(({ product }) => {
-	const { modal, setActivePanelProduct } = useMst();
+	const appStore = useMst();
+	const { modal, setActivePanelProduct, isMediaQueryXl } = appStore;
 	const {
 		isActive, colorOptionGroup, tagName = 'li', displayName, configLink, className = '', features = [],
 	} = product;
 	const TagName = tagName;
 	const [isOpen, setIsOpen] = useState(false);
-	const [rootHeight, setRootHeight] = useState('auto');
-	const [detailsHeight, setDetailsHeight] = useState('auto');
 	const panelProductRef = useRef(null);
 	const detailsRef = useRef(null);
 	const heroRef = useRef(null);
@@ -51,42 +30,20 @@ export const PanelProduct = observer(({ product }) => {
 	const hasColorOptions = Boolean(colorOptionGroup?.options?.length);
 
 	useEffect(() => {
-		when(() => isLoaded, () => {
-			const deactiveHeight = panelProductRef.current.getBoundingClientRect().height;
-			let offset = 0;
-
-			if (rootHeight === 'auto') {
-				if (matchXlMq.matches) {
-					offset = -45;
-				}
-				setRootHeight(deactiveHeight + offset);
-			}
-		});
-		const disposeMq = observe(isXlMediaQuery, (change) => {
-			if (typeof change.oldValue === 'undefined' && !change.newValue) {
-				return;
-			}
-			if (!change.newValue) {
-				const deactiveHeight = panelProductRef.current.getBoundingClientRect().height;
-
-				setRootHeight(deactiveHeight);
-			}
-		});
-
-		return () => {
-			matchXlMq.removeListener(onMqChangeHandler);
-			disposeMq();
-		};
-	}, []);
-	useEffect(() => {
-		if (rootHeight === 'auto') {
-			return;
+		if (isMediaQueryXl) {
+			setIsOpen(false);
 		}
-		const { height } = detailsRef.current.getBoundingClientRect();
+	}, []);
 
-		setDetailsHeight(height);
-	}, [rootHeight]);
+	let maxHeight;
 
+	if (isMediaQueryXl) {
+		maxHeight = 'none';
+	} else if (isOpen) {
+		maxHeight = '600px';
+	} else {
+		maxHeight = '0';
+	}
 	return (
 		<TagName
 			ref={panelProductRef}
@@ -95,18 +52,15 @@ export const PanelProduct = observer(({ product }) => {
 				'is-open': isOpen,
 			})}
 			onMouseEnter={() => {
-				if (!matchXlMq?.matches) {
+				if (!isMediaQueryXl) {
 					return;
 				}
 				setActivePanelProduct(product);
 			}}
-			style={{
-				height: isOpen ? rootHeight + detailsHeight : rootHeight,
-			}}
 		>
 			<div
 				onClick={() => {
-					if (matchXlMq?.matches) {
+					if (isMediaQueryXl) {
 						return;
 					}
 					setIsOpen(!isOpen);
@@ -119,7 +73,7 @@ export const PanelProduct = observer(({ product }) => {
 					<div className="PanelProduct-img">
 						<DummyImage width="420" height="233" />
 					</div>
-					<h2 className="PanelProduct-title space-x-1 text-xl xl:text-2xl xl:space-x-0 xl:space-y-1">
+					<h2 className="PanelProduct-title space-x-1 text-l sm:text-xl xl:text-2xl xl:space-x-0 xl:space-y-1">
 						<span>{displayName}</span>
 						<button
 							className="PanelProduct-moreInfo"
@@ -139,50 +93,55 @@ export const PanelProduct = observer(({ product }) => {
 				</div>
 			</div>
 			<div
-				ref={detailsRef}
-				className={cn('PanelProduct-details pt-8 space-y-4', {
-					hidden: rootHeight === 'auto',
-				})}
-				aria-hidden={!isOpen}
+				className="transition-all duration-500 ease-in-out"
+				style={{ maxHeight }}
 			>
-				<form className="Form Form--colorOptionsForm space-y-6" method="POST">
-					<Color product={product} />
-					{
-						Boolean(features.length) &&
-						<div className="PanelProduct-includes space-y-4 text-xs">
-							<h3 className="text-gray-light uppercase">
-								Includes:
-								{
-									Boolean(product.inheritedFeatures) &&
-									<strong className="uppercase font-bold text-base text-black pl-1">{product.inheritedFeatures}</strong>
-								}
-							</h3>
-							<ul className="Checklist">
-								{
-									features.map(feature => (
-										<li key={feature}>{feature}</li>
-									))
-								}
-							</ul>
+				<div
+					ref={detailsRef}
+					className="PanelProduct-details pt-8 space-y-4"
+					aria-hidden={!isOpen}
+				>
+					<form className="Form Form--colorOptionsForm space-y-6" method="POST">
+						<Color product={product} />
+						{
+							Boolean(features.length) &&
+							<div className="PanelProduct-includes space-y-4 text-xs">
+								<h3 className="text-gray-light uppercase">
+									Includes:
+									{
+										Boolean(product.inheritedFeatures) &&
+										<strong className="uppercase font-bold text-base text-black pl-1">
+											{product.inheritedFeatures}
+										</strong>
+									}
+								</h3>
+								<ul className="Checklist">
+									{
+										features.map(feature => (
+											<li key={feature}>{feature}</li>
+										))
+									}
+								</ul>
+							</div>
+						}
+						<div className="PanelProduct-cta">
+							<Link href={configLink.href} as={configLink.as}>
+								<a {...linkProps}>
+									<strong>
+										{
+											hasColorOptions &&
+											'Continue Building'
+										}
+										{
+											!hasColorOptions &&
+											'Design Yours'
+										}
+									</strong>
+								</a>
+							</Link>
 						</div>
-					}
-					<div className="PanelProduct-cta">
-						<Link href={configLink.href} as={configLink.as}>
-							<a {...linkProps}>
-								<strong>
-									{
-										hasColorOptions &&
-										'Continue Building'
-									}
-									{
-										!hasColorOptions &&
-										'Design Yours'
-									}
-								</strong>
-							</a>
-						</Link>
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
 		</TagName>
 	);
