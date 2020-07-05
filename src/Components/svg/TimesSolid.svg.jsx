@@ -1,6 +1,8 @@
 import React from 'react';
 
-export const TimesSolid = ({ color = '#fff' }) => (
+import { themeConfig } from '~/util/themeConfig';
+
+export const TimesSolid = ({ color = themeConfig.theme.colors.white }) => (
 	<svg
 		aria-hidden="true"
 		data-prefix="fas"

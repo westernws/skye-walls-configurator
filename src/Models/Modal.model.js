@@ -6,7 +6,8 @@ export const ModalModel = types
 		backdropOffsetX: 0,
 		backdropOffsetY: 0,
 		isOpen: false,
-		type: types.optional(types.enumeration('Modal Type', ['MODAL', 'MENU']), 'MODAL'),
+		type: types.optional(types.enumeration('Modal Type', ['MODAL', 'MENU', 'FROSTY']), 'MODAL'),
+		title: '',
 	})
 	.volatile(() => ({
 		content: null,
@@ -22,13 +23,21 @@ export const ModalModel = types
 	.actions(self => ({
 		close() {
 			self.isOpen = false;
-			self.content = null;
+			// Delay to give transition animation time to fade out.
+			setTimeout(self.reset, 300);
 		},
-		open({ backdropOffset = {}, content, type = 'MODAL' }) {
+		open({
+			backdropOffset = {}, content, type = 'MODAL', title = '',
+		}) {
 			self.backdropOffsetX = backdropOffset.x || 0;
 			self.backdropOffsetY = backdropOffset.y || 0;
 			self.type = type;
 			self.content = content;
+			self.title = title;
 			self.isOpen = true;
+		},
+		reset() {
+			self.title = '';
+			self.content = null;
 		},
 	}));

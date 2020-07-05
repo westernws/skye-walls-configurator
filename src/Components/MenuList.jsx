@@ -15,7 +15,7 @@ import { useMst } from '~/Stores/App.store';
 import { MenuListItemCollection } from '~/Components/MenuListItemCollection';
 
 export const MenuList = observer(({ categories = [], selectedProduct }) => {
-	const { productCollections } = useMst();
+	const { productCollections, menu, modal } = useMst();
 	const [isFinishedDesigningOpen, setIsFinishedDesigningOpen] = useState(false);
 	const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
 	const [isChangeModelOpen, setIsChangeModelOpen] = useState(false);
@@ -129,7 +129,33 @@ export const MenuList = observer(({ categories = [], selectedProduct }) => {
 				Icon={UndoAltSolid}
 				label="Start Over"
 				onClick={() => {
-					console.log('ding');
+					menu.close();
+					modal.open({
+						type: 'FROSTY',
+						title: 'Start Over?',
+						content: (
+							<div className="space-y-4">
+								<p>
+									Just a heads-up — you’re about to remove all the options you’ve selected and start
+									from scratch. Are you sure you want to do that?
+								</p>
+								<div className="space-x-1 pt-4">
+									<button
+										className="Button"
+										type="button"
+									>
+										Yes, I want to start over
+									</button>
+									<button
+										className="Button Button--secondary"
+										type="button"
+									>
+										Oops, no I don’t
+									</button>
+								</div>
+							</div>
+						),
+					});
 				}}
 			/>
 		</ul>

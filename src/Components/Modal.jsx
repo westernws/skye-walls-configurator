@@ -4,17 +4,30 @@ import 'mobx-react-lite/batchingForReactDom';
 import cn from 'classnames';
 
 import { TimesSolid } from '~/Components/svg/TimesSolid.svg';
+import { themeConfig } from '~/util/themeConfig';
 
 export const Modal = observer(({ modal }) => {
 	const {
-		backdropOffset, close, content, isOpen, type,
+		backdropOffset, close, content, isOpen, type, title,
 	} = modal;
+	const closeBtn = (
+		<button
+			className="Modal-closeBtn"
+			type="button"
+			onClick={close}
+		>
+			<div className="Modal-closeBtnImg">
+				<TimesSolid color={type === 'FROSTY' ? themeConfig.theme.colors.black : themeConfig.theme.colors.white} />
+			</div>
+		</button>
+	);
 
 	return (
 		<div className={cn('Modal', {
 			'is-open': isOpen,
 			'is-closed': !isOpen,
 			'Modal--menu': type === 'MENU',
+			'Modal--frosty': type === 'FROSTY',
 		})}
 		>
 			<div
@@ -24,15 +37,7 @@ export const Modal = observer(({ modal }) => {
 					top: `${backdropOffset.top}px`,
 				}}
 			/>
-			<button
-				className="Modal-closeBtn"
-				type="button"
-				onClick={close}
-			>
-				<div className="Modal-closeBtnImg">
-					<TimesSolid />
-				</div>
-			</button>
+			{ type === 'MODAL' && closeBtn }
 			<div
 				className="Modal-container"
 				style={{
@@ -41,7 +46,14 @@ export const Modal = observer(({ modal }) => {
 					},
 				}}
 			>
-				<div className="Modal-content">{content}</div>
+				{ type === 'FROSTY' && closeBtn }
+				<div className="Modal-content">
+					{
+						Boolean(title) &&
+						<h1 className="text-4xl pb-4">{title}</h1>
+					}
+					{content}
+				</div>
 			</div>
 		</div>
 	);
