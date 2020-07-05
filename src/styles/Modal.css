@@ -2,13 +2,12 @@
 	@apply relative transition-all duration-300 ease-in-out opacity-0 -z-10;
 	pointer-events: none;
 	&.is-open {
-		@apply z-auto opacity-100;
+		@apply z-20 opacity-100;
 		pointer-events: all;
 	}
 }
 .Modal-backdrop {
-	@apply w-screen h-screen fixed top-0 left-0;
-	z-index: 10;
+	@apply w-screen h-screen fixed top-0 left-0 z-10;
 	background: rgba(0, 0, 0, 0.90);
 }
 .Modal-container {
@@ -30,6 +29,9 @@
 	@apply p-12;
 }
 .Modal.Modal--menu {
+	&.is-open {
+		@apply z-30;
+	}
 	.Modal-container {
 		@apply absolute;
 		width: 100%;
@@ -43,4 +45,7 @@
 	.Modal-content {
 		@apply p-0;
 	}
+}
+.Modal.Modal--frosty {
+
 }

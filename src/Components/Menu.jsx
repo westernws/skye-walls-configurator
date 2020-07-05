@@ -10,7 +10,7 @@ import { TimesSolid } from '~/Components/svg/TimesSolid.svg';
 import { themeConfig } from '~/util/themeConfig';
 
 export const Menu = observer(({ categories = [], selectedProduct }) => {
-	const { modal } = useMst();
+	const { menu } = useMst();
 
 	return (
 		<ul className="Menu 2xl:hidden">
@@ -18,10 +18,10 @@ export const Menu = observer(({ categories = [], selectedProduct }) => {
 				<button
 					type="button"
 					onClick={() => {
-						if (modal.isOpen) {
-							modal.close();
+						if (menu.isOpen) {
+							menu.close();
 						} else {
-							modal.open({
+							menu.open({
 								backdropOffset: {
 									x: 0,
 									y: 70,
@@ -33,24 +33,24 @@ export const Menu = observer(({ categories = [], selectedProduct }) => {
 					}}
 				>
 					<div className={cn('Icon', {
-						'Icon--sm': modal.isOpen,
+						'Icon--sm': menu.isOpen,
 					})}
 					>
 						{
-							modal.isOpen &&
+							menu.isOpen &&
 							<TimesSolid color={themeConfig.theme.colors.black} />
 						}
 						{
-							!modal.isOpen &&
+							!menu.isOpen &&
 							<BarsSolid />
 						}
 					</div>
 					{
-						modal.isOpen &&
+						menu.isOpen &&
 						<span>Close</span>
 					}
 					{
-						!modal.isOpen &&
+						!menu.isOpen &&
 						<span>Menu</span>
 					}
 				</button>

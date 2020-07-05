@@ -13,7 +13,7 @@ import { Menu } from '~/Components/Menu';
 
 export const LayoutConfig = observer(({ children }) => {
 	const {
-		modal, setPage, getProductBySlug, page,
+		modal, menu, setPage, getProductBySlug, page,
 	} = useMst();
 	const { router } = Router;
 	let product;
@@ -40,6 +40,7 @@ export const LayoutConfig = observer(({ children }) => {
 	return (
 		<>
 			<Modal modal={modal} />
+			<Modal modal={menu} />
 			<div className="text-sm md:text-lg bg-gray-lighter h-full">
 				<Meta />
 				<header id="header" className="Header fixed top-0 z-50">

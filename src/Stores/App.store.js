@@ -16,6 +16,9 @@ export const appStore = AppModel.create({
 	modal: ModalModel.create({
 		id: `ModalModel_${uniqueId()}`,
 	}),
+	menu: ModalModel.create({
+		id: `ModalModel_${uniqueId()}`,
+	}),
 });
 export const useMst = () => {
 	const store = useContext(AppStoreContext);
@@ -28,6 +31,7 @@ export const useMst = () => {
 
 Router.events.on('routeChangeComplete', () => {
 	appStore.modal.close();
+	appStore.menu.close();
 });
 if (process.browser) {
 	global.app = appStore;

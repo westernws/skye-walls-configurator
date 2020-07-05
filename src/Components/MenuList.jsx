@@ -7,7 +7,9 @@ import { TableSolid } from '~/Components/svg/TableSolid.svg';
 import { FlagSolid } from '~/Components/svg/FlagSolid.svg';
 import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 import { SyncAltSolid } from '~/Components/svg/SyncAltSolid.svg';
+import { UndoAltSolid } from '~/Components/svg/UndoAltSolid.svg';
 import { MenuListCollection } from '~/Components/MenuListCollection';
+import { MenuListItemParent } from '~/Components/MenuListItemParent';
 import { MenuListItem } from '~/Components/MenuListItem';
 import { useMst } from '~/Stores/App.store';
 import { MenuListItemCollection } from '~/Components/MenuListItemCollection';
@@ -31,7 +33,7 @@ export const MenuList = observer(({ categories = [], selectedProduct }) => {
 		<ul className="Menu-items divide-y-2 divide-gray-lighter">
 			{
 				Boolean(categories.length) &&
-				<MenuListItem
+				<MenuListItemParent
 					isOpen={isCategoriesOpen}
 					setIsOpen={setIsCategoriesOpen}
 					Icon={TableSolid}
@@ -48,9 +50,9 @@ export const MenuList = observer(({ categories = [], selectedProduct }) => {
 							</li>
 						))
 					}
-				</MenuListItem>
+				</MenuListItemParent>
 			}
-			<MenuListItem
+			<MenuListItemParent
 				isOpen={isFinishedDesigningOpen}
 				setIsOpen={setIsFinishedDesigningOpen}
 				Icon={FlagSolid}
@@ -77,8 +79,8 @@ export const MenuList = observer(({ categories = [], selectedProduct }) => {
 						</a>
 					</Link>
 				</li>
-			</MenuListItem>
-			<MenuListItem
+			</MenuListItemParent>
+			<MenuListItemParent
 				isOpen={isChangeModelOpen}
 				setIsOpen={setIsChangeModelOpen}
 				Icon={SyncAltSolid}
@@ -122,7 +124,14 @@ export const MenuList = observer(({ categories = [], selectedProduct }) => {
 						);
 					})
 				}
-			</MenuListItem>
+			</MenuListItemParent>
+			<MenuListItem
+				Icon={UndoAltSolid}
+				label="Start Over"
+				onClick={() => {
+					console.log('ding');
+				}}
+			/>
 		</ul>
 	);
 });

@@ -10,6 +10,7 @@ export const AppModel = types
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('AppModel_') === 0),
 		productCollections: types.array(ProductCollectionModel),
 		modal: ModalModel,
+		menu: ModalModel,
 		page: types.maybeNull(ConfigPageModel),
 	})
 	.views(self => ({
