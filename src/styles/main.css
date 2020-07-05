@@ -14,7 +14,7 @@
 	}
 }
 .Header {
-	@apply bg-white;
+	@apply bg-white w-full;
 }
 .Button {
 	@apply

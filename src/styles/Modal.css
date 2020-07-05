@@ -1,7 +1,9 @@
 .Modal {
 	@apply relative transition-all duration-300 ease-in-out opacity-0 -z-10;
+	pointer-events: none;
 	&.is-open {
 		@apply z-auto opacity-100;
+		pointer-events: all;
 	}
 }
 .Modal-backdrop {
@@ -29,9 +31,11 @@
 }
 .Modal.Modal--menu {
 	.Modal-container {
+		@apply absolute;
 		width: 100%;
 		left: 0;
 		overflow-y: auto;
+		max-height: none;
 	}
 	.Modal-closeBtn {
 		@apply hidden;
