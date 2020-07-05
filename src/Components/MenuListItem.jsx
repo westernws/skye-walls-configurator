@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
+import cn from 'classnames';
 
 import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 
 export const MenuListItem = ({
-	onClick = null, Icon = null, label, link = null,
+	onClick = null, Icon = null, label, link = null, iconClasses = '',
 }) => {
 	const isLink = Boolean(link);
 	const TagName = isLink ? Link : 'button';
@@ -21,7 +22,13 @@ export const MenuListItem = ({
 	const insides = (
 		<>
 			<div className="Menu-leftCol">
-				<div className="Menu-labelIcon"><Icon /></div>
+				<div className={cn('Menu-labelIcon', {
+					'w-4': !iconClasses,
+					[iconClasses]: Boolean(iconClasses),
+				})}
+				>
+					<Icon />
+				</div>
 				<div className="Menu-label">{label}</div>
 			</div>
 			<div className="Menu-rightCol">

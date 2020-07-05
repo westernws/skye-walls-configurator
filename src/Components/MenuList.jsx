@@ -141,6 +141,7 @@ export const MenuList = observer(({ categories = [], selectedProduct }) => {
 			/>
 			<MenuListItem
 				Icon={DoorOpenSolid}
+				iconClasses="w-5"
 				label="Exit Config"
 				link={{
 					href: '/',

@@ -25,9 +25,9 @@
 		@apply bg-blue;
 	}
 	&.Button--secondary {
-		@apply bg-black text-white;
+		@apply bg-gray text-white;
 		&:hover {
-			@apply bg-white border border-gray text-black;
+			@apply bg-white border border-gray text-gray;
 		}
 	}
 }

@@ -24,7 +24,7 @@ export const MenuListItemParent = ({
 				}}
 			>
 				<div className="Menu-leftCol">
-					<div className="Menu-labelIcon"><Icon /></div>
+					<div className="Menu-labelIcon w-4"><Icon /></div>
 					<div className="Menu-label">{label}</div>
 				</div>
 				{

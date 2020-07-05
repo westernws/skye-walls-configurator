@@ -17,7 +17,7 @@ export const Modal = observer(({ modal }) => {
 			onClick={close}
 		>
 			<div className="Modal-closeBtnImg">
-				<TimesSolid color={type === 'FROSTY' ? themeConfig.theme.colors.black : themeConfig.theme.colors.white} />
+				<TimesSolid color={type === 'FROSTY' ? themeConfig.theme.colors.gray : themeConfig.theme.colors.white} />
 			</div>
 		</button>
 	);

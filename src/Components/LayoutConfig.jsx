@@ -44,7 +44,7 @@ export const LayoutConfig = observer(({ children }) => {
 			<div className="text-sm md:text-lg bg-gray-lighter h-full">
 				<Meta />
 				<header id="header" className="Header fixed top-0 z-50">
-					<nav className="SiteNav SiteNav--tight">
+					<nav className="SiteNav SiteNav--config">
 						<div className="SiteNav-wrap">
 							<div className="flex items-center">
 								<div className="SiteNav-logo">
@@ -54,7 +54,7 @@ export const LayoutConfig = observer(({ children }) => {
 										</a>
 									</Link>
 								</div>
-								<div>
+								<div className="items-baseline xl:flex xl:space-x-2 xl:uppercase">
 									<h1 className="text-lg leading-tight">{selectedProduct.displayName}</h1>
 									<div className="text-xs text-gray-light">{selectedProduct.displayGroupName}</div>
 								</div>

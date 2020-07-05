@@ -13,7 +13,7 @@
 	}
 }
 .Menu-item {
-	@apply text-black relative;
+	@apply relative;
 	&.is-open {
 		.Menu-heading {
 			@apply bg-gray-lighter;
@@ -33,7 +33,7 @@
 	@apply flex justify-between items-center w-full py-4 pr-4 pl-12;
 }
 .Menu-labelIcon {
-	@apply absolute left-0 ml-4 w-4;
+	@apply absolute left-0 ml-4;
 }
 .Menu-label {
 	@apply font-bold uppercase;

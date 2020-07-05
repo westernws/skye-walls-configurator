@@ -13,7 +13,7 @@ export const Menu = observer(({ categories = [], selectedProduct }) => {
 	const { menu } = useMst();
 
 	return (
-		<ul className="Menu 2xl:hidden">
+		<ul className="Menu xl:hidden">
 			<li>
 				<button
 					type="button"
@@ -38,7 +38,7 @@ export const Menu = observer(({ categories = [], selectedProduct }) => {
 					>
 						{
 							menu.isOpen &&
-							<TimesSolid color={themeConfig.theme.colors.black} />
+							<TimesSolid color={themeConfig.theme.colors.gray.default} />
 						}
 						{
 							!menu.isOpen &&
