@@ -46,7 +46,7 @@ export const LayoutConfig = observer(({ children }) => {
 			<Modal modal={menu} />
 			<div className="text-sm md:text-lg bg-gray-lighter h-full">
 				<Meta />
-				<header id="header" className="Header fixed top-0 z-50">
+				<header id="header" className="Header Header--fixed">
 					<nav className="SiteNav SiteNav--config">
 						<div className="SiteNav-wrap">
 							<div className="flex items-center">

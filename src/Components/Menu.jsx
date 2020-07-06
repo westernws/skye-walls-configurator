@@ -22,10 +22,6 @@ export const Menu = observer(({ categories = [], selectedProduct }) => {
 							menu.close();
 						} else {
 							menu.open({
-								backdropOffset: {
-									x: 0,
-									y: 70,
-								},
 								content: <MenuList categories={categories} selectedProduct={selectedProduct} />,
 								type: 'MENU',
 							});

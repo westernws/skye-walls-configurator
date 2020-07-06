@@ -3,11 +3,10 @@ import { types } from 'mobx-state-tree';
 export const ModalModel = types
 	.model('Modal', {
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ModalModel_') === 0),
-		backdropOffsetX: 0,
-		backdropOffsetY: 0,
 		isOpen: false,
 		type: types.optional(types.enumeration('Modal Type', ['MODAL', 'MENU', 'FROSTY', 'SLIDER']), 'MODAL'),
 		title: '',
+		closeOnBackdropClick: false,
 	})
 	.volatile(() => ({
 		content: null,
@@ -19,6 +18,14 @@ export const ModalModel = types
 				top: self.backdropOffsetY,
 			};
 		},
+		get defaults() {
+			return {
+				isOpen: false,
+				title: '',
+				closeOnBackdropClick: false,
+				content: null,
+			};
+		},
 	}))
 	.actions(self => ({
 		close() {
@@ -27,17 +34,17 @@ export const ModalModel = types
 			setTimeout(self.reset, 300);
 		},
 		open({
-			backdropOffset = {}, content, type = 'MODAL', title = '',
+			content, type = 'MODAL', title = '',
 		}) {
-			self.backdropOffsetX = backdropOffset.x || 0;
-			self.backdropOffsetY = backdropOffset.y || 0;
 			self.type = type;
 			self.content = content;
 			self.title = title;
-			self.isOpen = true;
+			setTimeout(() => self.setIsOpen(true), 150);
 		},
 		reset() {
-			self.title = '';
-			self.content = null;
+			Object.assign(self, self.defaults);
+		},
+		setIsOpen(isOpen) {
+			self.isOpen = isOpen;
 		},
 	}));

@@ -8,7 +8,7 @@ import { themeConfig } from '~/util/themeConfig';
 
 export const Modal = observer(({ modal }) => {
 	const {
-		backdropOffset, close, content, isOpen, type, title,
+		close, content, isOpen, type, title,
 	} = modal;
 	const closeBtn = (
 		<button
@@ -28,23 +28,22 @@ export const Modal = observer(({ modal }) => {
 			'is-closed': !isOpen,
 			'Modal--menu': type === 'MENU',
 			'Modal--frosty': type === 'FROSTY',
+			'Modal--slider': type === 'SLIDER',
+			'-z-10': !isOpen,
+			'z-10': isOpen && type !== 'SLIDER',
+			'z-30': isOpen && type === 'SLIDER',
 		})}
 		>
 			<div
 				className="Modal-backdrop"
-				style={{
-					left: `${backdropOffset.left}px`,
-					top: `${backdropOffset.top}px`,
-				}}
+				role="button"
+				onClick={close}
+				tabIndex="0"
+				aria-label="Close modal"
 			/>
 			{ type === 'MODAL' && closeBtn }
 			<div
 				className="Modal-container"
-				style={{
-					...(type === 'MENU') && {
-						top: `${backdropOffset.top}px`,
-					},
-				}}
 			>
 				{ type === 'FROSTY' && closeBtn }
 				<div className="Modal-content">
