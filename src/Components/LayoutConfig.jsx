@@ -10,6 +10,9 @@ import { Modal } from '~/Components/Modal';
 import { ConfigPageModel } from '~/Models/ConfigPage.model';
 import { uniqueId } from '~/util/uniqueId';
 import { Menu } from '~/Components/Menu';
+import { StartOver } from '~/Components/StartOver';
+import { ChangeProduct } from '~/Components/ChangeProduct';
+import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 
 export const LayoutConfig = observer(({ children }) => {
 	const {
@@ -54,9 +57,46 @@ export const LayoutConfig = observer(({ children }) => {
 										</a>
 									</Link>
 								</div>
-								<div className="items-baseline xl:flex xl:space-x-2 xl:uppercase">
-									<h1 className="text-lg leading-tight">{selectedProduct.displayName}</h1>
-									<div className="text-xs text-gray-light">{selectedProduct.displayGroupName}</div>
+								<div className="space-y-1">
+									<div className="items-baseline xl:flex xl:space-x-2 xl:uppercase">
+										<h1 className="text-lg leading-tight">{selectedProduct.displayName}</h1>
+										<div className="text-xs text-gray-light">{selectedProduct.displayGroupName}</div>
+									</div>
+									<ul className="space-x-6 hidden xl:flex">
+										<li>
+											<button
+												className="Breadcrumb"
+												type="button"
+												onClick={() => {
+													menu.close();
+													modal.open({
+														type: 'FROSTY',
+														title: 'Start Over?',
+														content: <StartOver />,
+													});
+												}}
+											>
+												<span className="Breadcrumb-text">Start Over</span>
+												<ChevronSolid direction="right" className="Breadcrumb-img" />
+											</button>
+										</li>
+										<li>
+											<button
+												className="Breadcrumb"
+												type="button"
+												onClick={() => {
+													menu.close();
+													modal.open({
+														type: 'SLIDER',
+														content: <ChangeProduct />,
+													});
+												}}
+											>
+												<span className="Breadcrumb-text">Change Product</span>
+												<ChevronSolid direction="right" className="Breadcrumb-img" />
+											</button>
+										</li>
+									</ul>
 								</div>
 							</div>
 							<Menu

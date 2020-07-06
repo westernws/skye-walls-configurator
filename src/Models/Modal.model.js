@@ -6,7 +6,7 @@ export const ModalModel = types
 		backdropOffsetX: 0,
 		backdropOffsetY: 0,
 		isOpen: false,
-		type: types.optional(types.enumeration('Modal Type', ['MODAL', 'MENU', 'FROSTY']), 'MODAL'),
+		type: types.optional(types.enumeration('Modal Type', ['MODAL', 'MENU', 'FROSTY', 'SLIDER']), 'MODAL'),
 		title: '',
 	})
 	.volatile(() => ({
