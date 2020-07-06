@@ -1,6 +1,7 @@
 import { types } from 'mobx-state-tree';
 import flattenDeep from 'lodash/flattenDeep';
 import buildMediaQuery from 'tailwindcss/lib/util/buildMediaQuery';
+import { autorun } from 'mobx';
 
 import { ProductCollectionModel } from '~/Models/ProductCollection.model';
 import { ModalModel } from '~/Models/Modal.model';
@@ -42,6 +43,12 @@ export const AppModel = types
 			matchXlMq.addListener((mql) => {
 				self.setIsMediaQueryXl(mql.matches);
 			});
+			autorun(() => {
+				if (!self.isMediaQueryXl || !self.menu) {
+					return;
+				}
+				self.menu.close();
+			}, { name: 'Auto close mobile only menu when going to desktop breakpoint' });
 		},
 		getProductByName(productName) {
 			return self.allProducts.find(product => product.name === productName) || {};

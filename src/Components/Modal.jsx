@@ -30,11 +30,10 @@ export const Modal = observer(({ modal }) => {
 		<div className={cn('Modal', {
 			'is-open': isOpen,
 			'is-closed': !isOpen,
+			'Modal--tight': type === 'MODAL_TIGHT',
 			'Modal--menu': type === 'MENU',
 			'Modal--frosty': type === 'FROSTY',
 			'Modal--slider': type === 'SLIDER',
-			'-z-10': !isOpen,
-			'z-10': isOpen && type !== 'SLIDER',
 		})}
 		>
 			<div
@@ -44,7 +43,7 @@ export const Modal = observer(({ modal }) => {
 				tabIndex="0"
 				aria-label="Close modal"
 			/>
-			{ (type === 'MODAL') && closeBtn }
+			{ (type === 'MODAL' || type === 'MODAL_TIGHT') && closeBtn }
 			<div
 				className="Modal-container"
 			>

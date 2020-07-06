@@ -1,8 +1,8 @@
 .Modal {
-	@apply relative transition-opacity duration-300 ease-in-out opacity-0;
+	@apply relative transition-opacity duration-300 ease-in-out opacity-0 -z-10;
 	pointer-events: none;
 	&.is-open {
-		@apply opacity-100;
+		@apply opacity-100 z-30;
 		pointer-events: all;
 	}
 }
@@ -28,7 +28,15 @@
 .Modal-content {
 	@apply p-12;
 }
+.Modal.Modal--tight {
+	.Modal-content {
+		@apply p-4;
+	}
+}
 .Modal.Modal--menu {
+	&.is-open {
+		@apply z-10;
+	}
 	.Modal-container {
 		@apply absolute;
 		width: 100%;
@@ -44,6 +52,9 @@
 	}
 }
 .Modal.Modal--frosty {
+	&.is-open {
+		@apply z-10;
+	}
 	.Modal-backdrop {
 		@apply bg-gray-lighter bg-opacity-25;
 	}
@@ -73,10 +84,10 @@
 	}
 	.Modal-container {
 		@apply flex h-full top-0 bottom-0 m-0 transition-all duration-300 ease-in-out overflow-hidden;
-		left: 100%;
-		width: 88%;
+		left: auto;
+		right: -900px;
+		width: 900px;
 		height: 100%;
-		max-width: 900px;
 		max-height: none;
 	}
 	.Modal-closeBtn {
@@ -93,7 +104,6 @@
 	}
 	&.is-open {
 		.Modal-container {
-			left: 12%;
-		}
+			right: 0;		}
 	}
 }

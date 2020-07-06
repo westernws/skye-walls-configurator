@@ -3,8 +3,11 @@ import { types } from 'mobx-state-tree';
 export const ModalModel = types
 	.model('Modal', {
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ModalModel_') === 0),
+		name: '',
 		isOpen: false,
-		type: types.optional(types.enumeration('Modal Type', ['MODAL', 'MENU', 'FROSTY', 'SLIDER']), 'MODAL'),
+		type: types.optional(types.enumeration('Modal Type', [
+			'MODAL', 'MODAL_TIGHT', 'MENU', 'FROSTY', 'SLIDER',
+		]), 'MODAL'),
 		title: '',
 		closeOnBackdropClick: false,
 		showCloseBtnText: false,
@@ -23,6 +26,7 @@ export const ModalModel = types
 			return {
 				closeOnBackdropClick: false,
 				content: null,
+				name: '',
 				showCloseBtnText: false,
 				title: '',
 			};
@@ -35,8 +39,9 @@ export const ModalModel = types
 			setTimeout(self.reset, 300);
 		},
 		open({
-			content, type = 'MODAL', title = '', showCloseBtnText = false,
+			content, name = '', type = 'MODAL', title = '', showCloseBtnText = false,
 		}) {
+			self.name = name;
 			self.type = type;
 			self.content = content;
 			self.title = title;
@@ -48,5 +53,11 @@ export const ModalModel = types
 		},
 		setIsOpen(isOpen) {
 			self.isOpen = isOpen;
+		},
+		setShowCloseBtnText(show) {
+			self.showCloseBtnText = show;
+		},
+		setType(type) {
+			self.type = type;
 		},
 	}));

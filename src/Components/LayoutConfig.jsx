@@ -1,14 +1,11 @@
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
-import Router from 'next/router';
 
 import { useMst } from '~/Stores/App.store';
 import { Meta } from '~/Components/Meta';
 import { Modal } from '~/Components/Modal';
-import { ConfigPageModel } from '~/Models/ConfigPage.model';
-import { uniqueId } from '~/util/uniqueId';
 import { Menu } from '~/Components/Menu';
 import { StartOver } from '~/Components/StartOver';
 import { ChangeProduct } from '~/Components/ChangeProduct';
@@ -16,21 +13,8 @@ import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 
 export const LayoutConfig = observer(({ children }) => {
 	const {
-		modal, menu, setPage, getProductBySlug, page,
+		modal, menu, page,
 	} = useMst();
-	const { router } = Router;
-	let product;
-
-	useEffect(() => {
-		const { product: productSlug } = router.query;
-
-		product = getProductBySlug(productSlug);
-		setPage(ConfigPageModel.create({
-			id: `ConfigPageModel_${uniqueId()}`,
-			product,
-		}));
-	}, []);
-
 
 	if (!page?.product) {
 		return null;
@@ -87,6 +71,7 @@ export const LayoutConfig = observer(({ children }) => {
 												onClick={() => {
 													menu.close();
 													modal.open({
+														name: 'changeProduct',
 														type: 'SLIDER',
 														showCloseBtnText: true,
 														content: <ChangeProduct />,

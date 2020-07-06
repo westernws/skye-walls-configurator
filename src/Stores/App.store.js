@@ -6,6 +6,7 @@ import { AppModel } from '~/Models/App.model';
 import productCollectionsData from '~/Data/productCollections';
 import { ProductCollectionsFactory } from '~/Factories/ProductCollections.factory';
 import { ModalModel } from '~/Models/Modal.model';
+import { ConfigPageModel } from '~/Models/ConfigPage.model';
 
 const AppStoreContext = createContext();
 
@@ -30,6 +31,18 @@ export const useMst = () => {
 };
 
 Router.events.on('routeChangeComplete', () => {
+	if (appStore.page) {
+		appStore.setPage(null);
+	}
+	if (Router.route === '/config/[product-collection]/[product]') {
+		const { product: productSlug } = Router.query;
+		const product = appStore.getProductBySlug(productSlug);
+
+		appStore.setPage(ConfigPageModel.create({
+			id: `ConfigPageModel_${uniqueId()}`,
+			product,
+		}));
+	}
 	appStore.modal.close();
 	appStore.menu.close();
 });

@@ -6,13 +6,14 @@ import { ExchangeAltSolid } from '~/Components/svg/ExchangeAltSolid.svg';
 import { useMst } from '~/Stores/App.store';
 
 export const ChangeProduct = observer(() => {
-	const { modal } = useMst();
+	const appStore = useMst();
+	const { modal } = appStore;
 
 	return (
-		<div className="flex space-x-4">
-			<div className="w-1/2 p-4 overflow-auto">
-				<div className="flex flex-col items-center p-32">
-					<div className="text-gray-light w-16">
+		<div className="flex flex-col space-y-8 xl:flex-row xl:space-y-0 xl:space-x-4">
+			<div className="xl:w-1/2 xl:p-6 overflow-auto">
+				<div className="flex flex-col items-center p-12 xl:p-32">
+					<div className="text-gray-light w-12 xl:w-16">
 						<ExchangeAltSolid />
 					</div>
 				</div>
@@ -33,9 +34,7 @@ export const ChangeProduct = observer(() => {
 					</button>
 				</div>
 			</div>
-			<div className="w-1/2">
-				Right col
-			</div>
+			<div className="xl:p-6 xl:w-1/2" />
 		</div>
 	);
 });
