@@ -94,9 +94,9 @@ export const EmailList = () => {
 						htmlFor="privacy-emailListForm"
 						className="CheckboxField-label text-base md:text-sm"
 					>
-						By submitting this form I understand that ## COMPANY_FPO ## may contact me with offers or
-						information about their products and service in accordance with the ## COMPANY_FPO ## Privacy
-						Policy on # PRIVACY_POLICY_LINK_FPO #.
+						By submitting this form I understand that ## FPO ## may contact me with offers or
+						information about their products and service in accordance with the ## FPO ## Privacy
+						Policy on # FPO #.
 					</label>
 				</div>
 				<div className="sr-only">

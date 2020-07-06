@@ -88,6 +88,7 @@ export const LayoutConfig = observer(({ children }) => {
 													menu.close();
 													modal.open({
 														type: 'SLIDER',
+														showCloseBtnText: true,
 														content: <ChangeProduct />,
 													});
 												}}

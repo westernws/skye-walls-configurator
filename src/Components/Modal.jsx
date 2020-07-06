@@ -8,7 +8,7 @@ import { themeConfig } from '~/util/themeConfig';
 
 export const Modal = observer(({ modal }) => {
 	const {
-		close, content, isOpen, type, title,
+		close, content, isOpen, type, showCloseBtnText, title,
 	} = modal;
 	const closeBtn = (
 		<button
@@ -16,6 +16,10 @@ export const Modal = observer(({ modal }) => {
 			type="button"
 			onClick={close}
 		>
+			{
+				showCloseBtnText &&
+				<div className="Modal-closeBtnText">Close</div>
+			}
 			<div className="Modal-closeBtnImg">
 				<TimesSolid color={type === 'FROSTY' ? themeConfig.theme.colors.gray : themeConfig.theme.colors.white} />
 			</div>
@@ -31,7 +35,6 @@ export const Modal = observer(({ modal }) => {
 			'Modal--slider': type === 'SLIDER',
 			'-z-10': !isOpen,
 			'z-10': isOpen && type !== 'SLIDER',
-			'z-30': isOpen && type === 'SLIDER',
 		})}
 		>
 			<div
@@ -41,11 +44,11 @@ export const Modal = observer(({ modal }) => {
 				tabIndex="0"
 				aria-label="Close modal"
 			/>
-			{ type === 'MODAL' && closeBtn }
+			{ (type === 'MODAL') && closeBtn }
 			<div
 				className="Modal-container"
 			>
-				{ type === 'FROSTY' && closeBtn }
+				{ (type === 'FROSTY' || type === 'SLIDER') && closeBtn }
 				<div className="Modal-content">
 					{
 						Boolean(title) &&

@@ -8,7 +8,7 @@ import { FlagSolid } from '~/Components/svg/FlagSolid.svg';
 import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 import { SyncAltSolid } from '~/Components/svg/SyncAltSolid.svg';
 import { UndoAltSolid } from '~/Components/svg/UndoAltSolid.svg';
-import { DoorOpenSolid } from '~/Components/svg/DoorOpenSolid';
+import { DoorOpenSolid } from '~/Components/svg/DoorOpenSolid.svg';
 import { MenuListCollection } from '~/Components/MenuListCollection';
 import { MenuListItemParent } from '~/Components/MenuListItemParent';
 import { MenuListItem } from '~/Components/MenuListItem';

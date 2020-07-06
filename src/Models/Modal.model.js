@@ -7,6 +7,7 @@ export const ModalModel = types
 		type: types.optional(types.enumeration('Modal Type', ['MODAL', 'MENU', 'FROSTY', 'SLIDER']), 'MODAL'),
 		title: '',
 		closeOnBackdropClick: false,
+		showCloseBtnText: false,
 	})
 	.volatile(() => ({
 		content: null,
@@ -20,10 +21,10 @@ export const ModalModel = types
 		},
 		get defaults() {
 			return {
-				isOpen: false,
-				title: '',
 				closeOnBackdropClick: false,
 				content: null,
+				showCloseBtnText: false,
+				title: '',
 			};
 		},
 	}))
@@ -34,11 +35,12 @@ export const ModalModel = types
 			setTimeout(self.reset, 300);
 		},
 		open({
-			content, type = 'MODAL', title = '',
+			content, type = 'MODAL', title = '', showCloseBtnText = false,
 		}) {
 			self.type = type;
 			self.content = content;
 			self.title = title;
+			self.showCloseBtnText = showCloseBtnText;
 			setTimeout(() => self.setIsOpen(true), 150);
 		},
 		reset() {
