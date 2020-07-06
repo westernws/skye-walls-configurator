@@ -33,6 +33,16 @@
 			@apply bg-white border border-gray text-gray;
 		}
 	}
+	&.Button--secondarySmall {
+		@apply bg-gray text-white text-sm px-2 py-1;
+		&:hover,
+		&[disabled]{
+			@apply bg-white border border-gray text-gray;
+		}
+		&[disabled] {
+			@apply opacity-50;
+		}
+	}
 }
 /* TODO Call this something else */
 .Breadcrumb {
