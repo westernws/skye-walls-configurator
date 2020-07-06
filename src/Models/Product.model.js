@@ -18,8 +18,8 @@ const Product = types
 		isActive: false,
 	})
 	.views(self => ({
-		get displayGroupName() {
-			return self.getParentOfName('ProductCollection').displayGroupName;
+		get collectionName() {
+			return self.getParentOfName('ProductCollection')?.name || '';
 		},
 		get colorOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'color') || {};
@@ -31,6 +31,9 @@ const Product = types
 				href: `/config${link.href}`,
 				as: `/config${link.as}`,
 			};
+		},
+		get displayGroupName() {
+			return self.getParentOfName('ProductCollection').displayGroupName;
 		},
 		get featureList() {
 			return self.features.map(feature => feature.featureText);

@@ -74,7 +74,7 @@ export const LayoutConfig = observer(({ children }) => {
 														name: 'changeProduct',
 														type: 'SLIDER',
 														showCloseBtnText: true,
-														content: <ChangeProduct />,
+														content: <ChangeProduct selectedProduct={selectedProduct} />,
 													});
 												}}
 											>

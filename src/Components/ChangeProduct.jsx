@@ -4,10 +4,12 @@ import 'mobx-react-lite/batchingForReactDom';
 
 import { ExchangeAltSolid } from '~/Components/svg/ExchangeAltSolid.svg';
 import { useMst } from '~/Stores/App.store';
+import { useInput } from '~/util/useInput';
 
-export const ChangeProduct = observer(() => {
+export const ChangeProduct = observer(({ selectedProduct }) => {
 	const appStore = useMst();
-	const { modal } = appStore;
+	const { bind } = useInput();
+	const { modal, productCollections } = appStore;
 
 	return (
 		<div className="flex flex-col space-y-8 xl:flex-row xl:space-y-0 xl:space-x-4">
@@ -34,7 +36,17 @@ export const ChangeProduct = observer(() => {
 					</button>
 				</div>
 			</div>
-			<div className="xl:p-6 xl:w-1/2" />
+			<div className="xl:p-6 xl:w-1/2">
+				<select className="Select w-full" defaultValue={selectedProduct.collectionName} {...bind}>
+					{
+						productCollections.map(productGroup => (
+							<option key={productGroup.name} value={productGroup.name}>
+								{productGroup.displayName}
+							</option>
+						))
+					}
+				</select>
+			</div>
 		</div>
 	);
 });
