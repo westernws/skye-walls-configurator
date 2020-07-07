@@ -6,7 +6,7 @@ import Router from 'next/router';
 import { useMst } from '~/Stores/App.store';
 
 export const StartOver = observer(() => {
-	const { modal } = useMst();
+	const { modals } = useMst();
 
 	return (
 		<div className="space-y-4">
@@ -25,7 +25,7 @@ export const StartOver = observer(() => {
 				<button
 					className="Button Button--secondary mt-4 ml-4"
 					type="button"
-					onClick={modal.close}
+					onClick={modals.get('modal-primary').close}
 				>
 					Oops, no I don’t
 				</button>

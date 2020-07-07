@@ -11,7 +11,7 @@ import { Color } from '~/Components/Color';
 
 export const PanelProduct = observer(({ product }) => {
 	const appStore = useMst();
-	const { modal, setActivePanelProduct, isMediaQueryXl } = appStore;
+	const { modals, setActivePanelProduct, isMediaQueryXl } = appStore;
 	const {
 		isActive, colorOptionGroup, tagName = 'li', displayName, configLink, className = '', features = [],
 	} = product;
@@ -80,7 +80,7 @@ export const PanelProduct = observer(({ product }) => {
 							type="button"
 							onClick={(event) => {
 								event.stopPropagation();
-								modal.open({
+								modals.get('modal-primary').open({
 									content: <ProductSummary product={product} />,
 								});
 							}}

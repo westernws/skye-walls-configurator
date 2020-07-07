@@ -2,7 +2,7 @@ import { types } from 'mobx-state-tree';
 
 export const ModalModel = types
 	.model('Modal', {
-		id: types.refinement(types.identifier, identifier => identifier.indexOf('ModalModel_') === 0),
+		id: types.refinement(types.identifier, identifier => identifier.indexOf('modal-') === 0),
 		name: '',
 		isOpen: false,
 		type: types.optional(types.enumeration('Modal Type', [

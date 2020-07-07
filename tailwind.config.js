@@ -1,3 +1,4 @@
+const path = require('path');
 const camelCase = require('lodash/camelCase');
 const optionGroups = require('./src/Data/optionGroups');
 
@@ -15,6 +16,7 @@ module.exports = {
 	// 		'./pages/**/*.html',
 	// 	],
 	// },
+	purge: [path.join(__dirname, './**/*.jsx')],
 	theme: {
 		colors: {
 			black: '#000',

@@ -5,7 +5,7 @@ import 'mobx-react-lite/batchingForReactDom';
 
 import { useMst } from '~/Stores/App.store';
 import { Meta } from '~/Components/Meta';
-import { Modal } from '~/Components/Modal';
+import { Modals } from '~/Components/Modals';
 import { Menu } from '~/Components/Menu';
 import { StartOver } from '~/Components/StartOver';
 import { ChangeProduct } from '~/Components/ChangeProduct';
@@ -13,21 +13,19 @@ import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 
 export const LayoutConfig = observer(({ children }) => {
 	const {
-		modal, menu, page,
+		modals, page,
 	} = useMst();
 
 	if (!page?.product) {
 		return null;
 	}
 	const selectedProduct = page.product;
-
-	global.selectedProduct = selectedProduct;
-	console.log('selectedProduct', selectedProduct);
+	const modal = modals.get('modal-primary');
+	const menu = modals.get('modal-menu');
 
 	return (
 		<>
-			<Modal modal={modal} />
-			<Modal modal={menu} />
+			<Modals />
 			<div className="text-sm md:text-lg bg-gray-lighter h-full">
 				<Meta />
 				<header id="header" className="Header Header--fixed">

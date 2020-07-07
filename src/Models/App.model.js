@@ -12,8 +12,7 @@ export const AppModel = types
 	.model('App', {
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('AppModel_') === 0),
 		productCollections: types.array(ProductCollectionModel),
-		modal: ModalModel,
-		menu: ModalModel,
+		modals: types.map(types.maybeNull(ModalModel)),
 		page: types.maybeNull(ConfigPageModel),
 		isMediaQueryXl: false,
 	})
@@ -44,10 +43,12 @@ export const AppModel = types
 				self.setIsMediaQueryXl(mql.matches);
 			});
 			autorun(() => {
-				if (!self.isMediaQueryXl || !self.menu) {
+				const menu = self.modals.get('modal-menu');
+
+				if (!self.isMediaQueryXl || !menu) {
 					return;
 				}
-				self.menu.close();
+				menu.close();
 			}, { name: 'Auto close mobile only menu when going to desktop breakpoint' });
 		},
 		getProductByName(productName) {

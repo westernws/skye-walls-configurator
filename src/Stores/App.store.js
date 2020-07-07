@@ -1,27 +1,21 @@
 import { createContext, useContext } from 'react';
 import Router from 'next/router';
+import { unprotect } from 'mobx-state-tree';
 
 import { uniqueId } from '~/util/uniqueId';
 import { AppModel } from '~/Models/App.model';
 import productCollectionsData from '~/Data/productCollections';
 import { ProductCollectionsFactory } from '~/Factories/ProductCollections.factory';
-import { ModalModel } from '~/Models/Modal.model';
 import { ConfigPageModel } from '~/Models/ConfigPage.model';
 
 const AppStoreContext = createContext();
-
-export const { Provider } = AppStoreContext;
-export const appStore = AppModel.create({
+const { Provider } = AppStoreContext;
+const appStore = AppModel.create({
 	id: `AppModel_${uniqueId()}`,
 	productCollections: ProductCollectionsFactory(productCollectionsData),
-	modal: ModalModel.create({
-		id: `ModalModel_${uniqueId()}`,
-	}),
-	menu: ModalModel.create({
-		id: `ModalModel_${uniqueId()}`,
-	}),
+	modals: {},
 });
-export const useMst = () => {
+const useMst = () => {
 	const store = useContext(AppStoreContext);
 
 	if (store === null) {
@@ -30,6 +24,10 @@ export const useMst = () => {
 	return store;
 };
 
+unprotect(appStore);
+appStore.modals.put({ id: 'modal-primary' });
+appStore.modals.put({ id: 'modal-secondary' });
+appStore.modals.put({ id: 'modal-menu' });
 Router.events.on('routeChangeComplete', () => {
 	if (appStore.page) {
 		appStore.setPage(null);
@@ -43,10 +41,16 @@ Router.events.on('routeChangeComplete', () => {
 			product,
 		}));
 	}
-	appStore.modal.close();
-	appStore.menu.close();
+	appStore.modals.get('modal-primary').close();
+	appStore.modals.get('modal-menu').close();
 });
 if (process.browser) {
 	global.app = appStore;
 	console.log(appStore.toJSON());
 }
+
+export {
+	Provider,
+	appStore,
+	useMst,
+};

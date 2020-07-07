@@ -13,13 +13,6 @@ import { Instagram } from '~/Components/svg/Instagram.svg';
 import { Pinterest } from '~/Components/svg/Pinterest.svg';
 import { YouTube } from '~/Components/svg/YouTube.svg';
 
-export async function getStaticProps() {
-	return {
-		props: {
-			appStore,
-		},
-	};
-}
 export default () => {
 	return (
 		<Provider value={appStore}>

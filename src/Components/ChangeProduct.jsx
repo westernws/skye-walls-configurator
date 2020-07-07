@@ -10,7 +10,7 @@ import { ProductSelect } from '~/Components/ProductSelect';
 export const ChangeProduct = observer(({ selectedProduct }) => {
 	const appStore = useMst();
 	const { bind, value } = useInput(selectedProduct.collectionName);
-	const { modal, productCollections } = appStore;
+	const { modals, productCollections } = appStore;
 	const selectedCollection = productCollections.find(productCollection => productCollection.name === value);
 
 	return (
@@ -32,7 +32,7 @@ export const ChangeProduct = observer(({ selectedProduct }) => {
 					<button
 						className="Button"
 						type="button"
-						onClick={modal.close}
+						onClick={modals.get('modal-primary').close}
 					>
 						Back to Build
 					</button>

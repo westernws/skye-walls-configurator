@@ -10,11 +10,11 @@ import snakeCase from 'lodash/snakeCase';
 import { IntersectionObserverFactory } from '~/util/IntersectionObserver';
 import { Meta } from '~/Components/Meta';
 import { useMst } from '~/Stores/App.store';
-import { Modal } from '~/Components/Modal';
+import { Modals } from '~/Components/Modals';
 import { BarsSolid } from '~/Components/svg/BarsSolid.svg';
 
 export const Layout = observer(({ children }) => {
-	const { productCollections, modal } = useMst();
+	const { productCollections } = useMst();
 	const [isNavSticky, setIsNavSticky] = useState(null);
 	const [activeMenu, setActiveMenu] = useState(null);
 
@@ -54,7 +54,7 @@ export const Layout = observer(({ children }) => {
 
 	return (
 		<>
-			<Modal modal={modal} />
+			<Modals />
 			<div className="text-sm md:text-lg h-full">
 				<Meta />
 				<header id="header" className="Header">

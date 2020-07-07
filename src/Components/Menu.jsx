@@ -10,7 +10,8 @@ import { TimesSolid } from '~/Components/svg/TimesSolid.svg';
 import { themeConfig } from '~/util/themeConfig';
 
 export const Menu = observer(({ categories = [], selectedProduct }) => {
-	const { menu } = useMst();
+	const { modals } = useMst();
+	const menu = modals.get('modal-menu');
 
 	return (
 		<ul className="Menu xl:hidden">

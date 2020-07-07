@@ -16,20 +16,22 @@ export const ConfigPageModel = types
 				const root = getRoot(self);
 
 				mqDispose = autorun(() => {
-					if (!root.modal) {
+					const primaryModal = root.modals.get('modal-primary');
+
+					if (!primaryModal) {
 						return;
 					}
-					if (!root.modal.isOpen) {
+					if (!primaryModal.isOpen) {
 						return;
 					}
-					switch (root.modal.name) {
+					switch (primaryModal.name) {
 					case 'changeProduct':
 						if (root.isMediaQueryXl) {
-							root.modal.setType('SLIDER');
-							root.modal.setShowCloseBtnText(true);
+							primaryModal.setType('SLIDER');
+							primaryModal.setShowCloseBtnText(true);
 						} else {
-							root.modal.setType('MODAL_TIGHT');
-							root.modal.setShowCloseBtnText(false);
+							primaryModal.setType('MODAL_TIGHT');
+							primaryModal.setShowCloseBtnText(false);
 						}
 						break;
 					default:

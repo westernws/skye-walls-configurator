@@ -3,16 +3,13 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
 
-import { useMst } from '~/Stores/App.store';
 import { Meta } from '~/Components/Meta';
-import { Modal } from '~/Components/Modal';
+import { Modals } from '~/Components/Modals';
 
 export const LayoutProduct = observer(({ children }) => {
-	const { modal } = useMst();
-
 	return (
 		<>
-			<Modal modal={modal} />
+			<Modals />
 			<div className="text-sm md:text-lg bg-gray-lighter h-full">
 				<Meta />
 				<header id="header" className="Header">

@@ -17,11 +17,12 @@ import { MenuListItemCollection } from '~/Components/MenuListItemCollection';
 import { StartOver } from '~/Components/StartOver';
 
 export const MenuList = observer(({ categories = [], selectedProduct }) => {
-	const { productCollections, menu, modal } = useMst();
+	const { productCollections, modals } = useMst();
 	const [isFinishedDesigningOpen, setIsFinishedDesigningOpen] = useState(false);
 	const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
 	const [isChangeModelOpen, setIsChangeModelOpen] = useState(false);
 	const productCollectionStates = {};
+	const menu = modals.get('modal-menu');
 
 	productCollections.forEach((productCollection) => {
 		const [isOpen, setIsOpen] = useState(false);
@@ -132,7 +133,7 @@ export const MenuList = observer(({ categories = [], selectedProduct }) => {
 				label="Start Over"
 				onClick={() => {
 					menu.close();
-					modal.open({
+					modals.get('modal-primary').open({
 						type: 'FROSTY',
 						title: 'Start Over?',
 						content: <StartOver />,
