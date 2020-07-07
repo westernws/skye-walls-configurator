@@ -8,7 +8,7 @@ import { themeConfig } from '~/util/themeConfig';
 
 export const Modal = observer(({ modal }) => {
 	const {
-		close, content, isOpen, type, showCloseBtnText, title,
+		close, content, isOpen, type, showCloseBtnText, title, showBackdrop,
 	} = modal;
 	const closeBtn = (
 		<button
@@ -36,13 +36,16 @@ export const Modal = observer(({ modal }) => {
 			'Modal--slider': type === 'SLIDER',
 		})}
 		>
-			<div
-				className="Modal-backdrop"
-				role="button"
-				onClick={close}
-				tabIndex="0"
-				aria-label="Close modal"
-			/>
+			{
+				showBackdrop &&
+				<div
+					className="Modal-backdrop"
+					role="button"
+					onClick={close}
+					tabIndex="0"
+					aria-label="Close modal"
+				/>
+			}
 			{ (type === 'MODAL' || type === 'MODAL_TIGHT') && closeBtn }
 			<div
 				className="Modal-container"

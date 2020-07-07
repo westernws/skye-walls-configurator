@@ -32,6 +32,11 @@ export const ProductSelect = observer(({ displayGroupName, products, selectedPro
 									type="button"
 									className="Button Button--secondarySmall w-full"
 									disabled={isSelectedProduct}
+									onClick={() => {
+										if (isMediaQueryXl) {
+											// do stuff;
+										}
+									}}
 								>
 									{isSelectedProduct ? 'Selected' : 'Select'}
 								</button>

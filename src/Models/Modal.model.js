@@ -11,6 +11,7 @@ export const ModalModel = types
 		title: '',
 		closeOnBackdropClick: false,
 		showCloseBtnText: false,
+		showBackdrop: true,
 	})
 	.volatile(() => ({
 		content: null,
@@ -24,6 +25,7 @@ export const ModalModel = types
 		},
 		get defaults() {
 			return {
+				showBackdrop: true,
 				closeOnBackdropClick: false,
 				content: null,
 				name: '',
@@ -39,13 +41,14 @@ export const ModalModel = types
 			setTimeout(self.reset, 300);
 		},
 		open({
-			content, name = '', type = 'MODAL', title = '', showCloseBtnText = false,
+			content, name = '', type = 'MODAL', title = '', showCloseBtnText = false, showBackdrop = true,
 		}) {
 			self.name = name;
 			self.type = type;
 			self.content = content;
 			self.title = title;
 			self.showCloseBtnText = showCloseBtnText;
+			self.showBackdrop = showBackdrop;
 			setTimeout(() => self.setIsOpen(true), 150);
 		},
 		reset() {
