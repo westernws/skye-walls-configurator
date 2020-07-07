@@ -1,0 +1,25 @@
+.Button {
+	@apply
+		inline-block text-base bg-red text-white px-4 py-2 text-center uppercase font-bold
+		transition-all duration-200 ease-in-out border border-transparent;
+	border-radius: 1rem;
+	&:hover {
+		@apply bg-blue;
+	}
+	&.Button--secondary {
+		@apply bg-gray text-white;
+		&:hover {
+			@apply bg-white border border-gray text-gray;
+		}
+	}
+	&.Button--secondarySmall {
+		@apply bg-gray text-white text-sm px-2 py-1;
+		&:hover,
+		&[disabled]{
+			@apply bg-white border border-gray text-gray;
+		}
+		&[disabled] {
+			@apply opacity-50;
+		}
+	}
+}

@@ -6,7 +6,7 @@ export const ModalModel = types
 		name: '',
 		isOpen: false,
 		type: types.optional(types.enumeration('Modal Type', [
-			'MODAL', 'MODAL_TIGHT', 'MENU', 'FROSTY', 'SLIDER',
+			'MODAL', 'MODAL_TIGHT', 'MENU', 'FROSTY', 'SLIDER', 'SLIDER_SECONDARY',
 		]), 'MODAL'),
 		title: '',
 		closeOnBackdropClick: false,
@@ -35,6 +35,9 @@ export const ModalModel = types
 		},
 	}))
 	.actions(self => ({
+		alter(options) {
+			Object.assign(self, options);
+		},
 		close() {
 			self.isOpen = false;
 			// Delay to give transition animation time to fade out.

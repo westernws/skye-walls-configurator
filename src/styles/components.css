@@ -1,4 +1,7 @@
 @import 'BackToTop';
+@import 'Breadcrumb';
+@import 'Button';
+@import 'ChangeProductImagery';
 @import 'CheckboxField';
 @import 'Checklist';
 @import 'ColorOptions';
@@ -13,4 +16,5 @@
 @import 'Select';
 @import 'SiteNav';
 @import 'SiteSubnav';
+@import 'Sociables';
 @import 'TextField';

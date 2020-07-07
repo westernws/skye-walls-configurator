@@ -16,3 +16,9 @@ body {
 img {
 	@apply w-full h-auto;
 }
+button[disabled] {
+	cursor: default;
+}
+*:focus {
+	outline-color: theme('colors.outline') !important;
+}

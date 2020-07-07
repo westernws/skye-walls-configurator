@@ -5,9 +5,12 @@ import 'mobx-react-lite/batchingForReactDom';
 
 import { DummyImage } from '~/Components/DummyImage';
 import { useMst } from '~/Stores/App.store';
+import { ChangeProductConfirm } from '~/Components/ChangeProductConfirm';
 
 export const ProductSelect = observer(({ displayGroupName, products, selectedProduct }) => {
-	const { isMediaQueryXl } = useMst();
+	const { isMediaQueryXl, modals } = useMst();
+	const primaryModal = modals.get('modal-primary');
+	const secondaryModal = modals.get('modal-secondary');
 
 	return (
 		<>
@@ -33,9 +36,16 @@ export const ProductSelect = observer(({ displayGroupName, products, selectedPro
 									className="Button Button--secondarySmall w-full"
 									disabled={isSelectedProduct}
 									onClick={() => {
-										if (isMediaQueryXl) {
-											// do stuff;
+										if (!isMediaQueryXl) {
+											primaryModal.close();
 										}
+										secondaryModal.open({
+											type: isMediaQueryXl ? 'SLIDER_SECONDARY' : 'MODAL_TIGHT',
+											name: 'changeProductConfirm',
+											showBackdrop: !isMediaQueryXl,
+											showCloseBtnText: isMediaQueryXl,
+											content: <ChangeProductConfirm />,
+										});
 									}}
 								>
 									{isSelectedProduct ? 'Selected' : 'Select'}

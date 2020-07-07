@@ -1,8 +1,5 @@
 @import '_includes.css';
 
-*:focus {
-	outline-color: theme('colors.outline') !important;
-}
 .Main {
 	@apply pr-6 pl-6 m-auto;
 	max-width: var(--site-max-width);
@@ -19,63 +16,7 @@
 .Header--fixed {
 	@apply fixed top-0 z-20;
 }
-.Button {
-	@apply
-		inline-block text-base bg-red text-white px-4 py-2 text-center uppercase font-bold
-		transition-all duration-200 ease-in-out border border-transparent;
-	border-radius: 1rem;
-	&:hover {
-		@apply bg-blue;
-	}
-	&.Button--secondary {
-		@apply bg-gray text-white;
-		&:hover {
-			@apply bg-white border border-gray text-gray;
-		}
-	}
-	&.Button--secondarySmall {
-		@apply bg-gray text-white text-sm px-2 py-1;
-		&:hover,
-		&[disabled]{
-			@apply bg-white border border-gray text-gray;
-		}
-		&[disabled] {
-			@apply opacity-50;
-		}
-	}
-}
-/* TODO Call this something else */
-.Breadcrumb {
-	@apply text-base text-gray-light flex items-center relative;
-}
-.Breadcrumb-text {
-	@apply mr-1;
-}
-.Breadcrumb-img {
-	@apply w-3 absolute transition-all duration-300 ease-in-out;
-	right: -10px;
-}
-.Breadcrumb:hover {
-	.Breadcrumb-img {
-		right: -18px;
-	}
-}
 .Rule {
 	width: 50px;
 	border-bottom: 2px solid theme('colors.gray.default');
-}
-.Sociables {
-	@apply list-none m-0 p-0;
-	.Sociables-facebook svg {
-		width: 16px;
-	}
-	.Sociables-instagram svg {
-		width: 25px;
-	}
-	.Sociables-pinterest svg {
-		width: 20px;
-	}
-	.Sociables-youtube svg {
-		width: 25px;
-	}
 }

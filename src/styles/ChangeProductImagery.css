@@ -1,0 +1,12 @@
+.ChangeProductImagery {
+	@apply relative;
+	width: 250px;
+}
+.ChangeProductImagery-before {
+	@apply absolute top-0 left-0;
+	width: 130px;
+}
+.ChangeProductImagery-after {
+	@apply relative;
+	padding: 50px 0 0 40px;
+}

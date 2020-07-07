@@ -1,0 +1,16 @@
+/* TODO Call this something else */
+.Breadcrumb {
+	@apply text-base text-gray-light flex items-center relative;
+}
+.Breadcrumb-text {
+	@apply mr-1;
+}
+.Breadcrumb-img {
+	@apply w-3 absolute transition-all duration-300 ease-in-out;
+	right: -10px;
+}
+.Breadcrumb:hover {
+	.Breadcrumb-img {
+		right: -18px;
+	}
+}

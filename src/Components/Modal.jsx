@@ -34,6 +34,7 @@ export const Modal = observer(({ modal }) => {
 			'Modal--menu': type === 'MENU',
 			'Modal--frosty': type === 'FROSTY',
 			'Modal--slider': type === 'SLIDER',
+			'Modal--sliderSecondary': type === 'SLIDER_SECONDARY',
 		})}
 		>
 			{
@@ -50,7 +51,14 @@ export const Modal = observer(({ modal }) => {
 			<div
 				className="Modal-container"
 			>
-				{ (type === 'FROSTY' || type === 'SLIDER') && closeBtn }
+				{
+					(
+						type === 'FROSTY'
+						|| type === 'SLIDER'
+						|| type === 'SLIDER_SECONDARY'
+					) &&
+					closeBtn
+				}
 				<div className="Modal-content">
 					{
 						Boolean(title) &&

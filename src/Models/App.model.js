@@ -20,6 +20,9 @@ export const AppModel = types
 		get activePanelProduct() {
 			return self.allProducts.find(product => product.isActive) || {};
 		},
+		get openModals() {
+			return [...self.modals.values()].filter(modal => modal.isOpen);
+		},
 		get allProducts() {
 			const products = flattenDeep(self.productCollections.map((productCollection) => {
 				if (productCollection.productGroups.length) {
@@ -50,6 +53,12 @@ export const AppModel = types
 				}
 				menu.close();
 			}, { name: 'Auto close mobile only menu when going to desktop breakpoint' });
+		},
+		closeAllModals() {
+			[...self.modals.values()].forEach(modal => modal.close());
+		},
+		getOpenModalByName(modalName) {
+			return self.openModals.find(modal => modal.name === modalName) || {};
 		},
 		getProductByName(productName) {
 			return self.allProducts.find(product => product.name === productName) || {};

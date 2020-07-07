@@ -77,7 +77,8 @@
 		}
 	}
 }
-.Modal.Modal--slider {
+.Modal.Modal--slider,
+.Modal.Modal--sliderSecondary {
 	@apply z-30;
 	.Modal-backdrop {
 		@apply bg-black bg-opacity-75;
@@ -104,6 +105,13 @@
 	}
 	&.is-open {
 		.Modal-container {
-			right: 0;		}
+			right: 0;
+		}
+	}
+}
+.Modal.Modal--sliderSecondary {
+	.Modal-container {
+		right: -450px;
+		width: 450px;
 	}
 }

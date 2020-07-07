@@ -16,28 +16,21 @@ export const ConfigPageModel = types
 				const root = getRoot(self);
 
 				mqDispose = autorun(() => {
-					const primaryModal = root.modals.get('modal-primary');
+					const openModalNames = root.openModals.map(modal => modal.name).filter(Boolean);
 
-					if (!primaryModal) {
+					if (!openModalNames.length) {
 						return;
 					}
-					if (!primaryModal.isOpen) {
-						return;
-					}
-					switch (primaryModal.name) {
-					case 'changeProduct':
-						if (root.isMediaQueryXl) {
-							primaryModal.setType('SLIDER');
-							primaryModal.setShowCloseBtnText(true);
-						} else {
-							primaryModal.setType('MODAL_TIGHT');
-							primaryModal.setShowCloseBtnText(false);
-						}
-						break;
-					default:
-						break;
-					}
-				});
+					root.getOpenModalByName('changeProduct')?.alter?.({
+						type: root.isMediaQueryXl ? 'SLIDER' : 'MODAL_TIGHT',
+						showCloseBtnText: root.isMediaQueryXl,
+					});
+					root.getOpenModalByName('changeProductConfirm')?.alter?.({
+						type: root.isMediaQueryXl ? 'SLIDER_SECONDARY' : 'MODAL_TIGHT',
+						showBackdrop: !root.isMediaQueryXl || openModalNames.length === 1,
+						showCloseBtnText: root.isMediaQueryXl,
+					});
+				}, { name: 'Auto alters modals based on media queries.' });
 			},
 			beforeDestroy() {
 				mqDispose();
