@@ -1,6 +1,7 @@
 :root {
 	--site-max-width: 1500px;
 	--modal-width: 90vw;
+	--config-header-height: 80px;
 }
 ::selection {
 	color: theme('colors.gray.default');

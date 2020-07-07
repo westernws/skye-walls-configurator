@@ -26,7 +26,7 @@ export const LayoutConfig = observer(({ children }) => {
 	return (
 		<>
 			<Modals />
-			<div className="text-sm md:text-lg bg-gray-lighter h-full">
+			<div className="Root Root--alt">
 				<Meta />
 				<header id="header" className="Header Header--fixed">
 					<nav className="SiteNav SiteNav--config">

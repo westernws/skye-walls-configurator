@@ -55,7 +55,7 @@ export const Layout = observer(({ children }) => {
 	return (
 		<>
 			<Modals />
-			<div className="text-sm md:text-lg h-full">
+			<div className="Root">
 				<Meta />
 				<header id="header" className="Header">
 					<nav className="SiteNav">

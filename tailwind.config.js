@@ -9,13 +9,6 @@ const productColors = colorOptionGroup.options.map(({ displayName, hex }) => ({
 }));
 
 module.exports = {
-	// purge: {
-	// 	enabled: true,
-	// 	content: [
-	// 		'./pages/**/*.jsx',
-	// 		'./pages/**/*.html',
-	// 	],
-	// },
 	purge: [path.join(__dirname, './**/*.jsx')],
 	theme: {
 		colors: {

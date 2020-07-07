@@ -3,6 +3,10 @@
 .Main {
 	@apply pr-6 pl-6 m-auto;
 	max-width: var(--site-max-width);
+	&.Main--bleed {
+		@apply p-0 max-w-none;
+		margin: var(--header-height) 0 0;
+	}
 }
 .Icon {
 	@apply w-8;
@@ -19,4 +23,11 @@
 .Rule {
 	width: 50px;
 	border-bottom: 2px solid theme('colors.gray.default');
+}
+.ConfigImage {
+	height: 300px;
+	img {
+		@apply h-auto w-auto m-auto;
+		max-height: 300px;
+	}
 }

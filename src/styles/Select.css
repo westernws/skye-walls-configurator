@@ -1,7 +1,7 @@
 .Select {
 	@apply
 		border border-solid border-gray-light rounded-none
-		font-bold text-base bg-white uppercase
+		font-bold text-base bg-white
 		pt-2 pr-16 pb-2 pl-4
 		appearance-none
 	;

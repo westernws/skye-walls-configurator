@@ -6,10 +6,11 @@ export const ModalModel = types
 		name: '',
 		isOpen: false,
 		type: types.optional(types.enumeration('Modal Type', [
-			'MODAL', 'MODAL_TIGHT', 'MENU', 'FROSTY', 'SLIDER', 'SLIDER_SECONDARY',
+			'MODAL', 'MODAL_TIGHT', 'MENU', 'FROSTY', 'SLIDER', 'SLIDER_SECONDARY', 'PANEL',
 		]), 'MODAL'),
 		title: '',
 		closeOnBackdropClick: false,
+		showCloseBtn: true,
 		showCloseBtnText: false,
 		showBackdrop: true,
 	})
@@ -43,15 +44,8 @@ export const ModalModel = types
 			// Delay to give transition animation time to fade out.
 			setTimeout(self.reset, 300);
 		},
-		open({
-			content, name = '', type = 'MODAL', title = '', showCloseBtnText = false, showBackdrop = true,
-		}) {
-			self.name = name;
-			self.type = type;
-			self.content = content;
-			self.title = title;
-			self.showCloseBtnText = showCloseBtnText;
-			self.showBackdrop = showBackdrop;
+		open(options) {
+			self.alter(options);
 			setTimeout(() => self.setIsOpen(true), 150);
 		},
 		reset() {

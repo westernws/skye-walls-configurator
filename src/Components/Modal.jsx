@@ -8,7 +8,7 @@ import { themeConfig } from '~/util/themeConfig';
 
 export const Modal = observer(({ modal }) => {
 	const {
-		close, content, isOpen, type, showCloseBtnText, title, showBackdrop,
+		close, content, isOpen, type, showCloseBtnText, title, showBackdrop, showCloseBtn,
 	} = modal;
 	const closeBtn = (
 		<button
@@ -35,6 +35,7 @@ export const Modal = observer(({ modal }) => {
 			'Modal--frosty': type === 'FROSTY',
 			'Modal--slider': type === 'SLIDER',
 			'Modal--sliderSecondary': type === 'SLIDER_SECONDARY',
+			'Modal--panel': type === 'PANEL',
 		})}
 		>
 			{
@@ -47,12 +48,13 @@ export const Modal = observer(({ modal }) => {
 					aria-label="Close modal"
 				/>
 			}
-			{ (type === 'MODAL' || type === 'MODAL_TIGHT') && closeBtn }
+			{ (type === 'MODAL' || type === 'MODAL_TIGHT') && showCloseBtn && closeBtn }
 			<div
 				className="Modal-container"
 			>
 				{
-					(
+					showCloseBtn
+					&& (
 						type === 'FROSTY'
 						|| type === 'SLIDER'
 						|| type === 'SLIDER_SECONDARY'
