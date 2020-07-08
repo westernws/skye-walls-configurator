@@ -10,6 +10,7 @@ export const ChevronSolid = ({ direction = 'up', className = '' }) => (
 		className={cn('svg-inline--fa fa-chevron-up fa-w-14 transform', {
 			'rotate-180': direction === 'down',
 			'rotate-90': direction === 'right',
+			'-rotate-90': direction === 'left',
 			[className]: Boolean(className),
 		})}
 		role="img"

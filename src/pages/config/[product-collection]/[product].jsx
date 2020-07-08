@@ -4,6 +4,7 @@ import { Provider, appStore } from '~/Stores/App.store';
 import { LayoutConfig } from '~/Components/LayoutConfig';
 import { DummyImage } from '~/Components/DummyImage';
 import { ClipboardListSolid } from '~/Components/svg/ClipboardListSolid.svg';
+import { Selector } from '~/Components/Selector';
 
 export default () => {
 	return (
@@ -31,11 +32,7 @@ export default () => {
 						</button>
 					</div>
 					{/* Product Selections */}
-					<div>
-						{
-							appStore.page.product
-						}
-					</div>
+					<Selector />
 				</main>
 			</LayoutConfig>
 		</Provider>
