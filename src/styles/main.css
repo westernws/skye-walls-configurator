@@ -1,7 +1,7 @@
 @import '_includes.css';
 
 .Main {
-	--config-preview-height: 379px;
+	--config-preview-height: 400px;
 
 	@apply pr-6 pl-6 m-auto;
 	max-width: var(--site-max-width);
@@ -46,6 +46,16 @@
 	height: var(--config-preview-height);
 }
 .SelectorPanel {
-	@apply overflow-auto pt-6 px-4 pb-10 text-base;
-	height: calc(100vh - var(--config-preview-height) - var(--header-height) - 8rem);
+	@apply overflow-auto;
+	/*  2rem is the selector panel title height, 2px is the borders */
+	height: calc(100vmax - var(--config-preview-height) - var(--header-height) - 2rem - 2px);
+	.SelectorPanel-inside {
+		@apply px-4 py-10 text-base;
+	}
+}
+.SelectorPanel.is-debug {
+	border: 1px solid red;
+	.SelectorPanel-inside {
+		height: 2000px;
+	}
 }
