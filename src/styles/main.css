@@ -1,6 +1,8 @@
 @import '_includes.css';
 
 .Main {
+	--config-preview-height: 379px;
+
 	@apply pr-6 pl-6 m-auto;
 	max-width: var(--site-max-width);
 	&.Main--bleed {
@@ -24,10 +26,26 @@
 	width: 50px;
 	border-bottom: 2px solid theme('colors.gray.default');
 }
+.InsetDivider {
+	@apply border-b border-white border-solid;
+	&::after {
+		@apply bg-white w-full block;
+		height: 1px;
+		background: #d1d1d1;
+		content: ' ';
+	}
+}
 .ConfigImage {
 	height: 300px;
 	img {
 		@apply h-auto w-auto m-auto;
 		max-height: 300px;
 	}
+}
+.ConfigPreview {
+	height: var(--config-preview-height);
+}
+.SelectorPanel {
+	@apply overflow-auto pt-6 px-4 pb-10 text-base;
+	height: calc(100vh - var(--config-preview-height) - var(--header-height) - 8rem);
 }

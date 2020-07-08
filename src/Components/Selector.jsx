@@ -3,44 +3,45 @@ import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
 
 import { useMst } from '~/Stores/App.store';
-import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
+import { SelectorNav } from '~/Components/SelectorNav';
+import { Color } from '~/Components/Color';
 
 export const Selector = observer(() => {
 	const { page } = useMst();
-	const { currentOptionGroup } = page;
+	const { currentOptionGroup, product } = page;
 
-	if (!currentOptionGroup) {
+	if (!currentOptionGroup || !product) {
 		return null;
 	}
 	return (
-		<div>
+		<div className="pt-20">
 			<div>
-				<h2>{currentOptionGroup.displayName}</h2>
-				<div>
+				<div className="bg-gray-light100 InsetDivider mb-4">
+					<div className="text-base px-4 h-8 flex justify-between items-center">
+						<h2 className="font-bold uppercase">{currentOptionGroup.displayName}</h2>
+						<SelectorNav />
+					</div>
+				</div>
+				<div className="SelectorPanel space-y-10">
 					{
-						Boolean(page.prevOptionGroup) &&
-						<button
-							className="Breadcrumb"
-							type="button"
-							onClick={() => {
-								console.log('do stuff');
-							}}
-						>
-							<span className="Breadcrumb-text">Back</span>
-							<ChevronSolid direction="left" className="Breadcrumb-img" />
-						</button>
+						currentOptionGroup.name === 'color' &&
+						<div>
+							<h3 className="text-right border-b border-gray-light50 border-solid pb-2">
+								{product.selectedColor.displayName}
+							</h3>
+							<Color product={product} hideLegend type="selector" />
+						</div>
 					}
 					{
 						Boolean(page.nextOptionGroup) &&
 						<button
-							className="Breadcrumb"
 							type="button"
+							className="Button Button--secondary w-full"
 							onClick={() => {
-								console.log('do stuff');
+								page.setCurrentOptionGroup(page.nextOptionGroup.id);
 							}}
 						>
-							<span className="Breadcrumb-text">Next</span>
-							<ChevronSolid direction="right" className="Breadcrumb-img" />
+							Next: {page.nextOptionGroup.displayName}
 						</button>
 					}
 				</div>

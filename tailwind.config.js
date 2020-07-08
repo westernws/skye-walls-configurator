@@ -20,6 +20,8 @@ module.exports = {
 			gray: {
 				default: '#313131',
 				light: '#767676',
+				light50: '#d1d1d1',
+				light100: '#eaeaea',
 				lighter: '#f1f1f1',
 			},
 			red: '#b54633',
@@ -42,7 +44,8 @@ module.exports = {
 			// min widths
 			'xs': '0',
 			'sm': '500px',
-			'md': '770px',
+			// 'md': '770px',
+			'md': '768px',
 			'lg': '851px',
 			'xl': '1024px',
 			'2xl': '1101px',

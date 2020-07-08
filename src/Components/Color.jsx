@@ -1,10 +1,11 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
+import cn from 'classnames';
 
 import { useInput } from '~/util/useInput';
 
-export const Color = observer(({ product }) => {
+export const Color = observer(({ product, hideLegend = false, type = '' }) => {
 	const { colorOptionGroup } = product;
 	const hasColorOptions = Boolean(colorOptionGroup?.options?.length);
 	const { setValue } = useInput();
@@ -13,9 +14,20 @@ export const Color = observer(({ product }) => {
 		return null;
 	}
 	return (
-		<fieldset className="Radio Radio--color text-xs">
-			<legend className="Radio-legend text-gray-light uppercase">Color Options:</legend>
-			<div className="Radio-group space-x-2 xl:space-x-4">
+		<fieldset
+			className={cn('Radio text-xs', {
+				'Radio--color': !type,
+				'Radio--colorSelector': type === 'selector',
+			})}
+		>
+			{
+				!hideLegend &&
+				<legend className="Radio-legend text-gray-light uppercase">Color Options:</legend>
+			}
+			<div className={cn('Radio-group xl:space-x-4', {
+				'space-x-2': !type,
+			})}
+			>
 				{
 					colorOptionGroup.options.map((colorOptions) => {
 						const id = `${product.name}-${colorOptions.name}-${colorOptionGroup.name}-control-colorOptionsForm`;

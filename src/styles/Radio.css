@@ -1,5 +1,6 @@
 .Radio {
-	&.Radio--color {
+	&.Radio--color,
+	&.Radio--colorSelector {
 		.Radio-group {
 			@apply flex mt-2 ml-6;
 		}
@@ -37,11 +38,32 @@
 			}
 		}
 	}
+	&.Radio--colorSelector {
+		@apply pt-8;
+		.Radio-group {
+			@apply -mt-8 mr-0 mb-0 -ml-8 p-0 flex-wrap;
+		}
+		.Radio-fieldGroup {
+			@apply mt-8 ml-8;
+			font-size: calc(25vw - 2.3rem);
+		}
+	}
 }
 
+@screen md {
+	.Radio.Radio--colorSelector {
+		.Radio-group {
+			@apply justify-center;
+		}
+		.Radio-fieldGroup {
+			font-size: 5rem;
+		}
+	}
+}
 @screen xl {
 	.Radio {
-		&.Radio--color {
+		&.Radio--color,
+		&.Radio--colorSelector {
 			.Radio-group {
 				@apply ml-3;
 			}

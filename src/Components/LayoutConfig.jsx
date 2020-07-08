@@ -23,6 +23,7 @@ export const LayoutConfig = observer(({ children }) => {
 	const modal = modals.get('modal-primary');
 	const menu = modals.get('modal-menu');
 
+	console.log(selectedProduct);
 	return (
 		<>
 			<Modals />

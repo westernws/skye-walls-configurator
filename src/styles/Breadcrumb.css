@@ -1,16 +1,41 @@
 /* TODO Call this something else */
 .Breadcrumb {
 	@apply text-base text-gray-light flex items-center relative;
-}
-.Breadcrumb-text {
-	@apply mr-1;
-}
-.Breadcrumb-img {
-	@apply w-3 absolute transition-all duration-300 ease-in-out;
-	right: -10px;
-}
-.Breadcrumb:hover {
+	.Breadcrumb-text {
+		@apply mr-1;
+	}
 	.Breadcrumb-img {
-		right: -18px;
+		@apply w-3 absolute transition-all duration-300 ease-in-out;
+		right: -10px;
+	}
+	&:hover {
+		.Breadcrumb-img {
+			right: -18px;
+		}
+	}
+	&.is-reversed {
+		.Breadcrumb-text {
+			@apply mr-0 ml-1;
+		}
+		.Breadcrumb-img {
+			left: -10px;
+			right: auto;
+		}
+		&:hover {
+			.Breadcrumb-img {
+				left: -18px;
+				right: auto;
+			}
+		}
+	}
+}
+.Breadcrumb.Breadcrumb--noTransition {
+	.Breadcrumb-img {
+		@apply static;
+	}
+	&.is-reversed {
+		.Breadcrumb-img {
+			@apply order-first;
+		}
 	}
 }
