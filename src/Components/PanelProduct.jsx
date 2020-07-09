@@ -8,6 +8,7 @@ import { useMst } from '~/Stores/App.store';
 import { DummyImage } from '~/Components/DummyImage';
 import { ProductSummary } from '~/Components/ProductSummary';
 import { Color } from '~/Components/Color';
+import { InfoCircleSolid } from '~/Components/svg/InfoCircleSolid.svg';
 
 export const PanelProduct = observer(({ product }) => {
 	const appStore = useMst();
@@ -86,7 +87,9 @@ export const PanelProduct = observer(({ product }) => {
 							}}
 						>
 							<span className="hidden text-xs uppercase font-bold xl:inline-block">More Info</span>
-							<img className="inline-block xl:hidden" src="/images/info-circle-solid.svg" alt="More Info" />
+							<div className="inline-block w-5 xl:hidden">
+								<InfoCircleSolid />
+							</div>
 							<img className="hidden transform -rotate-90 xl:inline-block xl:w-2 xl:ml-1" src="/images/chevron-down-solid.svg" alt="More Info" />
 						</button>
 					</h2>

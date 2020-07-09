@@ -9,6 +9,7 @@ export const OptionGroupModel = types
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('OptionGroupModel_') === 0),
 		name: '',
 		displayName: types.string,
+		description: types.string,
 		options: types.optional(types.array(types.union(OptionModel, OptionColorModel)), []),
 	})
 	.views(self => ({

@@ -38,6 +38,9 @@ const Product = types
 		get featureList() {
 			return self.features.map(feature => feature.featureText);
 		},
+		get floorTracksOptionGroup() {
+			return self.optionGroups?.find?.(optGroup => optGroup.name === 'floor-tracks') || {};
+		},
 		get link() {
 			const href = ['[product-collection]', '[product]'];
 			const productGroup = self.getParentOfName('ProductGroup');
@@ -56,6 +59,9 @@ const Product = types
 		get selectedColor() {
 			return self.colorOptionGroup.options.find(option => option.selected);
 		},
+		get selectedFloorTracks() {
+			return self.floorTracksOptionGroup.options.find(option => option.selected);
+		},
 		get slug() {
 			return kebabCase(self.displayName);
 		},
@@ -63,6 +69,9 @@ const Product = types
 	.actions(self => ({
 		afterCreate() {
 			self.setDefaultSelected();
+		},
+		getOptionGroupByName(optionGroupName) {
+			return self.optionGroups?.find?.(optGroup => optGroup.name === optionGroupName) || {};
 		},
 		getSelected(optionGroupNames = []) {
 			if (!optionGroupNames.length) {
@@ -77,14 +86,6 @@ const Product = types
 
 			return selectedOptions.filter(Boolean);
 		},
-		setDefaultColor() {
-			const colorOptions = self.colorOptionGroup.options;
-			const selectedColor = colorOptions.find(option => option.defaultSelected);
-			const result = selectedColor || colorOptions[0];
-
-			result.selected = true;
-			return result;
-		},
 		setColor(color = null) {
 			const colorOptions = self.colorOptionGroup.options;
 
@@ -97,8 +98,26 @@ const Product = types
 
 			self.colorOptionGroup.setSelected(selectedColor);
 		},
+		setOption(optionGroupName, optionName) {
+			const optionGroup = self.getOptionGroupByName(optionGroupName);
+
+			if (!optionGroup) {
+				return;
+			}
+			optionGroup.setSelected(optionName);
+		},
 		setDefaultSelected() {
-			self.setDefaultColor();
+			self.optionGroups?.forEach?.((optionGroup) => {
+				if (!optionGroup.options?.length) {
+					return;
+				}
+				const selectedOption = optionGroup?.options?.find?.(option => option.defaultSelected);
+				const result = selectedOption || optionGroup.options[0];
+
+				if (result) {
+					result.selected = true;
+				}
+			});
 		},
 		setIsActive(isActive) {
 			self.isActive = isActive;

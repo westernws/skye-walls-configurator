@@ -8,6 +8,7 @@ export const OptionsFactory = (options, optionGroupName) => {
 			id: `OptionColorModel_${uniqueId()}`,
 			name: option.name,
 			displayName: option.displayName,
+			description: option.description || '',
 			selected: typeof option.selected !== 'undefined',
 			hex: option.hex,
 		}));
@@ -15,6 +16,7 @@ export const OptionsFactory = (options, optionGroupName) => {
 	return options.map(option => OptionModel.create({
 		id: `OptionModel_${uniqueId()}`,
 		name: option.name,
+		description: option.description || '',
 		displayName: option.displayName,
 		selected: typeof option.selected !== 'undefined',
 	}));

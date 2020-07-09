@@ -18,13 +18,14 @@ export const OptionGroupsFactory = (productOptionGroups) => {
 
 	return optionGroups.map((optionGroup) => {
 		const {
-			name, displayName, options = [],
+			name, displayName, description = '', options = [],
 		} = optionGroup;
 
 		return OptionGroupModel.create({
 			id: `OptionGroupModel_${uniqueId()}`,
 			name,
 			displayName,
+			description,
 			...(options.length) && {
 				options: OptionsFactory(options, optionGroup.name),
 			},

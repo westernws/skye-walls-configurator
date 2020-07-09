@@ -14,6 +14,12 @@ export const ConfigPageModel = types
 		get currentOptionGroupIdx() {
 			return self.product.optionGroups.findIndex(optionGroup => optionGroup.name === self.currentOptionGroup.name);
 		},
+		get currentSelectedOption() {
+			if (!self.currentOptionGroup.options?.length) {
+				return {};
+			}
+			return self.currentOptionGroup.options.find(option => option.selected);
+		},
 		get nextOptionGroup() {
 			if (self.currentOptionGroupIdx === self.product.optionGroups.length) {
 				return null;
