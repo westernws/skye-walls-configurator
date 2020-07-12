@@ -8,7 +8,7 @@ import { themeConfig } from '~/util/themeConfig';
 
 export const Modal = observer(({ modal }) => {
 	const {
-		close, content, isOpen, type, showCloseBtnText, title, showBackdrop, showCloseBtn,
+		close, content, isOpen, isClosing, type, showCloseBtnText, title, showBackdrop, showCloseBtn,
 	} = modal;
 	const closeBtn = (
 		<button
@@ -29,7 +29,7 @@ export const Modal = observer(({ modal }) => {
 	return (
 		<div className={cn('Modal', {
 			'is-open': isOpen,
-			'is-closed': !isOpen,
+			'is-closed': !isOpen && !isClosing,
 			'Modal--tight': type === 'MODAL_TIGHT',
 			'Modal--menu': type === 'MENU',
 			'Modal--frosty': type === 'FROSTY',

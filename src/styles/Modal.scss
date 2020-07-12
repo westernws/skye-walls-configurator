@@ -1,6 +1,9 @@
 .Modal {
-	@apply relative transition-opacity duration-300 ease-in-out opacity-0 -z-10;
+	@apply relative transition-opacity duration-300 ease-in-out opacity-0;
 	pointer-events: none;
+	&.is-closed {
+		@apply -z-10;
+	}
 	&.is-open {
 		@apply opacity-100 z-30;
 		pointer-events: all;

@@ -5,6 +5,7 @@ export const ModalModel = types
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('modal-') === 0),
 		name: '',
 		isOpen: false,
+		isClosing: false,
 		type: types.optional(types.enumeration('Modal Type', [
 			'MODAL', 'MODAL_TIGHT', 'MENU', 'FROSTY', 'SLIDER', 'SLIDER_SECONDARY', 'PANEL',
 		]), 'MODAL'),
@@ -40,9 +41,13 @@ export const ModalModel = types
 			Object.assign(self, options);
 		},
 		close() {
-			self.isOpen = false;
+			self.setIsOpen(false);
+			self.isClosing = true;
 			// Delay to give transition animation time to fade out.
-			setTimeout(self.reset, 300);
+			setTimeout(() => {
+				self.reset();
+				self.isClosing = false;
+			}, 300);
 		},
 		open(options) {
 			self.alter(options);
