@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
 import cn from 'classnames';
@@ -14,10 +14,15 @@ export const Selector = observer(() => {
 	const { page, modals } = useMst();
 	const { currentOptionGroup, currentSelectedOption, product } = page;
 	const primaryModal = modals.get('modal-primary');
+	const selectorPanel = useRef(null);
 
 	if (!currentOptionGroup || !product) {
 		return null;
 	}
+
+	useEffect(() => {
+		selectorPanel.current.scrollTop = 0;
+	}, [currentOptionGroup]);
 
 	return (
 		<div className="SelectorPanelContainer">
@@ -27,7 +32,7 @@ export const Selector = observer(() => {
 					<SelectorNav />
 				</div>
 			</div>
-			<div className="SelectorPanel is-debug">
+			<div className="SelectorPanel" ref={selectorPanel}>
 				<div className="SelectorPanel-inside space-y-10">
 					{
 						currentOptionGroup.name === 'color' &&
