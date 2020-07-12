@@ -47,7 +47,14 @@ export const ReviewConfig = observer(() => {
 			</div>
 			{/* 1800x1200 */}
 			<div className="ReviewFooter">
-				Footer
+				<div className="py-3 px-8 border-t border-gray-lighter border-solid">
+					<button
+						type="button"
+						className="Button w-full"
+					>
+						Get Quote
+					</button>
+				</div>
 			</div>
 		</div>
 	);

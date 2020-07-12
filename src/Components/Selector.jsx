@@ -9,6 +9,7 @@ import { Color } from '~/Components/Color';
 import { DummyImage } from '~/Components/DummyImage';
 import { InfoCircleSolid } from '~/Components/svg/InfoCircleSolid.svg';
 import { OptionInfo } from '~/Components/OptionInfo';
+import { ReviewConfig } from '~/Components/ReviewConfig';
 
 export const Selector = observer(() => {
 	const { page, modals } = useMst();
@@ -32,7 +33,7 @@ export const Selector = observer(() => {
 					<SelectorNav />
 				</div>
 			</div>
-			<div className="SelectorPanel is-debug" ref={selectorPanel}>
+			<div className="SelectorPanel" ref={selectorPanel}>
 				<div className="SelectorPanel-inside space-y-10">
 					{
 						currentOptionGroup.name === 'color' &&
@@ -138,6 +139,14 @@ export const Selector = observer(() => {
 							<button
 								type="button"
 								className="Button w-full"
+								onClick={() => {
+									primaryModal.open({
+										type: 'PANEL',
+										showBackdrop: false,
+										showCloseBtn: false,
+										content: <ReviewConfig />,
+									});
+								}}
 							>
 								Review
 							</button>

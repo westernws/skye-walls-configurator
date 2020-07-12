@@ -76,12 +76,18 @@
 .ReviewConfigContainer {
 	@apply border-t border-gray-lighter border-solid;
 	--review-nav-height: 36px;
+	--review-footer-height: 67px;
 }
 .ReviewNav {
 	@apply flex;
 	height: var(--review-nav-height);
 }
 .ReviewConfig {
+	&.is-debug {
+		border: 1px solid red;
+	}
+	@apply overflow-auto;
+	height: calc(100vh - var(--header-height) - var(--review-nav-height) - var(--review-footer-height));
 	.ReviewConfig-hero {
 		@apply relative;
 		&::after {
@@ -112,6 +118,9 @@
 	}
 	.ReviewConfig-optionBody {
 		max-width: 136px;
+	}
+	.ReviewFooter {
+		height: var(--review-footer-height);
 	}
 }
 // 655 x 236 36.03%

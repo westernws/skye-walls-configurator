@@ -10,7 +10,7 @@ export const LayoutProduct = observer(({ children }) => {
 	return (
 		<>
 			<Modals />
-			<div className="Root Root--alt">
+			<div>
 				<Meta />
 				<header id="header" className="Header">
 					<nav className="SiteNav">
