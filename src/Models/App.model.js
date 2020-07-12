@@ -53,6 +53,22 @@ export const AppModel = types
 				}
 				menu.close();
 			}, { name: 'Auto close mobile only menu when going to desktop breakpoint' });
+			autorun(() => {
+				const pageClassName = self.page?.className;
+				const body = document.querySelector('body');
+				const removeClasses = [];
+
+				body.classList.forEach((item) => {
+					if (item.startsWith('Page--')) {
+						removeClasses.push(item);
+					}
+				});
+				body.classList.remove(...removeClasses);
+				body.classList.add('Page');
+				if (pageClassName) {
+					body.classList.add(pageClassName);
+				}
+			}, { name: 'Auto assign page name class to body tag' });
 		},
 		closeAllModals() {
 			[...self.modals.values()].forEach(modal => modal.close());

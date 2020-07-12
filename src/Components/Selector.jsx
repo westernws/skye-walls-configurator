@@ -20,14 +20,14 @@ export const Selector = observer(() => {
 	}
 
 	return (
-		<>
-			<div className="bg-gray-light100 InsetDivider">
+		<div className="SelectorPanelContainer">
+			<div className="SelectorPanelNav">
 				<div className="text-base px-4 h-8 flex justify-between items-center">
 					<h2 className="font-bold uppercase">{currentOptionGroup.displayName}</h2>
 					<SelectorNav />
 				</div>
 			</div>
-			<div className="SelectorPanel">
+			<div className="SelectorPanel is-debug">
 				<div className="SelectorPanel-inside space-y-10">
 					{
 						currentOptionGroup.name === 'color' &&
@@ -140,6 +140,6 @@ export const Selector = observer(() => {
 					}
 				</div>
 			</div>
-		</>
+		</div>
 	);
 });

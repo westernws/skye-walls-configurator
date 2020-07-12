@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '#/main.css';
+import '#/main.scss';
 
 export default function SkyeConfigurator({ Component, pageProps }) {
 	return <Component {...pageProps} />;

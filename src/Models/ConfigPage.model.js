@@ -9,6 +9,7 @@ export const ConfigPageModel = types
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ConfigPageModel_') === 0),
 		product: types.reference(ProductModel),
 		currentOptionGroup: types.reference(OptionGroupModel),
+		className: 'Page--config',
 	})
 	.views(self => ({
 		get currentOptionGroupIdx() {
