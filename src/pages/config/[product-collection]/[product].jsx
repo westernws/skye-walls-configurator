@@ -5,6 +5,7 @@ import { LayoutConfig } from '~/Components/LayoutConfig';
 import { DummyImage } from '~/Components/DummyImage';
 import { ClipboardListSolid } from '~/Components/svg/ClipboardListSolid.svg';
 import { Selector } from '~/Components/Selector';
+import { ReviewConfig } from '~/Components/ReviewConfig';
 
 export default () => {
 	return (
@@ -24,7 +25,7 @@ export default () => {
 										type: 'PANEL',
 										showBackdrop: false,
 										showCloseBtn: false,
-										content: <h1>ohai</h1>,
+										content: <ReviewConfig />,
 									});
 								}}
 							>

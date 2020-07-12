@@ -41,6 +41,9 @@ const Product = types
 		get floorTracksOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'floor-tracks') || {};
 		},
+		get handleOptionGroup() {
+			return self.optionGroups?.find?.(optGroup => optGroup.name === 'handles') || {};
+		},
 		get link() {
 			const href = ['[product-collection]', '[product]'];
 			const productGroup = self.getParentOfName('ProductGroup');
@@ -56,11 +59,40 @@ const Product = types
 		get optionGroupDisplayNames() {
 			return self.optionGroups?.map?.(optionGroup => optionGroup.displayName) || [];
 		},
+		get screenOptionGroup() {
+			return self.optionGroups?.find?.(optGroup => optGroup.name === 'screen') || {};
+		},
 		get selectedColor() {
 			return self.colorOptionGroup.options.find(option => option.selected);
 		},
 		get selectedFloorTracks() {
 			return self.floorTracksOptionGroup.options.find(option => option.selected);
+		},
+		get selectedHandle() {
+			return self.handleOptionGroup.options.find(option => option.selected);
+		},
+		get selectedOptions() {
+			const selectedOptions = [
+				self.selectedColor,
+				self.selectedFloorTracks,
+				self.selectedHandle,
+				self.selectedScreen,
+			];
+
+			return selectedOptions.map((selectedOption) => {
+				return {
+					optionGroup: selectedOption.parent,
+					option: selectedOption,
+				};
+			});
+		},
+		get selectedScreen() {
+			if (!self.screenOptionGroup) {
+				return null;
+			}
+			return self.screenOptionGroup.options?.find?.(option => option.selected) || {
+				description: self.screenOptionGroup.description,
+			};
 		},
 		get slug() {
 			return kebabCase(self.displayName);

@@ -32,6 +32,7 @@ export const ModalModel = types
 				content: null,
 				name: '',
 				showCloseBtnText: false,
+				showCloseBtn: true,
 				title: '',
 			};
 		},

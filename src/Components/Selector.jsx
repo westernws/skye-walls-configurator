@@ -32,7 +32,7 @@ export const Selector = observer(() => {
 					<SelectorNav />
 				</div>
 			</div>
-			<div className="SelectorPanel" ref={selectorPanel}>
+			<div className="SelectorPanel is-debug" ref={selectorPanel}>
 				<div className="SelectorPanel-inside space-y-10">
 					{
 						currentOptionGroup.name === 'color' &&

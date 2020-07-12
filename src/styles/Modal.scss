@@ -118,3 +118,21 @@
 		width: 450px;
 	}
 }
+.Modal.Modal--panel {
+	@apply z-30;
+	.Modal-container {
+		@apply w-full transition-all duration-300 ease-in-out;
+		top: auto;
+		bottom: calc(-100vh + var(--header-height));
+		height: calc(100vh - var(--header-height));
+		max-height: none;
+	}
+	.Modal-content {
+		@apply p-0;
+	}
+	&.is-open {
+		.Modal-container {
+			bottom: 0;
+		}
+	}
+}

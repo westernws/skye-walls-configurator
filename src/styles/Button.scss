@@ -26,4 +26,11 @@
 			height: 1em;
 		}
 	}
+	&.Button--tertiary {
+		@apply bg-transparent text-red flex items-center justify-center text-xs;
+		svg {
+			@apply mr-2;
+			height: 1em;
+		}
+	}
 }
