@@ -6,7 +6,7 @@ export const DummyImage = ({
 	return (
 		<img
 			className={className}
-			src={`https://fakeimg.pl/${width}x${height}/`}
+			src={`https://dummyimage.com/${width}x${height}/999/eee.png&text=${text} ${width}x${height}`}
 			alt=""
 		/>
 	);

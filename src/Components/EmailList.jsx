@@ -3,10 +3,11 @@ import React from 'react';
 export const EmailList = () => {
 	return (
 		<form
-			action="http://go.westernwindowsystems.com/l/694473/2020-06-28/35sr32"
+			action="https://go.westernwindowsystems.com/l/694473/2020-06-28/35sr32"
 			method="post"
 			className="divide-y divide-gray-light divide-opacity-50 space-y-6 md:w-2/3"
 		>
+			<input type="hidden" name="success_location" value="http://localhost:3000/?form-success=emailListForm" />
 			<div className="space-y-6">
 				<div className="space-y-4">
 					<h2 className="Heading font-bold uppercase flex-col text-lg md:text-3xl lg:flex-row">
@@ -34,6 +35,7 @@ export const EmailList = () => {
 								pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
 								title="Please enter a valid first name"
 								minLength="2"
+								value="first"
 							/>
 						</div>
 						<div className="TextField space-y-2 md:w-1/2">
@@ -50,6 +52,7 @@ export const EmailList = () => {
 								pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
 								title="Please enter a valid last name"
 								minLength="2"
+								value="last"
 							/>
 						</div>
 					</div>
@@ -67,6 +70,7 @@ export const EmailList = () => {
 								id="email-emailListForm"
 								name="email"
 								className="TextField-control"
+								value={`${new Date().valueOf()}@example.com`}
 							/>
 						</div>
 						<div className="TextField space-y-2 md:w-1/2">
@@ -84,12 +88,13 @@ export const EmailList = () => {
 								minLength="5"
 								maxLength="5"
 								title="Please enter a valid ZIP code"
+								value="55445"
 							/>
 						</div>
 					</div>
 				</div>
 				<div className="CheckboxField">
-					<input id="privacy-emailListForm" required className="CheckboxField-control" type="checkbox" />
+					<input id="privacy-emailListForm" required className="CheckboxField-control" type="checkbox" checked />
 					<label
 						htmlFor="privacy-emailListForm"
 						className="CheckboxField-label text-base md:text-sm"
