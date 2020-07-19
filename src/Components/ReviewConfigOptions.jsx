@@ -4,11 +4,13 @@ import 'mobx-react-lite/batchingForReactDom';
 
 import { useMst } from '~/Stores/App.store';
 import { DummyImage } from '~/Components/DummyImage';
-import { CheckSolid } from '~/Components/svg/CheckSolid.svg';
+import { ReviewConfigOption } from '~/Components/ReviewConfigOption';
 
 export const ReviewConfigOptions = observer(({ product }) => {
-	const { page, modals } = useMst();
-	const modal = modals.get('modal-primary');
+	const { isMediaQueryXl } = useMst();
+	const optionGroups = product.optionGroups.filter(optionGroup => optionGroup.options?.length);
+	const evenOptionGroups = optionGroups.filter((optionGroup, i) => i % 2 === 0);
+	const oddOptionGroups = optionGroups.filter((optionGroup, i) => i % 2 !== 1);
 
 	return (
 		<>
@@ -31,36 +33,28 @@ export const ReviewConfigOptions = observer(({ product }) => {
 					})
 				}
 			</ul>
-			{
-				product.optionGroups.filter(optionGroup => optionGroup.options?.length).map(optionGroup => (
-					<div key={optionGroup.name}>
-						<div className="flex justify-between items-center pb-1 mb-1 border-b border-gray-light border-solid">
-							<h2 className="font-bold text-xl uppercase">{optionGroup.displayName}</h2>
-							<button
-								type="button"
-								className="text-xs underline"
-								onClick={() => {
-									page.setCurrentOptionGroup(optionGroup.id);
-									modal.close();
-									console.log('do stuff');
-								}}
-							>
-								Edit
-							</button>
-						</div>
+			<div className="space-y-8 xl:flex xl:space-x-12 xl:space-y-0 xl:pt-12">
+				{
+					!isMediaQueryXl &&
+					optionGroups.map(optionGroup => <ReviewConfigOption optionGroup={optionGroup} />)
+				}
+				{
+					isMediaQueryXl &&
+					<div className="w-1/2 space-y-12">
 						{
-							optionGroup.options.filter(option => option.selected).map(option => (
-								<div key={option.name} className="flex justify-between items-center space-y-2">
-									<h3 className="text-base">{option.displayName}</h3>
-									<div className="w-4 text-red">
-										<CheckSolid />
-									</div>
-								</div>
-							))
+							evenOptionGroups.map(optionGroup => <ReviewConfigOption optionGroup={optionGroup} />)
 						}
 					</div>
-				))
-			}
+				}
+				{
+					isMediaQueryXl &&
+					<div className="w-1/2 space-y-12">
+						{
+							oddOptionGroups.map(optionGroup => <ReviewConfigOption optionGroup={optionGroup} />)
+						}
+					</div>
+				}
+			</div>
 			{
 				Boolean(product.selectedScreen) &&
 				<p className="text-base mt-4 italic text-center">{product.selectedScreen.description}</p>

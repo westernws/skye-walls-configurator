@@ -31,10 +31,14 @@ export const ReviewConfig = observer(() => {
 					<DummyImage className="ReviewConfig-heroImg" width="633" height="228" />
 				</div>
 				<div className="ReviewConfig-body divide-y-2 divide-gray-light100">
-					<div className="p-8">
+					<div className="p-8 xl:flex m-auto justify-center items-center">
+						<div className="hidden mr-20 w-3/12 leading-none xl:block space-y-3">
+							<h2 className="text-5xl">{selectedProduct.displayName}</h2>
+							<h3 className="text-xl text-gray-light">{selectedProduct.displayGroupName}</h3>
+						</div>
 						<button
 							type="button"
-							className="Button w-full"
+							className="Button w-full xl:w-auto xl:px-12"
 						>
 							Get Quote
 						</button>

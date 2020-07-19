@@ -13,9 +13,6 @@
 	width: 50px;
 	border-bottom: 2px solid theme('colors.gray.default');
 }
-.ConfigPreview {
-	/*height: var(--config-preview-height);*/
-}
 .SelectorPanelNav {
 	@apply border-b border-white border-solid bg-gray-light100;
 	height: var(--config-selector-panel-nav-height);
@@ -26,50 +23,7 @@
 		content: ' ';
 	}
 }
-.ReviewConfigContainer {
-	@apply border-t border-gray-lighter border-solid;
-	--review-nav-height: 36px;
-	--review-footer-height: 67px;
-}
-.ReviewConfig {
-	&.is-debug {
-		border: 1px solid red;
-	}
-	@apply overflow-auto;
-	height: calc(100vh - var(--header-height) - var(--review-nav-height) - var(--review-footer-height));
-	.ReviewConfig-hero {
-		@apply relative;
-		&::after {
-			@apply block h-0 w-full;
-			padding-bottom: 36.03%;
-			content: ' ';
-		}
-	}
-	.ReviewConfig-heroImg {
-		@apply absolute top-0 left-0 w-full;
-	}
-	.ReviewConfig-body {
-		@apply border-t-4 border-solid border-gray-light100;
-	}
-	.ReviewConfig-options {
-		@apply grid gap-6;
-		grid-template-columns: repeat(2, minmax(136px, 1fr));
-		justify-items: center;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.ReviewConfig-option {
-		@apply flex flex-col text-center;
-		margin: 0;
-		+ .ReviewConfig-option {
-			//margin-left: 10rem;
-		}
-	}
-	.ReviewConfig-optionBody {
-		max-width: 136px;
-	}
-	.ReviewFooter {
-		height: var(--review-footer-height);
-	}
+.ReviewFooter {
+	height: var(--review-footer-height);
 }
 // 655 x 236 36.03%

@@ -1,0 +1,41 @@
+.ReviewConfig {
+	&.is-debug {
+		border: 1px solid red;
+	}
+	@apply overflow-auto;
+	height: calc(100vh - var(--header-height) - var(--review-nav-height) - var(--review-footer-height));
+	.ReviewConfig-hero {
+		@apply relative;
+		&::after {
+			@apply block h-0 w-full;
+			padding-bottom: 36.03%;
+			content: ' ';
+		}
+	}
+	.ReviewConfig-heroImg {
+		@apply absolute top-0 left-0 w-full;
+	}
+	.ReviewConfig-body {
+		@apply border-t-4 border-solid border-gray-light100;
+	}
+	.ReviewConfig-options {
+		@apply grid items-center mx-auto;
+		--review-config-gap: 1.5rem;
+		--review-config-option-width: 136px;
+		grid-gap: var(--review-config-gap);
+		grid-template-columns: repeat(2, minmax(var(--review-config-option-width), 1fr));
+	}
+	.ReviewConfig-option {
+		@apply flex flex-col text-center m-0;
+	}
+	.ReviewConfig-optionBody {
+		max-width: var(--review-config-option-width);
+	}
+}
+
+@screen xl {
+	.ReviewConfig .ReviewConfig-options {
+		grid-template-columns: repeat(auto-fit, minmax(var(--review-config-option-width), 1fr));
+		max-width: calc((var(--review-config-option-width) * 4) + (var(--review-config-gap) * 3));
+	}
+}
