@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
+import cn from 'classnames';
 
 import { useMst } from '~/Stores/App.store';
 
@@ -14,16 +15,21 @@ export const SelectorMenu = observer(() => {
 	return (
 		<ul className="SelectorMenu">
 			{
-				product.optionGroupDisplayNames.map(optionGroupName => (
+				product.optionGroups.map(optionGroup => (
 					<li
-						className="SelectorMenu-item"
-						key={optionGroupName}
+						className={cn('SelectorMenu-item', {
+							'is-active': page.currentOptionGroup.name === optionGroup.name,
+						})}
+						key={optionGroup.displayName}
 					>
 						<button
 							type="button"
 							className="SelectorMenu-button"
+							onClick={() => {
+								page.setCurrentOptionGroup(optionGroup.id);
+							}}
 						>
-							{optionGroupName}
+							{optionGroup.displayName}
 						</button>
 					</li>
 				))

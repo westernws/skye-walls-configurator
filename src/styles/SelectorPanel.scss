@@ -16,7 +16,7 @@
 
 @screen xl {
 	.SelectorPanel {
-		@apply mt-0;
+		@apply mt-0 bg-gray-light100;
 		height: var(--config-image-height);
 	}
 }

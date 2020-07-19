@@ -43,7 +43,7 @@ export const LayoutConfig = observer(({ children }) => {
 									</Link>
 								</div>
 								<div className="space-y-1">
-									<div className="items-baseline xl:flex xl:space-x-2 xl:uppercase">
+									<div className="Header-title xl:space-x-2">
 										<h1 className="text-lg leading-tight">{selectedProduct.displayName}</h1>
 										<div className="text-xs text-gray-light">{selectedProduct.displayGroupName}</div>
 									</div>
@@ -88,7 +88,7 @@ export const LayoutConfig = observer(({ children }) => {
 							</div>
 							<div className="ConfigReview hidden xl:block">
 								<button
-									className="Button"
+									className="Button xl:px-12"
 									type="button"
 									onClick={() => {
 										modal.open({

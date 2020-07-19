@@ -5,7 +5,8 @@
 .SelectorMenu-item {
 	@apply transition-all duration-300 ease-in-out block text-center;
 	flex-grow: 1;
-	&:hover {
+	&:hover,
+	&.is-active {
 		@apply bg-black text-white;
 	}
 }

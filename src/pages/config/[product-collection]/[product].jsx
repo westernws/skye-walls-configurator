@@ -16,7 +16,7 @@ export default () => {
 					<SelectorMenu />
 					<div className="block xl:flex">
 						<div className="ConfigPreview">
-							<div className="ConfigImage is-debug">
+							<div className="ConfigImage">
 								<DummyImage width="1000" height="1000" />
 							</div>
 							<div className="ConfigReview xl:hidden">

@@ -25,3 +25,9 @@
 		--config-image-height: calc(100vh - var(--header-height) - var(--config-selector-panel-nav-height));
 	}
 }
+
+@screen 3xl {
+	.MainComponent {
+		--config-image-width: calc(100vw - 455px);
+	}
+}

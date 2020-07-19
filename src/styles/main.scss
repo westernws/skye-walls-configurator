@@ -9,12 +9,6 @@
 		@apply w-6;
 	}
 }
-.Header {
-	@apply bg-white w-full;
-}
-.Header--fixed {
-	@apply fixed top-0 z-20;
-}
 .Rule {
 	width: 50px;
 	border-bottom: 2px solid theme('colors.gray.default');
