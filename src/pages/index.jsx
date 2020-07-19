@@ -58,30 +58,32 @@ export default () => {
 						})
 					}
 				</main>
-				<div className="bg-gray-lighter px-6 py-8 flex flex-col space-y-6 md:flex-row md:space-y-0 md:space-x-6 md:items-start md:justify-between">
-					<EmailList />
-					<ul className="Sociables flex justify-center items-center space-x-6">
-						<li className="Sociables-facebook">
-							<a href="https://www.facebook.com/SkyeWallsbyWWS/">
-								<Facebook />
-							</a>
-						</li>
-						<li className="Sociables-instagram">
-							<a href="https://www.instagram.com/skye_walls_by_wws/">
-								<Instagram />
-							</a>
-						</li>
-						<li className="Sociables-pinterest">
-							<a href="https://www.pinterest.com/SkyeWallsbyWWS/pins/">
-								<Pinterest />
-							</a>
-						</li>
-						<li className="Sociables-youtube">
-							<a href="https://www.youtube.com/user/westernwindowsystems">
-								<YouTube />
-							</a>
-						</li>
-					</ul>
+				<div className="bg-gray-lighter">
+					<div className="SiteMaxWidth m-auto px-6 py-8 flex flex-col space-y-6 md:flex-row md:space-y-0 md:space-x-6 md:items-start md:justify-between">
+						<EmailList />
+						<ul className="Sociables flex justify-center items-center space-x-6">
+							<li className="Sociables-facebook">
+								<a href="https://www.facebook.com/SkyeWallsbyWWS/">
+									<Facebook />
+								</a>
+							</li>
+							<li className="Sociables-instagram">
+								<a href="https://www.instagram.com/skye_walls_by_wws/">
+									<Instagram />
+								</a>
+							</li>
+							<li className="Sociables-pinterest">
+								<a href="https://www.pinterest.com/SkyeWallsbyWWS/pins/">
+									<Pinterest />
+								</a>
+							</li>
+							<li className="Sociables-youtube">
+								<a href="https://www.youtube.com/user/westernwindowsystems">
+									<YouTube />
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</Layout>
 		</Provider>

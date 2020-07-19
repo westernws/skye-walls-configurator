@@ -2,6 +2,9 @@
 	@apply text-xl uppercase flex items-center transition-all duration-500 ease-in-out;
 	flex-shrink: 0;
 	min-width: 130px;
+	&:focus {
+		@apply outline-none;
+	}
 }
 .BackToTop-icon {
 	@apply w-8 opacity-0 transition-all duration-500 ease-in-out;

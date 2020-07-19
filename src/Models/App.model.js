@@ -51,7 +51,9 @@ export const AppModel = types
 				if (!self.isMediaQueryXl || !menu) {
 					return;
 				}
-				menu.close();
+				if (menu.isOpen) {
+					menu.close();
+				}
 			}, { name: 'Auto close mobile only menu when going to desktop breakpoint' });
 			autorun(() => {
 				const pageClassName = self.page?.className;
