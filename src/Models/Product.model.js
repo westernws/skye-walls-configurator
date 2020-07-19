@@ -63,13 +63,13 @@ const Product = types
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'screen') || {};
 		},
 		get selectedColor() {
-			return self.colorOptionGroup.options.find(option => option.selected);
+			return self.colorOptionGroup?.options?.find?.(option => option.selected) || {};
 		},
 		get selectedFloorTracks() {
-			return self.floorTracksOptionGroup.options.find(option => option.selected);
+			return self.floorTracksOptionGroup?.options?.find?.(option => option.selected) || {};
 		},
 		get selectedHandle() {
-			return self.handleOptionGroup.options.find(option => option.selected);
+			return self.handleOptionGroup?.options?.find?.(option => option.selected) || {};
 		},
 		get selectedOptions() {
 			const selectedOptions = [
