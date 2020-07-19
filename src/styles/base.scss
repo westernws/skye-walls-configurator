@@ -48,15 +48,15 @@ button[disabled] {
 	:root {
 		--vw100: 834px;
 		--vh100: 1194px;
-		--device-header-h: 75px;
+		--device-header-h: 74px;
 	}
 }
 // iPad Pro 11 landscape
 @media (device-width: 834px) and (device-height: 1194px) and (orientation: landscape) {
 	:root {
 		--vh100: 834px;
-		--vw100: 1191px;
-		--device-header-h: 40px;
+		--vw100: 1194px;
+		--device-header-h: 74px;
 	}
 }
 // iPad mini portrait
