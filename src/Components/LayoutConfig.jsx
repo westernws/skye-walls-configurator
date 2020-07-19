@@ -11,6 +11,7 @@ import { StartOver } from '~/Components/StartOver';
 import { ChangeProduct } from '~/Components/ChangeProduct';
 import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 import { ReviewConfig } from '~/Components/ReviewConfig';
+import { LongArrowAltLeft } from '~/Components/svg/LongArrowAltLeft.svg';
 
 export const LayoutConfig = observer(({ children }) => {
 	const {
@@ -23,6 +24,7 @@ export const LayoutConfig = observer(({ children }) => {
 	const selectedProduct = page.product;
 	const modal = modals.get('modal-primary');
 	const menu = modals.get('modal-menu');
+	const isReviewModalOpen = modal.name === 'reviewModal' && modal.isOpen;
 
 	global.product = selectedProduct;
 	console.log(selectedProduct);
@@ -48,60 +50,99 @@ export const LayoutConfig = observer(({ children }) => {
 										<div className="text-xs text-gray-light">{selectedProduct.displayGroupName}</div>
 									</div>
 									<ul className="space-x-6 hidden xl:flex">
-										<li>
-											<button
-												className="Breadcrumb"
-												type="button"
-												onClick={() => {
-													menu.close();
-													modal.open({
-														type: 'FROSTY',
-														title: 'Start Over?',
-														content: <StartOver />,
-													});
-												}}
-											>
-												<span className="Breadcrumb-text">Start Over</span>
-												<ChevronSolid direction="right" className="Breadcrumb-img" />
-											</button>
-										</li>
-										<li>
-											<button
-												className="Breadcrumb"
-												type="button"
-												onClick={() => {
-													menu.close();
-													modal.open({
-														name: 'changeProduct',
-														type: 'SLIDER',
-														showCloseBtnText: true,
-														content: <ChangeProduct selectedProduct={selectedProduct} />,
-													});
-												}}
-											>
-												<span className="Breadcrumb-text">Change Product</span>
-												<ChevronSolid direction="right" className="Breadcrumb-img" />
-											</button>
-										</li>
+										{
+											!isReviewModalOpen &&
+											<>
+												<li>
+													<button
+														className="Breadcrumb"
+														type="button"
+														onClick={() => {
+															menu.close();
+															modal.open({
+																type: 'FROSTY',
+																title: 'Start Over?',
+																content: <StartOver />,
+															});
+														}}
+													>
+														<span className="Breadcrumb-text">Start Over</span>
+														<ChevronSolid direction="right" className="Breadcrumb-img" />
+													</button>
+												</li>
+												<li>
+													<button
+														className="Breadcrumb"
+														type="button"
+														onClick={() => {
+															menu.close();
+															modal.open({
+																name: 'changeProduct',
+																type: 'SLIDER',
+																showCloseBtnText: true,
+																content: <ChangeProduct selectedProduct={selectedProduct} />,
+															});
+														}}
+													>
+														<span className="Breadcrumb-text">Change Product</span>
+														<ChevronSolid direction="right" className="Breadcrumb-img" />
+													</button>
+												</li>
+											</>
+										}
+										{
+											isReviewModalOpen &&
+											<li>
+												<div className="ReviewNav">
+													<button
+														type="button"
+														className="Button Button--tertiary justify-center"
+														onClick={() => {
+															modal.close();
+														}}
+													>
+														<LongArrowAltLeft />
+														Back to Build
+													</button>
+												</div>
+											</li>
+										}
 									</ul>
 								</div>
 							</div>
-							<div className="ConfigReview hidden xl:block">
-								<button
-									className="Button xl:px-12"
-									type="button"
-									onClick={() => {
-										modal.open({
-											type: 'PANEL',
-											showBackdrop: false,
-											showCloseBtn: false,
-											content: <ReviewConfig />,
-										});
-									}}
-								>
-									Review
-								</button>
-							</div>
+							{
+								!isReviewModalOpen &&
+								<div className="ConfigReview hidden xl:block xl:-mr-4">
+									<button
+										className="Button xl:px-12"
+										type="button"
+										onClick={() => {
+											modal.open({
+												name: 'reviewModal',
+												type: 'PANEL',
+												showBackdrop: false,
+												showCloseBtn: false,
+												content: <ReviewConfig />,
+											});
+										}}
+									>
+										Review
+									</button>
+								</div>
+							}
+							{
+								isReviewModalOpen &&
+								<div className="hidden xl:block">
+									<button
+										className="Button xl:px-12"
+										type="button"
+										onClick={() => {
+										}}
+									>
+										Get Quote
+									</button>
+								</div>
+							}
 							<Menu
 								selectedProduct={selectedProduct}
 								categories={selectedProduct.optionGroupDisplayNames}

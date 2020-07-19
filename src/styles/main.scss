@@ -31,10 +31,6 @@
 	--review-nav-height: 36px;
 	--review-footer-height: 67px;
 }
-.ReviewNav {
-	@apply flex;
-	height: var(--review-nav-height);
-}
 .ReviewConfig {
 	&.is-debug {
 		border: 1px solid red;

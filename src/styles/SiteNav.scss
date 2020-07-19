@@ -27,7 +27,7 @@
 @screen xl {
 	.SiteNav.SiteNav--config {
 		& {
-			@apply pl-6 max-w-none;
+			@apply px-6 max-w-none;
 		}
 		.SiteNav-wrap {
 			height: var(--header-height);

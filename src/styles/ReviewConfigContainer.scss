@@ -1,0 +1,9 @@
+.ReviewConfigContainer {
+	@apply border-t border-gray-lighter border-solid;
+	--review-nav-height: 36px;
+	--review-footer-height: 67px;
+}
+
+@screen xl {
+	--review-nav-height: 0;
+}

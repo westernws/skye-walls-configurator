@@ -4,10 +4,10 @@
 }
 .SelectorMenu-item {
 	@apply transition-all duration-300 ease-in-out block text-center;
-	flex-grow: 1;
+	flex: 1 1 0;
 	&:hover,
 	&.is-active {
-		@apply bg-black text-white;
+		@apply bg-gray text-white;
 	}
 }
 .SelectorMenu-button {

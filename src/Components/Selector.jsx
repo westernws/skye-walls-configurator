@@ -140,6 +140,7 @@ export const Selector = observer(() => {
 								className="Button w-full xl:w-auto xl:px-12"
 								onClick={() => {
 									primaryModal.open({
+										name: 'reviewModal',
 										type: 'PANEL',
 										showBackdrop: false,
 										showCloseBtn: false,

@@ -14,7 +14,7 @@ export const ReviewConfig = observer(() => {
 
 	return (
 		<div className="ReviewConfigContainer">
-			<div className="ReviewNav">
+			<div className="ReviewNav xl:hidden">
 				<button
 					type="button"
 					className="Button Button--tertiary justify-center"
