@@ -68,5 +68,14 @@ export const ConfigPageModel = types
 			setCurrentOptionGroup(optionGroupId) {
 				self.currentOptionGroup = optionGroupId;
 			},
+			setProduct(product) {
+				const firstOptionGroupId = product?.optionGroups?.[0]?.id;
+
+				if (!firstOptionGroupId) {
+					return;
+				}
+				self.product = product;
+				self.setCurrentOptionGroup(firstOptionGroupId);
+			},
 		};
 	});

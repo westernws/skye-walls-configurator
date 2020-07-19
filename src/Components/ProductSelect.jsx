@@ -44,7 +44,7 @@ export const ProductSelect = observer(({ displayGroupName, products, selectedPro
 											name: 'changeProductConfirm',
 											showBackdrop: !isMediaQueryXl,
 											showCloseBtnText: isMediaQueryXl,
-											content: <ChangeProductConfirm />,
+											content: <ChangeProductConfirm newProductLink={product.configLink} />,
 										});
 									}}
 								>

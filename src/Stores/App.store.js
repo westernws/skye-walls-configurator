@@ -48,9 +48,7 @@ Router.events.on('routeChangeComplete', () => {
 			id: `ProductPageModel_${uniqueId()}`,
 		}));
 	}
-
-	appStore.modals.get('modal-primary').close();
-	appStore.modals.get('modal-menu').close();
+	appStore.closeAllModals();
 });
 if (process.browser) {
 	global.app = appStore;

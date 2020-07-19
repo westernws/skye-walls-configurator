@@ -1,12 +1,12 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import 'mobx-react-lite/batchingForReactDom';
-import Router from 'next/router';
+import Link from 'next/link';
 
 import { useMst } from '~/Stores/App.store';
 import { DummyImage } from '~/Components/DummyImage';
 
-export const ChangeProductConfirm = observer(() => {
+export const ChangeProductConfirm = observer(({ newProductLink }) => {
 	const { closeAllModals } = useMst();
 
 	return (
@@ -24,13 +24,11 @@ export const ChangeProductConfirm = observer(() => {
 				You will lose your current configurations and start from scratch.
 			</p>
 			<div className="pt-4 -mt-4 -ml-4 xl:px-4">
-				<button
-					className="Button ml-4"
-					type="button"
-					onClick={Router.reload}
-				>
-					Yes, start over
-				</button>
+				<Link href={newProductLink.href} as={newProductLink.as}>
+					<a className="Button ml-4" href={newProductLink.href}>
+						Yes, start over
+					</a>
+				</Link>
 				<button
 					className="Button mt-4 ml-4"
 					type="button"
