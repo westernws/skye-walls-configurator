@@ -6,6 +6,7 @@ import { autorun } from 'mobx';
 import { ProductCollectionModel } from '~/Models/ProductCollection.model';
 import { ModalModel } from '~/Models/Modal.model';
 import { ConfigPageModel } from '~/Models/ConfigPage.model';
+import { ProductPageModel } from '~/Models/ProductPage.model';
 import { themeConfig } from '~/util/themeConfig';
 
 export const AppModel = types
@@ -13,7 +14,7 @@ export const AppModel = types
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('AppModel_') === 0),
 		productCollections: types.array(ProductCollectionModel),
 		modals: types.map(types.maybeNull(ModalModel)),
-		page: types.maybeNull(ConfigPageModel),
+		page: types.maybeNull(types.union(ConfigPageModel, ProductPageModel)),
 		isMediaQueryXl: false,
 	})
 	.views(self => ({
@@ -57,20 +58,20 @@ export const AppModel = types
 			}, { name: 'Auto close mobile only menu when going to desktop breakpoint' });
 			autorun(() => {
 				const pageClassName = self.page?.className;
-				const body = document.querySelector('body');
+				const html = document.querySelector('html');
 				const removeClasses = [];
 
-				body.classList.forEach((item) => {
+				html.classList.forEach((item) => {
 					if (item.startsWith('Page--')) {
 						removeClasses.push(item);
 					}
 				});
-				body.classList.remove(...removeClasses);
-				body.classList.add('Page');
+				html.classList.remove(...removeClasses);
+				html.classList.add('Page');
 				if (pageClassName) {
-					body.classList.add(pageClassName);
+					html.classList.add(pageClassName);
 				}
-			}, { name: 'Auto assign page name class to body tag' });
+			}, { name: 'Auto assign page name class to html tag' });
 		},
 		closeAllModals() {
 			[...self.modals.values()].forEach(modal => modal.close());

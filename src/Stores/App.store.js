@@ -7,6 +7,7 @@ import { AppModel } from '~/Models/App.model';
 import productCollectionsData from '~/Data/productCollections';
 import { ProductCollectionsFactory } from '~/Factories/ProductCollections.factory';
 import { ConfigPageModel } from '~/Models/ConfigPage.model';
+import { ProductPageModel } from '~/Models/ProductPage.model';
 
 const AppStoreContext = createContext();
 const { Provider } = AppStoreContext;
@@ -32,7 +33,7 @@ Router.events.on('routeChangeComplete', () => {
 	if (appStore.page) {
 		appStore.setPage(null);
 	}
-	if (Router.route === '/config/[product-collection]/[product]') {
+	if (Router.route.startsWith('/config/')) {
 		const { product: productSlug } = Router.query;
 		const product = appStore.getProductBySlug(productSlug);
 		const currentOptionGroup = product.optionGroups[0].id;
@@ -42,7 +43,12 @@ Router.events.on('routeChangeComplete', () => {
 			product,
 			currentOptionGroup,
 		}));
+	} else if (Router.route === '/[product-collection]/[product]') {
+		appStore.setPage(ProductPageModel.create({
+			id: `ProductPageModel_${uniqueId()}`,
+		}));
 	}
+
 	appStore.modals.get('modal-primary').close();
 	appStore.modals.get('modal-menu').close();
 });

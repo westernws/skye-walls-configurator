@@ -1,19 +1,24 @@
 .Page {
-	&.Page--config {
-		@apply overflow-hidden;
-	}
-}
-.Page {
 	--header-height: 80px;
-	@apply text-sm h-full;
+	body {
+		@apply text-sm h-full;
+	}
+	&.Page--product,
+	&.Page--config {
+		body {
+			@apply bg-gray-lighter;
+		}
+	}
 	&.Page--config {
 		--header-height: 70px;
-		@apply bg-gray-lighter;
+		body {
+			@apply overflow-hidden;
+		}
 	}
 }
 
 @screen md {
-	.Page {
+	.Page body {
 		@apply text-lg;
 	}
 }
