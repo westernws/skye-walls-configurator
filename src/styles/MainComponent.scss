@@ -22,7 +22,7 @@
 	.MainComponent {
 		--config-image-width: calc(100vw - 440px);
 		--config-selector-panel-nav-height: 40px;
-		--config-image-height: calc(100vh - var(--header-height) - var(--config-selector-panel-nav-height));
+		--config-image-height: calc(var(--vh100) - var(--device-header-h) - var(--device-footer-h) - var(--header-height) - var(--config-selector-panel-nav-height));
 	}
 }
 
