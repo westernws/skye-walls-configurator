@@ -62,15 +62,19 @@ export const MenuList = observer(({ categories = [], selectedProduct }) => {
 				label="Finished Designing?"
 			>
 				<li className="Menu-subItem">
-					<Link href="color" as="color">
-						<a className="Menu-subHeading" href="color">
-							<div className="Menu-label">Review Selections</div>
-						</a>
-					</Link>
+					<button
+						type="button"
+						className="Menu-subHeading"
+						onClick={() => {
+							// TODO (aboyer) make method to open review modal DRY
+						}}
+					>
+						<div className="Menu-label">Review Selections</div>
+					</button>
 				</li>
 				<li className="Menu-subItem">
-					<Link href="color" as="color">
-						<a className="Menu-subHeading" href="color">
+					<Link href="/" as="/">
+						<a className="Menu-subHeading" href="/">
 							<div className="Menu-leftCol">
 								<div className="Menu-label">Exit Configurator</div>
 							</div>

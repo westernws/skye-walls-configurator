@@ -1,5 +1,5 @@
 .Menu {
-	@apply flex self-stretch;
+	@apply flex self-stretch text-center;
 	li {
 		@apply flex;
 		/*border-left: 1px solid theme('colors.black');*/

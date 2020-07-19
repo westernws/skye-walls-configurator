@@ -73,7 +73,7 @@ export const Layout = observer(({ children }) => {
 										<a>
 											<div className="Icon">
 												<BarsSolid />
-												<span>Menu</span>
+												<span>FPO</span>
 											</div>
 										</a>
 									</Link>
