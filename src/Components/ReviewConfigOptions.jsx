@@ -36,13 +36,13 @@ export const ReviewConfigOptions = observer(({ product }) => {
 			<div className="space-y-8 xl:flex xl:space-x-12 xl:space-y-0 xl:pt-12">
 				{
 					!isMediaQueryXl &&
-					optionGroups.map(optionGroup => <ReviewConfigOption optionGroup={optionGroup} />)
+					optionGroups.map(optionGroup => <ReviewConfigOption key={optionGroup.name} optionGroup={optionGroup} />)
 				}
 				{
 					isMediaQueryXl &&
 					<div className="w-1/2 space-y-12">
 						{
-							evenOptionGroups.map(optionGroup => <ReviewConfigOption optionGroup={optionGroup} />)
+							evenOptionGroups.map(optionGroup => <ReviewConfigOption key={optionGroup.name} optionGroup={optionGroup} />)
 						}
 					</div>
 				}
@@ -50,7 +50,7 @@ export const ReviewConfigOptions = observer(({ product }) => {
 					isMediaQueryXl &&
 					<div className="w-1/2 space-y-12">
 						{
-							oddOptionGroups.map(optionGroup => <ReviewConfigOption optionGroup={optionGroup} />)
+							oddOptionGroups.map(optionGroup => <ReviewConfigOption key={optionGroup.name} optionGroup={optionGroup} />)
 						}
 					</div>
 				}
