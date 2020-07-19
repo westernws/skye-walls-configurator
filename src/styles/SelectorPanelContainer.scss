@@ -1,0 +1,11 @@
+.SelectorPanelContainer {
+	@apply absolute w-full;
+	top: var(--config-selector-panel-offset-y);
+}
+
+@screen xl {
+	.SelectorPanelContainer {
+		@apply static;
+		width: 440px;
+	}
+}

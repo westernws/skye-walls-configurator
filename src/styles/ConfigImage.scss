@@ -1,0 +1,18 @@
+.ConfigImage {
+	width: var(--config-image-width);
+	height: var(--config-image-height);
+	img {
+		@apply w-auto h-full m-auto object-contain;
+	}
+	&.is-debug {
+		@apply border border-solid border-red;
+	}
+}
+
+@screen xl {
+	.ConfigImage {
+		img {
+
+		}
+	}
+}

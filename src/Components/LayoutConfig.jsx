@@ -10,6 +10,7 @@ import { Menu } from '~/Components/Menu';
 import { StartOver } from '~/Components/StartOver';
 import { ChangeProduct } from '~/Components/ChangeProduct';
 import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
+import { ReviewConfig } from '~/Components/ReviewConfig';
 
 export const LayoutConfig = observer(({ children }) => {
 	const {
@@ -84,6 +85,22 @@ export const LayoutConfig = observer(({ children }) => {
 										</li>
 									</ul>
 								</div>
+							</div>
+							<div className="ConfigReview hidden xl:block">
+								<button
+									className="Button"
+									type="button"
+									onClick={() => {
+										modal.open({
+											type: 'PANEL',
+											showBackdrop: false,
+											showCloseBtn: false,
+											content: <ReviewConfig />,
+										});
+									}}
+								>
+									Review
+								</button>
 							</div>
 							<Menu
 								selectedProduct={selectedProduct}

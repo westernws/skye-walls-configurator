@@ -1,0 +1,11 @@
+.ConfigReview {
+	@apply absolute px-4 w-full;
+	top: var(--config-review-offset-y);
+}
+
+@screen xl {
+	.ConfigReview {
+		@apply static w-auto;
+		top: auto;
+	}
+}

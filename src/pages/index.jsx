@@ -20,7 +20,7 @@ export default () => {
 				<div className="Hero">
 					<DummyImage className="Hero-image" width="1600" height="477" />
 				</div>
-				<main className="Main space-y-20 pb-20">
+				<main className="MainComponent space-y-20 pb-20">
 					<section className="flex justify-center mb-10">
 						<div className="w-12/12 md:w-7/12 mt-6">
 							<h1 className="Heading Heading--ruled text-4xl md:text-5xl">Design Your Door</h1>

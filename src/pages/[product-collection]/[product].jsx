@@ -60,7 +60,7 @@ export default () => {
 			<LayoutProduct>
 				{
 					Boolean(selectedProducts?.length) &&
-					<main className="Main pb-20 space-y-6">
+					<main className="MainComponent pb-20 space-y-6">
 						<header className="flex flex-col flex-wrap space-y-4 items-center mt-12 lg:flex-row lg:flex-nowrap lg:space-y-0 lg:justify-between">
 							<h1 className="Heading Heading--bordered items-center text-center flex-col text-2xl lg:text-3xl lg:flex-row">
 								Customize Your {selectedProductGroup?.displayGroupName || selectedCollection?.displayGroupName}

@@ -69,4 +69,12 @@
 			}
 		}
 	}
+	.Radio.Radio--colorSelector {
+		.Radio-group {
+			@apply -ml-6 justify-start;
+		}
+		.Radio-fieldGroup {
+			font-size: 4.7rem;
+		}
+	}
 }

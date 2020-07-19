@@ -1,0 +1,20 @@
+.SelectorMenu {
+	@apply hidden justify-between bg-gray-light100 border-t border-b border-solid border-gray-light;
+	height: var(--config-selector-panel-nav-height);
+}
+.SelectorMenu-item {
+	@apply transition-all duration-300 ease-in-out block text-center;
+	flex-grow: 1;
+	&:hover {
+		@apply bg-black text-white;
+	}
+}
+.SelectorMenu-button {
+	@apply font-bold uppercase text-base w-full h-full p-2;
+}
+
+@screen xl {
+	.SelectorMenu {
+		@apply flex;
+	}
+}

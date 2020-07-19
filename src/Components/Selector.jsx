@@ -27,13 +27,13 @@ export const Selector = observer(() => {
 
 	return (
 		<div className="SelectorPanelContainer">
-			<div className="SelectorPanelNav">
+			<div className="SelectorPanelNav xl:hidden">
 				<div className="text-base px-4 h-8 flex justify-between items-center">
 					<h2 className="font-bold uppercase">{currentOptionGroup.displayName}</h2>
 					<SelectorNav />
 				</div>
 			</div>
-			<div className="SelectorPanel" ref={selectorPanel}>
+			<div className="SelectorPanel is-debug" ref={selectorPanel}>
 				<div className="SelectorPanel-inside space-y-10">
 					{
 						currentOptionGroup.name === 'color' &&
@@ -49,7 +49,7 @@ export const Selector = observer(() => {
 						<div>
 							{
 								Boolean(currentOptionGroup.options?.length) &&
-								<ul className="space-y-4">
+								<ul className="OptionGroup space-y-4 xl:space-y-0">
 									{
 										currentOptionGroup.options.map((option) => {
 											const isSelected = currentSelectedOption?.name === option.name;
@@ -57,9 +57,8 @@ export const Selector = observer(() => {
 											return (
 												<li
 													key={option.name}
-													className={cn('relative p-2 bg-white border-b-4 border-solid', {
-														'border-gray-light100': !isSelected,
-														'border-red': isSelected,
+													className={cn('OptionGroup-option', {
+														'is-selected': isSelected,
 													})}
 												>
 													<button
@@ -69,17 +68,17 @@ export const Selector = observer(() => {
 															product.setOption(currentOptionGroup.name, option.name);
 														}}
 													>
-														<div className="flex pr-2 space-x-4 w-full">
-															<div className="flex-shrink-0">
+														<div className="flex pr-2 space-x-4 w-full xl:space-x-2">
+															<div className="flex-shrink-0 xl:w-1/3">
 																<DummyImage width="120" height="120" />
 															</div>
-															<div className="flex-grow text-left">
+															<div className="flex-grow text-left xl:text-sm">
 																{option.displayName}
 															</div>
 														</div>
 														{
 															isSelected &&
-															<div>
+															<div className="OptionGroup-checkmark">
 																<div className="bg-red rounded-full border-white w-5 p-1">
 																	<img src="/images/check-solid-white.svg" alt="" />
 																</div>
@@ -124,7 +123,7 @@ export const Selector = observer(() => {
 						Boolean(page.nextOptionGroup) &&
 						<button
 							type="button"
-							className="Button Button--secondary w-full"
+							className="Button Button--secondary w-full xl:w-auto xl:px-12"
 							onClick={() => {
 								page.setCurrentOptionGroup(page.nextOptionGroup.id);
 							}}
@@ -138,7 +137,7 @@ export const Selector = observer(() => {
 							<div className="pt-10 text-lg text-center italic">We like your style! Let’s take a look at your product.</div>
 							<button
 								type="button"
-								className="Button w-full"
+								className="Button w-full xl:w-auto xl:px-12"
 								onClick={() => {
 									primaryModal.open({
 										type: 'PANEL',
