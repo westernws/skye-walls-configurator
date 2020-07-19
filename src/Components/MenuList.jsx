@@ -15,14 +15,18 @@ import { MenuListItem } from '~/Components/MenuListItem';
 import { useMst } from '~/Stores/App.store';
 import { MenuListItemCollection } from '~/Components/MenuListItemCollection';
 import { StartOver } from '~/Components/StartOver';
+import { ReviewConfig } from '~/Components/ReviewConfig';
 
-export const MenuList = observer(({ categories = [], selectedProduct }) => {
-	const { productCollections, modals } = useMst();
+export const MenuList = observer(({ optionGroups = [], selectedProduct }) => {
+	const {
+		productCollections, modals, page, closeAllModals,
+	} = useMst();
 	const [isFinishedDesigningOpen, setIsFinishedDesigningOpen] = useState(false);
 	const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
 	const [isChangeModelOpen, setIsChangeModelOpen] = useState(false);
 	const productCollectionStates = {};
 	const menu = modals.get('modal-menu');
+	const modal = modals.get('modal-primary');
 
 	productCollections.forEach((productCollection) => {
 		const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +39,7 @@ export const MenuList = observer(({ categories = [], selectedProduct }) => {
 	return (
 		<ul className="Menu-items divide-y-2 divide-gray-lighter">
 			{
-				Boolean(categories.length) &&
+				Boolean(optionGroups.length) &&
 				<MenuListItemParent
 					isOpen={isCategoriesOpen}
 					setIsOpen={setIsCategoriesOpen}
@@ -43,13 +47,18 @@ export const MenuList = observer(({ categories = [], selectedProduct }) => {
 					label="Categories"
 				>
 					{
-						categories.map(category => (
-							<li key={category} className="Menu-subItem">
-								<Link href="color" as="color">
-									<a className="Menu-subHeading" href="color">
-										<div className="Menu-label">{category}</div>
-									</a>
-								</Link>
+						optionGroups.map(optionGroup => (
+							<li key={optionGroup.name} className="Menu-subItem">
+								<button
+									type="button"
+									className="Menu-subHeading"
+									onClick={() => {
+										closeAllModals();
+										page.setCurrentOptionGroup(optionGroup.id);
+									}}
+								>
+									<div className="Menu-label">{optionGroup.displayName}</div>
+								</button>
 							</li>
 						))
 					}
@@ -66,7 +75,14 @@ export const MenuList = observer(({ categories = [], selectedProduct }) => {
 						type="button"
 						className="Menu-subHeading"
 						onClick={() => {
-							// TODO (aboyer) make method to open review modal DRY
+							menu.close();
+							modal.open({
+								name: 'reviewModal',
+								type: 'PANEL',
+								showBackdrop: false,
+								showCloseBtn: false,
+								content: <ReviewConfig />,
+							});
 						}}
 					>
 						<div className="Menu-label">Review Selections</div>

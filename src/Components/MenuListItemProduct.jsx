@@ -24,7 +24,7 @@ export const MenuListItemProduct = ({ product, isSelected = false }) => {
 					modal.open({
 						type: 'MODAL',
 						name: 'changeProductConfirm',
-						content: <ChangeProductConfirm />,
+						content: <ChangeProductConfirm newProductLink={product.configLink} />,
 					});
 				}}
 			>

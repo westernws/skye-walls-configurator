@@ -9,7 +9,7 @@ import { BarsSolid } from '~/Components/svg/BarsSolid.svg';
 import { TimesSolid } from '~/Components/svg/TimesSolid.svg';
 import { themeConfig } from '~/util/themeConfig';
 
-export const Menu = observer(({ categories = [], selectedProduct }) => {
+export const Menu = observer(({ selectedProduct, optionGroups }) => {
 	const { modals } = useMst();
 	const menu = modals.get('modal-menu');
 
@@ -25,7 +25,12 @@ export const Menu = observer(({ categories = [], selectedProduct }) => {
 							menu.close();
 						} else {
 							menu.open({
-								content: <MenuList categories={categories} selectedProduct={selectedProduct} />,
+								content: (
+									<MenuList
+										optionGroups={optionGroups}
+										selectedProduct={selectedProduct}
+									/>
+								),
 								type: 'MENU',
 							});
 						}

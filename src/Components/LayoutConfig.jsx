@@ -145,7 +145,7 @@ export const LayoutConfig = observer(({ children }) => {
 							}
 							<Menu
 								selectedProduct={selectedProduct}
-								categories={selectedProduct.optionGroupDisplayNames}
+								optionGroups={selectedProduct.optionGroups}
 							/>
 						</div>
 					</nav>
