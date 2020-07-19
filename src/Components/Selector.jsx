@@ -12,7 +12,7 @@ import { OptionInfo } from '~/Components/OptionInfo';
 import { ReviewConfig } from '~/Components/ReviewConfig';
 
 export const Selector = observer(() => {
-	const { page, modals } = useMst();
+	const { page, modals, isMediaQueryXl } = useMst();
 	const { currentOptionGroup, currentSelectedOption, product } = page;
 	const primaryModal = modals.get('modal-primary');
 	const selectorPanel = useRef(null);
@@ -93,7 +93,9 @@ export const Selector = observer(() => {
 															className="absolute bottom-0 right-0 w-5"
 															onClick={() => {
 																primaryModal.open({
-																	type: 'MODAL_TIGHT',
+																	name: 'optionInfoModal',
+																	type: isMediaQueryXl ? 'SLIDER_TERTIARY' : 'MODAL_TIGHT',
+																	showCloseBtnText: true,
 																	content: (
 																		<OptionInfo
 																			optionGroup={currentOptionGroup}

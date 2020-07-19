@@ -7,7 +7,22 @@ export const ModalModel = types
 		isOpen: false,
 		isClosing: false,
 		type: types.optional(types.enumeration('Modal Type', [
-			'MODAL', 'MODAL_TIGHT', 'MENU', 'FROSTY', 'SLIDER', 'SLIDER_SECONDARY', 'PANEL',
+			// Your standard modal
+			'MODAL',
+			// Same as standard but less padding
+			'MODAL_TIGHT',
+			// Mobile top menu
+			'MENU',
+			// A light backdrop with a different frame treatment
+			'FROSTY',
+			// Slides in from the right, takes up most of the page width
+			'SLIDER',
+			// This is meant to be used as another slider layer on top of an existing slider
+			'SLIDER_SECONDARY',
+			// This is like the normal slider only a lot less wide
+			'SLIDER_TERTIARY',
+			// Panel that slides up from the bottom, covering the whole screen except the header
+			'PANEL',
 		]), 'MODAL'),
 		title: '',
 		closeOnBackdropClick: false,

@@ -113,7 +113,7 @@ export const PanelProduct = observer(({ product }) => {
 									Includes:
 									{
 										Boolean(product.inheritedFeatures) &&
-										<strong className="uppercase font-bold text-base text-black pl-1">
+										<strong className="uppercase font-bold text-base text-gray pl-1">
 											{product.inheritedFeatures}
 										</strong>
 									}

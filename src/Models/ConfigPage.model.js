@@ -56,6 +56,10 @@ export const ConfigPageModel = types
 						showBackdrop: !root.isMediaQueryXl || openModalNames.length === 1,
 						showCloseBtnText: root.isMediaQueryXl,
 					});
+					root.getOpenModalByName('optionInfoModal')?.alter?.({
+						type: root.isMediaQueryXl ? 'SLIDER_TERTIARY' : 'MODAL_TIGHT',
+						showCloseBtnText: root.isMediaQueryXl,
+					});
 				}, { name: 'Auto alters modals based on media queries.' });
 			},
 			beforeDestroy() {

@@ -35,6 +35,7 @@ export const Modal = observer(({ modal }) => {
 			'Modal--frosty': type === 'FROSTY',
 			'Modal--slider': type === 'SLIDER',
 			'Modal--sliderSecondary': type === 'SLIDER_SECONDARY',
+			'Modal--sliderTertiary': type === 'SLIDER_TERTIARY',
 			'Modal--panel': type === 'PANEL',
 		})}
 		>
@@ -58,6 +59,7 @@ export const Modal = observer(({ modal }) => {
 						type === 'FROSTY'
 						|| type === 'SLIDER'
 						|| type === 'SLIDER_SECONDARY'
+						|| type === 'SLIDER_TERTIARY'
 					) &&
 					closeBtn
 				}

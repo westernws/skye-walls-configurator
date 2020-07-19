@@ -81,7 +81,8 @@
 	}
 }
 .Modal.Modal--slider,
-.Modal.Modal--sliderSecondary {
+.Modal.Modal--sliderSecondary,
+.Modal.Modal--sliderTertiary {
 	@apply z-30;
 	.Modal-backdrop {
 		@apply bg-black bg-opacity-75;
@@ -116,6 +117,12 @@
 	.Modal-container {
 		right: -450px;
 		width: 450px;
+	}
+}
+.Modal.Modal--sliderTertiary {
+	.Modal-container {
+		right: -468px;
+		width: 468px;
 	}
 }
 .Modal.Modal--panel {

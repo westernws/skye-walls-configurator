@@ -19,6 +19,8 @@ export const Menu = observer(({ categories = [], selectedProduct }) => {
 				<button
 					type="button"
 					onClick={() => {
+						modals.get('modal-primary').close();
+						modals.get('modal-secondary').close();
 						if (menu.isOpen) {
 							menu.close();
 						} else {
