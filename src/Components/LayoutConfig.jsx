@@ -45,7 +45,7 @@ export const LayoutConfig = observer(({ children }) => {
 									</Link>
 								</div>
 								<div className="space-y-1">
-									<div className="Header-title xl:space-x-2">
+									<div className="Header-title space-x-0 xl:space-x-2">
 										<h1 className="text-lg leading-tight">{selectedProduct.displayName}</h1>
 										<div className="hidden text-xs text-gray-light sm:block">{selectedProduct.displayGroupName}</div>
 									</div>

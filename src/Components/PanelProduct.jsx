@@ -110,7 +110,7 @@ export const PanelProduct = observer(({ product }) => {
 							Boolean(features.length) &&
 							<div className="PanelProduct-includes space-y-4 text-xs">
 								<h3 className="text-gray-light uppercase">
-									Includes:
+									Features:
 									{
 										Boolean(product.inheritedFeatures) &&
 										<strong className="uppercase font-bold text-base text-gray pl-1">
@@ -133,7 +133,7 @@ export const PanelProduct = observer(({ product }) => {
 									<strong>
 										{
 											hasColorOptions &&
-											'Continue Building'
+											'Continue Designing'
 										}
 										{
 											!hasColorOptions &&

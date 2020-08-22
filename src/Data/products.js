@@ -69,9 +69,8 @@ export default [
 		inheritedFeatures: 'Everything in Performance and Classic',
 		inheritedFeaturesLong: 'Including everything from our PERFORMANCE and CLASSIC models and more.',
 		features: [
-			'Available in bigger and taller sizes',
-			'Design pressure (DP) rating of 50 for durability',
-			'Compliant with California’s rigorous Title 24 requirements',
+			'Beveled glass stops',
+			'Simulated divided lites to emulate a putty glaze',
 		],
 		optionGroups: [
 			{

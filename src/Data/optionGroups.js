@@ -82,8 +82,8 @@ module.exports = [
 				description: 'Each of our bi-fold doors features three high-quality, contemporary handles available in brushed nickel or black.',
 			},
 			{
-				name: 'ph',
-				displayName: 'Premium Handle',
+				name: 'dh',
+				displayName: 'Dallas Handle',
 				description: 'Located on the swinging panel, making it convenient for everyday use.',
 			},
 			{
