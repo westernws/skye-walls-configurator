@@ -120,6 +120,24 @@ const Product = types
 		get selectedWall() {
 			return self.wallOptionGroup?.options?.find?.(option => option.selected) || {};
 		},
+		get selections() {
+			return [
+				self.colorOptionGroup,
+				self.floorTracksOptionGroup,
+				self.handleOptionGroup,
+				self.screenOptionGroup,
+				{
+					name: 'environment',
+					displayName: 'Environment',
+					description: 'Visualize your space.',
+					optionGroups: [
+						self.floorOptionGroup,
+						self.wallOptionGroup,
+						self.backgroundOptionGroup,
+					],
+				},
+			];
+		},
 		get slug() {
 			return kebabCase(self.displayName);
 		},

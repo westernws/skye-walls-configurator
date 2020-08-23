@@ -11,6 +11,7 @@ export const OptionGroupModel = types
 		displayName: types.string,
 		description: types.string,
 		options: types.optional(types.array(types.union(OptionModel, OptionColorModel)), []),
+		selectionGroup: '',
 	})
 	.views(self => ({
 		get displayNames() {

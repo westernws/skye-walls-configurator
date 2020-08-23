@@ -1,3 +1,4 @@
+const selectionGroups = ['color', 'ft', 'handles', 'screen', 'environment'];
 const environment = [
 	{
 		name: 'background',
@@ -68,6 +69,7 @@ export default [
 			},
 			...environment,
 		],
+		selectionGroups,
 	},
 	{
 		name: 'pamsd',
@@ -121,6 +123,7 @@ export default [
 			},
 			...environment,
 		],
+		selectionGroups,
 	},
 	{
 		name: 'ssamsd',
@@ -173,6 +176,7 @@ export default [
 			},
 			...environment,
 		],
+		selectionGroups,
 	},
 	{
 		name: 'vmsd',
@@ -214,6 +218,7 @@ export default [
 			},
 			...environment,
 		],
+		selectionGroups,
 	},
 	{
 		name: 'cabfd',
@@ -264,6 +269,7 @@ export default [
 			},
 			...environment,
 		],
+		selectionGroups,
 	},
 	{
 		name: 'pabfd',
@@ -313,6 +319,7 @@ export default [
 			},
 			...environment,
 		],
+		selectionGroups,
 	},
 	{
 		name: 'ssabfd',
@@ -361,5 +368,6 @@ export default [
 			},
 			...environment,
 		],
+		selectionGroups,
 	},
 ];

@@ -106,6 +106,7 @@ module.exports = [
 	{
 		name: 'wall',
 		displayName: 'Wall',
+		selectionGroup: 'environment',
 		options: [
 			{
 				name: 'brick',
@@ -126,6 +127,7 @@ module.exports = [
 	{
 		name: 'floor',
 		displayName: 'Floor',
+		selectionGroup: 'environment',
 		options: [
 			{
 				name: 'carpet',
@@ -146,6 +148,7 @@ module.exports = [
 	{
 		name: 'background',
 		displayName: 'Background',
+		selectionGroup: 'environment',
 		options: [
 			{
 				name: 'beach',
