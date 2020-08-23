@@ -9,11 +9,13 @@ import { ProductCollectionsFactory } from '~/Factories/ProductCollections.factor
 import { ConfigPageModel } from '~/Models/ConfigPage.model';
 import { ProductPageModel } from '~/Models/ProductPage.model';
 
+console.log(process);
 const AppStoreContext = createContext();
 const { Provider } = AppStoreContext;
 const appStore = AppModel.create({
 	id: `AppModel_${uniqueId()}`,
 	productCollections: ProductCollectionsFactory(productCollectionsData),
+	env: 'STAGING',
 	modals: {},
 });
 const useMst = () => {

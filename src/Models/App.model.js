@@ -16,8 +16,10 @@ export const AppModel = types
 		modals: types.map(types.maybeNull(ModalModel)),
 		page: types.maybeNull(types.union(ConfigPageModel, ProductPageModel)),
 		isMediaQueryXl: false,
+		env: types.enumeration('Environment', ['PROD', 'DEV', 'STAGING'], 'PROD'),
 	})
 	.views(self => ({
+
 		get activePanelProduct() {
 			return self.allProducts.find(product => product.isActive) || {};
 		},
