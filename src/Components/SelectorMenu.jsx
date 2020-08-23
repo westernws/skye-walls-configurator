@@ -15,12 +15,9 @@ export const SelectorMenu = observer(() => {
 	return (
 		<ul className="SelectorMenu">
 			{
-				product.selections.map((selection) => {
-					const selectionGroup = selection.optionGroups?.length ? selection : null;
-					const optionGroup = selection.optionGroup || selection;
+				product.optionGroups.map((optionGroup) => {
 					const isActive = (
 						page.currentOptionGroup.name === optionGroup.name
-						|| (selectionGroup && selectionGroup.name === page.currentOptionGroup.selectionGroup)
 					);
 
 					return (
@@ -34,13 +31,7 @@ export const SelectorMenu = observer(() => {
 								type="button"
 								className="SelectorMenu-button"
 								onClick={() => {
-									if (selectionGroup) {
-										const selectionOptGrp = product.optionGroups.find(optGrp => optGrp.selectionGroup === selectionGroup.name);
-
-										page.setCurrentOptionGroup(selectionOptGrp.id);
-									} else {
-										page.setCurrentOptionGroup(optionGroup.id);
-									}
+									page.setCurrentOptionGroup(optionGroup.id);
 								}}
 							>
 								{optionGroup.displayName}

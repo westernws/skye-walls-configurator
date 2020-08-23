@@ -3,6 +3,7 @@ import kebabCase from 'lodash/kebabCase';
 import isString from 'lodash/isString';
 
 import { TreeHelpers } from '~/Models/TreeHelpers';
+import { SelectionGroupModel } from '~/Models/SelectionGroup.model';
 import { OptionGroupModel } from '~/Models/OptionGroup.model';
 import { ProductImageModel } from '~/Models/ProductImage.model';
 
@@ -16,6 +17,7 @@ const Product = types
 		inheritedFeaturesLong: '',
 		features: types.array(types.string),
 		optionGroups: types.array(OptionGroupModel),
+		selectionGroups: types.array(SelectionGroupModel),
 		isActive: false,
 		images: types.array(ProductImageModel),
 	})
