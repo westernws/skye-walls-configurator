@@ -9,7 +9,8 @@ import { ProductCollectionsFactory } from '~/Factories/ProductCollections.factor
 import { ConfigPageModel } from '~/Models/ConfigPage.model';
 import { ProductPageModel } from '~/Models/ProductPage.model';
 
-console.log('FOO', process.env.DOMAIN);
+console.log('FOO1', process.env.DOMAIN);
+console.log('FOO2', process.env.VERCEL_URL);
 
 const AppStoreContext = createContext();
 const { Provider } = AppStoreContext;
