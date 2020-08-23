@@ -1,3 +1,17 @@
+const environment = [
+	{
+		name: 'background',
+		options: ['beach', 'cityscape'],
+	},
+	{
+		name: 'floor',
+		options: ['carpet', 'tile'],
+	},
+	{
+		name: 'wall',
+		options: ['brick', 'wood'],
+	},
+];
 export default [
 	{
 		name: 'camsd',
@@ -52,6 +66,7 @@ export default [
 				name: 'screen',
 				options: ['screen'],
 			},
+			...environment,
 		],
 	},
 	{
@@ -104,6 +119,7 @@ export default [
 				name: 'screen',
 				options: ['screen'],
 			},
+			...environment,
 		],
 	},
 	{
@@ -155,6 +171,7 @@ export default [
 				name: 'screen',
 				options: ['screen'],
 			},
+			...environment,
 		],
 	},
 	{
@@ -195,6 +212,7 @@ export default [
 				name: 'color',
 				options: ['black', 'white', 'almond'],
 			},
+			...environment,
 		],
 	},
 	{
@@ -244,6 +262,7 @@ export default [
 				name: 'handles',
 				options: ['handles', 'pm', 'dsph', 'ilh'],
 			},
+			...environment,
 		],
 	},
 	{
@@ -292,6 +311,7 @@ export default [
 				name: 'handles',
 				options: ['handles', 'pm', 'dsph', 'ilh'],
 			},
+			...environment,
 		],
 	},
 	{
@@ -339,6 +359,7 @@ export default [
 				name: 'handles',
 				options: ['handles', 'pm', 'dsph', 'ilh'],
 			},
+			...environment,
 		],
 	},
 ];

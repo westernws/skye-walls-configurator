@@ -20,6 +20,9 @@ const Product = types
 		images: types.array(ProductImageModel),
 	})
 	.views(self => ({
+		get backgroundOptionGroup() {
+			return self.optionGroups?.find?.(optGroup => optGroup.name === 'background') || {};
+		},
 		get collectionName() {
 			return self.getParentOfName('ProductCollection')?.name || '';
 		},
@@ -39,6 +42,9 @@ const Product = types
 		},
 		get featureList() {
 			return self.features.map(feature => feature.featureText);
+		},
+		get floorOptionGroup() {
+			return self.optionGroups?.find?.(optGroup => optGroup.name === 'floor') || {};
 		},
 		get floorTracksOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'floor-tracks') || {};
@@ -70,8 +76,14 @@ const Product = types
 		get screenOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'screen') || {};
 		},
+		get selectedBackground() {
+			return self.backgroundOptionGroup?.options?.find?.(option => option.selected) || {};
+		},
 		get selectedColor() {
 			return self.colorOptionGroup?.options?.find?.(option => option.selected) || {};
+		},
+		get selectedFloor() {
+			return self.floorOptionGroup?.options?.find?.(option => option.selected) || {};
 		},
 		get selectedFloorTracks() {
 			return self.floorTracksOptionGroup?.options?.find?.(option => option.selected) || {};
@@ -81,10 +93,13 @@ const Product = types
 		},
 		get selectedOptions() {
 			const selectedOptions = [
+				self.selectedBackground,
 				self.selectedColor,
+				self.selectedFloor,
 				self.selectedFloorTracks,
 				self.selectedHandle,
 				self.selectedScreen,
+				self.selectedWall,
 			];
 
 			return selectedOptions.map((selectedOption) => {
@@ -102,8 +117,14 @@ const Product = types
 				description: self.screenOptionGroup.description,
 			};
 		},
+		get selectedWall() {
+			return self.wallOptionGroup?.options?.find?.(option => option.selected) || {};
+		},
 		get slug() {
 			return kebabCase(self.displayName);
+		},
+		get wallOptionGroup() {
+			return self.optionGroups?.find?.(optGroup => optGroup.name === 'wall') || {};
 		},
 	}))
 	.actions(self => ({

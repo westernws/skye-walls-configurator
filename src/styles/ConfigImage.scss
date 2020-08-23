@@ -1,6 +1,7 @@
 .ConfigImage {
 	width: var(--config-image-width);
 	height: var(--config-image-height);
+	padding: 50px;
 	img {
 		@apply w-auto h-full m-auto object-contain;
 	}

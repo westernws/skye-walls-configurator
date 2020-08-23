@@ -103,4 +103,64 @@ module.exports = [
 		displayName: 'Screen',
 		description: 'After-market screening solutions available. Ask your Skye Walls expert.',
 	},
+	{
+		name: 'wall',
+		displayName: 'Wall',
+		options: [
+			{
+				name: 'brick',
+				displayName: 'Brick',
+				image: {
+					fileName: '',
+				},
+			},
+			{
+				name: 'wood',
+				displayName: 'Wood',
+				image: {
+					fileName: '',
+				},
+			},
+		],
+	},
+	{
+		name: 'floor',
+		displayName: 'Floor',
+		options: [
+			{
+				name: 'carpet',
+				displayName: 'Carpet',
+				image: {
+					fileName: '',
+				},
+			},
+			{
+				name: 'tile',
+				displayName: 'Tile',
+				image: {
+					fileName: '',
+				},
+			},
+		],
+	},
+	{
+		name: 'background',
+		displayName: 'Background',
+		options: [
+			{
+				name: 'beach',
+				displayName: 'Beach',
+				image: {
+					fileName: '',
+				},
+			},
+			{
+				name: 'cityscape',
+				displayName: 'Cityscape',
+				image: {
+					fileName: '',
+				},
+			},
+		],
+	},
 ];

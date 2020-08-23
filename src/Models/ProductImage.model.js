@@ -1,12 +1,13 @@
 import { types } from 'mobx-state-tree';
 
+import { DOMAIN } from '~/global.constants';
 import { OptionColorModel } from '~/Models/OptionColor.model';
 
 export const ProductImageModel = types
 	.model({
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ProductImageModel_') === 0),
 		color: types.reference(OptionColorModel),
-		cdnPath: '//buildstaging.skyewallsbywws.com/cdn-cgi/image/fit=contain,dpr=1,width=',
+		cdnPath: `//${DOMAIN}/cdn-cgi/image/fit=contain,dpr=1,width=`,
 		basePath: '/images/product',
 		fileName: '',
 		width: types.number,
