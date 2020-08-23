@@ -9,7 +9,8 @@ import { ProductCollectionsFactory } from '~/Factories/ProductCollections.factor
 import { ConfigPageModel } from '~/Models/ConfigPage.model';
 import { ProductPageModel } from '~/Models/ProductPage.model';
 
-console.log(process);
+console.log('FOO', process.env.DOMAIN);
+
 const AppStoreContext = createContext();
 const { Provider } = AppStoreContext;
 const appStore = AppModel.create({
