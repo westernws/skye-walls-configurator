@@ -4,6 +4,7 @@ import isString from 'lodash/isString';
 
 import { TreeHelpers } from '~/Models/TreeHelpers';
 import { OptionGroupModel } from '~/Models/OptionGroup.model';
+import { ProductImageModel } from '~/Models/ProductImage.model';
 
 const Product = types
 	.model({
@@ -16,6 +17,7 @@ const Product = types
 		features: types.array(types.string),
 		optionGroups: types.array(OptionGroupModel),
 		isActive: false,
+		images: types.array(ProductImageModel),
 	})
 	.views(self => ({
 		get collectionName() {
@@ -43,6 +45,12 @@ const Product = types
 		},
 		get handleOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'handles') || {};
+		},
+		get imageSrc() {
+			const selectedColorName = self.selectedColor.name;
+			const selectedImage = self.images.find(image => image.color.name === selectedColorName);
+
+			return selectedImage.imageSrc;
 		},
 		get link() {
 			const href = ['[product-collection]', '[product]'];

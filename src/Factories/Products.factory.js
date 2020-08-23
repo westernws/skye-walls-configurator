@@ -2,6 +2,7 @@ import productData from '~/Data/products';
 import { ProductModel } from '~/Models/Product.model';
 import { uniqueId } from '~/util/uniqueId';
 import { OptionGroupsFactory } from '~/Factories/OptionGroups.factory';
+import { ProductImageFactory } from '~/Factories/ProductImage.factory';
 
 export const ProductsFactory = (products) => {
 	const selectedProducts = productData.filter(product => products.includes(product.name));
@@ -15,9 +16,13 @@ export const ProductsFactory = (products) => {
 			inheritedFeaturesLong = '',
 			features,
 			optionGroups = [],
+			images,
 		} = product;
-
-		return ProductModel.create({
+		const optGroupsModel = OptionGroupsFactory(optionGroups);
+		const colorOptionGroup = optGroupsModel.find(optionGroup => optionGroup.name === 'color');
+		const colorOptions = colorOptionGroup.options;
+		// debugger;
+		const model = ProductModel.create({
 			id: `ProductModel_${uniqueId()}`,
 			name,
 			displayName,
@@ -25,7 +30,10 @@ export const ProductsFactory = (products) => {
 			inheritedFeatures,
 			inheritedFeaturesLong,
 			features,
-			optionGroups: OptionGroupsFactory(optionGroups),
+			optionGroups: optGroupsModel,
+			images: ProductImageFactory(images, colorOptions),
 		});
+
+		return model;
 	});
 };
