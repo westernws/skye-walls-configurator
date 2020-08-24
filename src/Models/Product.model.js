@@ -4,7 +4,6 @@ import isString from 'lodash/isString';
 
 import { TreeHelpers } from '~/Models/TreeHelpers';
 import { SelectionGroupModel } from '~/Models/SelectionGroup.model';
-import { OptionGroupModel } from '~/Models/OptionGroup.model';
 import { ProductImageModel } from '~/Models/ProductImage.model';
 
 const Product = types
@@ -16,7 +15,6 @@ const Product = types
 		inheritedFeatures: '',
 		inheritedFeaturesLong: '',
 		features: types.array(types.string),
-		optionGroups: types.array(OptionGroupModel),
 		selectionGroups: types.array(SelectionGroupModel),
 		isActive: false,
 		images: types.array(ProductImageModel),
@@ -78,6 +76,16 @@ const Product = types
 		get screenOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'screen') || {};
 		},
+		get optionGroups() {
+			const result = [];
+
+			self.selectionGroups.forEach((selectionGroup) => {
+				selectionGroup.optionGroups.forEach((optionGroup) => {
+					result.push(optionGroup);
+				});
+			});
+			return result;
+		},
 		get selectedBackground() {
 			return self.backgroundOptionGroup?.options?.find?.(option => option.selected) || {};
 		},
@@ -121,24 +129,6 @@ const Product = types
 		},
 		get selectedWall() {
 			return self.wallOptionGroup?.options?.find?.(option => option.selected) || {};
-		},
-		get selections() {
-			return [
-				self.colorOptionGroup,
-				self.floorTracksOptionGroup,
-				self.handleOptionGroup,
-				self.screenOptionGroup,
-				{
-					name: 'environment',
-					displayName: 'Environment',
-					description: 'Visualize your space.',
-					optionGroups: [
-						self.floorOptionGroup,
-						self.wallOptionGroup,
-						self.backgroundOptionGroup,
-					],
-				},
-			];
 		},
 		get slug() {
 			return kebabCase(self.displayName);

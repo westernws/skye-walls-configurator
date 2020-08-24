@@ -24,7 +24,7 @@ export const ReviewConfigOptions = observer(({ product }) => {
 								<div className="ReviewConfig-optionBody space-y-2">
 									<DummyImage width="136" height="136" />
 									<div>
-										<h3 className="text-xs text-gray-light">{optionGroup.displayName}</h3>
+										<h3 className="text-xs text-gray-light">{optionGroup?.displayName}</h3>
 										<h4 className="text-sm">{option.displayName}</h4>
 									</div>
 								</div>
