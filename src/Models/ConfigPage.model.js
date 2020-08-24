@@ -13,7 +13,7 @@ export const ConfigPageModel = types
 	})
 	.views(self => ({
 		get currentOptionGroupIdx() {
-			return self.product.optionGroups.findIndex(optionGroup => optionGroup.name === self.currentOptionGroup.name);
+			return self.optionGroups.findIndex(selectionGroup => selectionGroup.name === self.currentOptionGroup.name);
 		},
 		get currentSelectedOption() {
 			if (!self.currentOptionGroup.options?.length) {
@@ -21,17 +21,47 @@ export const ConfigPageModel = types
 			}
 			return self.currentOptionGroup.options.find(option => option.selected);
 		},
+		get currentSelectionGroupIdx() {
+			return self.product.selectionGroups.findIndex(selectionGroup => selectionGroup.name === self.currentOptionGroup.selectionGroup.name);
+		},
+		get isLastOptionGroup() {
+			return self.currentOptionGroupIdx === self.optionGroups.length - 1;
+		},
+		get isLastSelectionGroup() {
+			return self.currentSelectionGroupIdx === self.product.selectionGroups.length - 1;
+		},
 		get nextOptionGroup() {
-			if (self.currentOptionGroupIdx === self.product.optionGroups.length) {
+			if (self.isLastOptionGroup && self.isLastSelectionGroup) {
 				return null;
 			}
-			return self.product.optionGroups[self.currentOptionGroupIdx + 1];
+			if (self.isLastOptionGroup) {
+				return self.nextSelectionGroup.optionGroups[0];
+			}
+			return self.optionGroups[self.currentOptionGroupIdx + 1];
+		},
+		get nextSelectionGroup() {
+			if (self.isLastSelectionGroup) {
+				return null;
+			}
+			return self.product.selectionGroups[self.currentSelectionGroupIdx + 1];
+		},
+		get optionGroups() {
+			return self.currentOptionGroup.selectionGroup.optionGroups;
 		},
 		get prevOptionGroup() {
-			if (!self.currentOptionGroupIdx) {
+			if (!self.currentOptionGroupIdx && !self.currentSelectionGroupIdx) {
 				return null;
 			}
-			return self.product.optionGroups[self.currentOptionGroupIdx - 1];
+			if (!self.currentOptionGroupIdx) {
+				return self.prevSelectionGroup.optionGroups[self.prevSelectionGroup.optionGroups.length - 1];
+			}
+			return self.optionGroups[self.currentOptionGroupIdx - 1];
+		},
+		get prevSelectionGroup() {
+			if (!self.currentSelectionGroupIdx) {
+				return null;
+			}
+			return self.product.selectionGroups[self.currentSelectionGroupIdx - 1];
 		},
 	}))
 	.actions((self) => {

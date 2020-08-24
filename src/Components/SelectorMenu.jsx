@@ -15,26 +15,22 @@ export const SelectorMenu = observer(() => {
 	return (
 		<ul className="SelectorMenu">
 			{
-				product.optionGroups.map((optionGroup) => {
-					const isActive = (
-						page.currentOptionGroup.name === optionGroup.name
-					);
-
+				product.selectionGroups.map((selectionGroup) => {
 					return (
 						<li
 							className={cn('SelectorMenu-item', {
-								'is-active': isActive,
+								'is-active': page.currentOptionGroup.selectionGroup.name === selectionGroup.name,
 							})}
-							key={optionGroup.displayName}
+							key={selectionGroup.displayName}
 						>
 							<button
 								type="button"
 								className="SelectorMenu-button"
 								onClick={() => {
-									page.setCurrentOptionGroup(optionGroup.id);
+									page.setCurrentOptionGroup(selectionGroup.optionGroups[0].id);
 								}}
 							>
-								{optionGroup.displayName}
+								{selectionGroup.displayName}
 							</button>
 						</li>
 					);

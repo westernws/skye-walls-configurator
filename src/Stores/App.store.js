@@ -37,7 +37,7 @@ Router.events.on('routeChangeComplete', () => {
 	if (Router.route.startsWith('/config/')) {
 		const { product: productSlug } = Router.query;
 		const product = appStore.getProductBySlug(productSlug);
-		const currentOptionGroup = product.optionGroups[0].id;
+		const currentOptionGroup = product.selectionGroups[0].optionGroups[0].id;
 
 		appStore.setPage(ConfigPageModel.create({
 			id: `ConfigPageModel_${uniqueId()}`,

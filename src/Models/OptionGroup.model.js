@@ -1,17 +1,17 @@
 import { types } from 'mobx-state-tree';
 import isString from 'lodash/isString';
 
+import { TreeHelpers } from '~/Models/TreeHelpers';
 import { OptionModel } from '~/Models/Option.model';
 import { OptionColorModel } from '~/Models/OptionColor.model';
 
-export const OptionGroupModel = types
-	.model('OptionGroupModel', {
+const OptionGroup = types
+	.model({
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('OptionGroupModel_') === 0),
 		name: '',
 		displayName: types.string,
 		description: types.string,
 		options: types.optional(types.array(types.union(OptionModel, OptionColorModel)), []),
-		selectionGroup: '',
 	})
 	.views(self => ({
 		get displayNames() {
@@ -27,6 +27,9 @@ export const OptionGroupModel = types
 		},
 		get isColor() {
 			return self.name === 'color';
+		},
+		get selectionGroup() {
+			return self.getParentOfName('SelectionGroupModel');
 		},
 		get summaryDisplayName() {
 			if (!self.isColor) {
@@ -56,3 +59,5 @@ export const OptionGroupModel = types
 			self.options.find(o => o.name === selectedOption.name).selected = true;
 		},
 	}));
+
+export const OptionGroupModel = types.compose(OptionGroup, TreeHelpers).named('OptionGroup');
