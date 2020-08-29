@@ -80,6 +80,21 @@ const Product = types
 			});
 			return result;
 		},
+		get reviewSelectionGroups() {
+			return self.selectionGroups.filter((selectionGroup) => {
+				let result = true;
+
+				if (selectionGroup.name === 'environment') {
+					return false;
+				}
+				selectionGroup.optionGroups.forEach((optionGroup) => {
+					if (!optionGroup.options.length) {
+						result = false;
+					}
+				});
+				return result;
+			});
+		},
 		get screenOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'screen') || {};
 		},
@@ -100,13 +115,13 @@ const Product = types
 		},
 		get selectedOptions() {
 			const selectedOptions = [
-				self.selectedBackground,
+				// self.selectedBackground,
 				self.selectedColor,
-				self.selectedFloor,
+				// self.selectedFloor,
 				self.selectedFloorTracks,
 				self.selectedHandle,
 				self.selectedScreen,
-				self.selectedWall,
+				// self.selectedWall,
 			];
 
 			return selectedOptions.map((selectedOption) => {

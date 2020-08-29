@@ -5,10 +5,10 @@ import 'mobx-react-lite/batchingForReactDom';
 import { useMst } from '~/Stores/App.store';
 import { CheckSolid } from '~/Components/svg/CheckSolid.svg';
 
-export const ReviewConfigOption = observer(({ optionGroup }) => {
+export const ReviewConfigOption = observer(({ selectionGroup }) => {
 	const {
-		name, displayName, id, options,
-	} = optionGroup;
+		name, id, displayName, optionGroups,
+	} = selectionGroup;
 	const { page, modals } = useMst();
 	const modal = modals.get('modal-primary');
 
@@ -20,7 +20,7 @@ export const ReviewConfigOption = observer(({ optionGroup }) => {
 					type="button"
 					className="text-xs underline"
 					onClick={() => {
-						page.setCurrentOptionGroup(id);
+						page.setCurrentSelectionGroup(id);
 						modal.close();
 					}}
 				>
@@ -28,14 +28,16 @@ export const ReviewConfigOption = observer(({ optionGroup }) => {
 				</button>
 			</div>
 			{
-				options.filter(option => option.selected).map(option => (
-					<div key={option.name} className="flex justify-between items-center space-y-2">
-						<h3 className="text-base">{option.displayName}</h3>
-						<div className="w-4 text-red">
-							<CheckSolid />
+				optionGroups.map((optionGroup) => {
+					return optionGroup.options.filter(option => option.selected).map(option => (
+						<div key={option.name} className="flex justify-between items-center space-y-2">
+							<h3 className="text-base">{option.displayName}</h3>
+							<div className="w-4 text-red">
+								<CheckSolid />
+							</div>
 						</div>
-					</div>
-				))
+					));
+				})
 			}
 		</div>
 	);
