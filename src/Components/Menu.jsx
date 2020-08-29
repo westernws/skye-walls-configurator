@@ -27,7 +27,7 @@ export const Menu = observer(({ selectedProduct, optionGroups }) => {
 							menu.open({
 								content: (
 									<MenuList
-										optionGroups={optionGroups}
+										selectionGroups={optionGroups}
 										selectedProduct={selectedProduct}
 									/>
 								),

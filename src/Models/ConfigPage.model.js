@@ -65,6 +65,14 @@ export const ConfigPageModel = types
 			}
 			return self.product.selectionGroups[self.currentSelectionGroupIdx - 1];
 		},
+		get showOptionGroupAccordion() {
+			const root = getRoot(self);
+
+			if (root.isMediaQueryXl) {
+				return false;
+			}
+			return self.currentSelectionGroup.hasMultipleOptionGroups;
+		},
 	}))
 	.actions((self) => {
 		let mqDispose;

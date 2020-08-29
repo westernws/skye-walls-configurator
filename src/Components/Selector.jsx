@@ -17,9 +17,9 @@ export const Selector = observer(() => {
 	const { page, modals, isMediaQueryXl } = useMst();
 	const {
 		currentOptionGroup,
-		currentSelectedOption,
 		currentSelectionGroup,
 		product,
+		showOptionGroupAccordion,
 	} = page;
 	const primaryModal = modals.get('modal-primary');
 	const selectorPanel = useRef(null);
@@ -60,10 +60,16 @@ export const Selector = observer(() => {
 						<div>
 							{
 								currentSelectionGroup.optionGroups.map((optionGroup) => {
+									let maxHeight = isOptionGroupOpen(optionGroup.id) ? `${optionGroup.options.length * 150}px` : 0;
+
+									if (isMediaQueryXl) {
+										maxHeight = 'none';
+									}
+
 									return (
 										<div key={optionGroup.id} className="mb-4">
 											{
-												currentSelectionGroup.hasMultipleOptionGroups &&
+												showOptionGroupAccordion &&
 												<button
 													type="button"
 													className={cn('flex mb-4 justify-between w-full p-2 border-b-4 border-solid leading-tight border-gray-light100', {
@@ -85,27 +91,35 @@ export const Selector = observer(() => {
 													}}
 												>
 													<h4 className="uppercase font-bold">{optionGroup.displayName}</h4>
-													{
-														isOptionGroupOpen(optionGroup.id) &&
-														<div className="w-4 mr-1">
-															<ChevronSolid />
-														</div>
-													}
-													{
-														!isOptionGroupOpen(optionGroup.id) &&
-														<div className="font-bold">{`(${optionGroup.options?.length || 1})`}</div>
-													}
+													<div>
+														{
+															isOptionGroupOpen(optionGroup.id) &&
+															<div className="w-4 mr-1">
+																<ChevronSolid />
+															</div>
+														}
+														{
+															!isOptionGroupOpen(optionGroup.id) &&
+															<div className="font-bold">{`(${optionGroup.options?.length || 1})`}</div>
+														}
+													</div>
 												</button>
+											}
+											{
+												!showOptionGroupAccordion &&
+												<h4 className="uppercase font-bold mb-4">{optionGroup.displayName}</h4>
 											}
 											<ul
 												style={{
-													maxHeight: isOptionGroupOpen(optionGroup.id) ? `${optionGroup.options.length * 150}px` : '0',
+													maxHeight,
 												}}
-												className="OptionGroup space-y-4 xl:space-y-0 h-auto overflow-hidden transition-all duration-300 ease-in-out"
+												className={cn('OptionGroup space-y-4 xl:space-y-0 h-auto transition-all duration-300 ease-in-out', {
+													'overflow-hidden': !isMediaQueryXl,
+												})}
 											>
 												{
 													optionGroup.options.map((option) => {
-														const isSelected = currentSelectedOption?.name === option.name;
+														const isSelected = optionGroup.options.find(o => o.selected).name === option.name;
 
 														return (
 															<li

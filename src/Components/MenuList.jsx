@@ -17,7 +17,7 @@ import { MenuListItemCollection } from '~/Components/MenuListItemCollection';
 import { StartOver } from '~/Components/StartOver';
 import { ReviewConfig } from '~/Components/ReviewConfig';
 
-export const MenuList = observer(({ optionGroups = [], selectedProduct }) => {
+export const MenuList = observer(({ selectionGroups = [], selectedProduct }) => {
 	const {
 		productCollections, modals, page, closeAllModals,
 	} = useMst();
@@ -39,7 +39,7 @@ export const MenuList = observer(({ optionGroups = [], selectedProduct }) => {
 	return (
 		<ul className="Menu-items divide-y-2 divide-gray-lighter">
 			{
-				Boolean(optionGroups.length) &&
+				Boolean(selectionGroups.length) &&
 				<MenuListItemParent
 					isOpen={isCategoriesOpen}
 					setIsOpen={setIsCategoriesOpen}
@@ -47,17 +47,17 @@ export const MenuList = observer(({ optionGroups = [], selectedProduct }) => {
 					label="Categories"
 				>
 					{
-						optionGroups.map(optionGroup => (
-							<li key={optionGroup.name} className="Menu-subItem">
+						selectionGroups.map(selectionGroup => (
+							<li key={selectionGroup.name} className="Menu-subItem">
 								<button
 									type="button"
 									className="Menu-subHeading"
 									onClick={() => {
 										closeAllModals();
-										page.setCurrentOptionGroup(optionGroup.id);
+										page.setCurrentSelectionGroup(selectionGroup.id);
 									}}
 								>
-									<div className="Menu-label">{optionGroup.displayName}</div>
+									<div className="Menu-label">{selectionGroup.displayName}</div>
 								</button>
 							</li>
 						))
