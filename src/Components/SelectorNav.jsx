@@ -11,12 +11,12 @@ export const SelectorNav = observer(() => {
 	return (
 		<div className="flex space-x-2">
 			{
-				Boolean(page.prevOptionGroup) &&
+				Boolean(page.prevSelectionGroup) &&
 				<button
 					className="Breadcrumb Breadcrumb--noTransition is-reversed"
 					type="button"
 					onClick={() => {
-						page.setCurrentOptionGroup(page.prevOptionGroup.id);
+						page.setCurrentSelectionGroup(page.prevSelectionGroup.id);
 					}}
 				>
 					<ChevronSolid direction="left" className="Breadcrumb-img" />
@@ -24,16 +24,16 @@ export const SelectorNav = observer(() => {
 				</button>
 			}
 			{
-				Boolean(page.prevOptionGroup) && Boolean(page.nextOptionGroup) &&
+				Boolean(page.prevSelectionGroup) && Boolean(page.nextSelectionGroup) &&
 				<span className="text-gray-light text-sm leading-relaxed">|</span>
 			}
 			{
-				Boolean(page.nextOptionGroup) &&
+				Boolean(page.nextSelectionGroup) &&
 				<button
 					className="Breadcrumb Breadcrumb--noTransition"
 					type="button"
 					onClick={() => {
-						page.setCurrentOptionGroup(page.nextOptionGroup.id);
+						page.setCurrentSelectionGroup(page.nextSelectionGroup.id);
 					}}
 				>
 					<span className="Breadcrumb-text">Next</span>

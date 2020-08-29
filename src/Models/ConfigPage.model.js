@@ -3,12 +3,14 @@ import { autorun } from 'mobx';
 
 import { ProductModel } from '~/Models/Product.model';
 import { OptionGroupModel } from '~/Models/OptionGroup.model';
+import { SelectionGroupModel } from '~/Models/SelectionGroup.model';
 
 export const ConfigPageModel = types
 	.model('ConfigPageModel', {
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ConfigPageModel_') === 0),
 		product: types.reference(ProductModel),
 		currentOptionGroup: types.reference(OptionGroupModel),
+		currentSelectionGroup: types.reference(SelectionGroupModel),
 		className: 'Page--config',
 	})
 	.views(self => ({
@@ -20,9 +22,6 @@ export const ConfigPageModel = types
 				return {};
 			}
 			return self.currentOptionGroup.options.find(option => option.selected);
-		},
-		get currentSelectionGroup() {
-			return self.currentOptionGroup.selectionGroup;
 		},
 		get currentSelectionGroupIdx() {
 			return self.product.selectionGroups.findIndex(selectionGroup => selectionGroup.name === self.currentOptionGroup.selectionGroup.name);
@@ -100,9 +99,14 @@ export const ConfigPageModel = types
 			},
 			setCurrentOptionGroup(optionGroupId) {
 				self.currentOptionGroup = optionGroupId;
+				self.currentSelectionGroup = self.currentOptionGroup.selectionGroup.id;
+			},
+			setCurrentSelectionGroup(selectionGroupId) {
+				self.currentSelectionGroup = selectionGroupId;
+				self.currentOptionGroup = self.currentSelectionGroup.optionGroups[0].id;
 			},
 			setProduct(product) {
-				const firstOptionGroupId = product?.optionGroups?.[0]?.id;
+				const firstOptionGroupId = product?.selectionGroups?.[0]?.optionGroups?.[0]?.id;
 
 				if (!firstOptionGroupId) {
 					return;

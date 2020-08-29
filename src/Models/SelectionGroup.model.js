@@ -9,4 +9,9 @@ export const SelectionGroupModel = types
 		displayName: types.string,
 		description: '',
 		optionGroups: types.array(OptionGroupModel),
-	});
+	})
+	.views(self => ({
+		get hasMultipleOptionGroups() {
+			return self.optionGroups.length > 1;
+		},
+	}));

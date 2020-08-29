@@ -27,7 +27,7 @@ export const SelectorMenu = observer(() => {
 								type="button"
 								className="SelectorMenu-button"
 								onClick={() => {
-									page.setCurrentOptionGroup(selectionGroup.optionGroups[0].id);
+									page.setCurrentSelectionGroup(selectionGroup.id);
 								}}
 							>
 								{selectionGroup.displayName}
@@ -38,7 +38,7 @@ export const SelectorMenu = observer(() => {
 									{
 										selectionGroup.optionGroups.map((optionGroup) => {
 											return (
-												<li>
+												<li key={optionGroup.name}>
 													<button
 														className="SelectorSubMenu-item"
 														type="button"
