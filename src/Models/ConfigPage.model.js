@@ -21,6 +21,9 @@ export const ConfigPageModel = types
 			}
 			return self.currentOptionGroup.options.find(option => option.selected);
 		},
+		get currentSelectionGroup() {
+			return self.currentOptionGroup.selectionGroup;
+		},
 		get currentSelectionGroupIdx() {
 			return self.product.selectionGroups.findIndex(selectionGroup => selectionGroup.name === self.currentOptionGroup.selectionGroup.name);
 		},

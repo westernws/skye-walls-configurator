@@ -70,12 +70,6 @@ const Product = types
 				as: `/${as.join('/')}`,
 			};
 		},
-		get optionGroupDisplayNames() {
-			return self.optionGroups?.map?.(optionGroup => optionGroup.displayName) || [];
-		},
-		get screenOptionGroup() {
-			return self.optionGroups?.find?.(optGroup => optGroup.name === 'screen') || {};
-		},
 		get optionGroups() {
 			const result = [];
 
@@ -85,6 +79,9 @@ const Product = types
 				});
 			});
 			return result;
+		},
+		get screenOptionGroup() {
+			return self.optionGroups?.find?.(optGroup => optGroup.name === 'screen') || {};
 		},
 		get selectedBackground() {
 			return self.backgroundOptionGroup?.options?.find?.(option => option.selected) || {};
@@ -129,6 +126,9 @@ const Product = types
 		},
 		get selectedWall() {
 			return self.wallOptionGroup?.options?.find?.(option => option.selected) || {};
+		},
+		get selectionGroupDisplayNames() {
+			return self.selectionGroups?.map?.(selectionGroup => selectionGroup.displayName) || [];
 		},
 		get slug() {
 			return kebabCase(self.displayName);

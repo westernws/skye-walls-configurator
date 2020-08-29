@@ -9,7 +9,7 @@ export const SelectorMenu = observer(() => {
 	const { page } = useMst();
 	const { product } = page;
 
-	if (!product || !product.optionGroupDisplayNames?.length) {
+	if (!product || !product.selectionGroupDisplayNames?.length) {
 		return null;
 	}
 	return (
@@ -19,7 +19,7 @@ export const SelectorMenu = observer(() => {
 					return (
 						<li
 							className={cn('SelectorMenu-item', {
-								'is-active': page.currentOptionGroup.selectionGroup.name === selectionGroup.name,
+								'is-active': page.currentSelectionGroup.name === selectionGroup.name,
 							})}
 							key={selectionGroup.displayName}
 						>
@@ -32,6 +32,28 @@ export const SelectorMenu = observer(() => {
 							>
 								{selectionGroup.displayName}
 							</button>
+							{
+								selectionGroup.optionGroups.length > 1 &&
+								<ul className="SelectorSubMenu space-y-4">
+									{
+										selectionGroup.optionGroups.map((optionGroup) => {
+											return (
+												<li>
+													<button
+														className="SelectorSubMenu-item"
+														type="button"
+														onClick={() => {
+															// window.scrollTo()
+														}}
+													>
+														{optionGroup.name}
+													</button>
+												</li>
+											);
+										})
+									}
+								</ul>
+							}
 						</li>
 					);
 				})

@@ -47,6 +47,7 @@ module.exports = {
 			// 'md': '770px',
 			'md': '768px',
 			'lg': '851px',
+			// Desktop menu
 			'xl': '1024px',
 			'2xl': '1101px',
 			'3xl': '1321px',
