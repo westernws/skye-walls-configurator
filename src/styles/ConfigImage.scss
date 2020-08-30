@@ -1,4 +1,5 @@
 .ConfigImage {
+	@apply relative;
 	width: var(--config-image-width);
 	height: var(--config-image-height);
 	padding: 50px;

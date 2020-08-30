@@ -4,6 +4,7 @@ import isString from 'lodash/isString';
 import { TreeHelpers } from '~/Models/TreeHelpers';
 import { OptionModel } from '~/Models/Option.model';
 import { OptionColorModel } from '~/Models/OptionColor.model';
+import { OptionEnvironmentModel } from '~/Models/OptionEnvironment.model';
 
 const OptionGroup = types
 	.model({
@@ -11,7 +12,7 @@ const OptionGroup = types
 		name: '',
 		displayName: types.string,
 		description: types.string,
-		options: types.optional(types.array(types.union(OptionModel, OptionColorModel)), []),
+		options: types.optional(types.array(types.union(OptionModel, OptionColorModel, OptionEnvironmentModel)), []),
 	})
 	.views(self => ({
 		get displayNames() {

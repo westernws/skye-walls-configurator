@@ -12,12 +12,12 @@ const Product = types
 		name: '',
 		displayName: types.string,
 		description: types.string,
+		features: types.array(types.string),
+		images: types.array(ProductImageModel),
 		inheritedFeatures: '',
 		inheritedFeaturesLong: '',
-		features: types.array(types.string),
-		selectionGroups: types.array(SelectionGroupModel),
 		isActive: false,
-		images: types.array(ProductImageModel),
+		selectionGroups: types.array(SelectionGroupModel),
 	})
 	.views(self => ({
 		get backgroundOptionGroup() {

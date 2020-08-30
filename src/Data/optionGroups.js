@@ -108,17 +108,21 @@ module.exports = [
 		displayName: 'Wall',
 		options: [
 			{
-				name: 'brick',
-				displayName: 'Brick',
+				name: 'drywall',
+				displayName: 'Drywall',
 				image: {
-					fileName: '',
+					basePath: '/images/environment/wall',
+					fileName: 'wall-1.png',
+					width: 300,
 				},
 			},
 			{
-				name: 'wood',
-				displayName: 'Wood',
+				name: 'brick',
+				displayName: 'Brick',
 				image: {
-					fileName: '',
+					basePath: '/images/environment/wall',
+					fileName: 'wall-2.png',
+					width: 300,
 				},
 			},
 		],
@@ -128,17 +132,21 @@ module.exports = [
 		displayName: 'Floor',
 		options: [
 			{
-				name: 'carpet',
-				displayName: 'Carpet',
+				name: 'pergo',
+				displayName: 'Pergo',
 				image: {
-					fileName: '',
+					basePath: '/images/environment/floor',
+					fileName: 'floor-1.png',
+					width: 300,
 				},
 			},
 			{
-				name: 'tile',
-				displayName: 'Tile',
+				name: 'hardwood',
+				displayName: 'Hardwood',
 				image: {
-					fileName: '',
+					basePath: '/images/environment/floor',
+					fileName: 'floor-2.png',
+					width: 300,
 				},
 			},
 		],
@@ -148,17 +156,21 @@ module.exports = [
 		displayName: 'Background',
 		options: [
 			{
-				name: 'beach',
-				displayName: 'Beach',
+				name: 'countryside',
+				displayName: 'Countryside',
 				image: {
-					fileName: '',
+					basePath: '/images/environment/background',
+					fileName: 'background-1.png',
+					width: 300,
 				},
 			},
 			{
-				name: 'cityscape',
-				displayName: 'Cityscape',
+				name: 'beach',
+				displayName: 'Beach',
 				image: {
-					fileName: '',
+					basePath: '/images/environment/background',
+					fileName: 'background-2.png',
+					width: 300,
 				},
 			},
 		],

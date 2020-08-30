@@ -69,15 +69,15 @@ export default [
 				optionGroups: [
 					{
 						name: 'background',
-						options: ['beach', 'cityscape'],
+						options: ['beach', 'countryside'],
 					},
 					{
 						name: 'floor',
-						options: ['carpet', 'tile'],
+						options: ['pergo', 'hardwood'],
 					},
 					{
 						name: 'wall',
-						options: ['brick', 'wood'],
+						options: ['drywall', 'brick'],
 					},
 				],
 			},
@@ -150,15 +150,15 @@ export default [
 				optionGroups: [
 					{
 						name: 'background',
-						options: ['beach', 'cityscape'],
+						options: ['beach', 'countryside'],
 					},
 					{
 						name: 'floor',
-						options: ['carpet', 'tile'],
+						options: ['pergo', 'hardwood'],
 					},
 					{
 						name: 'wall',
-						options: ['brick', 'wood'],
+						options: ['drywall', 'brick'],
 					},
 				],
 			},
@@ -230,15 +230,15 @@ export default [
 				optionGroups: [
 					{
 						name: 'background',
-						options: ['beach', 'cityscape'],
+						options: ['beach', 'countryside'],
 					},
 					{
 						name: 'floor',
-						options: ['carpet', 'tile'],
+						options: ['pergo', 'hardwood'],
 					},
 					{
 						name: 'wall',
-						options: ['brick', 'wood'],
+						options: ['drywall', 'brick'],
 					},
 				],
 			},
@@ -290,15 +290,15 @@ export default [
 				optionGroups: [
 					{
 						name: 'background',
-						options: ['beach', 'cityscape'],
+						options: ['beach', 'countryside'],
 					},
 					{
 						name: 'floor',
-						options: ['carpet', 'tile'],
+						options: ['pergo', 'hardwood'],
 					},
 					{
 						name: 'wall',
-						options: ['brick', 'wood'],
+						options: ['drywall', 'brick'],
 					},
 				],
 			},
@@ -310,7 +310,7 @@ export default [
 		description: 'Smooth operation meets clean design.',
 		features: [
 			'Low-E dual pane argon-filled glass for energy efficiency',
-			'Narrow stile for additional glass and light',
+			'Narrow shardwood for additional glass and light',
 			'Stainless steel ball bearing rollers for smooth operation',
 			'Concealed multi-point lock for additional protection',
 			'Contemporary hardware for a sleek aesthetic',
@@ -365,15 +365,15 @@ export default [
 				optionGroups: [
 					{
 						name: 'background',
-						options: ['beach', 'cityscape'],
+						options: ['beach', 'countryside'],
 					},
 					{
 						name: 'floor',
-						options: ['carpet', 'tile'],
+						options: ['pergo', 'hardwood'],
 					},
 					{
 						name: 'wall',
-						options: ['brick', 'wood'],
+						options: ['drywall', 'brick'],
 					},
 				],
 			},
@@ -439,15 +439,15 @@ export default [
 				optionGroups: [
 					{
 						name: 'background',
-						options: ['beach', 'cityscape'],
+						options: ['beach', 'countryside'],
 					},
 					{
 						name: 'floor',
-						options: ['carpet', 'tile'],
+						options: ['pergo', 'hardwood'],
 					},
 					{
 						name: 'wall',
-						options: ['brick', 'wood'],
+						options: ['drywall', 'brick'],
 					},
 				],
 			},
@@ -512,15 +512,15 @@ export default [
 				optionGroups: [
 					{
 						name: 'background',
-						options: ['beach', 'cityscape'],
+						options: ['beach', 'countryside'],
 					},
 					{
 						name: 'floor',
-						options: ['carpet', 'tile'],
+						options: ['pergo', 'hardwood'],
 					},
 					{
 						name: 'wall',
-						options: ['brick', 'wood'],
+						options: ['drywall', 'brick'],
 					},
 				],
 			},
