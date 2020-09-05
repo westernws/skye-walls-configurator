@@ -52,11 +52,19 @@ const Product = types
 		get handleOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'handles') || {};
 		},
-		get imageSrc() {
+		get selectedImage() {
 			const selectedColorName = self.selectedColor.name;
-			const selectedImage = self.images.find(image => image.color.name === selectedColorName);
 
-			return selectedImage.imageSrc;
+			return self.images.find(image => image.color.name === selectedColorName);
+		},
+		get sizes() {
+			return self.selectedImage.sizes;
+		},
+		get src() {
+			return self.selectedImage.src;
+		},
+		get srcSet() {
+			return self.selectedImage.srcSet;
 		},
 		get link() {
 			const href = ['[product-collection]', '[product]'];

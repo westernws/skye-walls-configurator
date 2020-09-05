@@ -9,10 +9,17 @@ export const ConfigProductImagery = observer(() => {
 
 	return (
 		<>
-			<img className="ConfigImage-image" style={{ zIndex: 1 }} src={product.selectedBackground.image.imageSrc} alt="" />
-			<img className="ConfigImage-image" src={product.selectedWall.image.imageSrc} alt="" />
-			<img className="ConfigImage-image" src={product.selectedFloor.image.imageSrc} alt="" />
-			<img className="ConfigImage-image" style={{ zIndex: 2 }} src={product.imageSrc} alt="" />
+			<img className="ConfigImage-image" style={{ zIndex: 1 }} src={product.selectedBackground.image.src} alt="" />
+			<img className="ConfigImage-image" src={product.selectedWall.image.src} alt="" />
+			<img className="ConfigImage-image" src={product.selectedFloor.image.src} alt="" />
+			<img
+				style={{ zIndex: 2 }}
+				className="ConfigImage-image"
+				src={product.src}
+				srcSet={product.srcSet}
+				sizes={product.sizes}
+				alt=""
+			/>
 		</>
 	);
 });

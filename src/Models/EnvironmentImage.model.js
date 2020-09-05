@@ -12,7 +12,7 @@ export const EnvironmentImageModel = types
 		useCdn: true,
 	})
 	.views(self => ({
-		get imageSrc() {
+		get src() {
 			if (!self.fileName) {
 				return 'https://dummyimage.com/1000x1000/999/eee.png&text=FPO%20778x779';
 			}
