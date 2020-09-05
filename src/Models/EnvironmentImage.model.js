@@ -9,7 +9,7 @@ export const EnvironmentImageModel = types
 		basePath: '/images/environment',
 		fileName: '',
 		width: types.number,
-		useCdn: false,
+		useCdn: true,
 	})
 	.views(self => ({
 		get imageSrc() {
