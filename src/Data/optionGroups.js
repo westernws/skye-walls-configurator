@@ -99,11 +99,6 @@ module.exports = [
 		],
 	},
 	{
-		name: 'screen',
-		displayName: 'Screen',
-		description: 'After-market screening solutions available. Ask your Skye Walls expert.',
-	},
-	{
 		name: 'wall',
 		displayName: 'Wall',
 		options: [

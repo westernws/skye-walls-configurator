@@ -9,24 +9,30 @@ export const ConfigPageModel = types
 	.model('ConfigPageModel', {
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ConfigPageModel_') === 0),
 		product: types.reference(ProductModel),
-		currentOptionGroup: types.reference(OptionGroupModel),
+		currentOptionGroup: types.maybeNull(types.reference(OptionGroupModel)),
 		currentSelectionGroup: types.reference(SelectionGroupModel),
 		className: 'Page--config',
 	})
 	.views(self => ({
 		get currentOptionGroupIdx() {
+			if (self.optionGroups === null) {
+				return -1;
+			}
 			return self.optionGroups.findIndex(selectionGroup => selectionGroup.name === self.currentOptionGroup.name);
 		},
 		get currentSelectedOption() {
-			if (!self.currentOptionGroup.options?.length) {
+			if (!self.currentOptionGroup?.options?.length) {
 				return {};
 			}
 			return self.currentOptionGroup.options.find(option => option.selected);
 		},
 		get currentSelectionGroupIdx() {
-			return self.product.selectionGroups.findIndex(selectionGroup => selectionGroup.name === self.currentOptionGroup.selectionGroup.name);
+			return self.product.selectionGroups.findIndex(selectionGroup => selectionGroup.name === self.currentSelectionGroup.name);
 		},
 		get isLastOptionGroup() {
+			if (!self.optionGroups) {
+				return false;
+			}
 			return self.currentOptionGroupIdx === self.optionGroups.length - 1;
 		},
 		get isLastSelectionGroup() {
@@ -66,12 +72,7 @@ export const ConfigPageModel = types
 			return self.product.selectionGroups[self.currentSelectionGroupIdx - 1];
 		},
 		get showOptionGroupAccordion() {
-			const root = getRoot(self);
-
-			if (root.isMediaQueryXl) {
-				return false;
-			}
-			return self.currentSelectionGroup.hasMultipleOptionGroups;
+			return !getRoot(self).isMediaQueryXl;
 		},
 	}))
 	.actions((self) => {
@@ -111,7 +112,7 @@ export const ConfigPageModel = types
 			},
 			setCurrentSelectionGroup(selectionGroupId) {
 				self.currentSelectionGroup = selectionGroupId;
-				self.currentOptionGroup = self.currentSelectionGroup.optionGroups[0].id;
+				self.currentOptionGroup = self.currentSelectionGroup.optionGroups?.[0]?.id || null;
 			},
 			setProduct(product) {
 				const firstOptionGroupId = product?.selectionGroups?.[0]?.optionGroups?.[0]?.id;

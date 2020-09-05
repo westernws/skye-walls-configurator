@@ -59,10 +59,6 @@ export default [
 			},
 			{
 				name: 'screen',
-				optionGroups: [{
-					name: 'screen',
-					options: ['screen'],
-				}],
 			},
 			{
 				name: 'environment',
@@ -140,10 +136,6 @@ export default [
 			},
 			{
 				name: 'screen',
-				optionGroups: [{
-					name: 'screen',
-					options: ['screen'],
-				}],
 			},
 			{
 				name: 'environment',
@@ -220,10 +212,6 @@ export default [
 			},
 			{
 				name: 'screen',
-				optionGroups: [{
-					name: 'screen',
-					options: ['screen'],
-				}],
 			},
 			{
 				name: 'environment',

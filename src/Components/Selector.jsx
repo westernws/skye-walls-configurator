@@ -16,7 +16,6 @@ import { ReviewConfig } from '~/Components/ReviewConfig';
 export const Selector = observer(() => {
 	const { page, modals, isMediaQueryXl } = useMst();
 	const {
-		currentOptionGroup,
 		currentSelectionGroup,
 		product,
 		showOptionGroupAccordion,
@@ -28,7 +27,7 @@ export const Selector = observer(() => {
 		return openOptionGroups.includes(optionGroupId);
 	};
 
-	if (!currentOptionGroup || !product) {
+	if (!product) {
 		return null;
 	}
 
@@ -186,8 +185,8 @@ export const Selector = observer(() => {
 								})
 							}
 							{
-								!currentOptionGroup.options?.length && Boolean(currentOptionGroup.description) &&
-								<p>{currentOptionGroup.description}</p>
+								!currentSelectionGroup.optionGroups?.length && Boolean(currentSelectionGroup.description) &&
+								<p>{currentSelectionGroup.description}</p>
 							}
 						</div>
 					}

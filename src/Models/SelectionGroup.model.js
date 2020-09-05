@@ -8,7 +8,7 @@ export const SelectionGroupModel = types
 		name: '',
 		displayName: types.string,
 		description: '',
-		optionGroups: types.array(OptionGroupModel),
+		optionGroups: types.optional(types.array(OptionGroupModel), []),
 	})
 	.views(self => ({
 		get hasMultipleOptionGroups() {

@@ -4,6 +4,9 @@ import { uniqueId } from '~/util/uniqueId';
 import { OptionsFactory } from '~/Factories/Options.factory';
 
 export const OptionGroupsFactory = (productOptionGroups) => {
+	if (!productOptionGroups?.length) {
+		return [];
+	}
 	const optionGroups = productOptionGroups.map((prodOptGrp) => {
 		const selectedOptGrpData = optionGroupData.find(optionGroup => optionGroup.name === prodOptGrp.name);
 		const selectedOptionsData = selectedOptGrpData?.options?.filter((option) => {

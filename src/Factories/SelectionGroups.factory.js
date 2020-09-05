@@ -11,6 +11,7 @@ export const SelectionGroupsFactory = (productSelectionGroups) => {
 			id: `SelectionGroupModel_${uniqueId()}`,
 			name: selectedSelectionGroupData.name,
 			displayName: selectedSelectionGroupData.displayName,
+			description: selectedSelectionGroupData.description,
 			optionGroups: OptionGroupsFactory(productSelectionGroup.optionGroups),
 		});
 	});
