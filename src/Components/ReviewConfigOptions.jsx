@@ -8,9 +8,11 @@ import { ReviewConfigOption } from '~/Components/ReviewConfigOption';
 
 export const ReviewConfigOptions = observer(({ product }) => {
 	const { isMediaQueryXl } = useMst();
-	const evenSelectionGroups = product.reviewSelectionGroups.filter((selectionGroup, i) => i % 2 === 0);
-	const oddSelectionGroups = product.reviewSelectionGroups.filter((selectionGroup, i) => i % 2 !== 0);
+	const reviewSelectionGroups = product.reviewSelectionGroups.filter(selectionGroup => selectionGroup.optionGroups.length);
+	const evenSelectionGroups = reviewSelectionGroups.filter((selectionGroup, i) => i % 2 === 0);
+	const oddSelectionGroups = reviewSelectionGroups.filter((selectionGroup, i) => i % 2 !== 0);
 
+	console.log('oddSelectionGroups', oddSelectionGroups);
 	return (
 		<>
 			<ul className="ReviewConfig-options">
