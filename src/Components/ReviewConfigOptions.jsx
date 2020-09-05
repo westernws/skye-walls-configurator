@@ -12,7 +12,6 @@ export const ReviewConfigOptions = observer(({ product }) => {
 	const evenSelectionGroups = reviewSelectionGroups.filter((selectionGroup, i) => i % 2 === 0);
 	const oddSelectionGroups = reviewSelectionGroups.filter((selectionGroup, i) => i % 2 !== 0);
 
-	console.log('oddSelectionGroups', oddSelectionGroups);
 	return (
 		<>
 			<ul className="ReviewConfig-options">

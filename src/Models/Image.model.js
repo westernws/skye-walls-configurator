@@ -31,7 +31,6 @@ export const ImageModel = types
 				return `${src} ${width}w`;
 			});
 
-			console.log(srcs);
 			return srcs.join(', ');
 		},
 	}))
