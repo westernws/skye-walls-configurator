@@ -113,7 +113,7 @@ module.exports = [
 				image: {
 					basePath: '/images/environment/wall',
 					fileName: 'wall-1.png',
-					width: 300,
+					width: 1230,
 				},
 			},
 			{
@@ -122,7 +122,7 @@ module.exports = [
 				image: {
 					basePath: '/images/environment/wall',
 					fileName: 'wall-2.png',
-					width: 300,
+					width: 1230,
 				},
 			},
 		],
@@ -137,7 +137,7 @@ module.exports = [
 				image: {
 					basePath: '/images/environment/floor',
 					fileName: 'floor-1.png',
-					width: 300,
+					width: 1230,
 				},
 			},
 			{
@@ -146,7 +146,7 @@ module.exports = [
 				image: {
 					basePath: '/images/environment/floor',
 					fileName: 'floor-2.png',
-					width: 300,
+					width: 1230,
 				},
 			},
 		],
@@ -161,7 +161,7 @@ module.exports = [
 				image: {
 					basePath: '/images/environment/background',
 					fileName: 'background-1.png',
-					width: 300,
+					width: 1230,
 				},
 			},
 			{
@@ -170,7 +170,7 @@ module.exports = [
 				image: {
 					basePath: '/images/environment/background',
 					fileName: 'background-2.png',
-					width: 300,
+					width: 1230,
 				},
 			},
 		],

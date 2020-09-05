@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Provider, appStore } from '~/Stores/App.store';
 import { LayoutConfig } from '~/Components/LayoutConfig';
-import { ConfigProductImage } from '~/Components/ConfigProductImage';
+import { ConfigProductImagery } from '~/Components/ConfigProductImagery';
 import { ClipboardListSolid } from '~/Components/svg/ClipboardListSolid.svg';
 import { Selector } from '~/Components/Selector';
 import { ReviewConfig } from '~/Components/ReviewConfig';
@@ -17,7 +17,7 @@ export default () => {
 					<div className="block xl:flex">
 						<div className="ConfigPreview">
 							<div className="ConfigImage">
-								<ConfigProductImage />
+								<ConfigProductImagery />
 							</div>
 							<div className="ConfigReview xl:hidden">
 								<button
