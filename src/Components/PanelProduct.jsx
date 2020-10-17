@@ -86,11 +86,9 @@ export const PanelProduct = observer(({ product }) => {
 								});
 							}}
 						>
-							<span className="hidden text-xs uppercase font-bold xl:inline-block">More Info</span>
 							<div className="inline-block w-5 xl:hidden">
 								<InfoCircleSolid />
 							</div>
-							<img className="hidden transform -rotate-90 xl:inline-block xl:w-2 xl:ml-1" src="/images/chevron-down-solid.svg" alt="More Info" />
 						</button>
 					</h2>
 				</div>
