@@ -78,7 +78,7 @@ export const Layout = observer(({ children }) => {
 							</div>
 							{
 								Boolean(topMenu.length) &&
-								<ul className="Menu 2xl:hidden">
+								<ul className="Menu xl:hidden">
 									<li>
 										<button
 											type="button"
@@ -171,7 +171,7 @@ export const Layout = observer(({ children }) => {
 						</div>
 					</nav>
 				</header>
-				<div className="sticky top-0 z-10 bg-black hidden 2xl:block">
+				<div className="sticky top-0 z-10 bg-black hidden xl:block">
 					<nav className="SiteSubnav">
 						<div className="SiteSubnav-wrap space-x-10">
 							<button
