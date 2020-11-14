@@ -12,11 +12,15 @@ import { Meta } from '~/Components/Meta';
 import { useMst } from '~/Stores/App.store';
 import { Modals } from '~/Components/Modals';
 import { BarsSolid } from '~/Components/svg/BarsSolid.svg';
+import { TimesSolid } from '~/Components/svg/TimesSolid.svg';
+import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
+import { themeConfig } from '~/util/themeConfig';
 
 export const Layout = observer(({ children }) => {
-	const { productCollections } = useMst();
+	const { productCollections, modals, topMenu = [] } = useMst();
 	const [isNavSticky, setIsNavSticky] = useState(null);
 	const [activeMenu, setActiveMenu] = useState(null);
+	const menu = modals.get('modal-menu');
 
 	useEffect(() => {
 		if (!process.browser) {
@@ -57,7 +61,12 @@ export const Layout = observer(({ children }) => {
 			<Modals />
 			<div>
 				<Meta />
-				<header id="header" className="Header">
+				<header
+					id="header"
+					className={cn('Header relative', {
+						'z-10': menu.isOpen,
+					})}
+				>
 					<nav className="SiteNav">
 						<div className="SiteNav-wrap">
 							<div className="SiteNav-logo">
@@ -67,18 +76,98 @@ export const Layout = observer(({ children }) => {
 									</a>
 								</Link>
 							</div>
-							<ul className="Menu 2xl:hidden">
-								<li>
-									<Link href="#">
-										<a>
-											<div className="Icon">
-												<BarsSolid />
-												<span>FPO</span>
+							{
+								Boolean(topMenu.length) &&
+								<ul className="Menu 2xl:hidden">
+									<li>
+										<button
+											type="button"
+											onClick={() => {
+												modals.get('modal-primary').close();
+												modals.get('modal-secondary').close();
+												if (menu.isOpen) {
+													menu.close();
+												} else {
+													menu.open({
+														content: (
+															<ul className="Menu-items divide-y-2 divide-gray-lighter">
+																{
+																	topMenu.map((menuItem) => {
+																		const {
+																			href = '',
+																			name = '',
+																			displayName = '',
+																			isExternal = false,
+																		} = menuItem;
+																		const anchorProps = {
+																			className: 'Menu-heading',
+																			...(isExternal) && {
+																				href,
+																			},
+																		};
+																		const anchorChildren = (
+																			<>
+																				<div className="Menu-leftCol">
+																					<div className="Menu-label">{displayName}</div>
+																				</div>
+																				<div className="Menu-rightCol">
+																					<div className="Menu-control">
+																						<ChevronSolid direction="right" />
+																					</div>
+																				</div>
+																			</>
+																		);
+
+																		return (
+																			<li key={name} className="Menu-item">
+																				{
+																					isExternal ?
+																						<a {...anchorProps}>
+																							{anchorChildren}
+																						</a>
+																						:
+																						<Link href={href}>
+																							<a {...anchorProps}>
+																								{anchorChildren}
+																							</a>
+																						</Link>
+																				}
+																			</li>
+																		);
+																	})
+																}
+															</ul>
+														),
+														type: 'MENU',
+													});
+												}
+											}}
+										>
+											<div className={cn('Icon', {
+												'Icon--sm': menu.isOpen,
+											})}
+											>
+												{
+													menu.isOpen &&
+													<TimesSolid color={themeConfig.theme.colors.gray.default} />
+												}
+												{
+													!menu.isOpen &&
+													<BarsSolid />
+												}
 											</div>
-										</a>
-									</Link>
-								</li>
-							</ul>
+											{
+												menu.isOpen &&
+												<span>Close</span>
+											}
+											{
+												!menu.isOpen &&
+												<span>Menu</span>
+											}
+										</button>
+									</li>
+								</ul>
+							}
 						</div>
 					</nav>
 				</header>

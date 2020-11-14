@@ -7,6 +7,7 @@ import { ProductCollectionModel } from '~/Models/ProductCollection.model';
 import { ModalModel } from '~/Models/Modal.model';
 import { ConfigPageModel } from '~/Models/ConfigPage.model';
 import { ProductPageModel } from '~/Models/ProductPage.model';
+import { MenuModel } from '~/Models/Menu.model';
 import { themeConfig } from '~/util/themeConfig';
 
 export const AppModel = types
@@ -17,6 +18,7 @@ export const AppModel = types
 		page: types.maybeNull(types.union(ConfigPageModel, ProductPageModel)),
 		isMediaQueryXl: false,
 		env: types.enumeration('Environment', ['PROD', 'DEV', 'STAGING'], 'PROD'),
+		topMenu: types.array(MenuModel),
 	})
 	.views(self => ({
 

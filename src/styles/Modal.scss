@@ -18,7 +18,7 @@
 	width: 90%;
 	max-width: var(--site-max-width);
 	max-height: 90%;
-	top: 5%;
+	top: var(--modal-container-offset-y);
 }
 .Modal-closeBtn {
 	@apply fixed bg-red rounded-full z-20;

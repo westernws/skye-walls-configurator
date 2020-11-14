@@ -25,7 +25,17 @@ button[disabled] {
 	cursor: default;
 }
 *:focus {
+	// Some exciting button focus styles
 	outline-color: theme('colors.outline') !important;
+}
+*:focus:not(:focus-visible) {
+	// Undo all the above focused button styles
+	// if the button has focus but the browser wouldn't normally
+	// show default focus styles
+	outline: none;
+}
+*:focus-visible {
+	// Some even *more* exciting button focus styles
 }
 // iPad Pro 12.9 portrait
 @media (device-width: 1024px) and (device-height: 1366px) and (orientation: portrait) {

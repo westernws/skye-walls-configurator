@@ -49,10 +49,7 @@ export const Modal = observer(({ modal }) => {
 					aria-label="Close modal"
 				/>
 			}
-			{ (type === 'MODAL' || type === 'MODAL_TIGHT') && showCloseBtn && closeBtn }
-			<div
-				className="Modal-container"
-			>
+			<div className="Modal-container">
 				{
 					showCloseBtn
 					&& (

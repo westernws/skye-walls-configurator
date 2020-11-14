@@ -1,5 +1,6 @@
 .Page {
 	--header-height: 80px;
+	--modal-container-offset-y: var(--header-height);
 	body {
 		@apply text-sm h-full;
 	}
@@ -11,6 +12,7 @@
 	}
 	&.Page--config {
 		--header-height: 70px;
+		--modal-container-offset-y: 0;
 		body {
 			@apply overflow-hidden;
 		}
