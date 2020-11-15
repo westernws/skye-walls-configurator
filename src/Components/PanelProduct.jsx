@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 import { observer } from 'mobx-react-lite';
-import 'mobx-react-lite/batchingForReactDom';
 
 import { useMst } from '~/Stores/App.store';
 import { DummyImage } from '~/Components/DummyImage';

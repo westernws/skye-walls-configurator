@@ -1,7 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
 import { observer } from 'mobx-react-lite';
-import 'mobx-react-lite/batchingForReactDom';
 
 import { DummyImage } from '~/Components/DummyImage';
 import { useMst } from '~/Stores/App.store';

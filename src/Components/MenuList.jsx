@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { observer } from 'mobx-react-lite';
-import 'mobx-react-lite/batchingForReactDom';
 
 import { TableSolid } from '~/Components/svg/TableSolid.svg';
 import { FlagSolid } from '~/Components/svg/FlagSolid.svg';

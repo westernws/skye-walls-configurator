@@ -1,6 +1,15 @@
 const CircularDependencyPlugin = require('circular-dependency-plugin');
+const { deviceSizes } = require('./src/util/breakpoints');
 
+console.log('deviceSizes', deviceSizes);
 module.exports = {
+	images: {
+		deviceSizes,
+		domains: [
+			'buildstaging.skyewallsbywws.com',
+			'build.skyewallsbywws.com',
+		],
+	},
 	webpack: (config) => {
 		config.plugins.push(new CircularDependencyPlugin({
 			// exclude detection of files based on a RegExp
@@ -16,12 +25,4 @@ module.exports = {
 	purgeCSS: {
 		enabled: true,
 	},
-	// webpackDevMiddleware: (config) => {
-	// 	config.watchOptions = config.watchOptions || {};
-	// 	config.watchOptions.ignored = [
-	// 		// Don't watch _any_ files for changes
-	// 		/.p?css/,
-	// 	];
-	// 	return config;
-	// },
 };

@@ -8,7 +8,7 @@ import { Selector } from '~/Components/Selector';
 import { ReviewConfig } from '~/Components/ReviewConfig';
 import { SelectorMenu } from '~/Components/SelectorMenu';
 
-export default () => {
+const ConfigProduct = () => {
 	return (
 		<Provider value={appStore}>
 			<LayoutConfig>
@@ -44,3 +44,5 @@ export default () => {
 		</Provider>
 	);
 };
+
+export default ConfigProduct;

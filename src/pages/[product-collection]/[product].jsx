@@ -7,7 +7,7 @@ import { PanelGroup } from '~/Components/PanelGroup';
 import { PanelProduct } from '~/Components/PanelProduct';
 import { useInput } from '~/util/useInput';
 
-export default () => {
+const Product = () => {
 	const router = useRouter();
 	const { bind, value, setValue } = useInput();
 	const { product: productSlug } = router.query;
@@ -95,3 +95,5 @@ export default () => {
 		</Provider>
 	);
 };
+
+export default Product;

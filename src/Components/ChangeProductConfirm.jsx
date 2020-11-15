@@ -1,6 +1,5 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import 'mobx-react-lite/batchingForReactDom';
 import Link from 'next/link';
 
 import { useMst } from '~/Stores/App.store';

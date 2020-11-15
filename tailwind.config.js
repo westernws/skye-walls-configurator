@@ -1,6 +1,7 @@
 const path = require('path');
 const camelCase = require('lodash/camelCase');
 const optionGroups = require('./src/Data/optionGroups');
+const { screens } = require('./src/util/breakpoints');
 
 const colorOptionGroup = optionGroups.find(optGroup => optGroup.name === 'color');
 // Do I really need this?
@@ -40,19 +41,7 @@ module.exports = {
 		fontFamily: {
 			sans: ['acumin-pro', 'Arial', 'Helvetica', 'sans-serif'],
 		},
-		screens: {
-			// min widths
-			'xs': '0',
-			'sm': '500px',
-			// 'md': '770px',
-			'md': '768px',
-			'lg': '851px',
-			// Desktop menu
-			'xl': '1024px',
-			'2xl': '1101px',
-			'3xl': '1321px',
-			'4xl': '1500px',
-		},
+		screens,
 	},
 	variants: {},
 	plugins: [],

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import 'mobx-react-lite/batchingForReactDom';
 
 import { Meta } from '~/Components/Meta';
 import { Modals } from '~/Components/Modals';
