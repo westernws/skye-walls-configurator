@@ -1,0 +1,12 @@
+.Footer {
+	@apply bg-blue text-white py-12 px-8 text-center relative;
+}
+
+@screen lg {
+	.Footer {
+		@apply flex justify-between text-left;
+		.Footer-disclaimer {
+			@apply p-0;
+		}
+	}
+}

@@ -2,6 +2,7 @@
 	@apply relative;
 	&::after {
 		@apply block h-0 w-full;
+		// This is calculated based on height / width
 		padding-bottom: 29.8%;
 		content: ' ';
 	}

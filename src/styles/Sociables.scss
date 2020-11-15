@@ -1,15 +1,18 @@
 .Sociables {
-	@apply list-none m-0 p-0;
-	.Sociables-facebook svg {
-		width: 16px;
+	@apply flex justify-center mt-4 mx-0 mb-0;
+	li {
+		@apply m-0 list-none;
 	}
-	.Sociables-instagram svg {
-		width: 25px;
+	.Sociables-item {
+		@apply border border-solid border-black rounded-full bg-white p-3 block;
+		svg {
+			@apply h-4 w-4 text-black;
+		}
 	}
-	.Sociables-pinterest svg {
-		width: 20px;
-	}
-	.Sociables-youtube svg {
-		width: 25px;
+}
+
+@screen lg {
+	.Sociables {
+		@apply justify-start;
 	}
 }
