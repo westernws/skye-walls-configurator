@@ -22,6 +22,9 @@
 }
 
 @screen xl {
+	.SiteNav {
+		@apply pr-6;
+	}
 	.SiteNav.SiteNav--config {
 		& {
 			@apply px-6 max-w-none;
