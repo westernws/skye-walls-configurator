@@ -9,13 +9,22 @@
 .Hero-image {
 	@apply absolute top-0 left-0 w-full object-cover;
 }
+.Hero-text {
+	@apply hidden absolute top-0 bottom-0 flex-col justify-center pl-20 w-full;
+}
 
-@screen sm {
+@screen md {
 	.Hero::after {
 		// This is calculated based on height / width
 		padding-bottom: 25.3807%;
 	}
 	.Hero-image {
-		@apply object-none;
+		@apply object-contain;
+	}
+}
+
+@screen md {
+	.Hero-text {
+		@apply flex;
 	}
 }

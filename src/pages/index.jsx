@@ -26,15 +26,21 @@ const Index = () => {
 							priority
 							loading="eager"
 							layout="fill"
-							// width="1970"
-							// height="500"
 						/>
+						<div className="absolute top-0 bottom-0 w-full h-full bg-gradient-to-r from-white" />
+						<div className="Hero-text">
+							<h1 className="text-blue mb-4 text-5xl 3xl:text-6xl">Design Your Door</h1>
+							<p className="max-w-xl 3xl:text-xl">
+								No two transformations are exactly alike. That’s why we designed moving glass walls from
+								Skye Walls to be customizable to your aesthetics and lifestyle.
+							</p>
+						</div>
 					</div>
 				</div>
 				<main className="MainComponent space-y-20 pb-20">
-					<section className="flex justify-center mb-10">
-						<div className="w-12/12 md:w-7/12 mt-6">
-							<h1 className="Heading Heading--ruled text-4xl md:text-5xl">Design Your Door</h1>
+					<section className="flex justify-center mb-10 md:hidden">
+						<div className="w-full mt-6">
+							<h1 className="text-blue text-4xl">Design Your Door</h1>
 							<p className="max-w-xl">
 								No two transformations are exactly alike. That’s why we designed moving glass walls from
 								Skye Walls to be customizable to your aesthetics and lifestyle.
