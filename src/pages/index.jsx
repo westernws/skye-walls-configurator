@@ -5,7 +5,6 @@ import { uniqueId } from '~/util/uniqueId';
 
 import { Provider, appStore } from '~/Stores/App.store';
 import { Layout } from '~/Components/Layout';
-import { DummyImage } from '~/Components/DummyImage';
 import { PanelCollection } from '~/Components/PanelCollection';
 import { PanelGroup } from '~/Components/PanelGroup';
 import { Panel } from '~/Components/Panel';
@@ -18,8 +17,19 @@ const Index = () => {
 	return (
 		<Provider value={appStore}>
 			<Layout>
-				<div className="Hero">
-					<DummyImage className="Hero-image" width="1600" height="477" />
+				<div className="SiteMaxWidth m-auto">
+					<div className="Hero">
+						<Image
+							src="/images/hero.jpg"
+							className="Hero-image"
+							alt=""
+							priority
+							loading="eager"
+							layout="fill"
+							// width="1970"
+							// height="500"
+						/>
+					</div>
 				</div>
 				<main className="MainComponent space-y-20 pb-20">
 					<section className="flex justify-center mb-10">
