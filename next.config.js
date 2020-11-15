@@ -1,7 +1,6 @@
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const { deviceSizes } = require('./src/util/breakpoints');
 
-console.log('deviceSizes', deviceSizes);
 module.exports = {
 	images: {
 		deviceSizes,

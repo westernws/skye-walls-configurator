@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import Image from 'next/image';
 
 import { useMst } from '~/Stores/App.store';
 
@@ -8,34 +9,34 @@ export const ConfigProductImagery = observer(() => {
 
 	return (
 		<>
-			<img
+			<Image
 				style={{ zIndex: 1 }}
 				className="ConfigImage-image"
 				src={product.selectedBackground.image.src}
-				srcSet={product.selectedBackground.image.srcSet}
+				layout="fill"
 				sizes={product.selectedBackground.image.sizes}
 				alt=""
 			/>
-			<img
+			<Image
 				className="ConfigImage-image"
 				src={product.selectedWall.image.src}
-				srcSet={product.selectedWall.image.srcSet}
+				layout="fill"
 				sizes={product.selectedWall.image.sizes}
 				alt=""
 			/>
-			<img
+			<Image
 				className="ConfigImage-image"
 				src={product.selectedFloor.image.src}
-				srcSet={product.selectedFloor.image.srcSet}
+				layout="fill"
 				sizes={product.selectedFloor.image.sizes}
 				alt=""
 			/>
-			<img
+			<Image
 				style={{ zIndex: 2 }}
 				className="ConfigImage-image"
 				src={product.src}
-				srcSet={product.srcSet}
 				sizes={product.sizes}
+				layout="fill"
 				alt=""
 			/>
 		</>

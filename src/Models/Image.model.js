@@ -6,11 +6,11 @@ import { themeConfig } from '~/util/themeConfig';
 export const ImageModel = types
 	.model({
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ImageModel_') === 0),
-		cdnPath: `//${DOMAIN}/cdn-cgi/image/fit=contain,dpr=1,width=`,
+		cdnPath: `https://${DOMAIN}/cdn-cgi/image/fit=contain,dpr=1,width=`,
 		basePath: '/images/environment',
 		fileName: '',
 		width: types.number,
-		useCdn: true,
+		useCdn: false,
 	})
 	.views(self => ({
 		get meanWidth() {
