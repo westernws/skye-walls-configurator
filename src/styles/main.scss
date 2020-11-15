@@ -26,4 +26,9 @@
 .ReviewFooter {
 	height: var(--review-footer-height);
 }
+.CheckmarkWhiteOnRed {
+	@apply bg-red rounded-full border-white leading-snug;
+	width: 26px;
+	height: 26px;
+}
 // 655 x 236 36.03%

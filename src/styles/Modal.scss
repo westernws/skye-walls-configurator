@@ -32,6 +32,9 @@
 	@apply p-12;
 }
 .Modal.Modal--tight {
+	.Modal-container {
+		top: 5%;
+	}
 	.Modal-content {
 		@apply p-4;
 	}

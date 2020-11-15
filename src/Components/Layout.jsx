@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import cn from 'classnames';
 import React from 'react';
 import { observer } from 'mobx-react-lite';
@@ -12,7 +13,9 @@ import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 import { ExternalLinkAltSolid } from '~/Components/svg/ExternalLinkAltSolid.svg';
 import { HomeSolid } from '~/Components/svg/HomeSolid.svg';
 import { themeConfig } from '~/util/themeConfig';
+import { IMAGE_PATH } from '~/global.constants';
 
+console.log('IMAGE_PATH', IMAGE_PATH);
 export const Layout = observer(({ children }) => {
 	const { modals } = useMst();
 	const menu = modals.get('modal-menu');
@@ -33,7 +36,15 @@ export const Layout = observer(({ children }) => {
 							<div className="SiteNav-logo">
 								<Link href="/">
 									<a className="Logo">
-										<img src="/images/sw-logo-lite.svg" alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems" />
+										<Image
+											src="/images/sw-logo-lite.svg"
+											alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems"
+											priority
+											unoptimized
+											loading="eager"
+											width="120"
+											height="37"
+										/>
 									</a>
 								</Link>
 							</div>

@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { uniqueId } from '~/util/uniqueId';
 
 import { Provider, appStore } from '~/Stores/App.store';
@@ -12,7 +14,7 @@ import { Instagram } from '~/Components/svg/Instagram.svg';
 import { Pinterest } from '~/Components/svg/Pinterest.svg';
 import { YouTube } from '~/Components/svg/YouTube.svg';
 
-export default () => {
+const Index = () => {
 	return (
 		<Provider value={appStore}>
 			<Layout>
@@ -61,14 +63,18 @@ export default () => {
 					<div className="SiteMaxWidth m-auto">
 						<footer className="Footer text-base space-y-8 lg:space-y-0 lg:space-x-8">
 							<div>
-								<img
-									data-src="/images/sw-logo-white.svg"
-									alt=""
-									width="300"
-									style={{ maxWidth: '300px' }}
-									className="m-auto lazyloaded"
-									src="/images/sw-logo-white.svg"
-								/>
+								<Link href="/">
+									<a>
+										<Image
+											src="/images/sw-logo-white.svg"
+											className="m-auto"
+											alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems"
+											unoptimized
+											width="300"
+											height="153"
+										/>
+									</a>
+								</Link>
 							</div>
 							<div>
 								<h3 className="text-lg uppercase font-bold">How Can We Help?</h3>
@@ -195,3 +201,5 @@ export default () => {
 		</Provider>
 	);
 };
+
+export default Index;

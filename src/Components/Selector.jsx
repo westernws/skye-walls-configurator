@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import cn from 'classnames';
@@ -144,8 +145,14 @@ export const Selector = observer(() => {
 																	{
 																		isSelected &&
 																		<div className="OptionGroup-checkmark">
-																			<div className="bg-red rounded-full border-white w-5 p-1">
-																				<img src="/images/check-solid-white.svg" alt="" />
+																			<div className="CheckmarkWhiteOnRed">
+																				<Image
+																					src="/images/check-solid-white.svg"
+																					alt=""
+																					unoptimized
+																					width="12"
+																					height="12"
+																				/>
 																			</div>
 																		</div>
 																	}

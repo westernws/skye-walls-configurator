@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { observer } from 'mobx-react-lite';
@@ -39,7 +40,16 @@ export const LayoutConfig = observer(({ children }) => {
 								<div className="SiteNav-logo">
 									<Link href="/">
 										<a className="Logo">
-											<img src="/images/sw-logo-lite.svg" alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems" />
+											<Image
+												src="/images/sw-logo-lite.svg"
+												alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems"
+												priority
+												unoptimized
+												loading="eager"
+												layout="responsive"
+												width="120"
+												height="37"
+											/>
 										</a>
 									</Link>
 								</div>

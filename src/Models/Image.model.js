@@ -1,16 +1,16 @@
 import { types } from 'mobx-state-tree';
 
-import { DOMAIN } from '~/global.constants';
+import { IMAGE_PATH } from '~/global.constants';
 import { themeConfig } from '~/util/themeConfig';
 
 export const ImageModel = types
 	.model({
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ImageModel_') === 0),
-		cdnPath: `https://${DOMAIN}/cdn-cgi/image/fit=contain,dpr=1,width=`,
+		cdnPath: IMAGE_PATH,
 		basePath: '/images/environment',
 		fileName: '',
 		width: types.number,
-		useCdn: false,
+		useCdn: true,
 	})
 	.views(self => ({
 		get meanWidth() {

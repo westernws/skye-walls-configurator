@@ -2,8 +2,16 @@
 	@apply relative;
 	width: var(--config-image-width);
 	height: var(--config-image-height);
-	.ConfigImage-image {
+	.ConfigImage-image,
+	.ConfigImage-imageBackground,
+	.ConfigImage-imageProduct {
 		@apply w-auto h-full m-auto object-contain px-5 pt-8 pb-0 absolute inset-0;
+	}
+	.ConfigImage-imageBackground {
+		z-index: 1;
+	}
+	.ConfigImage-imageProduct {
+		z-index: 2;
 	}
 	&.is-debug {
 		@apply border border-solid border-red;
