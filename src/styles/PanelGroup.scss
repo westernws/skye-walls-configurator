@@ -2,3 +2,9 @@
 	--repeat: 1;
 	@apply flex justify-center flex-wrap -ml-12 -mt-6;
 }
+#sliding div:last-child {
+	//background: #c0ffee;
+}
+#folding div:last-child {
+	//background: #bada55;
+}

@@ -8,7 +8,7 @@ export default [
 			or tuck away out of sight to connect the indoors with the outside. Panels can move in one direction or part
 			in the center.
 		`,
-		productGroups: ['aluminum', 'vinyl'],
+		productGroups: ['aluminum-sliding', 'vinyl-sliding'],
 	},
 	{
 		name: 'folding',
@@ -19,6 +19,6 @@ export default [
 			fold up against a wall for a true indoor-outdoor experience. Available with a swinging access door for
 			everyday operation. In contemporary aluminum.
 		`,
-		products: ['cabfd', 'pabfd', 'ssabfd'],
+		productGroups: ['aluminum-folding'],
 	},
 ];

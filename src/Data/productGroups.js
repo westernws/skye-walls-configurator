@@ -1,6 +1,6 @@
 export default [
 	{
-		name: 'aluminum',
+		name: 'aluminum-sliding',
 		displayName: 'Aluminum',
 		displayGroupName: 'Aluminum Multi-Slide Door',
 		description: `
@@ -10,7 +10,7 @@ export default [
 		products: ['camsd', 'pamsd', 'ssamsd'],
 	},
 	{
-		name: 'vinyl',
+		name: 'vinyl-sliding',
 		displayName: 'Vinyl',
 		displayGroupName: 'Vinyl Multi-Slide Door',
 		description: `
@@ -18,5 +18,14 @@ export default [
 			nearly maintenance-free.
 		`,
 		products: ['vmsd'],
+	},
+	{
+		name: 'aluminum-folding',
+		displayName: 'Aluminum',
+		displayGroupName: 'Aluminum Bi-Fold Door',
+		description: `
+			Combining clean modern design with durability and flexibility, it’s available in a variety of finishes.
+		`,
+		products: ['cabfd', 'pabfd', 'ssabfd'],
 	},
 ];

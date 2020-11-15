@@ -13,7 +13,7 @@ export const PanelCollection = ({
 					<span className="Heading-centerRule block mt-2 lg:hidden" />
 				</h2>
 				<div className="flex justify-center">
-					<div className="w-12/12 md:w-7/12">
+					<div className="w-12/12 xl:w-7/12">
 						<p>{desc}</p>
 					</div>
 				</div>
