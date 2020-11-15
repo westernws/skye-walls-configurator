@@ -10,9 +10,9 @@ import { Modals } from '~/Components/Modals';
 import { BarsSolid } from '~/Components/svg/BarsSolid.svg';
 import { TimesSolid } from '~/Components/svg/TimesSolid.svg';
 import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
-import { themeConfig } from '~/util/themeConfig';
 import { ExternalLinkAltSolid } from '~/Components/svg/ExternalLinkAltSolid.svg';
 import { HomeSolid } from '~/Components/svg/HomeSolid.svg';
+import { themeConfig } from '~/util/themeConfig';
 
 export const Layout = observer(({ children }) => {
 	const { modals } = useMst();
