@@ -17,7 +17,7 @@ export default [
 		description: `
 			Sometimes referred to as bi-fold or accordion doors, our folding doors slide open and feature panels that
 			fold up against a wall for a true indoor-outdoor experience. Available with a swinging access door for
-			everyday operation. In contemporary aluminum.
+			everyday operation.
 		`,
 		productGroups: ['aluminum-folding'],
 	},

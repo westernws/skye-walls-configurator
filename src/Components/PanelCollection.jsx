@@ -4,16 +4,15 @@ export const PanelCollection = ({
 	title, desc, children, id,
 }) => {
 	return (
-		<section className="space-y-20 pt-20" id={id}>
+		<section className="PanelCollection-item space-y-20" id={id}>
 			<div className="space-y-6 lg:space-y-12">
-				<h2 className="Heading Heading--bordered items-center text-center flex-col text-2xl lg:text-3xl lg:flex-row" data-iobs-target={id}>
-					<span className="Heading-rule hidden lg:block" />
-					{title}
-					<span className="Heading-rule hidden lg:block" />
-					<span className="Heading-centerRule block mt-2 lg:hidden" />
-				</h2>
+				<div className="relative" data-iobs-target={id}>
+					<h2 className="Heading Heading--bordered text-center text-blue text-2xl lg:text-3xl 3xl:text-4xl">
+						<span className="Heading-text">{title}</span>
+					</h2>
+				</div>
 				<div className="flex justify-center">
-					<div className="w-12/12 xl:w-7/12">
+					<div className="PanelCollection-description">
 						<p>{desc}</p>
 					</div>
 				</div>

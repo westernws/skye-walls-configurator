@@ -18,6 +18,14 @@
 	}
 
 	&.Heading--bordered {
-		@apply flex justify-center uppercase;
+		&::before {
+			content: ' ';
+			@apply absolute bg-gradient-to-r from-transparent via-blue-lighter w-full block;
+			height: 6px;
+			top: 50%;
+		}
+		.Heading-text {
+			@apply bg-white px-6 z-10 relative;
+		}
 	}
 }

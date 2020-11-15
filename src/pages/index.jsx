@@ -22,7 +22,7 @@ const Index = () => {
 							loading="eager"
 							layout="fill"
 						/>
-						<div className="absolute top-0 bottom-0 w-full h-full bg-gradient-to-r from-white" />
+						<div className="hidden md:block absolute top-0 bottom-0 w-full h-full bg-gradient-to-r from-white" />
 						<div className="Hero-text">
 							<h1 className="text-blue mb-4 text-5xl 3xl:text-6xl">Design Your Door</h1>
 							<p className="max-w-xl 3xl:text-xl">
@@ -42,7 +42,7 @@ const Index = () => {
 							</p>
 						</div>
 					</section>
-					<div className="flex flex-col md:flex-row md:space-x-6">
+					<div className="PanelCollection md:space-x-6">
 						{
 							appStore.productCollections.map((collection) => {
 								return (
