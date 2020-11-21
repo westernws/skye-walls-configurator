@@ -7,12 +7,17 @@ export const ImageModel = types
 	.model({
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ImageModel_') === 0),
 		cdnPath: IMAGE_PATH,
-		basePath: '/images/environment',
+		basePath: '/images',
 		fileName: '',
 		width: types.number,
-		useCdn: true,
+		useCdn: false,
+		aspectRatio: 1,
 	})
 	.views(self => ({
+		get height() {
+			// height = width / ratio;
+			return self.width / self.aspectRatio;
+		},
 		get meanWidth() {
 			const middleIdx = Math.floor(self.screens.length / 2);
 

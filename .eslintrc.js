@@ -20,7 +20,10 @@ module.exports = {
 		'babel/no-unused-expressions': 1,
 		'class-methods-use-this': 'off',
 		'import/prefer-default-export': 'off',
-		'indent': [2, 'tab'],
+		'indent': [2, 'tab', {
+			'ignoredNodes': ['TemplateLiteral'],
+			'SwitchCase': 1,
+		}],
 		'jsx-a11y/anchor-is-valid': 'off',
 		'jsx-a11y/click-events-have-key-events': 1,
 		'jsx-a11y/label-has-associated-control': 'off',
@@ -37,6 +40,7 @@ module.exports = {
 		'react/jsx-props-no-spreading': 'off',
 		'react/jsx-wrap-multilines': 'off',
 		'react/prop-types': 'off',
+		'template-curly-spacing': 'off',
 	},
 	settings: {
 		'import/resolver': {
@@ -47,7 +51,7 @@ module.exports = {
 					['#', './src/styles/'],
 				],
 				extensions: ['.js', '.jsx'],
-			}
-		}
-	}
+			},
+		},
+	},
 };

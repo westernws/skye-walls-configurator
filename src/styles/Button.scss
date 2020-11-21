@@ -1,8 +1,7 @@
 .Button {
 	@apply
-		inline-block text-base bg-red text-white px-4 py-2 text-center uppercase font-bold
-		transition-all duration-200 ease-in-out border border-transparent;
-	border-radius: 1rem;
+		inline-block text-base bg-red text-white p-3 text-center uppercase font-bold
+		transition-all duration-200 ease-in-out border border-transparent rounded-full;
 	&:hover {
 		@apply bg-blue;
 	}
@@ -32,5 +31,13 @@
 			@apply mr-2;
 			height: 1em;
 		}
+	}
+}
+
+.ButtonHollow {
+	@apply inline-block text-base text-red p-3 text-center uppercase font-bold
+	transition-all duration-200 ease-in-out border-2 border-solid border-red rounded-full;
+	&:hover {
+		@apply bg-red border-transparent text-white;
 	}
 }

@@ -3,6 +3,7 @@ import kebabCase from 'lodash/kebabCase';
 
 import { TreeHelpers } from '~/Models/TreeHelpers';
 import { ProductModel } from '~/Models/Product.model';
+import { ImageModel } from '~/Models/Image.model';
 
 const ProductGroup = types
 	.model({
@@ -12,6 +13,7 @@ const ProductGroup = types
 		displayGroupName: types.string,
 		description: '',
 		products: types.optional(types.array(ProductModel), []),
+		image: ImageModel,
 	})
 	.views(self => ({
 		get slug() {

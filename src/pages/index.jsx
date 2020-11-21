@@ -21,6 +21,7 @@ const Index = () => {
 							priority
 							loading="eager"
 							layout="fill"
+							sizes="(min-width: 1580px) 1500px, (max-width: 767px) 875px"
 						/>
 						<div className="hidden md:block absolute top-0 bottom-0 w-full h-full bg-gradient-to-r from-white" />
 						<div className="Hero-text">
@@ -61,6 +62,7 @@ const Index = () => {
 															title={product.displayName}
 															shortDesc={product.description}
 															link={product.link}
+															image={product.image}
 														/>
 													);
 												})
