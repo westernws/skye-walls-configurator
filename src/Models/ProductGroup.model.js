@@ -14,6 +14,7 @@ const ProductGroup = types
 		description: '',
 		products: types.optional(types.array(ProductModel), []),
 		image: ImageModel,
+		animatedImage: ImageModel,
 	})
 	.views(self => ({
 		get slug() {

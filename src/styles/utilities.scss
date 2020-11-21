@@ -1,0 +1,5 @@
+@layer utilities {
+	.skye-transition {
+		@apply transition-all duration-200 ease-in-out;
+	}
+}

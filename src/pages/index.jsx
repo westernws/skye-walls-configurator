@@ -63,6 +63,7 @@ const Index = () => {
 															shortDesc={product.description}
 															link={product.link}
 															image={product.image}
+															animatedImage={product.animatedImage}
 														/>
 													);
 												})

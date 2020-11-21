@@ -17,6 +17,12 @@ export default [
 			fileName: 'ss-sliding-door.png',
 			width,
 		},
+		animatedImage: {
+			aspectRatio,
+			basePath,
+			fileName: 'ss-sliding-door.gif',
+			width,
+		},
 		products: ['camsd', 'pamsd', 'ssamsd'],
 	},
 	{
@@ -33,6 +39,12 @@ export default [
 			fileName: 'sliding-door.png',
 			width,
 		},
+		animatedImage: {
+			aspectRatio,
+			basePath,
+			fileName: 'sliding-door.gif',
+			width,
+		},
 		products: ['vmsd'],
 	},
 	{
@@ -46,6 +58,12 @@ export default [
 			aspectRatio,
 			basePath,
 			fileName: 'ss-folding-door.png',
+			width,
+		},
+		animatedImage: {
+			aspectRatio,
+			basePath,
+			fileName: 'ss-folding-door.gif',
 			width,
 		},
 		products: ['cabfd', 'pabfd', 'ssabfd'],
