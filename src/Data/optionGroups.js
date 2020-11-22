@@ -1,3 +1,12 @@
+const standardDisplayOptionGroup = {
+	displayOptionGroupName: 'standard',
+	displayOptionGroupDisplayName: 'Standard',
+};
+const designerDisplayOptionGroup = {
+	displayOptionGroupName: 'designer',
+	displayOptionGroupDisplayName: 'Designer',
+};
+
 // This must be in CommonJS syntax since Tailwind needs to read from it.
 module.exports = [
 	{
@@ -7,56 +16,67 @@ module.exports = [
 			{
 				name: 'ba',
 				displayName: 'Bronze Anodized',
+				...standardDisplayOptionGroup,
 				hex: '424143',
 			},
 			{
 				name: 'sa',
 				displayName: 'Satin Anodized',
+				...standardDisplayOptionGroup,
 				hex: 'D0D0CF',
 			},
 			{
 				name: 'warmtone',
 				displayName: 'Warmtone',
+				...standardDisplayOptionGroup,
 				hex: '978C7B',
 			},
 			{
 				name: 'white',
 				displayName: 'White',
+				...standardDisplayOptionGroup,
 				hex: 'fff',
 			},
 			{
 				name: 'an',
 				displayName: 'Autumn Night',
+				...designerDisplayOptionGroup,
 				hex: '9C674F',
 			},
 			{
 				name: 'bb',
 				displayName: 'Bison Beige',
+				...designerDisplayOptionGroup,
 				hex: '8D806F',
 			},
 			{
 				name: 'briar',
 				displayName: 'Briar',
+				...designerDisplayOptionGroup,
 				hex: '6B4C38',
 			},
 			{
 				name: 'ct',
 				displayName: 'Cinnamon Toast',
+				...designerDisplayOptionGroup,
 				hex: '7B2022',
 			},
 			{
 				name: 'hb',
 				displayName: 'Hillside Bronze',
+				...designerDisplayOptionGroup,
 				hex: '3C2B13',
 			},
 			{
 				name: 'nw',
 				displayName: 'Navajo White',
+				...designerDisplayOptionGroup,
 				hex: 'F5EDE0',
 			},
 			{
 				name: 'sb',
 				displayName: 'Stonish Beige',
+				...designerDisplayOptionGroup,
 				hex: 'B5A48B',
 			},
 		],

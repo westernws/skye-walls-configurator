@@ -50,6 +50,11 @@ const OptionGroup = types
 		},
 	}))
 	.actions(self => ({
+		getOptionsByDisplayOptionGroupName(displayGroupName) {
+			return self.options?.filter?.((option) => {
+				return option.displayOptionGroupName === displayGroupName;
+			}) || [];
+		},
 		setSelected(option) {
 			const optionName = isString(option) ? option : option.name;
 			const selectedOption = self.options.find(o => o.name === optionName);

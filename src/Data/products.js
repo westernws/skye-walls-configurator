@@ -1,7 +1,7 @@
-const colorOptionGroups = {
+const colorOptionGroups = [{
 	name: 'color',
 	options: ['ba', 'sa', 'warmtone', 'white', 'an', 'bb', 'briar', 'ct', 'hb', 'nw', 'sb'],
-};
+}];
 const images = [
 	{
 		color: 'ba',

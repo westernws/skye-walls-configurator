@@ -94,6 +94,9 @@ const Product = types
 		get productGroupAnimatedImage() {
 			return self.getParentOfName('ProductGroupModel')?.animatedImage;
 		},
+		get productGroupDisplayName() {
+			return self.getParentOfName('ProductGroupModel')?.displayName || '';
+		},
 		get productGroupImage() {
 			return self.getParentOfName('ProductGroupModel')?.image;
 		},

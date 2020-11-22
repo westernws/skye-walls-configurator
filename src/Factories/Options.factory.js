@@ -11,6 +11,7 @@ export const OptionsFactory = (options, optionGroupName) => {
 			name: option.name,
 			displayName: option.displayName,
 			description: option.description || '',
+			displayOptionGroupName: option.displayOptionGroupName || '',
 			selected: typeof option.selected !== 'undefined',
 			hex: option.hex,
 		}));

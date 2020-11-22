@@ -9,6 +9,7 @@ const Option = types
 		displayName: types.string,
 		description: types.string,
 		selected: types.boolean,
+		displayOptionGroupName: '',
 	})
 	.views(self => ({
 		get parent() {
