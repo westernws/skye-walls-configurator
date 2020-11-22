@@ -1,8 +1,8 @@
 /* TODO Call this something else */
 .Breadcrumb {
-	@apply text-base text-gray-light flex items-center relative;
+	@apply text-base text-blue flex items-center relative;
 	.Breadcrumb-text {
-		@apply mr-1;
+		@apply mr-1 uppercase;
 	}
 	.Breadcrumb-img {
 		@apply w-3 absolute transition-all duration-300 ease-in-out;

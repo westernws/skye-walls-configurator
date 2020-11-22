@@ -5,11 +5,6 @@
 		@apply text-sm h-full;
 	}
 	&.Page--config {
-		body {
-			@apply bg-gray-lighter;
-		}
-	}
-	&.Page--config {
 		--header-height: 70px;
 		--modal-container-offset-y: 0;
 		body {

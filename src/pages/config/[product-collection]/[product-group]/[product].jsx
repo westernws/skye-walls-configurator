@@ -14,7 +14,7 @@ const ConfigProduct = () => {
 			<LayoutConfig>
 				<main className="MainComponent MainComponent--bleed">
 					<SelectorMenu />
-					<div className="block xl:flex">
+					<div className="block xl:flex xl:border-t-4 xl:border-solid xl:border-blue-100">
 						<div className="ConfigPreview">
 							<div className="ConfigImage">
 								<ConfigProductImagery />

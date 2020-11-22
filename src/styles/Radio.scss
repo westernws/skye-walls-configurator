@@ -41,14 +41,23 @@ $swatchSelectedColor: #32739D;
 				}
 			}
 		}
+		.Radio-displayName {
+			@apply text-sm font-normal mt-4 mb-3;
+		}
 	}
 	&.Radio--colorSelector {
 		@apply pt-8;
 		.Radio-group {
+			@apply mb-6;
 			grid-template-columns: repeat(auto-fill, minmax(calc(25vw - 2.3rem), 1fr));
 		}
 		.Radio-fieldGroup {
+			@apply mb-6;
 			font-size: calc(25vw - 2.3rem);
+		}
+		.Radio-displayName {
+			@apply text-base;
+			margin-bottom: 5vw;
 		}
 	}
 }
@@ -56,17 +65,21 @@ $swatchSelectedColor: #32739D;
 @screen md {
 	.Radio.Radio--colorSelector {
 		.Radio-group {
-			@apply justify-center;
+			@apply gap-4;
+			grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
 		}
 		.Radio-fieldGroup {
 			font-size: 5rem;
+		}
+		.Radio-displayName {
+			@apply mb-3;
 		}
 	}
 }
 @screen xl {
 	.Radio.Radio--colorSelector {
 		.Radio-group {
-			grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+			//grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
 		}
 		.Radio-fieldGroup {
 			font-size: 4.7rem;

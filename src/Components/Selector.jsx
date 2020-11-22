@@ -48,9 +48,13 @@ export const Selector = observer(() => {
 					{
 						currentSelectionGroup.name === 'color' &&
 						<div>
-							<h3 className="text-right border-b border-gray-light50 border-solid pb-2">
-								{product.selectedColor.displayName}
-							</h3>
+							<div className="flex justify-between items-baseline">
+								<h2 className="text-blue text-3xl">{currentSelectionGroup.displayName}</h2>
+								<h3 className="text-right pb-2 font-bold">
+									{product.selectedColor.displayName}
+								</h3>
+							</div>
+							<div className="Divider" />
 							<Color product={product} hideLegend type="selector" />
 						</div>
 					}

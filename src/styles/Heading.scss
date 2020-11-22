@@ -20,7 +20,7 @@
 	&.Heading--bordered {
 		&::before {
 			content: ' ';
-			@apply absolute bg-gradient-to-r from-transparent via-blue-100 w-full block;
+			@apply absolute bg-gradient-to-r from-white via-blue-100 w-full block;
 			height: 6px;
 			top: 50%;
 		}

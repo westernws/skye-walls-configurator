@@ -9,7 +9,6 @@ import { Modals } from '~/Components/Modals';
 import { Menu } from '~/Components/Menu';
 import { StartOver } from '~/Components/StartOver';
 import { ChangeProduct } from '~/Components/ChangeProduct';
-import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 import { ReviewConfig } from '~/Components/ReviewConfig';
 import { LongArrowAltLeft } from '~/Components/svg/LongArrowAltLeft.svg';
 
@@ -55,8 +54,7 @@ export const LayoutConfig = observer(({ children }) => {
 								</div>
 								<div className="space-y-1">
 									<div className="Header-title space-x-0 xl:space-x-2">
-										<h1 className="text-lg leading-tight">{selectedProduct.displayName}</h1>
-										<div className="hidden text-xs text-gray-light sm:block">{selectedProduct.displayGroupName}</div>
+										<h1 className="text-lg leading-tight font-bold">{selectedProduct.displayName}</h1>
 									</div>
 									<ul className="space-x-6 hidden xl:flex">
 										{
@@ -76,7 +74,7 @@ export const LayoutConfig = observer(({ children }) => {
 														}}
 													>
 														<span className="Breadcrumb-text">Start Over</span>
-														<ChevronSolid direction="right" className="Breadcrumb-img" />
+														&gt;
 													</button>
 												</li>
 												<li>
@@ -94,7 +92,7 @@ export const LayoutConfig = observer(({ children }) => {
 														}}
 													>
 														<span className="Breadcrumb-text">Change Product</span>
-														<ChevronSolid direction="right" className="Breadcrumb-img" />
+														&gt;
 													</button>
 												</li>
 											</>

@@ -47,7 +47,7 @@ const Product = types
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'floor') || {};
 		},
 		get floorTracksOptionGroup() {
-			return self.optionGroups?.find?.(optGroup => optGroup.name === 'floor-tracks') || {};
+			return self.optionGroups?.find?.(optGroup => optGroup.name === 'floor-sills') || {};
 		},
 		get handleOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'handles') || {};

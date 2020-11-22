@@ -1,6 +1,6 @@
 .Button {
 	@apply
-		inline-block text-base bg-red text-white p-3 text-center uppercase font-bold
+		inline-block text-base bg-red text-white p-2 text-center uppercase font-bold
 		transition-all duration-200 ease-in-out border border-transparent rounded-full;
 	&:hover {
 		@apply bg-blue;

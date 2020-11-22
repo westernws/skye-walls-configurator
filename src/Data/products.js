@@ -82,9 +82,9 @@ export default [
 				optionGroups: colorOptionGroups,
 			},
 			{
-				name: 'floor-tracks',
+				name: 'floor-sills',
 				optionGroups: [{
-					name: 'floor-tracks',
+					name: 'floor-sills',
 					options: ['wbs', 'fs', 'ts'],
 				}],
 			},
@@ -135,9 +135,9 @@ export default [
 				optionGroups: colorOptionGroups,
 			},
 			{
-				name: 'floor-tracks',
+				name: 'floor-sills',
 				optionGroups: [{
-					name: 'floor-tracks',
+					name: 'floor-sills',
 					options: ['wbs', 'fs', 'ts'],
 				}],
 			},
@@ -187,9 +187,9 @@ export default [
 				optionGroups: colorOptionGroups,
 			},
 			{
-				name: 'floor-tracks',
+				name: 'floor-sills',
 				optionGroups: [{
-					name: 'floor-tracks',
+					name: 'floor-sills',
 					options: ['wbs', 'fs', 'ts'],
 				}],
 			},
@@ -282,9 +282,9 @@ export default [
 				optionGroups: colorOptionGroups,
 			},
 			{
-				name: 'floor-tracks',
+				name: 'floor-sills',
 				optionGroups: [{
-					name: 'floor-tracks',
+					name: 'floor-sills',
 					options: ['wbs', 'fs'],
 				}],
 			},
@@ -332,9 +332,9 @@ export default [
 				optionGroups: colorOptionGroups,
 			},
 			{
-				name: 'floor-tracks',
+				name: 'floor-sills',
 				optionGroups: [{
-					name: 'floor-tracks',
+					name: 'floor-sills',
 					options: ['wbs', 'fs'],
 				}],
 			},
@@ -381,9 +381,9 @@ export default [
 				optionGroups: colorOptionGroups,
 			},
 			{
-				name: 'floor-tracks',
+				name: 'floor-sills',
 				optionGroups: [{
-					name: 'floor-tracks',
+					name: 'floor-sills',
 					options: ['wbs', 'fs'],
 				}],
 			},

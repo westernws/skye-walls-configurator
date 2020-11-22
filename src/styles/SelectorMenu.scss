@@ -1,13 +1,16 @@
 .SelectorMenu {
-	@apply hidden justify-between bg-gray-light100 border-t border-b border-solid border-gray-light;
+	@apply hidden justify-between bg-white text-white;
 	height: var(--config-selector-panel-nav-height);
 }
 .SelectorMenu-item {
-	@apply transition-all duration-300 ease-in-out block text-center relative;
+	@apply transition-all duration-300 ease-in-out block text-center relative bg-blue-400;
 	flex: 1 1 0;
 	&:hover,
 	&.is-active {
-		@apply bg-gray text-white;
+		@apply bg-blue text-white;
+		.SelectorMenu-button {
+			@apply font-bold;
+		}
 	}
 	&:hover {
 		.SelectorSubMenu {
@@ -16,7 +19,7 @@
 	}
 }
 .SelectorMenu-button {
-	@apply font-bold uppercase text-base w-full h-full p-2;
+	@apply text-base w-full h-full p-2;
 }
 .SelectorSubMenu {
 	@apply hidden opacity-0 absolute bg-gray px-4 py-6 text-white transition-all duration-300 ease-in-out z-10;
@@ -32,6 +35,8 @@
 
 @screen xl {
 	.SelectorMenu {
-		@apply flex;
+		@apply grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		grid-column-gap: 1px;
 	}
 }

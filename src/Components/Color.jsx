@@ -27,7 +27,7 @@ export const Color = observer(({ product, hideLegend = false, type = '' }) => {
 			{
 				Boolean(standardColorOptions.length) &&
 				<>
-					<div className="text-sm font-normal mt-4 mb-3">Standard {product.productGroupDisplayName} Colors</div>
+					<div className="Radio-displayName">Standard {product.productGroupDisplayName} Colors</div>
 					<div className="Radio-group">
 						{
 							standardColorOptions.map(colorOptions => (
@@ -45,7 +45,7 @@ export const Color = observer(({ product, hideLegend = false, type = '' }) => {
 			{
 				Boolean(designerColorOptions.length) &&
 				<>
-					<div className="text-sm font-normal mt-4 mb-3">Designer {product.productGroupDisplayName} Colors</div>
+					<div className="Radio-displayName">Designer {product.productGroupDisplayName} Colors</div>
 					<div className="Radio-group">
 						{
 							designerColorOptions.map(colorOptions => (
@@ -60,7 +60,7 @@ export const Color = observer(({ product, hideLegend = false, type = '' }) => {
 					</div>
 				</>
 			}
-			<div className="text-sm font-normal mt-4">Custom Colors</div>
+			<div className="font-normal mt-2">Custom Colors</div>
 			<div className="text-sm font-normal text-blue">We can match almost any finish.</div>
 		</fieldset>
 	);

@@ -82,7 +82,7 @@ module.exports = [
 		],
 	},
 	{
-		name: 'floor-tracks',
+		name: 'floor-sills',
 		displayName: 'Floor Tracks',
 		options: [
 			{

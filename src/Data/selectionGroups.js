@@ -1,11 +1,11 @@
 export default [
 	{
 		name: 'color',
-		displayName: 'Color',
+		displayName: 'Door Colors',
 	},
 	{
-		name: 'floor-tracks',
-		displayName: 'Floor Tracks',
+		name: 'floor-sills',
+		displayName: 'Floor Sills',
 	},
 	{
 		name: 'handles',
