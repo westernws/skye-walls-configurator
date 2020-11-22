@@ -21,7 +21,7 @@ const ProductGroup = types
 			return kebabCase(self.displayName);
 		},
 		get link() {
-			const href = ['[product-collection]', '[product]'];
+			const href = ['[product-collection]', '[product-group]'];
 			const collection = self.getParentOfName('ProductCollection');
 			const as = [collection?.slug, self.slug];
 

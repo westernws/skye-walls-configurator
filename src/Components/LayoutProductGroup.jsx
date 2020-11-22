@@ -6,7 +6,7 @@ import { observer } from 'mobx-react-lite';
 import { Meta } from '~/Components/Meta';
 import { Modals } from '~/Components/Modals';
 
-export const LayoutProduct = observer(({ children }) => {
+export const LayoutProductGroup = observer(({ children }) => {
 	return (
 		<>
 			<Modals />

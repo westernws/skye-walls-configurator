@@ -46,7 +46,7 @@ Router.events.on('routeChangeComplete', () => {
 			currentOptionGroup,
 			currentSelectionGroup,
 		}));
-	} else if (Router.route === '/[product-collection]/[product]') {
+	} else if (Router.route === '/[product-collection]/[product-group]') {
 		appStore.setPage(ProductPageModel.create({
 			id: `ProductPageModel_${uniqueId()}`,
 		}));

@@ -55,15 +55,15 @@ const Index = () => {
 									>
 										<PanelGroup>
 											{
-												collection.productGroups.map((product) => {
+												collection.productGroups.map((productGroup) => {
 													return (
 														<Panel
-															key={product.name}
-															title={product.displayName}
-															shortDesc={product.description}
-															link={product.link}
-															image={product.image}
-															animatedImage={product.animatedImage}
+															key={productGroup.name}
+															title={productGroup.displayName}
+															shortDesc={productGroup.description}
+															link={productGroup.link}
+															image={productGroup.image}
+															animatedImage={productGroup.animatedImage}
 														/>
 													);
 												})

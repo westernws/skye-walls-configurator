@@ -13,9 +13,7 @@ import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 import { ExternalLinkAltSolid } from '~/Components/svg/ExternalLinkAltSolid.svg';
 import { HomeSolid } from '~/Components/svg/HomeSolid.svg';
 import { themeConfig } from '~/util/themeConfig';
-import { IMAGE_PATH } from '~/global.constants';
 
-console.log('IMAGE_PATH', IMAGE_PATH);
 export const Layout = observer(({ children }) => {
 	const { modals } = useMst();
 	const menu = modals.get('modal-menu');

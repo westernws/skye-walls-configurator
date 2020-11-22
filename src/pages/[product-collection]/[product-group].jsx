@@ -2,26 +2,22 @@ import React, { useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
 
 import { Provider, appStore } from '~/Stores/App.store';
-import { LayoutProduct } from '~/Components/LayoutProduct';
+import { LayoutProductGroup } from '~/Components/LayoutProductGroup';
 import { PanelGroup } from '~/Components/PanelGroup';
 import { PanelProduct } from '~/Components/PanelProduct';
 import { useInput } from '~/util/useInput';
 
-const Product = () => {
+const ProductGroup = () => {
 	const router = useRouter();
 	const { bind, value, setValue } = useInput();
-	const { product: productSlug } = router.query;
-	const collectionSlug = router.query['product-collection'];
-	const selectedCollection = appStore.productCollections.find(collection => collection.slug === collectionSlug);
-	let selectedProductGroup;
-	let selectedProducts;
+	const {
+		'product-collection': collectionSlug = '',
+		'product-group': productGroupSlug = '',
+	} = router.query;
+	const selectedCollection = appStore.productCollections?.find?.(collection => collection.slug === collectionSlug);
+	const selectedProductGroup = selectedCollection?.productGroups?.find?.(productGroup => productGroup.slug === productGroupSlug);
+	const selectedProducts = selectedProductGroup?.products;
 
-	if (selectedCollection?.hasProductGroup) {
-		selectedProductGroup = selectedCollection.productsAndGroups.find(product => product.slug === productSlug);
-		selectedProducts = selectedProductGroup?.products;
-	} else if (selectedCollection) {
-		selectedProducts = selectedCollection.productsAndGroups;
-	}
 	useEffect(() => {
 		if (!selectedCollection?.showProductGroupSelectControl) {
 			return;
@@ -57,7 +53,7 @@ const Product = () => {
 	}, [selectedProducts]);
 	return (
 		<Provider value={appStore}>
-			<LayoutProduct>
+			<LayoutProductGroup>
 				{
 					Boolean(selectedProducts?.length) &&
 					<main className="MainComponent pb-20 space-y-6">
@@ -90,9 +86,9 @@ const Product = () => {
 						<p className="italic text-gray-light text-center">Please select a product to continue&hellip;</p>
 					</main>
 				}
-			</LayoutProduct>
+			</LayoutProductGroup>
 		</Provider>
 	);
 };
 
-export default Product;
+export default ProductGroup;

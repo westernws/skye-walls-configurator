@@ -100,7 +100,7 @@ export const PanelProduct = observer(({ product }) => {
 							/>
 						</div>
 					</div>
-					<div className="PanelProduct-titleTall pl-4 xl:pl-0 space-y-1">
+					<div className="PanelProduct-titleTall pl-4 xl:pl-0 space-y-3">
 						<h2 className="text-l sm:text-xl xl:text-2xl">
 							<span>{displayName}</span>
 						</h2>
