@@ -15,7 +15,6 @@ export const ImageModel = types
 	})
 	.views(self => ({
 		get height() {
-			// height = width / ratio;
 			return self.width / self.aspectRatio;
 		},
 		get meanWidth() {
@@ -52,5 +51,8 @@ export const ImageModel = types
 				src,
 				width,
 			};
+		},
+		setWidth(newWidth) {
+			this.width = newWidth;
 		},
 	}));

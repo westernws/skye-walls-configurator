@@ -2,18 +2,26 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 import { observer } from 'mobx-react-lite';
+import Image from 'next/image';
 
 import { useMst } from '~/Stores/App.store';
-import { DummyImage } from '~/Components/DummyImage';
-import { ProductSummary } from '~/Components/ProductSummary';
 import { Color } from '~/Components/Color';
-import { InfoCircleSolid } from '~/Components/svg/InfoCircleSolid.svg';
+import { getHeightByAspectRatio } from '~/util/getHeightByAspectRatio';
 
 export const PanelProduct = observer(({ product }) => {
 	const appStore = useMst();
-	const { modals, setActivePanelProduct, isMediaQueryXl } = appStore;
+	const { setActivePanelProduct, isMediaQueryXl } = appStore;
 	const {
-		isActive, colorOptionGroup, tagName = 'li', displayName, configLink, className = '', features = [],
+		isActive,
+		colorOptionGroup,
+		tagName = 'li',
+		displayName,
+		description = '',
+		configLink,
+		className = '',
+		features = [],
+		productGroupImage,
+		productGroupAnimatedImage,
 	} = product;
 	const TagName = tagName;
 	const [isOpen, setIsOpen] = useState(false);
@@ -21,12 +29,14 @@ export const PanelProduct = observer(({ product }) => {
 	const detailsRef = useRef(null);
 	const heroRef = useRef(null);
 	const linkProps = {
-		className: 'Button w-full',
+		className: 'ButtonHollow w-full',
 		...(!isOpen) && {
 			// Prevent hidden buttons from showing up when keyboard nav.
 			tabIndex: '-1',
 		},
 	};
+	const productGroupImageWidth = 144;
+	const productGroupImageHeight = getHeightByAspectRatio(productGroupImageWidth, productGroupImage.aspectRatio);
 	const hasColorOptions = Boolean(colorOptionGroup?.options?.length);
 
 	useEffect(() => {
@@ -69,27 +79,33 @@ export const PanelProduct = observer(({ product }) => {
 				role="presentation"
 				ref={heroRef}
 			>
-				<div className="PanelProduct-heroInside xl:space-y-4 xl:space-y-reverse">
-					<div className="PanelProduct-img">
-						<DummyImage width="420" height="233" />
+				<div className="PanelProduct-heroInside xl:space-y-reverse">
+					<div className="PanelProduct-imgContainer">
+						<div className="PanelProduct-image">
+							<Image
+								src={productGroupImage.src}
+								width={productGroupImageWidth}
+								height={productGroupImageHeight}
+								layout="responsive"
+								alt=""
+							/>
+						</div>
+						<div className="PanelProduct-animatedImage">
+							<Image
+								src={productGroupAnimatedImage.src}
+								width={productGroupImageWidth}
+								height={productGroupImageHeight}
+								layout="responsive"
+								alt=""
+							/>
+						</div>
 					</div>
-					<h2 className="PanelProduct-title space-x-1 text-l sm:text-xl xl:text-2xl xl:space-x-0 xl:space-y-1">
-						<span>{displayName}</span>
-						<button
-							className="PanelProduct-moreInfo"
-							type="button"
-							onClick={(event) => {
-								event.stopPropagation();
-								modals.get('modal-primary').open({
-									content: <ProductSummary product={product} />,
-								});
-							}}
-						>
-							<div className="inline-block w-5 xl:hidden">
-								<InfoCircleSolid />
-							</div>
-						</button>
-					</h2>
+					<div className="PanelProduct-titleTall pl-4 xl:pl-0 space-y-1">
+						<h2 className="text-l sm:text-xl xl:text-2xl">
+							<span>{displayName}</span>
+						</h2>
+						<p className="PanelProduct-description">{description}</p>
+					</div>
 				</div>
 			</div>
 			<div

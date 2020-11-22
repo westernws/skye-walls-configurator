@@ -8,6 +8,7 @@ module.exports = {
 			'buildstaging.skyewallsbywws.com',
 			'build.skyewallsbywws.com',
 		],
+		imageSizes: [16, 32, 48, 64, 96, 128, 144, 256, 384],
 	},
 	webpack: (config) => {
 		config.plugins.push(new CircularDependencyPlugin({

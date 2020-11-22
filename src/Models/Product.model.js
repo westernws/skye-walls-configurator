@@ -68,7 +68,7 @@ const Product = types
 		},
 		get link() {
 			const href = ['[product-collection]', '[product]'];
-			const productGroup = self.getParentOfName('ProductGroup');
+			const productGroup = self.getParentOfName('ProductGroupModel');
 			const collection = self.getParentOfName('ProductCollection');
 			const productSlug = [productGroup?.slug, self.slug].filter(Boolean);
 			const as = [collection?.slug, productSlug.join('-')];
@@ -87,6 +87,12 @@ const Product = types
 				});
 			});
 			return result;
+		},
+		get productGroupAnimatedImage() {
+			return self.getParentOfName('ProductGroupModel')?.animatedImage;
+		},
+		get productGroupImage() {
+			return self.getParentOfName('ProductGroupModel')?.image;
 		},
 		get reviewSelectionGroups() {
 			return self.selectionGroups.filter((selectionGroup) => {

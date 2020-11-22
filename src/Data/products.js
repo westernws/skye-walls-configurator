@@ -1,7 +1,7 @@
 export default [
 	{
 		name: 'camsd',
-		displayName: 'Classic Aluminum Multi-Slide Door',
+		displayName: 'Classic Aluminum Sliding Door',
 		description: 'Smooth operation meets clean design.',
 		features: [
 			'Low-E dual pane argon-filled glass for energy efficiency',
@@ -81,7 +81,7 @@ export default [
 	},
 	{
 		name: 'pamsd',
-		displayName: 'Performance Aluminum Multi-Slide Door',
+		displayName: 'Performance Aluminum Sliding Door',
 		description: 'Energy effeciency and strength.',
 		inheritedFeatures: 'Everything in Classic',
 		inheritedFeaturesLong: 'Including everything from our CLASSIC models and more.',
@@ -158,7 +158,7 @@ export default [
 	},
 	{
 		name: 'ssamsd',
-		displayName: 'Simulated Steel Aluminum Multi-Slide Door',
+		displayName: 'Simulated Steel Aluminum Sliding Door',
 		description: 'The look of steel but more affordable.',
 		inheritedFeatures: 'Everything in Performance and Classic',
 		inheritedFeaturesLong: 'Including everything from our PERFORMANCE and CLASSIC models and more.',
@@ -234,7 +234,7 @@ export default [
 	},
 	{
 		name: 'vmsd',
-		displayName: 'Vinyl Multi-Slide Door',
+		displayName: 'Vinyl Sliding Door',
 		description: `
 			The most economical solution to transform your home, it stands up to the elements and is
 			nearly maintenance-free.
@@ -294,7 +294,7 @@ export default [
 	},
 	{
 		name: 'cabfd',
-		displayName: 'Classic Aluminum Bi-Fold Door',
+		displayName: 'Classic Aluminum Folding Door',
 		description: 'Smooth operation meets clean design.',
 		features: [
 			'Low-E dual pane argon-filled glass for energy efficiency',
@@ -369,7 +369,7 @@ export default [
 	},
 	{
 		name: 'pabfd',
-		displayName: 'Performance Aluminum Bi-Fold Door',
+		displayName: 'Performance Aluminum Folding Door',
 		description: 'Energy efficiency and strength',
 		inheritedFeatures: 'Everything in Classic',
 		inheritedFeaturesLong: 'Including everything from our CLASSIC models and more.',
@@ -443,7 +443,7 @@ export default [
 	},
 	{
 		name: 'ssabfd',
-		displayName: 'Simulated Steel Aluminum Bi-Fold Door',
+		displayName: 'Simulated Steel Aluminum Folding Door',
 		description: 'The look of steel but more affordable.',
 		inheritedFeatures: 'Everything in Performance',
 		inheritedFeaturesLong: 'Including everything from our PERFORMANCE models and more.',
