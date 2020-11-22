@@ -34,13 +34,48 @@ export default [
 				fileName: '7600-2xo-white.png',
 				width: 1230,
 			},
+			{
+				color: 'an',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'bb',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'briar',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'ct',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'hb',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'nw',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'sb',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
 		],
 		selectionGroups: [
 			{
 				name: 'color',
 				optionGroups: [{
 					name: 'color',
-					options: ['ba', 'sa', 'white', 'warmtone'],
+					options: ['ba', 'sa', 'warmtone', 'white', 'an', 'bb', 'briar', 'ct', 'hb', 'nw', 'sb'],
 				}],
 			},
 			{
@@ -250,18 +285,23 @@ export default [
 		],
 		images: [
 			{
-				color: 'black',
+				color: 'ba',
 				fileName: '7600-2xo-bronze-ano.png',
 				width: 1230,
 			},
 			{
-				color: 'white',
+				color: 'sa',
 				fileName: '7600-2xo-satin-ano.png',
 				width: 1230,
 			},
 			{
-				color: 'almond',
+				color: 'warmtone',
 				fileName: '7600-2xo-warmtone.png',
+				width: 1230,
+			},
+			{
+				color: 'white',
+				fileName: '7600-2xo-white.png',
 				width: 1230,
 			},
 		],
@@ -270,7 +310,7 @@ export default [
 				name: 'color',
 				optionGroups: [{
 					name: 'color',
-					options: ['black', 'white', 'almond'],
+					options: ['ba', 'sa', 'white', 'warmtone'],
 				}],
 			},
 			{

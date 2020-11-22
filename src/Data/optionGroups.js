@@ -7,12 +7,17 @@ module.exports = [
 			{
 				name: 'ba',
 				displayName: 'Bronze Anodized',
-				hex: '000',
+				hex: '424143',
 			},
 			{
 				name: 'sa',
 				displayName: 'Satin Anodized',
-				hex: 'c7c8ca',
+				hex: 'D0D0CF',
+			},
+			{
+				name: 'warmtone',
+				displayName: 'Warmtone',
+				hex: '978C7B',
 			},
 			{
 				name: 'white',
@@ -20,19 +25,39 @@ module.exports = [
 				hex: 'fff',
 			},
 			{
-				name: 'warmtone',
-				displayName: 'Warmtone',
-				hex: 'a79e8f',
+				name: 'an',
+				displayName: 'Autumn Night',
+				hex: '9C674F',
 			},
 			{
-				name: 'black',
-				displayName: 'Black',
-				hex: '000',
+				name: 'bb',
+				displayName: 'Bison Beige',
+				hex: '8D806F',
 			},
 			{
-				name: 'almond',
-				displayName: 'Almond',
-				hex: 'f5ede0',
+				name: 'briar',
+				displayName: 'Briar',
+				hex: '6B4C38',
+			},
+			{
+				name: 'ct',
+				displayName: 'Cinnamon Toast',
+				hex: '7B2022',
+			},
+			{
+				name: 'hb',
+				displayName: 'Hillside Bronze',
+				hex: '3C2B13',
+			},
+			{
+				name: 'nw',
+				displayName: 'Navajo White',
+				hex: 'F5EDE0',
+			},
+			{
+				name: 'sb',
+				displayName: 'Stonish Beige',
+				hex: 'B5A48B',
 			},
 		],
 	},
