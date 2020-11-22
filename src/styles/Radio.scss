@@ -5,7 +5,8 @@ $swatchSelectedColor: #32739D;
 	&.Radio--color,
 	&.Radio--colorSelector {
 		.Radio-group {
-			@apply flex mt-2 ml-6;
+			@apply grid gap-2;
+			grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
 		}
 		.Radio-fieldGroup {
 			@apply text-4xl;
@@ -27,7 +28,6 @@ $swatchSelectedColor: #32739D;
 			}
 			&:checked ~ .Radio-label {
 				border: 0.125em solid $swatchSelectedColor;
-				//box-shadow: 0 0 0 0.03em #32739D;
 				&::after {
 					@apply absolute rounded-full;
 					content: ' ';
@@ -45,10 +45,9 @@ $swatchSelectedColor: #32739D;
 	&.Radio--colorSelector {
 		@apply pt-8;
 		.Radio-group {
-			@apply -mt-8 mr-0 mb-0 -ml-8 p-0 flex-wrap;
+			grid-template-columns: repeat(auto-fill, minmax(calc(25vw - 2.3rem), 1fr));
 		}
 		.Radio-fieldGroup {
-			@apply mt-8 ml-8;
 			font-size: calc(25vw - 2.3rem);
 		}
 	}
@@ -65,17 +64,9 @@ $swatchSelectedColor: #32739D;
 	}
 }
 @screen xl {
-	.Radio {
-		&.Radio--color,
-		&.Radio--colorSelector {
-			.Radio-group {
-				@apply ml-3;
-			}
-		}
-	}
 	.Radio.Radio--colorSelector {
 		.Radio-group {
-			@apply -ml-6 justify-start;
+			grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
 		}
 		.Radio-fieldGroup {
 			font-size: 4.7rem;
