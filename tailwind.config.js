@@ -1,12 +1,15 @@
 const path = require('path');
 const camelCase = require('lodash/camelCase');
+const flatten = require('lodash/flatten');
 const optionGroups = require('./src/Data/optionGroups');
 const { screens } = require('./src/util/breakpoints');
 
-const colorOptionGroup = optionGroups.find(optGroup => optGroup.name === 'color');
+const colorOptionGroups = optionGroups.filter(optGroup => ['standard-colors', 'designer-colors'].includes(optGroup.name));
 // Do I really need this?
-const productColors = colorOptionGroup.options.map(({ displayName, hex }) => ({
-	[camelCase(displayName)]: hex,
+const productColors = flatten(colorOptionGroups.map((colorOptionGroup) => {
+	return colorOptionGroup.options.map(({ displayName, hex }) => ({
+		[camelCase(displayName)]: hex,
+	}));
 }));
 
 module.exports = {

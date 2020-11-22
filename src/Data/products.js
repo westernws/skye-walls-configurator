@@ -1,3 +1,65 @@
+const colorOptionGroups = {
+	name: 'color',
+	options: ['ba', 'sa', 'warmtone', 'white', 'an', 'bb', 'briar', 'ct', 'hb', 'nw', 'sb'],
+};
+const images = [
+	{
+		color: 'ba',
+		fileName: '7600-2xo-bronze-ano.png',
+		width: 1230,
+	},
+	{
+		color: 'sa',
+		fileName: '7600-2xo-satin-ano.png',
+		width: 1230,
+	},
+	{
+		color: 'warmtone',
+		fileName: '7600-2xo-warmtone.png',
+		width: 1230,
+	},
+	{
+		color: 'white',
+		fileName: '7600-2xo-white.png',
+		width: 1230,
+	},
+	{
+		color: 'an',
+		fileName: '7600-2xo-white.png',
+		width: 1230,
+	},
+	{
+		color: 'bb',
+		fileName: '7600-2xo-white.png',
+		width: 1230,
+	},
+	{
+		color: 'briar',
+		fileName: '7600-2xo-white.png',
+		width: 1230,
+	},
+	{
+		color: 'ct',
+		fileName: '7600-2xo-white.png',
+		width: 1230,
+	},
+	{
+		color: 'hb',
+		fileName: '7600-2xo-white.png',
+		width: 1230,
+	},
+	{
+		color: 'nw',
+		fileName: '7600-2xo-white.png',
+		width: 1230,
+	},
+	{
+		color: 'sb',
+		fileName: '7600-2xo-white.png',
+		width: 1230,
+	},
+];
+
 export default [
 	{
 		name: 'camsd',
@@ -13,70 +75,11 @@ export default [
 			'Contemporary hardware',
 			'After-market screening solution',
 		],
-		images: [
-			{
-				color: 'ba',
-				fileName: '7600-2xo-bronze-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'sa',
-				fileName: '7600-2xo-satin-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'warmtone',
-				fileName: '7600-2xo-warmtone.png',
-				width: 1230,
-			},
-			{
-				color: 'white',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-			{
-				color: 'an',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-			{
-				color: 'bb',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-			{
-				color: 'briar',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-			{
-				color: 'ct',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-			{
-				color: 'hb',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-			{
-				color: 'nw',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-			{
-				color: 'sb',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-		],
+		images,
 		selectionGroups: [
 			{
 				name: 'color',
-				optionGroups: [{
-					name: 'color',
-					options: ['ba', 'sa', 'warmtone', 'white', 'an', 'bb', 'briar', 'ct', 'hb', 'nw', 'sb'],
-				}],
+				optionGroups: colorOptionGroups,
 			},
 			{
 				name: 'floor-tracks',
@@ -125,35 +128,11 @@ export default [
 			'Design pressure (DP) rating of 50 for durability',
 			'Compliant with California’s rigorous Title 24 requirements',
 		],
-		images: [
-			{
-				color: 'ba',
-				fileName: '7600-2xo-bronze-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'sa',
-				fileName: '7600-2xo-satin-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'warmtone',
-				fileName: '7600-2xo-warmtone.png',
-				width: 1230,
-			},
-			{
-				color: 'white',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-		],
+		images,
 		selectionGroups: [
 			{
 				name: 'color',
-				optionGroups: [{
-					name: 'color',
-					options: ['ba', 'sa', 'white', 'warmtone'],
-				}],
+				optionGroups: colorOptionGroups,
 			},
 			{
 				name: 'floor-tracks',
@@ -201,35 +180,11 @@ export default [
 			'Beveled glass stops',
 			'Simulated divided lights to emulate a putty glaze',
 		],
-		images: [
-			{
-				color: 'ba',
-				fileName: '7600-2xo-bronze-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'sa',
-				fileName: '7600-2xo-satin-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'warmtone',
-				fileName: '7600-2xo-warmtone.png',
-				width: 1230,
-			},
-			{
-				color: 'white',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-		],
+		images,
 		selectionGroups: [
 			{
 				name: 'color',
-				optionGroups: [{
-					name: 'color',
-					options: ['ba', 'sa', 'white', 'warmtone'],
-				}],
+				optionGroups: colorOptionGroups,
 			},
 			{
 				name: 'floor-tracks',
@@ -283,35 +238,11 @@ export default [
 			'Flush-mounted handle so panels easily slide past each other',
 			'After-market screening solution',
 		],
-		images: [
-			{
-				color: 'ba',
-				fileName: '7600-2xo-bronze-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'sa',
-				fileName: '7600-2xo-satin-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'warmtone',
-				fileName: '7600-2xo-warmtone.png',
-				width: 1230,
-			},
-			{
-				color: 'white',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-		],
+		images,
 		selectionGroups: [
 			{
 				name: 'color',
-				optionGroups: [{
-					name: 'color',
-					options: ['ba', 'sa', 'white', 'warmtone'],
-				}],
+				optionGroups: colorOptionGroups,
 			},
 			{
 				name: 'environment',
@@ -344,35 +275,11 @@ export default [
 			'Contemporary hardware for a sleek aesthetic',
 			'Optional single swinging access door for everyday use',
 		],
-		images: [
-			{
-				color: 'ba',
-				fileName: '7600-2xo-bronze-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'sa',
-				fileName: '7600-2xo-satin-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'warmtone',
-				fileName: '7600-2xo-warmtone.png',
-				width: 1230,
-			},
-			{
-				color: 'white',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-		],
+		images,
 		selectionGroups: [
 			{
 				name: 'color',
-				optionGroups: [{
-					name: 'color',
-					options: ['ba', 'sa', 'white', 'warmtone'],
-				}],
+				optionGroups: colorOptionGroups,
 			},
 			{
 				name: 'floor-tracks',
@@ -418,35 +325,11 @@ export default [
 			'Design pressure (DP) rating of 50 for durability',
 			'Compliant with California’s rigorous Title 24 requirements',
 		],
-		images: [
-			{
-				color: 'ba',
-				fileName: '7600-2xo-bronze-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'sa',
-				fileName: '7600-2xo-satin-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'warmtone',
-				fileName: '7600-2xo-warmtone.png',
-				width: 1230,
-			},
-			{
-				color: 'white',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-		],
+		images,
 		selectionGroups: [
 			{
 				name: 'color',
-				optionGroups: [{
-					name: 'color',
-					options: ['ba', 'sa', 'white', 'warmtone'],
-				}],
+				optionGroups: colorOptionGroups,
 			},
 			{
 				name: 'floor-tracks',
@@ -491,35 +374,11 @@ export default [
 			'Beveled glass stops',
 			'Simulated divided lights to emulate a putty glaze',
 		],
-		images: [
-			{
-				color: 'ba',
-				fileName: '7600-2xo-bronze-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'sa',
-				fileName: '7600-2xo-satin-ano.png',
-				width: 1230,
-			},
-			{
-				color: 'warmtone',
-				fileName: '7600-2xo-warmtone.png',
-				width: 1230,
-			},
-			{
-				color: 'white',
-				fileName: '7600-2xo-white.png',
-				width: 1230,
-			},
-		],
+		images,
 		selectionGroups: [
 			{
 				name: 'color',
-				optionGroups: [{
-					name: 'color',
-					options: ['ba', 'sa', 'white', 'warmtone'],
-				}],
+				optionGroups: colorOptionGroups,
 			},
 			{
 				name: 'floor-tracks',

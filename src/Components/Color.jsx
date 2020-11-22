@@ -14,14 +14,14 @@ export const Color = observer(({ product, hideLegend = false, type = '' }) => {
 	}
 	return (
 		<fieldset
-			className={cn('Radio text-xs', {
+			className={cn('Radio font-bold', {
 				'Radio--color': !type,
 				'Radio--colorSelector': type === 'selector',
 			})}
 		>
 			{
 				!hideLegend &&
-				<legend className="Radio-legend text-gray-light uppercase">Color Options:</legend>
+				<legend className="Radio-legend xl:text-baseline">Color Options:</legend>
 			}
 			<div className={cn('Radio-group xl:space-x-4', {
 				'space-x-2': !type,
