@@ -29,7 +29,7 @@ export const PanelProduct = observer(({ product }) => {
 	const detailsRef = useRef(null);
 	const heroRef = useRef(null);
 	const linkProps = {
-		className: 'ButtonHollow w-full',
+		className: 'ButtonHollow w-full mt-12',
 		...(!isOpen) && {
 			// Prevent hidden buttons from showing up when keyboard nav.
 			tabIndex: '-1',
@@ -50,7 +50,7 @@ export const PanelProduct = observer(({ product }) => {
 	if (isMediaQueryXl) {
 		maxHeight = 'none';
 	} else if (isOpen) {
-		maxHeight = '600px';
+		maxHeight = '750px';
 	} else {
 		maxHeight = '0';
 	}
@@ -121,17 +121,17 @@ export const PanelProduct = observer(({ product }) => {
 						<Color product={product} />
 						{
 							Boolean(features.length) &&
-							<div className="PanelProduct-includes space-y-4 text-xs">
-								<h3 className="text-gray-light uppercase">
+							<div className="PanelProduct-includes space-y-4">
+								<h3 className="font-bold">
 									Features:
-									{
-										Boolean(product.inheritedFeatures) &&
-										<strong className="uppercase font-bold text-base text-gray pl-1">
-											{product.inheritedFeatures}
-										</strong>
-									}
 								</h3>
-								<ul className="Checklist">
+								{
+									Boolean(product.inheritedFeatures) &&
+									<strong className="font-bold text-base text-blue">
+										{product.inheritedFeatures}:
+									</strong>
+								}
+								<ul className="list-disc text-xs ml-4 space-y-2 xl:text-sm">
 									{
 										features.map(feature => (
 											<li key={feature}>{feature}</li>
@@ -140,6 +140,7 @@ export const PanelProduct = observer(({ product }) => {
 								</ul>
 							</div>
 						}
+						<div className="Divider" />
 						<div className="PanelProduct-cta">
 							<Link href={configLink.href} as={configLink.as}>
 								<a {...linkProps}>

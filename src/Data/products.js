@@ -121,7 +121,7 @@ export default [
 		name: 'pamsd',
 		displayName: 'Performance Aluminum Sliding Door',
 		description: 'Energy effeciency and strength.',
-		inheritedFeatures: 'Everything in Classic',
+		inheritedFeatures: 'Everything in Classic, PLUS',
 		inheritedFeaturesLong: 'Including everything from our CLASSIC models and more.',
 		features: [
 			'Available in bigger and taller sizes',
@@ -174,7 +174,7 @@ export default [
 		name: 'ssamsd',
 		displayName: 'Simulated Steel Aluminum Sliding Door',
 		description: 'The look of steel but more affordable.',
-		inheritedFeatures: 'Everything in Performance and Classic',
+		inheritedFeatures: 'Everything in Classic and Peformance, PLUS',
 		inheritedFeaturesLong: 'Including everything from our PERFORMANCE and CLASSIC models and more.',
 		features: [
 			'Beveled glass stops',

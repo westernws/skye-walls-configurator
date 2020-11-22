@@ -22,7 +22,7 @@ export const Color = observer(({ product, hideLegend = false, type = '' }) => {
 		>
 			{
 				!hideLegend &&
-				<legend className="Radio-legend xl:text-baseline">Color Options:</legend>
+				<legend className="Radio-legend xl:text-base">Color Options:</legend>
 			}
 			{
 				Boolean(standardColorOptions.length) &&
