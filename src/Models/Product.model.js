@@ -67,11 +67,14 @@ const Product = types
 			return self.selectedImage.srcSet;
 		},
 		get link() {
-			const href = ['[product-collection]', '[product]'];
+			const href = ['[product-collection]', '[product-group]', '[product]'];
 			const productGroup = self.getParentOfName('ProductGroupModel');
 			const collection = self.getParentOfName('ProductCollection');
-			const productSlug = [productGroup?.slug, self.slug].filter(Boolean);
-			const as = [collection?.slug, productSlug.join('-')];
+			const as = [
+				collection.slug,
+				productGroup.slug,
+				self.slug,
+			];
 
 			return {
 				href: `/${href.join('/')}`,
