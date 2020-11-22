@@ -204,7 +204,7 @@ export const Selector = observer(() => {
 						Boolean(page.nextSelectionGroup) &&
 						<button
 							type="button"
-							className="Button Button--secondary w-full xl:w-auto xl:px-12"
+							className="Button w-full xl:w-auto xl:px-12"
 							onClick={() => {
 								page.setCurrentSelectionGroup(page.nextSelectionGroup.id);
 							}}

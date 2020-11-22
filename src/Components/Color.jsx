@@ -61,7 +61,7 @@ export const Color = observer(({ product, hideLegend = false, type = '' }) => {
 				</>
 			}
 			<div className="font-normal mt-2">Custom Colors</div>
-			<div className="text-sm font-normal text-blue">We can match almost any finish.</div>
+			<div className="font-normal text-blue">We can match almost any finish.</div>
 		</fieldset>
 	);
 });
