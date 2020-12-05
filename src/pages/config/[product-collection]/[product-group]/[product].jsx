@@ -4,9 +4,9 @@ import { Provider, appStore } from '~/Stores/App.store';
 import { LayoutConfig } from '~/Components/LayoutConfig';
 import { ConfigProductImagery } from '~/Components/ConfigProductImagery';
 import { ClipboardListSolid } from '~/Components/svg/ClipboardListSolid.svg';
-import { SelectorPanel } from '~/Components/SelectorPanel';
+import { SelectorPanel } from '~/Components/selectors/SelectorPanel';
 import { ReviewConfig } from '~/Components/ReviewConfig';
-import { SelectorMenu } from '~/Components/SelectorMenu';
+import { SelectorMenu } from '~/Components/selectors/SelectorMenu';
 
 const ConfigProduct = () => {
 	return (

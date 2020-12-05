@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 
 import { useMst } from '~/Stores/App.store';
-import { SelectorNav } from '~/Components/SelectorNav';
-import { SelectorColor } from '~/Components/SelectorColor';
-import { SelectorStandard } from '~/Components/SelectorStandard';
-import { SelectorCta } from '~/Components/SelectorCta';
+import { SelectorNav } from '~/Components/selectors/SelectorNav';
+import { SelectorColor } from '~/Components/selectors/SelectorColor';
+import { SelectorStandard } from '~/Components/selectors/SelectorStandard';
+import { SelectorCta } from '~/Components/selectors/SelectorCta';
 
 export const SelectorPanel = observer(() => {
 	const { page } = useMst();
