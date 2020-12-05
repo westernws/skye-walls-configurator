@@ -107,14 +107,46 @@ module.exports = [
 		displayName: 'Handles',
 		options: [
 			{
-				name: 'fm',
+				name: 'fmbn',
 				displayName: 'Flush-Mounted',
+				finish: 'Brushed Nickel',
 				description: 'Clean narrow design allows panels to easily slide past each other. Available in brushed nickel or black.',
 			},
 			{
-				name: 'premium',
+				name: 'fmb',
+				displayName: 'Flush-Mounted',
+				finish: 'Black',
+				description: 'Clean narrow design allows panels to easily slide past each other. Available in brushed nickel or black.',
+			},
+			{
+				name: 'pbn',
 				displayName: 'Premium',
+				finish: 'Brushed Nickel',
 				description: 'Minimal one-piece design and a comfortable grip. In brushed nickel or black. Not available on pocketing multi-slide doors.',
+			},
+			{
+				name: 'pb',
+				displayName: 'Premium',
+				finish: 'Black',
+				description: 'Minimal one-piece design and a comfortable grip. In brushed nickel or black. Not available on pocketing multi-slide doors.',
+			},
+			{
+				name: 'cpa',
+				displayName: 'C-Pull',
+				finish: 'Almond',
+				description: 'For a consistent look, this standard handle matches the color of the door frame.',
+			},
+			{
+				name: 'cpb',
+				displayName: 'C-Pull',
+				finish: 'Black',
+				description: 'For a consistent look, this standard handle matches the color of the door frame.',
+			},
+			{
+				name: 'cpw',
+				displayName: 'C-Pull',
+				finish: 'White',
+				description: 'For a consistent look, this standard handle matches the color of the door frame.',
 			},
 			{
 				name: 'contemporary',

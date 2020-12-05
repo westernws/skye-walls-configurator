@@ -92,11 +92,8 @@ export default [
 				name: 'handles',
 				optionGroups: [{
 					name: 'handles',
-					options: ['fm', 'premium', 'contemporary'],
+					options: ['fmbn', 'fmb', 'pbn', 'pb'],
 				}],
-			},
-			{
-				name: 'screen',
 			},
 			{
 				name: 'environment',
@@ -145,11 +142,8 @@ export default [
 				name: 'handles',
 				optionGroups: [{
 					name: 'handles',
-					options: ['fm', 'contemporary'],
+					options: ['fmbn', 'fmb', 'pbn', 'pb'],
 				}],
-			},
-			{
-				name: 'screen',
 			},
 			{
 				name: 'environment',
@@ -197,11 +191,8 @@ export default [
 				name: 'handles',
 				optionGroups: [{
 					name: 'handles',
-					options: ['fm', 'contemporary'],
+					options: ['fmbn', 'fmb', 'pbn', 'pb'],
 				}],
-			},
-			{
-				name: 'screen',
 			},
 			{
 				name: 'environment',
@@ -243,6 +234,13 @@ export default [
 			{
 				name: 'color',
 				optionGroups: colorOptionGroups,
+			},
+			{
+				name: 'handles',
+				optionGroups: [{
+					name: 'handles',
+					options: ['cpa', 'cpb', 'cpw', 'fmb'],
+				}],
 			},
 			{
 				name: 'environment',
@@ -292,7 +290,7 @@ export default [
 				name: 'handles',
 				optionGroups: [{
 					name: 'handles',
-					options: ['handles', 'pm', 'dsph', 'ilh'],
+					options: ['fmbn', 'fmb'],
 				}],
 			},
 			{
@@ -342,7 +340,7 @@ export default [
 				name: 'handles',
 				optionGroups: [{
 					name: 'handles',
-					options: ['handles', 'pm', 'dsph', 'ilh'],
+					options: ['fmbn', 'fmb'],
 				}],
 			},
 			{
@@ -391,7 +389,7 @@ export default [
 				name: 'handles',
 				optionGroups: [{
 					name: 'handles',
-					options: ['handles', 'pm', 'dsph', 'ilh'],
+					options: ['fmbn', 'fmb'],
 				}],
 			},
 			{

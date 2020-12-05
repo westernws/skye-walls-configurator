@@ -64,6 +64,7 @@ export const Selector = observer(() => {
 							{
 								currentSelectionGroup.optionGroups.map((optionGroup) => {
 									let maxHeight = isOptionGroupOpen(optionGroup.id) ? `${optionGroup.options.length * 150}px` : 0;
+									const hasFinish = Boolean(optionGroup.selectedOption.finish);
 
 									if (isMediaQueryXl) {
 										maxHeight = 'none';
@@ -113,8 +114,12 @@ export const Selector = observer(() => {
 												<div className="mb-8">
 													<div className="flex justify-between items-baseline">
 														<h2 className="text-blue text-3xl">{optionGroup.displayName}</h2>
-														<h3 className="text-right pb-2 font-bold">
-															{optionGroup.selectedOption.displayName}
+														<h3 className="text-right pb-2">
+															<span className="font-bold">{`${optionGroup.selectedOption.displayName}${(hasFinish ? ', ' : '')}`}</span>
+															{
+																hasFinish &&
+																<span className="italic">{optionGroup.selectedOption.finish}</span>
+															}
 														</h3>
 													</div>
 													<div className="Divider" />
@@ -149,7 +154,11 @@ export const Selector = observer(() => {
 																			<DummyImage width="120" height="120" />
 																		</div>
 																		<div className="OptionGroup-optionName">
-																			{option.displayName}
+																			<span className="block">{`${option.displayName}${(hasFinish ? ',' : '')}`}</span>
+																			{
+																				hasFinish &&
+																				<span className="italic">{option.finish}</span>
+																			}
 																		</div>
 																	</div>
 																	{

@@ -34,6 +34,7 @@ export const OptionsFactory = (options, optionGroupName) => {
 		name: option.name,
 		description: option.description || '',
 		displayName: option.displayName,
+		finish: option.finish || '',
 		selected: typeof option.selected !== 'undefined',
 	}));
 };

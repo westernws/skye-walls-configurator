@@ -8,6 +8,7 @@ const Option = types
 		name: types.string,
 		displayName: types.string,
 		description: types.string,
+		finish: '',
 		selected: types.boolean,
 		displayOptionGroupName: '',
 	})
