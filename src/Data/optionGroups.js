@@ -149,8 +149,15 @@ module.exports = [
 				description: 'For a consistent look, this standard handle matches the color of the door frame.',
 			},
 			{
-				name: 'contemporary',
+				name: 'cbn',
 				displayName: 'Contemporary',
+				finish: 'Brushed Nickel',
+				description: 'Easy-grip modern design. In brushed nickel or black. Not available on pocketing multi-slide doors.',
+			},
+			{
+				name: 'cb',
+				displayName: 'Contemporary',
+				finish: 'Black',
 				description: 'Easy-grip modern design. In brushed nickel or black. Not available on pocketing multi-slide doors.',
 			},
 			{

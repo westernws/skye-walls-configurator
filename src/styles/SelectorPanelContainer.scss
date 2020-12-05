@@ -1,17 +1,11 @@
 .SelectorPanelContainer {
-	@apply absolute w-full;
+	@apply absolute;
 	top: var(--config-selector-panel-offset-y);
+	width: $configSelectorPanelContainerWidth;
 }
 
 @screen xl {
 	.SelectorPanelContainer {
 		@apply static border-l-4 border-r-4 border-solid border-blue-100;
-		width: 440px;
-	}
-}
-
-@screen 3xl {
-	.SelectorPanelContainer {
-		width: 455px;
 	}
 }
