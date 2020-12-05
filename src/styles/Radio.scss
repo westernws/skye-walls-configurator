@@ -9,7 +9,7 @@ $swatchSelectedColor: #32739D;
 			grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
 		}
 		.Radio-fieldGroup {
-			@apply text-4xl;
+			@apply text-4xl relative;
 		}
 		.Radio-label {
 			@apply relative float-left rounded-full cursor-pointer;

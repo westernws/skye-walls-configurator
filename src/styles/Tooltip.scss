@@ -1,0 +1,26 @@
+.Tooltip {
+	@apply max-w-sm m-auto absolute text-white z-10 transform -translate-x-1/2;
+	font-size: 0.5em;
+	top: -60px;
+	left: 50%;
+}
+.Tooltip-body {
+	@apply bg-blue rounded px-4 pt-1 pb-2 font-bold text-center;
+}
+.Tooltip-triangleDown {
+	--border-width-scale: 0.75;
+	--border-slope: 1;
+	--border-width-x: 1em;
+	--border-width-y: calc(var(--border-width-x) * var(--border-slope));
+
+	@apply w-0 h-0 transform -translate-x-1/2 relative;
+	left: 50%;
+	border-left-style: solid;
+	border-right-style: solid;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-left-width: calc(var(--border-width-x) * var(--border-width-scale));
+	border-right-width: calc(var(--border-width-x) * var(--border-width-scale));
+	border-top-width: calc(var(--border-width-y) * var(--border-width-scale));
+	border-top-color: theme('colors.blue.default');
+}

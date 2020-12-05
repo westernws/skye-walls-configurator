@@ -112,7 +112,11 @@ export const ConfigPageModel = types
 			},
 			setCurrentSelectionGroup(selectionGroupId) {
 				self.currentSelectionGroup = selectionGroupId;
-				self.currentOptionGroup = self.currentSelectionGroup.optionGroups?.[0]?.id || null;
+				const { optionGroups } = self.currentSelectionGroup;
+				if (!optionGroups.length) {
+					return;
+				}
+				self.currentOptionGroup = optionGroups[0].id || null;
 			},
 			setProduct(product) {
 				const firstOptionGroupId = product?.selectionGroups?.[0]?.optionGroups?.[0]?.id;
