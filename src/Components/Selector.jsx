@@ -9,7 +9,7 @@ import { SelectorNav } from '~/Components/SelectorNav';
 import { Color } from '~/Components/Color';
 import { DummyImage } from '~/Components/DummyImage';
 import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
-import { InfoCircleSolid } from '~/Components/svg/InfoCircleSolid.svg';
+import { Info } from '~/Components/svg/Info.svg';
 import { OptionInfo } from '~/Components/OptionInfo';
 import { ReviewConfig } from '~/Components/ReviewConfig';
 
@@ -17,6 +17,7 @@ export const Selector = observer(() => {
 	const { page, modals, isMediaQueryXl } = useMst();
 	const {
 		currentSelectionGroup,
+		currentSelectedOption,
 		product,
 		showOptionGroupAccordion,
 	} = page;
@@ -110,12 +111,18 @@ export const Selector = observer(() => {
 											}
 											{
 												!showOptionGroupAccordion &&
-												<h4 className="uppercase font-bold mb-4">{optionGroup.displayName}</h4>
+												<div className="mb-8">
+													<div className="flex justify-between items-baseline">
+														<h2 className="text-blue text-3xl">{optionGroup.displayName}</h2>
+														<h3 className="text-right pb-2 font-bold">
+															{currentSelectedOption.displayName}
+														</h3>
+													</div>
+													<div className="Divider" />
+												</div>
 											}
 											<ul
-												style={{
-													maxHeight,
-												}}
+												style={{ maxHeight }}
 												className={cn('OptionGroup space-y-4 xl:space-y-0 h-auto transition-all duration-300 ease-in-out', {
 													'overflow-hidden': !isMediaQueryXl,
 												})}
@@ -138,18 +145,18 @@ export const Selector = observer(() => {
 																		product.setOption(optionGroup.name, option.name);
 																	}}
 																>
-																	<div className="flex pr-2 space-x-4 w-full xl:space-x-2">
-																		<div className="flex-shrink-0 xl:w-1/3">
+																	<div className="flex justify-between w-full">
+																		<div className="flex-shrink-0 xl:w-1/2">
 																			<DummyImage width="120" height="120" />
 																		</div>
-																		<div className="flex-grow text-left xl:text-sm">
+																		<div className="flex-grow text-left pt-3 pr-1 pb-3 pl-3 xl:text-sm xl:text-right">
 																			{option.displayName}
 																		</div>
 																	</div>
 																	{
 																		isSelected &&
 																		<div className="OptionGroup-checkmark">
-																			<div className="CheckmarkWhiteOnRed">
+																			<div className="CheckmarkWhiteOnBlue">
 																				<Image
 																					src="/images/check-solid-white.svg"
 																					alt=""
@@ -166,7 +173,7 @@ export const Selector = observer(() => {
 																	<button
 																		type="button"
 																		style={{ bottom: '0.5rem', right: '0.5rem' }}
-																		className="absolute bottom-0 right-0 w-5"
+																		className="absolute bottom-0 right-0"
 																		onClick={() => {
 																			primaryModal.open({
 																				name: 'optionInfoModal',
@@ -182,7 +189,7 @@ export const Selector = observer(() => {
 																			});
 																		}}
 																	>
-																		<InfoCircleSolid />
+																		<Info />
 																	</button>
 																}
 															</li>

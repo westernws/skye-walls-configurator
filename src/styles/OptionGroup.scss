@@ -2,15 +2,15 @@
 	@apply flex-wrap;
 }
 .OptionGroup-option {
-	@apply relative p-2 bg-white border-b-4 border-solid leading-tight border-gray-light100;
+	@apply relative bg-white border border-solid border-gray-light25 leading-tight;
 	&.is-selected {
-		@apply border-red;
+		@apply border-8 border-blue-100;
 	}
 }
 
 @screen xl {
 	.OptionGroup {
-		@apply flex -ml-4 -mt-8;
+		@apply flex items-center -ml-4 -mt-8;
 	}
 	.OptionGroup-option {
 		@apply mt-8 #{'!important'};
@@ -19,7 +19,7 @@
 	}
 	.OptionGroup-checkmark {
 		@apply absolute;
-		top: -5px;
-		right: -10px;
+		top: -12px;
+		right: -12px;
 	}
 }

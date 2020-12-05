@@ -26,8 +26,8 @@
 .ReviewFooter {
 	height: var(--review-footer-height);
 }
-.CheckmarkWhiteOnRed {
-	@apply bg-red rounded-full border-white;
+.CheckmarkWhiteOnBlue {
+	@apply bg-blue rounded-full border-white;
 	line-height: 1.575;
 	width: 26px;
 	height: 26px;

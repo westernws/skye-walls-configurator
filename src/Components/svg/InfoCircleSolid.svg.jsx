@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const InfoCircleSolid = () => (
-
 	<svg
 		aria-hidden="true"
 		focusable="false"

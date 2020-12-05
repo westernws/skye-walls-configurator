@@ -83,7 +83,7 @@ module.exports = [
 	},
 	{
 		name: 'floor-sills',
-		displayName: 'Floor Tracks',
+		displayName: 'Floor Sills',
 		options: [
 			{
 				name: 'wbs',

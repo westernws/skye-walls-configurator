@@ -36,7 +36,7 @@ export const MenuListItemProduct = ({ product, isSelected = false }) => {
 				{
 					isSelected &&
 					<div className="Menu-rightCol">
-						<div className="CheckmarkWhiteOnRed">
+						<div className="CheckmarkWhiteOnBlue">
 							<Image
 								src="/images/check-solid-white.svg"
 								alt=""
