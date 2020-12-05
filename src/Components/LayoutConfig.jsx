@@ -10,7 +10,6 @@ import { Menu } from '~/Components/Menu';
 import { StartOver } from '~/Components/StartOver';
 import { ChangeProduct } from '~/Components/ChangeProduct';
 import { ReviewConfig } from '~/Components/ReviewConfig';
-import { LongArrowAltLeft } from '~/Components/svg/LongArrowAltLeft.svg';
 
 export const LayoutConfig = observer(({ children }) => {
 	const {
@@ -100,18 +99,16 @@ export const LayoutConfig = observer(({ children }) => {
 										{
 											isReviewModalOpen &&
 											<li>
-												<div className="ReviewNav">
-													<button
-														type="button"
-														className="Button Button--tertiary justify-center"
-														onClick={() => {
-															modal.close();
-														}}
-													>
-														<LongArrowAltLeft />
-														Back to Build
-													</button>
-												</div>
+												<button
+													type="button"
+													className="Breadcrumb"
+													onClick={() => {
+														modal.close();
+													}}
+												>
+													<span className="text-red">&lt;&nbsp;</span>
+													<span className="Breadcrumb-text text-red">Back to Design</span>
+												</button>
 											</li>
 										}
 									</ul>

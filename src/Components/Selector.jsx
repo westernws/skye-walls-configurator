@@ -17,7 +17,6 @@ export const Selector = observer(() => {
 	const { page, modals, isMediaQueryXl } = useMst();
 	const {
 		currentSelectionGroup,
-		currentSelectedOption,
 		product,
 		showOptionGroupAccordion,
 	} = page;
@@ -115,7 +114,7 @@ export const Selector = observer(() => {
 													<div className="flex justify-between items-baseline">
 														<h2 className="text-blue text-3xl">{optionGroup.displayName}</h2>
 														<h3 className="text-right pb-2 font-bold">
-															{currentSelectedOption.displayName}
+															{optionGroup.selectedOption.displayName}
 														</h3>
 													</div>
 													<div className="Divider" />
@@ -145,7 +144,7 @@ export const Selector = observer(() => {
 																		product.setOption(optionGroup.name, option.name);
 																	}}
 																>
-																	<div className="flex justify-between w-full">
+																	<div className="flex w-full xl:justify-between">
 																		<div className="flex-shrink-0 xl:w-1/2">
 																			<DummyImage width="120" height="120" />
 																		</div>
@@ -179,13 +178,7 @@ export const Selector = observer(() => {
 																				name: 'optionInfoModal',
 																				type: isMediaQueryXl ? 'SLIDER_TERTIARY' : 'MODAL_TIGHT',
 																				showCloseBtnText: true,
-																				content: (
-																					<OptionInfo
-																						optionGroup={optionGroup}
-																						option={option}
-																						isSelected={isSelected}
-																					/>
-																				),
+																				content: <OptionInfo option={option} />,
 																			});
 																		}}
 																	>
@@ -221,24 +214,21 @@ export const Selector = observer(() => {
 					}
 					{
 						!page.nextSelectionGroup &&
-						<>
-							<div className="pt-10 text-lg text-center italic">We like your style! Let’s take a look at your product.</div>
-							<button
-								type="button"
-								className="Button w-full xl:w-auto xl:px-12"
-								onClick={() => {
-									primaryModal.open({
-										name: 'reviewModal',
-										type: 'PANEL',
-										showBackdrop: false,
-										showCloseBtn: false,
-										content: <ReviewConfig />,
-									});
-								}}
-							>
-								Review
-							</button>
-						</>
+						<button
+							type="button"
+							className="Button w-full xl:w-auto xl:px-12"
+							onClick={() => {
+								primaryModal.open({
+									name: 'reviewModal',
+									type: 'PANEL',
+									showBackdrop: false,
+									showCloseBtn: false,
+									content: <ReviewConfig />,
+								});
+							}}
+						>
+							Review
+						</button>
 					}
 				</div>
 			</div>

@@ -29,6 +29,9 @@ const OptionGroup = types
 		get isColor() {
 			return self.name === 'color';
 		},
+		get selectedOption() {
+			return self.options.find(option => option.selected);
+		},
 		get selectionGroup() {
 			return self.getParentOfName('SelectionGroupModel');
 		},
