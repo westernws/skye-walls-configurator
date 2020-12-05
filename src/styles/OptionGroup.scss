@@ -7,6 +7,10 @@
 		@apply border-8 border-blue-100;
 	}
 }
+.OptionGroup-optionName {
+	@apply text-left pt-3 pr-1 pb-3 pl-3;
+	word-break: break-word;
+}
 
 @screen xl {
 	.OptionGroup {
@@ -21,5 +25,8 @@
 		@apply absolute;
 		top: -12px;
 		right: -12px;
+	}
+	.OptionGroup-optionName {
+		@apply text-sm text-right;
 	}
 }

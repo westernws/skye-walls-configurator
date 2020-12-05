@@ -149,7 +149,7 @@ export const Selector = observer(() => {
 																		<div className="flex-shrink-0 xl:w-1/2">
 																			<DummyImage width="120" height="120" />
 																		</div>
-																		<div className="flex-grow text-left pt-3 pr-1 pb-3 pl-3 xl:text-sm xl:text-right">
+																		<div className="OptionGroup-optionName">
 																			{option.displayName}
 																		</div>
 																	</div>
