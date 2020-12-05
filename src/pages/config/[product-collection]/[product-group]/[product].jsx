@@ -4,7 +4,7 @@ import { Provider, appStore } from '~/Stores/App.store';
 import { LayoutConfig } from '~/Components/LayoutConfig';
 import { ConfigProductImagery } from '~/Components/ConfigProductImagery';
 import { ClipboardListSolid } from '~/Components/svg/ClipboardListSolid.svg';
-import { Selector } from '~/Components/Selector';
+import { SelectorPanel } from '~/Components/SelectorPanel';
 import { ReviewConfig } from '~/Components/ReviewConfig';
 import { SelectorMenu } from '~/Components/SelectorMenu';
 
@@ -37,7 +37,7 @@ const ConfigProduct = () => {
 								</button>
 							</div>
 						</div>
-						<Selector />
+						<SelectorPanel />
 					</div>
 				</main>
 			</LayoutConfig>

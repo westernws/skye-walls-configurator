@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useInput } from '~/util/useInput';
 
-import { Tooltip } from '-/src/Components/Tooltip';
+import { Tooltip } from '~/Components/Tooltip';
 
 export const ColorFieldGroup = observer(({ product, colorOptions, colorOptionGroup }) => {
 	const { setValue } = useInput();
