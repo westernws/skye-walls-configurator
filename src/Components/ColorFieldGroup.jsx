@@ -1,37 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
+
 import { useInput } from '~/util/useInput';
 
-import { Tooltip } from '~/Components/Tooltip';
-
-export const ColorFieldGroup = observer(({ product, colorOptions, colorOptionGroup }) => {
+export const ColorFieldGroup = observer(({
+	colorOptions, colorOptionGroup = {}, groupName, isChecked, onChange,
+}) => {
 	const { setValue } = useInput();
-	const id = `${product.name}-${colorOptions.name}-${colorOptionGroup.name}-control-colorOptionsForm`;
-	const [hover, setHover] = useState(false);
+	const {
+		name: cogName = 'fpo',
+	} = colorOptionGroup;
+	const id = `${groupName}-${colorOptions.name}-${cogName}-control-colorOptionsForm`;
 
 	return (
 		<div
 			key={id}
 			className="Radio-fieldGroup"
-			onMouseEnter={() => { setHover(false); }}
-			onMouseLeave={() => { setHover(false); }}
 		>
-			{
-				hover &&
-				<Tooltip>
-					ohai
-				</Tooltip>
-			}
 			<input
 				type="radio"
-				name={`${product.name}-${colorOptionGroup.name}`}
+				name={`${groupName}-${cogName}`}
 				value={colorOptions.name}
 				id={id}
 				className="Radio-control"
-				checked={product.selectedColor?.name === colorOptions.name}
+				checked={isChecked}
 				onChange={(event) => {
 					setValue(event.target.value);
-					product.setColor(event.target.value);
+					onChange(event.target.value);
 				}}
 			/>
 			<label

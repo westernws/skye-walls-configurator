@@ -5,6 +5,7 @@ import { useMst } from '~/Stores/App.store';
 import { SelectorNav } from '~/Components/selectors/SelectorNav';
 import { SelectorColor } from '~/Components/selectors/SelectorColor';
 import { SelectorStandard } from '~/Components/selectors/SelectorStandard';
+import { SelectorMulti } from '-/src/Components/selectors/SelectorMulti';
 import { SelectorCta } from '~/Components/selectors/SelectorCta';
 
 export const SelectorPanel = observer(() => {
@@ -14,6 +15,7 @@ export const SelectorPanel = observer(() => {
 		product,
 	} = page;
 	const selectorPanel = useRef(null);
+	let SelectorComponent = () => null;
 
 	if (!product) {
 		return null;
@@ -22,6 +24,14 @@ export const SelectorPanel = observer(() => {
 	useEffect(() => {
 		selectorPanel.current.scrollTop = 0;
 	}, [currentSelectionGroup]);
+
+	if (currentSelectionGroup.name === 'color') {
+		SelectorComponent = SelectorColor;
+	} else if (currentSelectionGroup.optionGroups.length > 1) {
+		SelectorComponent = SelectorMulti;
+	} else {
+		SelectorComponent = SelectorStandard;
+	}
 
 	return (
 		<div className="SelectorPanelContainer">
@@ -33,16 +43,7 @@ export const SelectorPanel = observer(() => {
 			</div>
 			<div className="SelectorPanel" ref={selectorPanel}>
 				<div className="SelectorPanel-inside space-y-10">
-					{
-						currentSelectionGroup.name === 'color' &&
-						<SelectorColor />
-					}
-					{
-						currentSelectionGroup.name !== 'color' &&
-						<SelectorStandard
-							currentSelectionGroup={currentSelectionGroup}
-						/>
-					}
+					<SelectorComponent />
 					<SelectorCta />
 				</div>
 			</div>

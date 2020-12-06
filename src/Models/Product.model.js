@@ -21,7 +21,7 @@ const Product = types
 	})
 	.views(self => ({
 		get backgroundOptionGroup() {
-			return self.optionGroups?.find?.(optGroup => optGroup.name === 'background') || {};
+			return self.optionGroups?.find?.(optGroup => optGroup.name === 'view') || {};
 		},
 		get collectionName() {
 			return self.getParentOfName('ProductCollection')?.name || '';

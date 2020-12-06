@@ -16,12 +16,13 @@ export const OptionsFactory = (options, optionGroupName) => {
 			hex: option.hex,
 		}));
 	}
-	if (['background', 'floor', 'wall'].includes(optionGroupName)) {
+	if (['view', 'floor', 'wall'].includes(optionGroupName)) {
 		return options.map(option => OptionEnvironmentModel.create({
 			id: `OptionEnvironmentModel_${uniqueId()}`,
 			name: option.name,
 			description: option.description || '',
 			displayName: option.displayName,
+			hex: option.hex || '',
 			selected: typeof option.selected !== 'undefined',
 			image: EnvironmentImageModel.create({
 				id: `EnvironmentImageModel_${uniqueId()}`,

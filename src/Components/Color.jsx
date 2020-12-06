@@ -33,9 +33,13 @@ export const Color = observer(({ product, hideLegend = false, type = '' }) => {
 							standardColorOptions.map(colorOptions => (
 								<ColorFieldGroup
 									key={`colorOptions-${colorOptions.name}`}
-									product={product}
+									groupName={product.name}
 									colorOptionGroup={colorOptionGroup}
 									colorOptions={colorOptions}
+									onChange={(value) => {
+										product.setColor(value);
+									}}
+									isChecked={product.selectedColor?.name === colorOptions.name}
 								/>
 							))
 						}
@@ -51,9 +55,13 @@ export const Color = observer(({ product, hideLegend = false, type = '' }) => {
 							designerColorOptions.map(colorOptions => (
 								<ColorFieldGroup
 									key={`colorOptions-${colorOptions.name}`}
-									product={product}
+									groupName={product.name}
 									colorOptionGroup={colorOptionGroup}
 									colorOptions={colorOptions}
+									onChange={(value) => {
+										product.setColor(value);
+									}}
+									isChecked={product.selectedColor?.name === colorOptions.name}
 								/>
 							))
 						}

@@ -184,11 +184,12 @@ module.exports = [
 	},
 	{
 		name: 'wall',
-		displayName: 'Wall',
+		displayName: 'Wall Color',
 		options: [
 			{
-				name: 'drywall',
-				displayName: 'Drywall',
+				name: 'conch',
+				displayName: 'Conch',
+				hex: 'F5EEE9',
 				image: {
 					basePath: '/images/environment/wall',
 					fileName: 'wall-1.png',
@@ -196,8 +197,69 @@ module.exports = [
 				},
 			},
 			{
-				name: 'brick',
-				displayName: 'Brick',
+				name: 'pistachio',
+				displayName: 'Pistachio',
+				hex: 'E6EBE4',
+				image: {
+					basePath: '/images/environment/wall',
+					fileName: 'wall-2.png',
+					width: 1230,
+				},
+			},
+			{
+				name: 'iceberg',
+				displayName: 'Iceberg',
+				hex: 'E0E7E9',
+				image: {
+					basePath: '/images/environment/wall',
+					fileName: 'wall-2.png',
+					width: 1230,
+				},
+			},
+			{
+				name: 'pebble',
+				displayName: 'Pebble',
+				hex: 'CFC4AA',
+				image: {
+					basePath: '/images/environment/wall',
+					fileName: 'wall-2.png',
+					width: 1230,
+				},
+			},
+			{
+				name: 'meadow',
+				displayName: 'Meadow',
+				hex: 'BFC5B1',
+				image: {
+					basePath: '/images/environment/wall',
+					fileName: 'wall-2.png',
+					width: 1230,
+				},
+			},
+			{
+				name: 'horizon',
+				displayName: 'Horizon',
+				hex: 'B1C3C8',
+				image: {
+					basePath: '/images/environment/wall',
+					fileName: 'wall-2.png',
+					width: 1230,
+				},
+			},
+			{
+				name: 'smoke',
+				displayName: 'Smoke',
+				hex: 'B1B9B7',
+				image: {
+					basePath: '/images/environment/wall',
+					fileName: 'wall-2.png',
+					width: 1230,
+				},
+			},
+			{
+				name: 'jute',
+				displayName: 'Jute',
+				hex: 'E3D9D1',
 				image: {
 					basePath: '/images/environment/wall',
 					fileName: 'wall-2.png',
@@ -231,8 +293,8 @@ module.exports = [
 		],
 	},
 	{
-		name: 'background',
-		displayName: 'Background',
+		name: 'view',
+		displayName: 'View',
 		options: [
 			{
 				name: 'countryside',

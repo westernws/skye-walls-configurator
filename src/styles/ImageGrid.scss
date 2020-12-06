@@ -1,0 +1,21 @@
+.ImageGrid {
+	@apply grid;
+	grid-template-columns: repeat(auto-fill, 136px);
+	grid-template-rows: repeat(auto-fill, 136px);
+	grid-gap: 20px;
+}
+.ImageGrid-item {
+	@apply relative border-8 border-solid border-transparent;
+	&.is-selected {
+		@apply relative border-blue-100;
+	}
+}
+.ImageGrid-checkmark {
+	@apply absolute m-0 top-0 right-0;
+}
+@screen xl {
+	.ImageGrid-checkmark {
+		top: -12px;
+		right: -12px;
+	}
+}

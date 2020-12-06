@@ -2,6 +2,20 @@ const colorOptionGroups = [{
 	name: 'color',
 	options: ['ba', 'sa', 'warmtone', 'white', 'an', 'bb', 'briar', 'ct', 'hb', 'nw', 'sb'],
 }];
+const environmentOptionGroups = [
+	{
+		name: 'view',
+		options: ['beach', 'countryside'],
+	},
+	{
+		name: 'wall',
+		options: ['conch', 'pistachio', 'iceberg', 'pebble', 'meadow', 'horizon', 'smoke', 'jute'],
+	},
+	{
+		name: 'floor',
+		options: ['pergo', 'hardwood'],
+	},
+];
 const images = [
 	{
 		color: 'ba',
@@ -97,20 +111,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: [
-					{
-						name: 'background',
-						options: ['beach', 'countryside'],
-					},
-					{
-						name: 'floor',
-						options: ['pergo', 'hardwood'],
-					},
-					{
-						name: 'wall',
-						options: ['drywall', 'brick'],
-					},
-				],
+				optionGroups: environmentOptionGroups,
 			},
 		],
 	},
@@ -147,20 +148,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: [
-					{
-						name: 'background',
-						options: ['beach', 'countryside'],
-					},
-					{
-						name: 'floor',
-						options: ['pergo', 'hardwood'],
-					},
-					{
-						name: 'wall',
-						options: ['drywall', 'brick'],
-					},
-				],
+				optionGroups: environmentOptionGroups,
 			},
 		],
 	},
@@ -196,20 +184,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: [
-					{
-						name: 'background',
-						options: ['beach', 'countryside'],
-					},
-					{
-						name: 'floor',
-						options: ['pergo', 'hardwood'],
-					},
-					{
-						name: 'wall',
-						options: ['drywall', 'brick'],
-					},
-				],
+				optionGroups: environmentOptionGroups,
 			},
 		],
 	},
@@ -244,20 +219,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: [
-					{
-						name: 'background',
-						options: ['beach', 'countryside'],
-					},
-					{
-						name: 'floor',
-						options: ['pergo', 'hardwood'],
-					},
-					{
-						name: 'wall',
-						options: ['drywall', 'brick'],
-					},
-				],
+				optionGroups: environmentOptionGroups,
 			},
 		],
 	},
@@ -295,20 +257,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: [
-					{
-						name: 'background',
-						options: ['beach', 'countryside'],
-					},
-					{
-						name: 'floor',
-						options: ['pergo', 'hardwood'],
-					},
-					{
-						name: 'wall',
-						options: ['drywall', 'brick'],
-					},
-				],
+				optionGroups: environmentOptionGroups,
 			},
 		],
 	},
@@ -345,20 +294,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: [
-					{
-						name: 'background',
-						options: ['beach', 'countryside'],
-					},
-					{
-						name: 'floor',
-						options: ['pergo', 'hardwood'],
-					},
-					{
-						name: 'wall',
-						options: ['drywall', 'brick'],
-					},
-				],
+				optionGroups: environmentOptionGroups,
 			},
 		],
 	},
@@ -394,20 +330,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: [
-					{
-						name: 'background',
-						options: ['beach', 'countryside'],
-					},
-					{
-						name: 'floor',
-						options: ['pergo', 'hardwood'],
-					},
-					{
-						name: 'wall',
-						options: ['drywall', 'brick'],
-					},
-				],
+				optionGroups: environmentOptionGroups,
 			},
 		],
 	},
