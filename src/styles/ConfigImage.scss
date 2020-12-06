@@ -17,6 +17,14 @@
 		@apply border border-solid border-red;
 	}
 }
+.ConfigImage.ConfigImage--review {
+	@apply w-auto h-auto;
+	&::after {
+		@apply block h-0 w-full;
+		padding-bottom: 82.11%;
+		content: ' ';
+	}
+}
 
 @screen xl {
 	.ConfigImage {

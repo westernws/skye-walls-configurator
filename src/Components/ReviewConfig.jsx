@@ -2,15 +2,18 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 
 import { useMst } from '~/Stores/App.store';
-import { LongArrowAltLeft } from '~/Components/svg/LongArrowAltLeft.svg';
-import { DummyImage } from '~/Components/DummyImage';
+import { ConfigProductImagery } from '~/Components/ConfigProductImagery';
 import { ReviewConfigOptions } from '~/Components/ReviewConfigOptions';
+import { HeadingBordered } from '~/Components/HeadingBordered';
 
 export const ReviewConfig = observer(() => {
 	const { modals, page } = useMst();
 	const modal = modals.get('modal-primary');
-	const selectedProduct = page.product;
+	const selectedProduct = page?.product;
 
+	if (!selectedProduct) {
+		return null;
+	}
 	return (
 		<div className="ReviewConfigContainer">
 			<div className="ReviewNav xl:hidden">
@@ -21,30 +24,19 @@ export const ReviewConfig = observer(() => {
 						modal.close();
 					}}
 				>
-					<LongArrowAltLeft />
-					Back to Build
+					&lt;&nbsp;Back to Design
 				</button>
 			</div>
 			<div className="ReviewConfig">
-				<div className="ReviewConfig-hero">
-					<DummyImage className="ReviewConfig-heroImg" width="633" height="228" />
+				<div className="ConfigImage ConfigImage--review">
+					<ConfigProductImagery />
 				</div>
-				<div className="ReviewConfig-body divide-y-2 divide-gray-light100">
-					<div className="p-8 xl:flex m-auto justify-center items-center">
-						<div className="hidden mr-20 w-3/12 leading-none xl:block space-y-3">
-							<h2 className="text-5xl">{selectedProduct.displayName}</h2>
-							<h3 className="text-xl text-gray-light">{selectedProduct.displayGroupName}</h3>
+				<div className="SiteMaxWidth m-auto">
+					<div className="ReviewConfig-body divide-y-2 divide-gray-light100">
+						<div className="p-8 space-y-8">
+							<HeadingBordered>Review Your Design</HeadingBordered>
+							<ReviewConfigOptions product={selectedProduct} />
 						</div>
-						<button
-							type="button"
-							className="Button w-full xl:w-auto xl:px-12"
-						>
-							Get Quote
-						</button>
-					</div>
-					<div className="p-8 space-y-8">
-						<h2 className="text-3xl uppercase text-center font-bold">Your Configuration</h2>
-						<ReviewConfigOptions product={selectedProduct} />
 					</div>
 				</div>
 			</div>

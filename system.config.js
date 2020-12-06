@@ -7,7 +7,7 @@ module.exports = {
 		alias: {
 			'~': path.resolve(__dirname, './src'),
 			'#': path.resolve(__dirname, './src/styles'),
-			'-': path.resolve(__dirname, '.'),
+			// '-': path.resolve(__dirname, '.'),
 		},
 	},
 };

@@ -75,11 +75,19 @@ export const AppModel = types
 				}
 			}, { name: 'Auto assign page name class to html tag' });
 		},
-		closeAllModals() {
-			[...self.modals.values()].forEach(modal => modal.close());
+		closeAllModals(modals) {
+			const theModals = modals || [...self.modals.values()];
+
+			theModals.forEach(modal => modal.close());
+		},
+		closeAllModalsByType(modalType) {
+			self.closeAllModals(self.getOpenModalsByType(modalType));
 		},
 		getOpenModalByName(modalName) {
 			return self.openModals.find(modal => modal.name === modalName) || {};
+		},
+		getOpenModalsByType(modalType) {
+			return self.openModals.filter(modal => modal.type === modalType);
 		},
 		getProductByName(productName) {
 			return self.allProducts.find(product => product.name === productName) || {};

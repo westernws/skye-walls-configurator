@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { ColorFieldGroup } from '~/Components/ColorFieldGroup';
 import { useMst } from '~/Stores/App.store';
 import { HeaderSimple } from '~/Components/selector-values/HeaderSimple';
-import { ChevronSolid } from '-/src/Components/svg/ChevronSolid.svg';
+import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 
 export const WallColor = observer(({ optionGroup }) => {
 	const { page } = useMst();

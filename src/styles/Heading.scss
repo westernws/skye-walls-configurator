@@ -18,14 +18,27 @@
 	}
 
 	&.Heading--bordered {
+		@apply text-center text-blue text-2xl;
 		&::before {
-			content: ' ';
 			@apply absolute bg-gradient-to-r from-white via-blue-100 w-full block;
+			content: ' ';
 			height: 6px;
 			top: 50%;
 		}
 		.Heading-text {
 			@apply bg-white px-6 z-0 relative;
 		}
+	}
+}
+
+@screen lg {
+	.Heading.Heading--bordered {
+		@apply text-3xl;
+	}
+}
+
+@screen 3xl {
+	.Heading.Heading--bordered {
+		@apply text-4xl;
 	}
 }

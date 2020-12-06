@@ -7,6 +7,7 @@ export const SelectionGroupModel = types
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('SelectionGroupModel_') === 0),
 		name: '',
 		displayName: types.string,
+		displayNameSingular: '',
 		description: '',
 		optionGroups: types.optional(types.array(OptionGroupModel), []),
 	})

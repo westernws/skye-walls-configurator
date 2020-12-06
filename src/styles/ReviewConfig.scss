@@ -4,17 +4,6 @@
 	}
 	@apply overflow-auto;
 	height: calc(var(--vh100) - var(--device-header-h) - var(--device-footer-h) - var(--header-height) - var(--review-nav-height) - var(--review-footer-height));
-	.ReviewConfig-hero {
-		@apply relative;
-		&::after {
-			@apply block h-0 w-full;
-			padding-bottom: 36.03%;
-			content: ' ';
-		}
-	}
-	.ReviewConfig-heroImg {
-		@apply absolute top-0 left-0 w-full;
-	}
 	.ReviewConfig-body {
 		@apply border-t-4 border-solid border-gray-light100;
 	}

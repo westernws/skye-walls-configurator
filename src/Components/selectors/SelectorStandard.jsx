@@ -12,7 +12,7 @@ export const SelectorStandard = observer(() => {
 		<div>
 			{
 				currentSelectionGroup.optionGroups.map((optionGroup) => {
-					return <SelectorValueStandard optionGroup={optionGroup} />;
+					return <SelectorValueStandard key={optionGroup.name} optionGroup={optionGroup} />;
 				})
 			}
 			{

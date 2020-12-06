@@ -6,7 +6,7 @@ import { CheckSolid } from '~/Components/svg/CheckSolid.svg';
 
 export const ReviewConfigOption = observer(({ selectionGroup }) => {
 	const {
-		name, id, displayName, optionGroups,
+		name, id, displayName, displayNameSingular = '', optionGroups,
 	} = selectionGroup;
 	const { page, modals } = useMst();
 	const modal = modals.get('modal-primary');
@@ -14,7 +14,7 @@ export const ReviewConfigOption = observer(({ selectionGroup }) => {
 	return (
 		<div key={name}>
 			<div className="flex justify-between items-center pb-1 mb-1 border-b border-gray-light border-solid">
-				<h2 className="font-bold text-xl uppercase">{displayName}</h2>
+				<h2 className="font-bold text-xl uppercase">{(displayNameSingular || displayName)}</h2>
 				<button
 					type="button"
 					className="text-xs underline"

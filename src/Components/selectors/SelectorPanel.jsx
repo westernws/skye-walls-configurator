@@ -5,7 +5,7 @@ import { useMst } from '~/Stores/App.store';
 import { SelectorNav } from '~/Components/selectors/SelectorNav';
 import { SelectorColor } from '~/Components/selectors/SelectorColor';
 import { SelectorStandard } from '~/Components/selectors/SelectorStandard';
-import { SelectorMulti } from '-/src/Components/selectors/SelectorMulti';
+import { SelectorMulti } from '~/Components/selectors/SelectorMulti';
 import { SelectorCta } from '~/Components/selectors/SelectorCta';
 
 export const SelectorPanel = observer(() => {

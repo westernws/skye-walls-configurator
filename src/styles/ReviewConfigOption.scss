@@ -1,0 +1,17 @@
+.ReviewConfigOption {
+	@apply relative border-8 border-solid border-blue-100 flex flex-col p-12 justify-between;
+	.ReviewConfigOption-control {
+		@apply absolute m-0 flex-shrink-0;
+		top: -15px;
+		right: -15px;
+	}
+}
+
+@screen xl {
+	.ReviewConfigOption {
+		@apply flex-row items-center;
+		.ReviewConfigOption-control {
+			@apply static ml-12;
+		}
+	}
+}

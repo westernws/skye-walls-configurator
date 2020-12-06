@@ -68,7 +68,7 @@ const Product = types
 		},
 		get link() {
 			const href = ['[product-collection]', '[product-group]', '[product]'];
-			const productGroup = self.getParentOfName('ProductGroupModel');
+			const { productGroup } = self;
 			const collection = self.getParentOfName('ProductCollection');
 			const as = [
 				collection.slug,
@@ -91,14 +91,20 @@ const Product = types
 			});
 			return result;
 		},
+		get productGroup() {
+			return self.getParentOfName('ProductGroupModel');
+		},
 		get productGroupAnimatedImage() {
-			return self.getParentOfName('ProductGroupModel')?.animatedImage;
+			return self.productGroup?.animatedImage;
 		},
 		get productGroupDisplayName() {
-			return self.getParentOfName('ProductGroupModel')?.displayName || '';
+			return self.productGroup?.displayName || '';
 		},
 		get productGroupImage() {
-			return self.getParentOfName('ProductGroupModel')?.image;
+			return self.productGroup?.image;
+		},
+		get productGroupLink() {
+			return self.productGroup?.link;
 		},
 		get reviewSelectionGroups() {
 			return self.selectionGroups.filter((selectionGroup) => {
