@@ -121,9 +121,6 @@ const Product = types
 				return result;
 			});
 		},
-		get screenOptionGroup() {
-			return self.optionGroups?.find?.(optGroup => optGroup.name === 'screen') || {};
-		},
 		get selectedBackground() {
 			return self.backgroundOptionGroup?.options?.find?.(option => option.selected) || {};
 		},
@@ -146,7 +143,6 @@ const Product = types
 				// self.selectedFloor,
 				self.selectedFloorTracks,
 				self.selectedHandle,
-				self.selectedScreen,
 				// self.selectedWall,
 			];
 
@@ -156,14 +152,6 @@ const Product = types
 					option: selectedOption,
 				};
 			});
-		},
-		get selectedScreen() {
-			if (!self.screenOptionGroup) {
-				return null;
-			}
-			return self.screenOptionGroup.options?.find?.(option => option.selected) || {
-				description: self.screenOptionGroup.description,
-			};
 		},
 		get selectedWall() {
 			return self.wallOptionGroup?.options?.find?.(option => option.selected) || {};

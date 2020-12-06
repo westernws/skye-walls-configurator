@@ -2,42 +2,77 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 
 import { useMst } from '~/Stores/App.store';
-import { CheckSolid } from '~/Components/svg/CheckSolid.svg';
+import { DummyImage } from '~/Components/DummyImage';
+import { EditPencil } from '~/Components/svg/EditPencil.svg';
 
-export const ReviewConfigOption = observer(({ selectionGroup }) => {
-	const {
-		name, id, displayName, displayNameSingular = '', optionGroups,
-	} = selectionGroup;
-	const { page, modals } = useMst();
+export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick }) => {
+	const { modals, page } = useMst();
 	const modal = modals.get('modal-primary');
+	const {
+		id,
+		optionGroups = [],
+	} = selectionGroup;
+	const hasManyOptionGroups = optionGroups.length > 1;
+	const selectedOptionGroup = optionGroups[0];
+	const {
+		selectedOption: {
+			displayName: selectedOptionDisplayName,
+		} = {},
+	} = selectedOptionGroup;
 
 	return (
-		<div key={name}>
-			<div className="flex justify-between items-center pb-1 mb-1 border-b border-gray-light border-solid">
-				<h2 className="font-bold text-xl uppercase">{(displayNameSingular || displayName)}</h2>
-				<button
-					type="button"
-					className="text-xs underline"
-					onClick={() => {
-						page.setCurrentSelectionGroup(id);
-						modal.close();
-					}}
-				>
-					Edit
-				</button>
+		<div className="ReviewConfigOption space-y-6 xl:space-y-0">
+			<div className="flex flex-col flex-shrink-0 xl:space-y-4">
+				<h2 className="font-bold text-blue">
+					{(selectionGroup.displayNameSingular || selectionGroup.displayName)}:
+				</h2>
+				{
+					!hasManyOptionGroups &&
+					<h3>{selectedOptionDisplayName}</h3>
+				}
 			</div>
-			{
-				optionGroups.map((optionGroup) => {
-					return optionGroup.options.filter(option => option.selected).map(option => (
-						<div key={option.name} className="flex justify-between items-center space-y-2">
-							<h3 className="text-base">{option.displayName}</h3>
-							<div className="w-4 text-red">
-								<CheckSolid />
-							</div>
-						</div>
-					));
-				})
-			}
+			<div className="xl:flex xl:items-center">
+				{
+					!hasManyOptionGroups &&
+					<div>
+						<DummyImage width="188" height="132" />
+					</div>
+				}
+				{
+					hasManyOptionGroups &&
+					<div className="flex flex-col space-y-6 xl:flex-row xl:space-y-0 xl:space-x-2">
+						{
+							optionGroups.map((optionGroup) => {
+								return (
+									<div key={optionGroup.name} className="flex flex-col items-center space-y-2">
+										<DummyImage width="188" height="132" />
+										<h3 className="flex flex-col items-center">
+											<strong className="text-blue">{optionGroup.displayName}</strong>
+											<span>{optionGroup.selectedOption.displayName}</span>
+										</h3>
+									</div>
+								);
+							})
+						}
+					</div>
+				}
+				<div className="ReviewConfigOption-control">
+					<button
+						className="w-10"
+						type="button"
+						onClick={() => {
+							if (onEditClick) {
+								onEditClick?.();
+							} else {
+								page.setCurrentSelectionGroup(id);
+								modal.close();
+							}
+						}}
+					>
+						<EditPencil />
+					</button>
+				</div>
+			</div>
 		</div>
 	);
 });

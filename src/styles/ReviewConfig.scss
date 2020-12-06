@@ -1,30 +1,10 @@
 .ReviewConfig {
+	@apply overflow-auto;
+	height: calc(var(--vh100) - var(--device-header-h) - var(--device-footer-h) - var(--header-height) - var(--review-nav-height) - var(--review-footer-height));
 	&.is-debug {
 		border: 1px solid red;
 	}
-	@apply overflow-auto;
-	height: calc(var(--vh100) - var(--device-header-h) - var(--device-footer-h) - var(--header-height) - var(--review-nav-height) - var(--review-footer-height));
 	.ReviewConfig-body {
 		@apply border-t-4 border-solid border-gray-light100;
-	}
-	.ReviewConfig-options {
-		@apply grid items-center mx-auto;
-		--review-config-gap: 1.5rem;
-		--review-config-option-width: 136px;
-		grid-gap: var(--review-config-gap);
-		grid-template-columns: repeat(2, minmax(var(--review-config-option-width), 1fr));
-	}
-	.ReviewConfig-option {
-		@apply flex flex-col text-center m-0;
-	}
-	.ReviewConfig-optionBody {
-		max-width: var(--review-config-option-width);
-	}
-}
-
-@screen xl {
-	.ReviewConfig .ReviewConfig-options {
-		grid-template-columns: repeat(auto-fit, minmax(var(--review-config-option-width), 1fr));
-		max-width: calc((var(--review-config-option-width) * 4) + (var(--review-config-gap) * 3));
 	}
 }
