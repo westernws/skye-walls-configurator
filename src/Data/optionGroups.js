@@ -192,7 +192,7 @@ module.exports = [
 				hex: 'F5EEE9',
 				image: {
 					basePath: '/images/environment/wall',
-					fileName: 'wall-1.png',
+					fileName: 'Wall-Color-Horizon.jpg',
 					width: 1230,
 				},
 			},
@@ -277,7 +277,7 @@ module.exports = [
 				displayName: 'Pergo',
 				image: {
 					basePath: '/images/environment/floor',
-					fileName: 'floor-1.png',
+					fileName: 'Floor-Jacobean.png',
 					width: 1230,
 				},
 			},

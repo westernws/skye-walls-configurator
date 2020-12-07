@@ -89,7 +89,63 @@ export default [
 			'Contemporary hardware',
 			'After-market screening solution',
 		],
-		images,
+		images: [
+			{
+				color: 'ba',
+				fileName: '7600-2xo-bronze-ano.png',
+				width: 1230,
+			},
+			{
+				color: 'sa',
+				fileName: '7600-2xo-satin-ano.png',
+				width: 1230,
+			},
+			{
+				color: 'warmtone',
+				fileName: '7600-2xo-warmtone.png',
+				width: 1230,
+			},
+			{
+				color: 'white',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'an',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'bb',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'briar',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'ct',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'hb',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'nw',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'sb',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+		],
 		selectionGroups: [
 			{
 				name: 'color',
