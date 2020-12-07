@@ -54,8 +54,17 @@ const Product = types
 		},
 		get selectedImage() {
 			const selectedColorName = self.selectedColor.name;
+			const selectedHandleName = self.selectedHandle.name;
 
-			return self.images.find(image => image.color.name === selectedColorName);
+			return self.images.find((image) => {
+				if (!image.handle) {
+					return image.color.name === selectedColorName;
+				}
+				return (
+					image.color.name === selectedColorName
+					&& image.handle.name === selectedHandleName
+				);
+			});
 		},
 		get sizes() {
 			return self.selectedImage.sizes;

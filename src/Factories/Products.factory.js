@@ -10,6 +10,7 @@ export const ProductsFactory = (products) => {
 	return selectedProducts.map((product) => {
 		const {
 			name,
+			baseImagePath = '',
 			displayName,
 			description,
 			inheritedFeatures = '',
@@ -22,7 +23,9 @@ export const ProductsFactory = (products) => {
 		const colorSelectionGroup = selectionGroupModels.find(sgm => sgm.name === 'color');
 		const colorOptionGroup = colorSelectionGroup.optionGroups.find(optionGroup => optionGroup.name === 'color');
 		const colorOptions = colorOptionGroup.options;
-		// debugger;
+		const handleSelectionGroup = selectionGroupModels.find(sgm => sgm.name === 'handles');
+		const handleOptionGroup = handleSelectionGroup.optionGroups.find(optionGroup => optionGroup.name === 'handles');
+		const handleOptions = handleOptionGroup.options;
 		const model = ProductModel.create({
 			id: `ProductModel_${uniqueId()}`,
 			name,
@@ -32,7 +35,7 @@ export const ProductsFactory = (products) => {
 			inheritedFeaturesLong,
 			features,
 			selectionGroups: selectionGroupModels,
-			images: ProductImageFactory(images, colorOptions),
+			images: ProductImageFactory(images, colorOptions, baseImagePath, handleOptions),
 		});
 
 		return model;

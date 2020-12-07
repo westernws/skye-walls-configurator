@@ -182,7 +182,96 @@ export default [
 			'Design pressure (DP) rating of 50 for durability',
 			'Compliant with California’s rigorous Title 24 requirements',
 		],
-		images,
+		baseImagePath: '/images/product/sliding/aluminum/performance',
+		// TODO (aboyer) May want to add "short-name" field for image directory mapping.
+		images: [
+			{
+				color: 'ba',
+				fileName: '7600-2xo-bronze-ano.png',
+				width: 1230,
+			},
+			{
+				color: 'sa',
+				fileName: '7600-2xo-satin-ano.png',
+				width: 1230,
+			},
+			{
+				color: 'warmtone',
+				fileName: '7600-2xo-warmtone.png',
+				width: 1230,
+			},
+			{
+				color: 'white',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'an',
+				handle: 'cb',
+				fileName: '7600-aluminum-autumn-night-contemporary-black-non-pocketing-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'an',
+				handle: 'cbn',
+				fileName: '7600-aluminum-autumn-night-contemporary-brushed-nickel-non-pocketing-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'an',
+				handle: 'fmb',
+				fileName: '7600-aluminum-autumn-night-flush-mounted-black-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'an',
+				handle: 'fmbn',
+				fileName: '7600-aluminum-autumn-night-flush-mounted-brushed-nickel-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'an',
+				handle: 'pb',
+				fileName: '7600-aluminum-autumn-night-premium-black-non-pocketing-classic.png',
+				width: 1230,
+			},
+			{
+				color: 'an',
+				handle: 'pbn',
+				fileName: '7600-aluminum-autumn-night-premium-brushed-nickel-non-pocketing-classic.png',
+				width: 1230,
+			},
+			{
+				color: 'bb',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'briar',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'ct',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'hb',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'nw',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+			{
+				color: 'sb',
+				fileName: '7600-2xo-white.png',
+				width: 1230,
+			},
+		],
 		selectionGroups: [
 			{
 				name: 'color',
