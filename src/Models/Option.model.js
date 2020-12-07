@@ -1,6 +1,7 @@
 import { types } from 'mobx-state-tree';
 
 import { TreeHelpers } from '~/Models/TreeHelpers';
+import { ImageModel } from '~/Models/Image.model';
 
 const Option = types
 	.model('OptionModel', {
@@ -11,6 +12,7 @@ const Option = types
 		finish: '',
 		selected: types.boolean,
 		displayOptionGroupName: '',
+		thumb: types.maybeNull(ImageModel),
 	})
 	.views(self => ({
 		get parent() {

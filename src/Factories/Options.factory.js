@@ -2,6 +2,7 @@ import { OptionModel } from '~/Models/Option.model';
 import { OptionColorModel } from '~/Models/OptionColor.model';
 import { OptionEnvironmentModel } from '~/Models/OptionEnvironment.model';
 import { EnvironmentImageModel } from '~/Models/EnvironmentImage.model';
+import { ImageModel } from '~/Models/Image.model';
 import { uniqueId } from '~/util/uniqueId';
 
 export const OptionsFactory = (options, optionGroupName) => {
@@ -43,5 +44,11 @@ export const OptionsFactory = (options, optionGroupName) => {
 		displayName: option.displayName,
 		finish: option.finish || '',
 		selected: typeof option.selected !== 'undefined',
+		...(option.thumb) && {
+			thumb: ImageModel.create({
+				id: `ImageModel_${uniqueId()}`,
+				...option.thumb,
+			}),
+		},
 	}));
 };

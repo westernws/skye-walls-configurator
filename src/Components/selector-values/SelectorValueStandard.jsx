@@ -3,7 +3,6 @@ import { observer } from 'mobx-react-lite';
 import cn from 'classnames';
 import Image from 'next/image';
 
-import { DummyImage } from '~/Components/DummyImage';
 import { OptionInfo } from '~/Components/OptionInfo';
 import { Info } from '~/Components/svg/Info.svg';
 import { useMst } from '~/Stores/App.store';
@@ -92,7 +91,17 @@ export const SelectorValueStandard = observer(({ optionGroup, simpleHeader = fal
 								>
 									<div className="flex w-full xl:justify-between">
 										<div className="flex-shrink-0 xl:w-1/2">
-											<DummyImage width="120" height="120" />
+											{
+												Boolean(option.thumb) &&
+												<Image
+													src={option.thumb.src}
+													srcSet={option.thumb.srcSet}
+													alt={option.displayName}
+													layout="intrinsic"
+													width="120"
+													height="120"
+												/>
+											}
 										</div>
 										<div className="OptionGroup-optionName">
 											<span className="block">{`${option.displayName}${(hasFinish ? ',' : '')}`}</span>
