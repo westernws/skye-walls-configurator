@@ -81,12 +81,27 @@ export const ImageGrid = observer(({ optionGroup, simpleHeader = false, alwaysOp
 							>
 								<button
 									type="button"
+									className="w-full"
 									onClick={() => {
 										product.setOption(optionGroup.name, option.name);
 									}}
 								>
 									<div>
-										<DummyImage className="block" width="120" height="120" />
+										{
+											Boolean(option.thumb) &&
+											<Image
+												src={option.thumb.src}
+												srcSet={option.thumb.srcSet}
+												alt={option.displayName}
+												layout="intrinsic"
+												width="120"
+												height="120"
+											/>
+										}
+										{
+											!option.thumb &&
+											<DummyImage className="block" width="120" height="120" />
+										}
 									</div>
 									{
 										isSelected &&

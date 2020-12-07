@@ -7,6 +7,7 @@ const OptionEnvironmentModel = OptionModel
 	.props({
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('OptionEnvironmentModel_') === 0),
 		image: types.maybeNull(EnvironmentImageModel),
+		thumb: types.maybeNull(EnvironmentImageModel),
 		hex: '',
 	})
 	.named('OptionEnvironmentModel');

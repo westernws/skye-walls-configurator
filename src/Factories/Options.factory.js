@@ -28,6 +28,12 @@ export const OptionsFactory = (options, optionGroupName) => {
 				id: `EnvironmentImageModel_${uniqueId()}`,
 				...option.image,
 			}),
+			...(option.thumb) && {
+				thumb: EnvironmentImageModel.create({
+					id: `EnvironmentImageModel_${uniqueId()}`,
+					...option.thumb,
+				}),
+			},
 		}));
 	}
 	return options.map(option => OptionModel.create({

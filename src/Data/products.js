@@ -13,7 +13,7 @@ const environmentOptionGroups = [
 	},
 	{
 		name: 'floor',
-		options: ['pergo', 'hardwood'],
+		options: ['natural', 'jacobean', 'sw', 'wo', 'tile', 'marble'],
 	},
 ];
 const images = [

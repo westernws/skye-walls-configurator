@@ -273,21 +273,87 @@ module.exports = [
 		displayName: 'Floor',
 		options: [
 			{
-				name: 'pergo',
-				displayName: 'Pergo',
+				name: 'natural',
+				displayName: 'Natural',
+				image: {
+					basePath: '/images/environment/floor',
+					fileName: 'Floor-Natural.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/floor/thumb',
+					fileName: 'Floor-Natural.jpg',
+					width: 150,
+				},
+			},
+			{
+				name: 'jacobean',
+				displayName: 'Jacobean',
 				image: {
 					basePath: '/images/environment/floor',
 					fileName: 'Floor-Jacobean.png',
 					width: 1230,
 				},
+				thumb: {
+					basePath: '/images/environment/floor/thumb',
+					fileName: 'Floor-Jacobean.jpg',
+					width: 150,
+				},
 			},
 			{
-				name: 'hardwood',
-				displayName: 'Hardwood',
+				name: 'sw',
+				displayName: 'Simply White',
 				image: {
 					basePath: '/images/environment/floor',
-					fileName: 'floor-2.png',
+					fileName: 'Floor-Simply-White.png',
 					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/floor/thumb',
+					fileName: 'Floor-Simply-White.jpg',
+					width: 150,
+				},
+			},
+			{
+				name: 'wo',
+				displayName: 'White Oak',
+				image: {
+					basePath: '/images/environment/floor',
+					fileName: 'Floor-White-Oak.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/floor/thumb',
+					fileName: 'Floor-White-Oak.jpg',
+					width: 150,
+				},
+			},
+			{
+				name: 'tile',
+				displayName: 'Tile',
+				image: {
+					basePath: '/images/environment/floor',
+					fileName: 'Floor-Tile.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/floor/thumb',
+					fileName: 'Floor-Tile.jpg',
+					width: 150,
+				},
+			},
+			{
+				name: 'marble',
+				displayName: 'Marble',
+				image: {
+					basePath: '/images/environment/floor',
+					fileName: 'Floor-Marble.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/floor/thumb',
+					fileName: 'Floor-Marble.jpg',
+					width: 150,
 				},
 			},
 		],
