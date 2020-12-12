@@ -64,7 +64,7 @@ export const ReviewConfigOptions = observer(({ product }) => {
 				}}
 			/>
 			{
-				product.selectionGroups.map((selectionGroup) => {
+				product.selectionGroupsWithSelectedOptions.map((selectionGroup) => {
 					return (
 						<ReviewConfigOption key={selectionGroup.name} selectionGroup={selectionGroup} />
 					);

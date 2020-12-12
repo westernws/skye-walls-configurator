@@ -52,29 +52,6 @@ const Product = types
 		get handleOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'handles') || {};
 		},
-		get selectedImage() {
-			const selectedColorName = self.selectedColor.name;
-			const selectedHandleName = self.selectedHandle.name;
-
-			return self.images.find((image) => {
-				if (!image.handle) {
-					return image.color.name === selectedColorName;
-				}
-				return (
-					image.color.name === selectedColorName
-					&& image.handle.name === selectedHandleName
-				);
-			});
-		},
-		get sizes() {
-			return self.selectedImage.sizes;
-		},
-		get src() {
-			return self.selectedImage.src;
-		},
-		get srcSet() {
-			return self.selectedImage.srcSet;
-		},
 		get link() {
 			const href = ['[product-collection]', '[product-group]', '[product]'];
 			const { productGroup } = self;
@@ -145,6 +122,20 @@ const Product = types
 		get selectedHandle() {
 			return self.handleOptionGroup?.options?.find?.(option => option.selected) || {};
 		},
+		get selectedImage() {
+			const selectedColorName = self.selectedColor.name;
+			const selectedHandleName = self.selectedHandle.name;
+
+			return self.images.find((image) => {
+				if (!image.handle) {
+					return image.color.name === selectedColorName;
+				}
+				return (
+					image.color.name === selectedColorName
+					&& image.handle.name === selectedHandleName
+				);
+			});
+		},
 		get selectedOptions() {
 			const selectedOptions = [
 				// self.selectedBackground,
@@ -168,8 +159,22 @@ const Product = types
 		get selectionGroupDisplayNames() {
 			return self.selectionGroups?.map?.(selectionGroup => selectionGroup.displayName) || [];
 		},
+		get selectionGroupsWithSelectedOptions() {
+			return self.selectionGroups.filter((selectionGroup) => {
+				return selectionGroup.hasSelectedOptions;
+			}) || [];
+		},
+		get sizes() {
+			return self.selectedImage.sizes;
+		},
 		get slug() {
 			return kebabCase(self.displayName);
+		},
+		get src() {
+			return self.selectedImage.src;
+		},
+		get srcSet() {
+			return self.selectedImage.srcSet;
 		},
 		get wallOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'wall') || {};
@@ -221,8 +226,11 @@ const Product = types
 					return;
 				}
 				const selectedOption = optionGroup?.options?.find?.(option => option.defaultSelected);
-				const result = selectedOption || optionGroup.options[0];
+				let result = selectedOption;
 
+				if (!result && optionGroup.isColor) {
+					[result] = optionGroup.options;
+				}
 				if (result) {
 					result.selected = true;
 				}

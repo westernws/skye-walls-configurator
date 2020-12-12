@@ -12,7 +12,12 @@ import { HeaderSimple } from '~/Components/selector-values/HeaderSimple';
 
 export const SelectorValueStandard = observer(({ optionGroup, simpleHeader = false, alwaysOpen = false }) => {
 	const { page, modals, isMediaQueryXl } = useMst();
-	const hasFinish = Boolean(optionGroup.selectedOption.finish);
+	const {
+		selectedOption: {
+			finish = null,
+		} = {},
+	} = optionGroup;
+	const hasFinish = Boolean(finish);
 	const {
 		product,
 		showOptionGroupAccordion,
@@ -73,7 +78,7 @@ export const SelectorValueStandard = observer(({ optionGroup, simpleHeader = fal
 			>
 				{
 					optionGroup.options.map((option) => {
-						const isSelected = optionGroup.options.find(o => o.selected).name === option.name;
+						const isSelected = optionGroup.options.find(o => o.selected)?.name === option.name;
 
 						return (
 							<li

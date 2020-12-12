@@ -5,7 +5,31 @@ import Image from 'next/image';
 import { useMst } from '~/Stores/App.store';
 
 export const ConfigProductImagery = observer(() => {
-	const { product } = useMst().page;
+	const {
+		product,
+		product: {
+			selectedBackground: {
+				image: {
+					src: bgSrc = '',
+					srcSet: bgSrcSet = '',
+					sizes: bgSizes = '',
+				} = {},
+			} = {},
+			selectedFloor: {
+				image: {
+					src: floorSrc = '',
+					srcSet: floorSrcSet = '',
+					sizes: floorSizes = '',
+				} = {},
+			} = {},
+			selectedWall: {
+				hex: wallHex = '',
+			} = {},
+			src = '',
+			srcSet = '',
+			sizes = '',
+		} = {},
+	} = useMst().page;
 	const canvasRef = useRef(null);
 	const wallColorRef = useRef(null);
 
@@ -16,27 +40,30 @@ export const ConfigProductImagery = observer(() => {
 
 		context.beginPath();
 		context.rect(0, 0, context.canvas.width, context.canvas.height);
-		context.fillStyle = `#${product.selectedWall.hex}`;
+		context.fillStyle = `#${wallHex || 'fff'}`;
 		context.fill();
 		wallColor.src = canvas.toDataURL();
 	}, [product.selectedWall.hex]);
 
 	return (
 		<>
-			<Image
-				className="ConfigImage-imageBackground"
-				src={product.selectedBackground.image.src}
-				srcSet={product.selectedBackground.image.srcSet}
-				layout="fill"
-				unoptimized
-				loading="eager"
-				priority
-				sizes={product.selectedBackground.image.sizes}
-				alt=""
-			/>
+			{
+				Boolean(bgSrc && bgSrcSet && bgSizes) &&
+				<Image
+					className="ConfigImage-imageBackground"
+					src={bgSrc}
+					srcSet={bgSrcSet}
+					layout="fill"
+					unoptimized
+					loading="eager"
+					priority
+					sizes={bgSizes}
+					alt=""
+				/>
+			}
 			<canvas
 				ref={canvasRef}
-				data-hex={product.selectedWall.hex}
+				data-hex={wallHex}
 				className="hidden"
 				// Keep this relatively small but maintain aspect ratio
 				width="123"
@@ -48,22 +75,25 @@ export const ConfigProductImagery = observer(() => {
 				alt=""
 				className="ConfigImage-imageWall"
 			/>
-			<Image
-				className="ConfigImage-image"
-				src={product.selectedFloor.image.src}
-				srcSet={product.selectedFloor.image.srcSet}
-				layout="fill"
-				unoptimized
-				loading="eager"
-				priority
-				sizes={product.selectedFloor.image.sizes}
-				alt=""
-			/>
+			{
+				Boolean(floorSrc && floorSrcSet && floorSizes) &&
+				<Image
+					className="ConfigImage-image"
+					src={floorSrc}
+					srcSet={floorSrcSet}
+					layout="fill"
+					unoptimized
+					loading="eager"
+					priority
+					sizes={floorSizes}
+					alt=""
+				/>
+			}
 			<Image
 				className="ConfigImage-imageProduct"
-				src={product.src}
-				srcSet={product.srcSet}
-				sizes={product.sizes}
+				src={src}
+				srcSet={srcSet}
+				sizes={sizes}
 				layout="fill"
 				unoptimized
 				loading="eager"

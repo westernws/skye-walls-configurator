@@ -48,7 +48,10 @@ export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick }
 										<DummyImage width="188" height="132" />
 										<h3 className="flex flex-col items-center">
 											<strong className="text-blue">{optionGroup.displayName}</strong>
-											<span>{optionGroup.selectedOption.displayName}</span>
+											{
+												Boolean(optionGroup.selectedOption) &&
+												<span>{optionGroup.selectedOption.displayName}</span>
+											}
 										</h3>
 									</div>
 								);

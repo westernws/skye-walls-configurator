@@ -15,4 +15,7 @@ export const SelectionGroupModel = types
 		get hasMultipleOptionGroups() {
 			return self.optionGroups.length > 1;
 		},
+		get hasSelectedOptions() {
+			return Boolean(self.optionGroups.filter(optionGroup => optionGroup.selectedOption).length);
+		},
 	}));

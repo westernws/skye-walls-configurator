@@ -48,7 +48,7 @@ export const WallColor = observer(({ optionGroup }) => {
 								key={colorOption.name}
 								colorOptions={colorOption}
 								groupName="wallcolor"
-								isChecked={optionGroup.options.find(o => o.selected).name === colorOption.name}
+								isChecked={optionGroup.options.find(o => o.selected)?.name === colorOption.name}
 								onChange={(value) => {
 									product.setOption(optionGroup.name, value);
 								}}

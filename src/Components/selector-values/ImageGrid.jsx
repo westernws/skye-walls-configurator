@@ -70,7 +70,7 @@ export const ImageGrid = observer(({ optionGroup, simpleHeader = false, alwaysOp
 			>
 				{
 					optionGroup.options.map((option) => {
-						const isSelected = optionGroup.options.find(o => o.selected).name === option.name;
+						const isSelected = optionGroup.options.find(o => o.selected)?.name === option.name;
 
 						return (
 							<li
