@@ -454,7 +454,44 @@ export default [
 			},
 			{
 				color: 'nw',
-				fileName: '7600-2xo-white.png',
+				handle: null,
+				fileName: '7600-aluminum-navajo-white-no-handle-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'nw',
+				handle: 'cb',
+				fileName: '7600-aluminum-navajo-white-contemporary-black-non-pocketing-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'nw',
+				handle: 'cbn',
+				fileName: '7600-aluminum-navajo-white-contemporary-brushed-nickel-non-pocketing-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'nw',
+				handle: 'fmb',
+				fileName: '7600-aluminum-navajo-white-flush-mounted-black-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'nw',
+				handle: 'fmbn',
+				fileName: '7600-aluminum-navajo-white-flush-mounted-brushed-nickel-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'nw',
+				handle: 'pb',
+				fileName: '7600-aluminum-navajo-white-premium-black-non-pocketing-classic.png',
+				width: 1230,
+			},
+			{
+				color: 'nw',
+				handle: 'pbn',
+				fileName: '7600-aluminum-navajo-white-premium-brushed-nickel-non-pocketing-classic.png',
 				width: 1230,
 			},
 			{
