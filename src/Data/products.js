@@ -186,11 +186,6 @@ export default [
 		// TODO (aboyer) May want to add "short-name" field for image directory mapping.
 		images: [
 			{
-				color: 'sa',
-				fileName: '7600-2xo-satin-ano.png',
-				width: 1230,
-			},
-			{
 				color: 'warmtone',
 				fileName: '7600-2xo-warmtone.png',
 				width: 1230,
@@ -492,6 +487,48 @@ export default [
 				color: 'nw',
 				handle: 'pbn',
 				fileName: '7600-aluminum-navajo-white-premium-brushed-nickel-non-pocketing-classic.png',
+				width: 1230,
+			},
+			{
+				color: 'sa',
+				handle: null,
+				fileName: '7600-aluminum-satin-anodized-no-handle-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'sa',
+				handle: 'cb',
+				fileName: '7600-aluminum-satin-anodized-contemporary-black-non-pocketing-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'sa',
+				handle: 'cbn',
+				fileName: '7600-aluminum-satin-anodized-contemporary-brushed-nickel-non-pocketing-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'sa',
+				handle: 'fmb',
+				fileName: '7600-aluminum-satin-anodized-flush-mounted-black-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'sa',
+				handle: 'fmbn',
+				fileName: '7600-aluminum-satin-anodized-flush-mounted-brushed-nickel-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'sa',
+				handle: 'pb',
+				fileName: '7600-aluminum-satin-anodized-premium-black-non-pocketing-classic.png',
+				width: 1230,
+			},
+			{
+				color: 'sa',
+				handle: 'pbn',
+				fileName: '7600-aluminum-satin-anodized-premium-brushed-nickel-non-pocketing-classic.png',
 				width: 1230,
 			},
 			{
