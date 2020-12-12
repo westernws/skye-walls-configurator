@@ -443,21 +443,87 @@ module.exports = [
 		displayName: 'View',
 		options: [
 			{
-				name: 'countryside',
-				displayName: 'Countryside',
+				name: 'cityscape',
+				displayName: 'Cityscape',
 				image: {
 					basePath: '/images/environment/background',
-					fileName: 'background-1.png',
+					fileName: 'View-Sliding-Cityscape.png',
 					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Sliding-Cityscape.png',
+					width: 150,
 				},
 			},
 			{
-				name: 'beach',
-				displayName: 'Beach',
+				name: 'desert',
+				displayName: 'Desert',
 				image: {
 					basePath: '/images/environment/background',
-					fileName: 'background-2.png',
+					fileName: 'View-Sliding-Desert.png',
 					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Sliding-Desert.png',
+					width: 150,
+				},
+			},
+			{
+				name: 'mv',
+				displayName: 'Mountain View',
+				image: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Sliding-Mountain-View.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Sliding-Mountain-View.png',
+					width: 150,
+				},
+			},
+			{
+				name: 'oceanside',
+				displayName: 'Oceanside',
+				image: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Sliding-Oceanside.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Sliding-Oceanside.png',
+					width: 150,
+				},
+			},
+			{
+				name: 'poolside',
+				displayName: 'Poolside',
+				image: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Sliding-Poolside.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Sliding-Poolside.png',
+					width: 150,
+				},
+			},
+			{
+				name: 'wt',
+				displayName: 'Wild Thing',
+				image: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Sliding-Wild-Thing.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Sliding-Wild-Thing.png',
+					width: 150,
 				},
 			},
 		],

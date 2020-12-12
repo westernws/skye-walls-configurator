@@ -5,7 +5,7 @@ const colorOptionGroups = [{
 const environmentOptionGroups = [
 	{
 		name: 'view',
-		options: ['beach', 'countryside'],
+		options: ['cityscape', 'desert', 'mv', 'oceanside', 'poolside', 'wt'],
 	},
 	{
 		name: 'wall',
