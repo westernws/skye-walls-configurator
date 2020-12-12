@@ -12,11 +12,13 @@ export const ReviewConfigOptions = observer(({ product }) => {
 	return (
 		<div className="space-y-6">
 			<ReviewConfigOption
+				padThumb={false}
 				selectionGroup={{
 					displayNameSingular: 'Product',
 					optionGroups: [{
 						selectedOption: {
 							displayName: product.displayName,
+							thumb: product.productGroup.reviewImage,
 						},
 					}],
 				}}
@@ -38,11 +40,13 @@ export const ReviewConfigOptions = observer(({ product }) => {
 				}}
 			/>
 			<ReviewConfigOption
+				padThumb={false}
 				selectionGroup={{
 					displayNameSingular: 'Material',
 					optionGroups: [{
 						selectedOption: {
 							displayName: product.productGroupDisplayName,
+							thumb: product.productGroupImage,
 						},
 					}],
 				}}
@@ -66,7 +70,10 @@ export const ReviewConfigOptions = observer(({ product }) => {
 			{
 				product.selectionGroupsWithSelectedOptions.map((selectionGroup) => {
 					return (
-						<ReviewConfigOption key={selectionGroup.name} selectionGroup={selectionGroup} />
+						<ReviewConfigOption
+							key={selectionGroup.name}
+							selectionGroup={selectionGroup}
+						/>
 					);
 				})
 			}

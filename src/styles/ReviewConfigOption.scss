@@ -5,6 +5,15 @@
 		top: -15px;
 		right: -15px;
 	}
+	.ReviewConfigOption-thumb {
+		@apply w-full;
+	}
+	.ReviewConfigOption-swatch,
+	.ReviewConfigOption-swatchMulti {
+		@apply rounded-full my-4 mx-auto;
+		width: 110px;
+		height: 110px;
+	}
 }
 
 @screen xl {
@@ -12,6 +21,12 @@
 		@apply flex-row items-center;
 		.ReviewConfigOption-control {
 			@apply static ml-12;
+		}
+		.ReviewConfigOption-thumb {
+			width: 188px;
+		}
+		.ReviewConfigOption-swatch {
+			@apply mr-8;
 		}
 	}
 }

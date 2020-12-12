@@ -50,5 +50,11 @@ export const OptionsFactory = (options, optionGroupName) => {
 				...option.thumb,
 			}),
 		},
+		...(option.detailImage) && {
+			detailImage: ImageModel.create({
+				id: `ImageModel_${uniqueId()}`,
+				...option.detailImage,
+			}),
+		},
 	}));
 };

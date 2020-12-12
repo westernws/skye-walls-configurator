@@ -89,6 +89,11 @@ module.exports = [
 				name: 'wbs',
 				displayName: 'Water Barrier Sill',
 				description: 'Designed for effectiveness in most climates, a built-in self-drainage weep system helps to safeguard against water intrusion.',
+				detailImage: {
+					basePath: '/images/sill/detail',
+					fileName: 'Sill-Water-Barrier.jpg',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/sill/thumb',
 					fileName: 'Sill-Water-Barrier.png',
@@ -99,6 +104,11 @@ module.exports = [
 				name: 'fs',
 				displayName: 'Flush Sill',
 				description: 'When ease of entry is more important than performance against the elements. Lines up with most interior flooring.',
+				detailImage: {
+					basePath: '/images/sill/detail',
+					fileName: 'Sill-Flush.jpg',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/sill/thumb',
 					fileName: 'Sill-Flush.png',
@@ -109,6 +119,11 @@ module.exports = [
 				name: 'ts',
 				displayName: 'Thinline Sill',
 				description: 'Ideal for projects where a continuation of flooring from the inside to the outdoors needs to appear virtually seamless.',
+				detailImage: {
+					basePath: '/images/sill/detail',
+					fileName: 'Sill-Thinline.jpg',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/sill/thumb',
 					fileName: 'Sill-Thinline.png',
@@ -126,6 +141,11 @@ module.exports = [
 				displayName: 'Flush-Mounted',
 				finish: 'Brushed Nickel',
 				description: 'Clean narrow design allows panels to easily slide past each other. Available in brushed nickel or black.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Flush-Mount-N.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Flush-Mount-N.png',
@@ -137,6 +157,11 @@ module.exports = [
 				displayName: 'Flush-Mounted',
 				finish: 'Black',
 				description: 'Clean narrow design allows panels to easily slide past each other. Available in brushed nickel or black.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Flush-Mount-B.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Flush-Mount-B.png',
@@ -148,6 +173,11 @@ module.exports = [
 				displayName: 'Premium',
 				finish: 'Brushed Nickel',
 				description: 'Minimal one-piece design and a comfortable grip. In brushed nickel or black. Not available on pocketing multi-slide doors.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Premium-N.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Premium-N.png',
@@ -159,6 +189,11 @@ module.exports = [
 				displayName: 'Premium',
 				finish: 'Black',
 				description: 'Minimal one-piece design and a comfortable grip. In brushed nickel or black. Not available on pocketing multi-slide doors.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Premium-B.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Premium-B.png',
@@ -170,6 +205,11 @@ module.exports = [
 				displayName: 'C-Pull',
 				finish: 'Almond',
 				description: 'For a consistent look, this standard handle matches the color of the door frame.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Contemporary-B.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Contemporary-B.png',
@@ -181,6 +221,11 @@ module.exports = [
 				displayName: 'C-Pull',
 				finish: 'Black',
 				description: 'For a consistent look, this standard handle matches the color of the door frame.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Contemporary-B.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Contemporary-B.png',
@@ -192,6 +237,11 @@ module.exports = [
 				displayName: 'C-Pull',
 				finish: 'White',
 				description: 'For a consistent look, this standard handle matches the color of the door frame.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Contemporary-B.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Contemporary-B.png',
@@ -203,6 +253,11 @@ module.exports = [
 				displayName: 'Contemporary',
 				finish: 'Brushed Nickel',
 				description: 'Easy-grip modern design. In brushed nickel or black. Not available on pocketing multi-slide doors.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Contemporary-N.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Contemporary-N.png',
@@ -214,6 +269,11 @@ module.exports = [
 				displayName: 'Contemporary',
 				finish: 'Black',
 				description: 'Easy-grip modern design. In brushed nickel or black. Not available on pocketing multi-slide doors.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Contemporary-B.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Contemporary-B.png',
@@ -224,6 +284,11 @@ module.exports = [
 				name: 'handles',
 				displayName: 'Handles',
 				description: 'Each of our bi-fold doors features three high-quality, contemporary handles available in brushed nickel or black.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Contemporary-B.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Contemporary-B.png',
@@ -234,6 +299,11 @@ module.exports = [
 				name: 'dh',
 				displayName: 'Dallas Handle',
 				description: 'Located on the swinging panel, making it convenient for everyday use.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Contemporary-B.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Contemporary-B.png',
@@ -244,6 +314,11 @@ module.exports = [
 				name: 'dsph',
 				displayName: 'D-Shaped Pull Handle',
 				description: 'Aids in opening and closing the door.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Contemporary-B.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Contemporary-B.png',
@@ -254,6 +329,11 @@ module.exports = [
 				name: 'ilh',
 				displayName: 'Inactive Lock Handle',
 				description: 'Secures the door panels.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7600-Contemporary-B.png',
+					width: 400,
+				},
 				thumb: {
 					basePath: '/images/handle/thumb',
 					fileName: 'Handle-7600-Contemporary-B.png',

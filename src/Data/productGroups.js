@@ -1,6 +1,7 @@
 const aspectRatio = 1.24955009;
 const basePath = '/images/product-group';
 const width = 350;
+const reviewImageWidth = 188;
 
 export default [
 	{
@@ -22,6 +23,12 @@ export default [
 			basePath,
 			fileName: 'ss-sliding-door.gif',
 			width,
+		},
+		reviewImage: {
+			aspectRatio,
+			basePath,
+			fileName: 'ss-sliding-door.png',
+			width: reviewImageWidth,
 		},
 		products: ['camsd', 'pamsd', 'ssamsd'],
 	},
@@ -45,6 +52,12 @@ export default [
 			fileName: 'sliding-door.gif',
 			width,
 		},
+		reviewImage: {
+			aspectRatio,
+			basePath,
+			fileName: 'ss-sliding-door.png',
+			width: reviewImageWidth,
+		},
 		products: ['vmsd'],
 	},
 	{
@@ -65,6 +78,12 @@ export default [
 			basePath,
 			fileName: 'ss-folding-door.gif',
 			width,
+		},
+		reviewImage: {
+			aspectRatio,
+			basePath,
+			fileName: 'ss-sliding-door.png',
+			width: reviewImageWidth,
 		},
 		products: ['cabfd', 'pabfd', 'ssabfd'],
 	},

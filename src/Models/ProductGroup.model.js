@@ -15,6 +15,7 @@ const ProductGroup = types
 		products: types.optional(types.array(ProductModel), []),
 		image: ImageModel,
 		animatedImage: ImageModel,
+		reviewImage: ImageModel,
 	})
 	.views(self => ({
 		get slug() {

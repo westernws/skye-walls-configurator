@@ -13,6 +13,7 @@ const Option = types
 		selected: types.boolean,
 		displayOptionGroupName: '',
 		thumb: types.maybeNull(ImageModel),
+		detailImage: types.maybeNull(ImageModel),
 	})
 	.views(self => ({
 		get parent() {

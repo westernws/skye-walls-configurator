@@ -14,6 +14,7 @@ export const ReviewConfig = observer(() => {
 	if (!selectedProduct) {
 		return null;
 	}
+	selectedProduct.productGroupImage.setWidth(188);
 	return (
 		<div className="ReviewConfigContainer">
 			<div className="ReviewNav xl:hidden">

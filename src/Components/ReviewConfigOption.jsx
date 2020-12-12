@@ -1,11 +1,12 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import Image from 'next/image';
+import cn from 'classnames';
 
 import { useMst } from '~/Stores/App.store';
-import { DummyImage } from '~/Components/DummyImage';
 import { EditPencil } from '~/Components/svg/EditPencil.svg';
 
-export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick }) => {
+export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick, padThumb = true }) => {
 	const { modals, page } = useMst();
 	const modal = modals.get('modal-primary');
 	const {
@@ -17,6 +18,8 @@ export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick }
 	const {
 		selectedOption: {
 			displayName: selectedOptionDisplayName,
+			hex = '',
+			thumb = null,
 		} = {},
 	} = selectedOptionGroup;
 
@@ -33,19 +36,58 @@ export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick }
 			</div>
 			<div className="xl:flex xl:items-center">
 				{
-					!hasManyOptionGroups &&
+					!hasManyOptionGroups && Boolean(thumb) &&
+					<div className={cn('ReviewConfigOption-thumb', {
+						'xl:p-8': padThumb,
+					})}
+					>
+						<Image
+							src={thumb.src}
+							alt={selectedOptionDisplayName}
+							width={thumb.width}
+							height={thumb.height}
+							layout="responsive"
+						/>
+					</div>
+				}
+				{
+					!hasManyOptionGroups && Boolean(hex) &&
 					<div>
-						<DummyImage width="188" height="132" />
+						<div className="ReviewConfigOption-swatch" style={{ backgroundColor: `#${hex}` }} />
 					</div>
 				}
 				{
 					hasManyOptionGroups &&
-					<div className="flex flex-col space-y-6 xl:flex-row xl:space-y-0 xl:space-x-2">
+					<div className="flex flex-col space-y-6 xl:flex-row xl:space-y-0 xl:space-x-6">
 						{
 							optionGroups.map((optionGroup) => {
+								console.log('optionGroup', optionGroup);
 								return (
 									<div key={optionGroup.name} className="flex flex-col items-center space-y-2">
-										<DummyImage width="188" height="132" />
+										{
+											Boolean(optionGroup.selectedOption.thumb) &&
+											<div className={cn('ReviewConfigOption-thumb p-0', {
+												'xl:p-8': padThumb,
+											})}
+											>
+												<Image
+													src={optionGroup.selectedOption.thumb.src}
+													alt={selectedOptionDisplayName}
+													width={optionGroup.selectedOption.thumb.width}
+													height={optionGroup.selectedOption.thumb.height}
+													layout="responsive"
+												/>
+											</div>
+										}
+										{
+											Boolean(optionGroup.selectedOption.hex) &&
+											<div className="flex flex-col justify-center h-full">
+												<div
+													className="ReviewConfigOption-swatchMulti"
+													style={{ backgroundColor: `#${optionGroup.selectedOption.hex}` }}
+												/>
+											</div>
+										}
 										<h3 className="flex flex-col items-center">
 											<strong className="text-blue">{optionGroup.displayName}</strong>
 											{

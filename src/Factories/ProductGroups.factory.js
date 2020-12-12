@@ -9,7 +9,7 @@ export const ProductGroupsFactory = (productGroups) => {
 
 	return selectedProductGroups.map((productGroup) => {
 		const {
-			name, displayName, displayGroupName, description, products, image, animatedImage,
+			name, displayName, displayGroupName, description, products, image, animatedImage, reviewImage,
 		} = productGroup;
 
 		return ProductGroupModel.create({
@@ -34,6 +34,14 @@ export const ProductGroupsFactory = (productGroups) => {
 				basePath: animatedImage.basePath,
 				fileName: animatedImage.fileName,
 				width: animatedImage.width,
+			}),
+			reviewImage: ImageModel.create({
+				id: `ImageModel_${uniqueId()}`,
+				aspectRatio: reviewImage.aspectRatio,
+				basePath: reviewImage.basePath,
+				fileName: reviewImage.fileName,
+				width: reviewImage.width,
+				useCdn: true,
 			}),
 		});
 	});
