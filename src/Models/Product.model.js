@@ -125,25 +125,30 @@ const Product = types
 		get selectedImage() {
 			const selectedColorName = self.selectedColor.name;
 			const selectedHandleName = self.selectedHandle.name;
-
-			return self.images.find((image) => {
-				if (!image.handle) {
+			const result = self.images.find((image) => {
+				if (!image.handle && !selectedHandleName) {
 					return image.color.name === selectedColorName;
 				}
 				return (
 					image.color.name === selectedColorName
-					&& image.handle.name === selectedHandleName
+					&& image.handle?.name === selectedHandleName
 				);
 			});
+
+			if (!result) {
+				console.group('Could not find image');
+				console.log('product:', self);
+				console.log('selectedColorName', selectedColorName);
+				console.log('selectedHandleName', selectedHandleName);
+				console.groupEnd();
+			}
+			return result;
 		},
 		get selectedOptions() {
 			const selectedOptions = [
-				// self.selectedBackground,
 				self.selectedColor,
-				// self.selectedFloor,
 				self.selectedFloorTracks,
 				self.selectedHandle,
-				// self.selectedWall,
 			];
 
 			return selectedOptions.map((selectedOption) => {
