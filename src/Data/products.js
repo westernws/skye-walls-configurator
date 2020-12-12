@@ -186,11 +186,6 @@ export default [
 		// TODO (aboyer) May want to add "short-name" field for image directory mapping.
 		images: [
 			{
-				color: 'warmtone',
-				fileName: '7600-2xo-warmtone.png',
-				width: 1230,
-			},
-			{
 				color: 'white',
 				fileName: '7600-2xo-white.png',
 				width: 1230,
@@ -571,6 +566,48 @@ export default [
 				color: 'sb',
 				handle: 'pbn',
 				fileName: '7600-aluminum-stonish-beige-premium-brushed-nickel-non-pocketing-classic.png',
+				width: 1230,
+			},
+			{
+				color: 'warmtone',
+				handle: null,
+				fileName: '7600-aluminum-warmtone-no-handle-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'warmtone',
+				handle: 'cb',
+				fileName: '7600-aluminum-warmtone-contemporary-black-non-pocketing-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'warmtone',
+				handle: 'cbn',
+				fileName: '7600-aluminum-warmtone-contemporary-brushed-nickel-non-pocketing-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'warmtone',
+				handle: 'fmb',
+				fileName: '7600-aluminum-warmtone-flush-mounted-black-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'warmtone',
+				handle: 'fmbn',
+				fileName: '7600-aluminum-warmtone-flush-mounted-brushed-nickel-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'warmtone',
+				handle: 'pb',
+				fileName: '7600-aluminum-warmtone-premium-black-non-pocketing-classic.png',
+				width: 1230,
+			},
+			{
+				color: 'warmtone',
+				handle: 'pbn',
+				fileName: '7600-aluminum-warmtone-premium-brushed-nickel-non-pocketing-classic.png',
 				width: 1230,
 			},
 		],
