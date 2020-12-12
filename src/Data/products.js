@@ -262,7 +262,7 @@ export default [
 			{
 				color: 'bb',
 				handle: 'cbn',
-				fileName: '7600-aluminum-bison-beige-contemporary-brused-nickel-non-pocketing-performance.png',
+				fileName: '7600-aluminum-bison-beige-contemporary-brushed-nickel-non-pocketing-performance.png',
 				width: 1230,
 			},
 			{
@@ -292,43 +292,43 @@ export default [
 			{
 				color: 'briar',
 				handle: null,
-				fileName: '7600-aluminum-bison-beige-no-handle-classic-performance.png',
+				fileName: '7600-aluminum-briar-no-handle-classic-performance.png',
 				width: 1230,
 			},
 			{
 				color: 'briar',
 				handle: 'cb',
-				fileName: '7600-aluminum-bison-beige-contemporary-black-non-pocketing-performance.png',
+				fileName: '7600-aluminum-briar-contemporary-black-non-pocketing-performance.png',
 				width: 1230,
 			},
 			{
 				color: 'briar',
 				handle: 'cbn',
-				fileName: '7600-aluminum-bison-beige-contemporary-brused-nickel-non-pocketing-performance.png',
+				fileName: '7600-aluminum-briar-contemporary-brushed-nickel-non-pocketing-performance.png',
 				width: 1230,
 			},
 			{
 				color: 'briar',
 				handle: 'fmb',
-				fileName: '7600-aluminum-bison-beige-flush-mounted-black-classic-performance.png',
+				fileName: '7600-aluminum-briar-flush-mounted-black-classic-performance.png',
 				width: 1230,
 			},
 			{
 				color: 'briar',
 				handle: 'fmbn',
-				fileName: '7600-aluminum-bison-beige-flush-mounted-brushed-nickel-classic-performance.png',
+				fileName: '7600-aluminum-briar-flush-mounted-brushed-nickel-classic-performance.png',
 				width: 1230,
 			},
 			{
 				color: 'briar',
 				handle: 'pb',
-				fileName: '7600-aluminum-bison-beige-premium-black-non-pocketing-classic.png',
+				fileName: '7600-aluminum-briar-premium-black-non-pocketing-classic.png',
 				width: 1230,
 			},
 			{
 				color: 'briar',
 				handle: 'pbn',
-				fileName: '7600-aluminum-bison-beige-premium-brushed-nickel-non-pocketing-classic.png',
+				fileName: '7600-aluminum-briar-premium-brushed-nickel-non-pocketing-classic.png',
 				width: 1230,
 			},
 			{
