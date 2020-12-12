@@ -111,7 +111,7 @@ export const SelectorValueStandard = observer(({ optionGroup, simpleHeader = fal
 										<div className="OptionGroup-optionName">
 											<span className="block">{`${option.displayName}${(hasFinish ? ',' : '')}`}</span>
 											{
-												hasFinish &&
+												Boolean(option.finish) &&
 												<span className="italic">{option.finish}</span>
 											}
 										</div>

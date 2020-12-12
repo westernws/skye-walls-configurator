@@ -606,6 +606,90 @@ module.exports = [
 					width: 150,
 				},
 			},
+			{
+				name: 'cityscape-wide',
+				displayName: 'Cityscape',
+				image: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Folding-Cityscape.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Folding-Cityscape.png',
+					width: 150,
+				},
+			},
+			{
+				name: 'desert-wide',
+				displayName: 'Desert',
+				image: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Folding-Desert.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Folding-Desert.png',
+					width: 150,
+				},
+			},
+			{
+				name: 'mv-wide',
+				displayName: 'Mountain View',
+				image: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Folding-Mountain-View.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Folding-Mountain-View.png',
+					width: 150,
+				},
+			},
+			{
+				name: 'oceanside-wide',
+				displayName: 'Oceanside',
+				image: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Folding-Oceanside.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Folding-Oceanside.png',
+					width: 150,
+				},
+			},
+			{
+				name: 'poolside-wide',
+				displayName: 'Poolside',
+				image: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Folding-Poolside.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Folding-Poolside.png',
+					width: 150,
+				},
+			},
+			{
+				name: 'wt-wide',
+				displayName: 'Wild Thing',
+				image: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Folding-Wild-Thing.png',
+					width: 1230,
+				},
+				thumb: {
+					basePath: '/images/environment/background',
+					fileName: 'View-Folding-Wild-Thing.png',
+					width: 150,
+				},
+			},
 		],
 	},
 ];

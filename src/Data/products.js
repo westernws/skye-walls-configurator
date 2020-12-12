@@ -2,7 +2,7 @@ const colorOptionGroups = [{
 	name: 'color',
 	options: ['ba', 'sa', 'warmtone', 'white', 'an', 'bb', 'briar', 'ct', 'hb', 'nw', 'sb'],
 }];
-const environmentOptionGroups = [
+const slidingEnvironmentOptionGroups = [
 	{
 		name: 'view',
 		options: ['cityscape', 'desert', 'mv', 'oceanside', 'poolside', 'wt'],
@@ -16,7 +16,21 @@ const environmentOptionGroups = [
 		options: ['natural', 'jacobean', 'sw', 'wo', 'tile', 'marble'],
 	},
 ];
-const classicPerformanceImages = [
+const foldingEnvironmentOptionGroups = [
+	{
+		name: 'view',
+		options: ['cityscape-wide', 'desert-wide', 'mv-wide', 'oceanside-wide', 'poolside-wide', 'wt-wide'],
+	},
+	{
+		name: 'wall',
+		options: ['conch', 'pistachio', 'iceberg', 'pebble', 'meadow', 'horizon', 'smoke', 'jute'],
+	},
+	{
+		name: 'floor',
+		options: ['natural', 'jacobean', 'sw', 'wo', 'tile', 'marble'],
+	},
+];
+const slidingClassicPerformanceImages = [
 	{
 		color: 'an',
 		handle: null,
@@ -480,6 +494,206 @@ const classicPerformanceImages = [
 		width: 1230,
 	},
 ];
+const foldingClassicPerformanceImages = [
+	{
+		color: 'an',
+		handle: null,
+		fileName: '7950-aluminum-autumn-night-no-handle-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'an',
+		handle: 'fmb',
+		fileName: '7950-aluminum-autumn-night-flush-mounted-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'an',
+		handle: 'fmbn',
+		fileName: '7950-aluminum-autumn-night-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'bb',
+		handle: null,
+		fileName: '7950-aluminum-bison-beige-no-handle-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'bb',
+		handle: 'fmb',
+		fileName: '7950-aluminum-bison-beige-flush-mounted-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'bb',
+		handle: 'fmbn',
+		fileName: '7950-aluminum-bison-beige-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'briar',
+		handle: null,
+		fileName: '7950-aluminum-briar-no-handle-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'briar',
+		handle: 'fmb',
+		fileName: '7950-aluminum-briar-flush-mounted-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'briar',
+		handle: 'fmbn',
+		fileName: '7950-aluminum-briar-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'ba',
+		handle: null,
+		fileName: '7950-aluminum-bronze-anodized-no-handle-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'ba',
+		handle: 'fmb',
+		fileName: '7950-aluminum-bronze-anodized-flush-mounted-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'ba',
+		handle: 'fmbn',
+		fileName: '7950-aluminum-bronze-anodized-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'ct',
+		handle: null,
+		fileName: '7950-aluminum-cinnamon-toast-no-handle-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'ct',
+		handle: 'fmb',
+		fileName: '7950-aluminum-cinnamon-toast-flush-mounted-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'ct',
+		handle: 'fmbn',
+		fileName: '7950-aluminum-cinnamon-toast-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'hb',
+		handle: null,
+		fileName: '7950-aluminum-hillside-bronze-no-handle-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'hb',
+		handle: 'fmb',
+		fileName: '7950-aluminum-hillside-bronze-flush-mounted-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'hb',
+		handle: 'fmbn',
+		fileName: '7950-aluminum-hillside-bronze-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'nw',
+		handle: null,
+		fileName: '7950-aluminum-navajo-white-no-handle-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'nw',
+		handle: 'fmb',
+		fileName: '7950-aluminum-navajo-white-flush-mounted-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'nw',
+		handle: 'fmbn',
+		fileName: '7950-aluminum-navajo-white-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'sa',
+		handle: null,
+		fileName: '7950-aluminum-satin-anodized-no-handle-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'sa',
+		handle: 'fmb',
+		fileName: '7950-aluminum-satin-anodized-flush-mounted-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'sa',
+		handle: 'fmbn',
+		fileName: '7950-aluminum-satin-anodized-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'sb',
+		handle: null,
+		fileName: '7950-aluminum-stonish-beige-no-handle-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'sb',
+		handle: 'fmb',
+		fileName: '7950-aluminum-stonish-beige-flush-mounted-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'sb',
+		handle: 'fmbn',
+		fileName: '7950-aluminum-stonish-beige-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'warmtone',
+		handle: null,
+		fileName: '7950-aluminum-warmtone-no-handle-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'warmtone',
+		handle: 'fmb',
+		fileName: '7950-aluminum-warmtone-flush-mounted-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'warmtone',
+		handle: 'fmbn',
+		fileName: '7950-aluminum-warmtone-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'white',
+		handle: null,
+		fileName: '7950-aluminum-white-no-handle-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'white',
+		handle: 'fmb',
+		fileName: '7950-aluminum-white-flush-mounted-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'white',
+		handle: 'fmbn',
+		fileName: '7950-aluminum-white-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+];
 const images = [
 	{
 		color: 'ba',
@@ -554,7 +768,7 @@ export default [
 			'After-market screening solution',
 		],
 		baseImagePath: '/images/product/sliding/aluminum/classic-performance',
-		images: classicPerformanceImages,
+		images: slidingClassicPerformanceImages,
 		selectionGroups: [
 			{
 				name: 'color',
@@ -576,7 +790,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: environmentOptionGroups,
+				optionGroups: slidingEnvironmentOptionGroups,
 			},
 		],
 	},
@@ -591,9 +805,9 @@ export default [
 			'Design pressure (DP) rating of 50 for durability',
 			'Compliant with California’s rigorous Title 24 requirements',
 		],
-		baseImagePath: '/images/product/sliding/aluminum/performance',
+		baseImagePath: '/images/product/sliding/aluminum/classic-performance',
 		// TODO (aboyer) May want to add "short-name" field for image directory mapping.
-		images: classicPerformanceImages,
+		images: slidingClassicPerformanceImages,
 		selectionGroups: [
 			{
 				name: 'color',
@@ -615,7 +829,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: environmentOptionGroups,
+				optionGroups: slidingEnvironmentOptionGroups,
 			},
 		],
 	},
@@ -1116,7 +1330,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: environmentOptionGroups,
+				optionGroups: slidingEnvironmentOptionGroups,
 			},
 		],
 	},
@@ -1151,7 +1365,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: environmentOptionGroups,
+				optionGroups: slidingEnvironmentOptionGroups,
 			},
 		],
 	},
@@ -1167,7 +1381,8 @@ export default [
 			'Contemporary hardware for a sleek aesthetic',
 			'Optional single swinging access door for everyday use',
 		],
-		images,
+		baseImagePath: '/images/product/folding/aluminum/classic-performance',
+		images: foldingClassicPerformanceImages,
 		selectionGroups: [
 			{
 				name: 'color',
@@ -1189,7 +1404,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: environmentOptionGroups,
+				optionGroups: foldingEnvironmentOptionGroups,
 			},
 		],
 	},
@@ -1204,7 +1419,8 @@ export default [
 			'Design pressure (DP) rating of 50 for durability',
 			'Compliant with California’s rigorous Title 24 requirements',
 		],
-		images,
+		baseImagePath: '/images/product/folding/aluminum/classic-performance',
+		images: foldingClassicPerformanceImages,
 		selectionGroups: [
 			{
 				name: 'color',
@@ -1226,7 +1442,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: environmentOptionGroups,
+				optionGroups: foldingEnvironmentOptionGroups,
 			},
 		],
 	},
@@ -1262,7 +1478,7 @@ export default [
 			},
 			{
 				name: 'environment',
-				optionGroups: environmentOptionGroups,
+				optionGroups: foldingEnvironmentOptionGroups,
 			},
 		],
 	},
