@@ -412,7 +412,44 @@ export default [
 			},
 			{
 				color: 'hb',
-				fileName: '7600-2xo-white.png',
+				handle: null,
+				fileName: '7600-aluminum-hillside-bronze-no-handle-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'hb',
+				handle: 'cb',
+				fileName: '7600-aluminum-hillside-bronze-contemporary-black-non-pocketing-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'hb',
+				handle: 'cbn',
+				fileName: '7600-aluminum-hillside-bronze-contemporary-brushed-nickel-non-pocketing-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'hb',
+				handle: 'fmb',
+				fileName: '7600-aluminum-hillside-bronze-flush-mounted-black-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'hb',
+				handle: 'fmbn',
+				fileName: '7600-aluminum-hillside-bronze-flush-mounted-brushed-nickel-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'hb',
+				handle: 'pb',
+				fileName: '7600-aluminum-hillside-bronze-premium-black-non-pocketing-classic.png',
+				width: 1230,
+			},
+			{
+				color: 'hb',
+				handle: 'pbn',
+				fileName: '7600-aluminum-hillside-bronze-premium-brushed-nickel-non-pocketing-classic.png',
 				width: 1230,
 			},
 			{
