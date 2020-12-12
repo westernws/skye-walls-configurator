@@ -8,14 +8,6 @@
 	max-width: var(--panel-max-width);
 	&:hover {
 		@apply bg-opacity-50;
-		.Panel-text,
-		.Panel-desc,
-		.Panel-animatedImage {
-			@apply opacity-50;
-		}
-		.Panel-image {
-			@apply opacity-0;
-		}
 	}
 	&.Panel--product {
 		@apply bg-white;
