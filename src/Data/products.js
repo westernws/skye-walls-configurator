@@ -370,7 +370,44 @@ export default [
 			},
 			{
 				color: 'ct',
-				fileName: '7600-2xo-white.png',
+				handle: null,
+				fileName: '7600-aluminum-cinnamon-toast-no-handle-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'ct',
+				handle: 'cb',
+				fileName: '7600-aluminum-cinnamon-toast-contemporary-black-non-pocketing-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'ct',
+				handle: 'cbn',
+				fileName: '7600-aluminum-cinnamon-toast-contemporary-brushed-nickel-non-pocketing-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'ct',
+				handle: 'fmb',
+				fileName: '7600-aluminum-cinnamon-toast-flush-mounted-black-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'ct',
+				handle: 'fmbn',
+				fileName: '7600-aluminum-cinnamon-toast-flush-mounted-brushed-nickel-classic-performance.png',
+				width: 1230,
+			},
+			{
+				color: 'ct',
+				handle: 'pb',
+				fileName: '7600-aluminum-cinnamon-toast-premium-black-non-pocketing-classic.png',
+				width: 1230,
+			},
+			{
+				color: 'ct',
+				handle: 'pbn',
+				fileName: '7600-aluminum-cinnamon-toast-premium-brushed-nickel-non-pocketing-classic.png',
 				width: 1230,
 			},
 			{
