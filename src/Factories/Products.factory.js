@@ -3,6 +3,7 @@ import { ProductModel } from '~/Models/Product.model';
 import { uniqueId } from '~/util/uniqueId';
 import { SelectionGroupsFactory } from '~/Factories/SelectionGroups.factory';
 import { ProductImageFactory } from '~/Factories/ProductImage.factory';
+import { ImageModel } from '~/Models/Image.model';
 
 export const ProductsFactory = (products) => {
 	const selectedProducts = productData.filter(product => products.includes(product.name));
@@ -13,6 +14,8 @@ export const ProductsFactory = (products) => {
 			baseImagePath = '',
 			displayName,
 			description,
+			illustrationAnimated = null,
+			illustrationStatic = null,
 			inheritedFeatures = '',
 			inheritedFeaturesLong = '',
 			features,
@@ -31,6 +34,20 @@ export const ProductsFactory = (products) => {
 			name,
 			displayName,
 			description,
+			illustrationAnimated: illustrationAnimated ? ImageModel.create({
+				id: `ImageModel_${uniqueId()}`,
+				aspectRatio: illustrationAnimated.aspectRatio,
+				basePath: illustrationAnimated.basePath,
+				fileName: illustrationAnimated.fileName,
+				width: illustrationAnimated.width,
+			}) : null,
+			illustrationStatic: illustrationStatic ? ImageModel.create({
+				id: `ImageModel_${uniqueId()}`,
+				aspectRatio: illustrationStatic.aspectRatio,
+				basePath: illustrationStatic.basePath,
+				fileName: illustrationStatic.fileName,
+				width: illustrationStatic.width,
+			}) : null,
 			inheritedFeatures,
 			inheritedFeaturesLong,
 			features,

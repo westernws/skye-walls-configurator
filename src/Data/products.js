@@ -1,3 +1,5 @@
+import illustrations from '~/Data/illustrations';
+
 const colorOptionGroups = [{
 	name: 'color',
 	options: ['ba', 'sa', 'warmtone', 'white', 'an', 'bb', 'briar', 'ct', 'hb', 'nw', 'sb'],
@@ -844,7 +846,8 @@ export default [
 			'Simulated divided lights to emulate a putty glaze',
 		],
 		baseImagePath: '/images/product/sliding/aluminum/simulated-steel',
-		// TODO (aboyer) May want to add "short-name" field for image directory mapping.
+		illustrationStatic: illustrations.static.slidingSimulatedSteel,
+		illustrationAnimated: illustrations.animated.slidingSimulatedSteel,
 		images: [
 			{
 				color: 'an',
@@ -1457,6 +1460,8 @@ export default [
 			'Simulated divided lights to emulate a putty glaze',
 		],
 		baseImagePath: '/images/product/folding/aluminum/simulated-steel',
+		illustrationStatic: illustrations.static.foldingSimulatedSteel,
+		illustrationAnimated: illustrations.animated.foldingSimulatedSteel,
 		images: [
 			{
 				color: 'an',

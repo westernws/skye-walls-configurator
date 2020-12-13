@@ -5,6 +5,7 @@ import isString from 'lodash/isString';
 import { TreeHelpers } from '~/Models/TreeHelpers';
 import { SelectionGroupModel } from '~/Models/SelectionGroup.model';
 import { ProductImageModel } from '~/Models/ProductImage.model';
+import { ImageModel } from '~/Models/Image.model';
 
 const Product = types
 	.model({
@@ -13,6 +14,8 @@ const Product = types
 		displayName: types.string,
 		description: types.string,
 		features: types.array(types.string),
+		illustrationAnimated: types.maybeNull(ImageModel),
+		illustrationStatic: types.maybeNull(ImageModel),
 		images: types.array(ProductImageModel),
 		inheritedFeatures: '',
 		inheritedFeaturesLong: '',
@@ -51,6 +54,12 @@ const Product = types
 		},
 		get handleOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'handles') || {};
+		},
+		get illustrationAnimatedImage() {
+			return self.illustrationAnimated || self.productGroupAnimatedImage;
+		},
+		get illustrationImage() {
+			return self.illustrationStatic || self.productGroupImage;
 		},
 		get link() {
 			const href = ['[product-collection]', '[product-group]', '[product]'];

@@ -20,8 +20,8 @@ export const PanelProduct = observer(({ product }) => {
 		configLink,
 		className = '',
 		features = [],
-		productGroupImage,
-		productGroupAnimatedImage,
+		illustrationImage,
+		illustrationAnimatedImage,
 	} = product;
 	const TagName = tagName;
 	const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +36,7 @@ export const PanelProduct = observer(({ product }) => {
 		},
 	};
 	const productGroupImageWidth = 144;
-	const productGroupImageHeight = getHeightByAspectRatio(productGroupImageWidth, productGroupImage.aspectRatio);
+	const productGroupImageHeight = getHeightByAspectRatio(productGroupImageWidth, illustrationImage.aspectRatio);
 	const hasColorOptions = Boolean(colorOptionGroup?.options?.length);
 
 	useEffect(() => {
@@ -83,7 +83,7 @@ export const PanelProduct = observer(({ product }) => {
 					<div className="PanelProduct-imgContainer">
 						<div className="PanelProduct-image">
 							<Image
-								src={productGroupImage.src}
+								src={illustrationImage.src}
 								width={productGroupImageWidth}
 								height={productGroupImageHeight}
 								layout="responsive"
@@ -92,7 +92,7 @@ export const PanelProduct = observer(({ product }) => {
 						</div>
 						<div className="PanelProduct-animatedImage">
 							<Image
-								src={productGroupAnimatedImage.src}
+								src={illustrationAnimatedImage.src}
 								width={productGroupImageWidth}
 								height={productGroupImageHeight}
 								layout="responsive"
