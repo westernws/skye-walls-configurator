@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 
 import { ColorFieldGroup } from '~/Components/ColorFieldGroup';
 import { useMst } from '~/Stores/App.store';
-import { HeaderSimple } from '~/Components/selector-values/HeaderSimple';
+import { HeaderStandard } from '~/Components/selector-values/HeaderStandard';
 import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 
 export const WallColor = observer(({ optionGroup }) => {
@@ -38,7 +38,7 @@ export const WallColor = observer(({ optionGroup }) => {
 			}
 			{
 				!showOptionGroupAccordion &&
-				<HeaderSimple optionGroup={optionGroup} />
+				<HeaderStandard optionGroup={optionGroup} />
 			}
 			<fieldset className="Radio Radio--colorSelector">
 				<div className="Radio-group">

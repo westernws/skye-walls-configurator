@@ -25,8 +25,7 @@ export const SelectorMulti = observer(() => {
 				</div>
 			}
 			{
-				currentSelectionGroup.optionGroups.map((optionGroup, i) => {
-					const isLastOptionGroup = i === currentSelectionGroup.optionGroups.length - 1;
+				currentSelectionGroup.optionGroups.map((optionGroup) => {
 					let SelectorValueComponent = () => null;
 
 					if (optionGroup.name === 'view' || optionGroup.name === 'floor') {
@@ -39,11 +38,7 @@ export const SelectorMulti = observer(() => {
 
 					return (
 						<div key={optionGroup.id} className="mb-4">
-							<SelectorValueComponent optionGroup={optionGroup} simpleHeader alwaysOpen />
-							{
-								!showOptionGroupAccordion && !isLastOptionGroup &&
-								<div className="Divider mt-10 mb-6" />
-							}
+							<SelectorValueComponent optionGroup={optionGroup} alwaysOpen />
 						</div>
 					);
 				})
