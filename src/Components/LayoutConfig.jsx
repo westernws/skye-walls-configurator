@@ -121,7 +121,7 @@ export const LayoutConfig = observer(({ children }) => {
 										onClick={() => {
 										}}
 									>
-										Get Quote
+										Send to Skye Walls
 									</button>
 								</div>
 							}

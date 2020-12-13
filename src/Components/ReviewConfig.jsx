@@ -48,7 +48,7 @@ export const ReviewConfig = observer(() => {
 						type="button"
 						className="Button w-full"
 					>
-						Get Quote
+						Send to Skye Walls
 					</button>
 				</div>
 			</div>
