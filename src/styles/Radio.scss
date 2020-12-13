@@ -77,10 +77,10 @@ $swatchSelectedColor: #32739D;
 	}
 }
 @screen xl {
+	.Radio-displayName {
+		@apply text-sm;
+	}
 	.Radio.Radio--colorSelector {
-		.Radio-group {
-			//grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
-		}
 		.Radio-fieldGroup {
 			font-size: 4.7rem;
 		}

@@ -22,7 +22,7 @@ export const Color = observer(({ product, hideLegend = false, type = '' }) => {
 		>
 			{
 				!hideLegend &&
-				<legend className="Radio-legend xl:text-base">Color Options:</legend>
+				<legend className="text-sm">Color Options:</legend>
 			}
 			{
 				Boolean(standardColorOptions.length) &&
@@ -68,8 +68,8 @@ export const Color = observer(({ product, hideLegend = false, type = '' }) => {
 					</div>
 				</>
 			}
-			<div className="font-normal mt-2">Custom Colors</div>
-			<div className="font-normal text-blue">We can match almost any finish.</div>
+			<div className="font-normal mt-2 text-sm">Custom Colors</div>
+			<div className="font-normal text-blue text-sm">We can match almost any finish.</div>
 		</fieldset>
 	);
 });
