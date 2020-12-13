@@ -12,6 +12,7 @@ module.exports = [
 	{
 		name: 'color',
 		displayName: 'Color',
+		useTooltip: true,
 		options: [
 			{
 				name: 'ba',
@@ -345,6 +346,7 @@ module.exports = [
 	{
 		name: 'wall',
 		displayName: 'Wall Color',
+		useTooltip: true,
 		options: [
 			{
 				name: 'conch',
@@ -431,6 +433,7 @@ module.exports = [
 	{
 		name: 'floor',
 		displayName: 'Floor',
+		useTooltip: true,
 		options: [
 			{
 				name: 'natural',
@@ -521,6 +524,7 @@ module.exports = [
 	{
 		name: 'view',
 		displayName: 'View',
+		useTooltip: true,
 		options: [
 			{
 				name: 'cityscape',

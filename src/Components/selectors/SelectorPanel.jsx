@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
+import ReactTooltip from 'react-tooltip';
 
 import { useMst } from '~/Stores/App.store';
 import { SelectorNav } from '~/Components/selectors/SelectorNav';
@@ -23,6 +24,7 @@ export const SelectorPanel = observer(() => {
 
 	useEffect(() => {
 		selectorPanel.current.scrollTop = 0;
+		ReactTooltip.rebuild();
 	}, [currentSelectionGroup]);
 
 	if (currentSelectionGroup.name === 'color') {

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import ReactTooltip from 'react-tooltip';
 
 import { useMst } from '~/Stores/App.store';
 import { Meta } from '~/Components/Meta';
@@ -133,6 +134,7 @@ export const LayoutConfig = observer(({ children }) => {
 					</nav>
 				</header>
 				{children}
+				<ReactTooltip effect="solid" className="Tooltip" />
 			</div>
 		</>
 	);

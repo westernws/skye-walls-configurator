@@ -26,6 +26,7 @@ export const OptionGroupsFactory = (productOptionGroups) => {
 			description = '',
 			options = [],
 			selectionGroup = '',
+			useTooltip = false,
 		} = optionGroup;
 
 		return OptionGroupModel.create({
@@ -34,6 +35,7 @@ export const OptionGroupsFactory = (productOptionGroups) => {
 			displayName,
 			description,
 			selectionGroup,
+			useTooltip,
 			...(options.length) && {
 				options: OptionsFactory(options, optionGroup.name),
 			},

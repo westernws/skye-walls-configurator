@@ -16,6 +16,7 @@ export const ColorFieldGroup = observer(({
 		<div
 			key={id}
 			className="Radio-fieldGroup"
+			data-tip={colorOptions.displayName}
 		>
 			<input
 				type="radio"

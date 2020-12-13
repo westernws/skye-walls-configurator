@@ -75,6 +75,7 @@ export const ImageGrid = observer(({ optionGroup, simpleHeader = false, alwaysOp
 						return (
 							<li
 								key={option.name}
+								data-tip={option.displayName}
 								className={cn('ImageGrid-item', {
 									'is-selected': isSelected,
 								})}

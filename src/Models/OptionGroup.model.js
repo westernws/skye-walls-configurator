@@ -13,6 +13,7 @@ const OptionGroup = types
 		displayName: types.string,
 		description: types.string,
 		options: types.optional(types.array(types.union(OptionModel, OptionColorModel, OptionEnvironmentModel)), []),
+		useTooltip: false,
 	})
 	.views(self => ({
 		get displayNames() {
