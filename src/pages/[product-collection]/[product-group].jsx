@@ -35,7 +35,7 @@ const ProductGroup = () => {
 								Customize Your {selectedProductGroup?.displayGroupName || selectedCollection?.displayGroupName}
 							</h1>
 							<Link href="/">
-								<a className="uppercase text-blue">Start over &gt;</a>
+								<a className="uppercase text-red">&lt; Start over</a>
 							</Link>
 						</header>
 						<PanelGroup className="mt-0">

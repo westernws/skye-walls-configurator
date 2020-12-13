@@ -1,7 +1,5 @@
 import illustrations from '~/Data/illustrations';
 
-const reviewImageWidth = 188;
-
 export default [
 	{
 		name: 'aluminum-sliding',
@@ -13,10 +11,6 @@ export default [
 		`,
 		image: illustrations.static.sliding,
 		animatedImage: illustrations.animated.sliding,
-		reviewImage: {
-			...illustrations.static.sliding,
-			width: reviewImageWidth,
-		},
 		products: ['camsd', 'pamsd', 'ssamsd'],
 	},
 	{
@@ -29,10 +23,6 @@ export default [
 		`,
 		image: illustrations.static.slidingSimulatedSteel,
 		animatedImage: illustrations.animated.slidingSimulatedSteel,
-		reviewImage: {
-			...illustrations.static.slidingSimulatedSteel,
-			width: reviewImageWidth,
-		},
 		products: ['vmsd'],
 	},
 	{
@@ -44,10 +34,6 @@ export default [
 		`,
 		image: illustrations.static.folding,
 		animatedImage: illustrations.animated.folding,
-		reviewImage: {
-			...illustrations.static.folding,
-			width: reviewImageWidth,
-		},
 		products: ['cabfd', 'pabfd', 'ssabfd'],
 	},
 ];

@@ -18,7 +18,7 @@ export const ReviewConfigOptions = observer(({ product }) => {
 					optionGroups: [{
 						selectedOption: {
 							displayName: product.displayName,
-							thumb: product.productGroup.reviewImage,
+							thumb: product.illustrationImage,
 						},
 					}],
 				}}
@@ -46,7 +46,7 @@ export const ReviewConfigOptions = observer(({ product }) => {
 					optionGroups: [{
 						selectedOption: {
 							displayName: product.productGroupDisplayName,
-							thumb: product.productGroupImage,
+							thumb: product.illustrationImage,
 						},
 					}],
 				}}

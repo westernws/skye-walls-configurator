@@ -1,5 +1,5 @@
 const aspectRatio = 1.24955009;
-const basePath = '/images/product-group';
+const basePath = '/images/product-illustrations';
 const width = 350;
 
 export default {
