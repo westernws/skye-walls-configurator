@@ -32,19 +32,17 @@ export const Layout = observer(({ children }) => {
 					<nav className="SiteNav">
 						<div className="SiteNav-wrap">
 							<div className="SiteNav-logo">
-								<Link href="/">
-									<a className="Logo">
-										<Image
-											src="/images/sw-logo-lite.svg"
-											alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems"
-											priority
-											unoptimized
-											loading="eager"
-											width="120"
-											height="37"
-										/>
-									</a>
-								</Link>
+								<a href="https://skyewallsbywws.com/" className="Logo">
+									<Image
+										src="/images/sw-logo-lite.svg"
+										alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems"
+										priority
+										unoptimized
+										loading="eager"
+										width="120"
+										height="37"
+									/>
+								</a>
 							</div>
 							<ul className="Menu xl:hidden">
 								<li>

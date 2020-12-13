@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import { Provider, appStore } from '~/Stores/App.store';
 import { LayoutProductGroup } from '~/Components/LayoutProductGroup';
 import { PanelGroup } from '~/Components/PanelGroup';
 import { PanelProduct } from '~/Components/PanelProduct';
-import { useInput } from '~/util/useInput';
 
 const ProductGroup = () => {
 	const router = useRouter();
-	const { bind, value, setValue } = useInput();
 	const {
 		'product-collection': collectionSlug = '',
 		'product-group': productGroupSlug = '',
@@ -18,32 +17,6 @@ const ProductGroup = () => {
 	const selectedProductGroup = selectedCollection?.productGroups?.find?.(productGroup => productGroup.slug === productGroupSlug);
 	const selectedProducts = selectedProductGroup?.products;
 
-	useEffect(() => {
-		if (!selectedCollection?.showProductGroupSelectControl) {
-			return;
-		}
-		const pg = selectedCollection.productGroups?.find?.(productGroup => productGroup.name === value);
-
-		if (!pg) {
-			return;
-		}
-		const { link } = pg;
-
-		router.push(link.href, link.as);
-	}, [value]);
-	useEffect(() => {
-		const collectionChangeHandler = () => {
-			if (selectedCollection?.productGroups?.length <= 1) {
-				return;
-			}
-			setValue(Router.query.product);
-		};
-
-		Router.events.on('routeChangeComplete', collectionChangeHandler);
-		return () => {
-			Router.events.off('routeChangeComplete', collectionChangeHandler);
-		};
-	}, []);
 	// Activate the first product if there are none activated.
 	useEffect(() => {
 		if (!selectedProducts?.length) {
@@ -63,15 +36,9 @@ const ProductGroup = () => {
 							</h1>
 							{
 								selectedCollection.showProductGroupSelectControl &&
-								<select className="Select" defaultValue={router.query.product} {...bind}>
-									{
-										selectedCollection.productGroups.map(productGroup => (
-											<option key={productGroup.name} value={productGroup.name}>
-												{productGroup.displayName}
-											</option>
-										))
-									}
-								</select>
+								<Link href="/">
+									<a className="uppercase text-blue">Start over &gt;</a>
+								</Link>
 							}
 						</header>
 						<PanelGroup className="mt-0">

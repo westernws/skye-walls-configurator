@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 import { observer } from 'mobx-react-lite';
@@ -16,19 +15,17 @@ export const LayoutProductGroup = observer(({ children }) => {
 					<nav className="SiteNav">
 						<div className="SiteNav-wrap">
 							<div className="SiteNav-logo">
-								<Link href="/">
-									<a className="Logo">
-										<Image
-											src="/images/sw-logo-lite.svg"
-											alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems"
-											priority
-											unoptimized
-											loading="eager"
-											width="120"
-											height="37"
-										/>
-									</a>
-								</Link>
+								<a href="https://skyewallsbywws.com/" className="Logo">
+									<Image
+										src="/images/sw-logo-lite.svg"
+										alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems"
+										priority
+										unoptimized
+										loading="eager"
+										width="120"
+										height="37"
+									/>
+								</a>
 							</div>
 						</div>
 					</nav>

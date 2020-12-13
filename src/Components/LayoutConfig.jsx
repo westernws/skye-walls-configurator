@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 
@@ -8,7 +7,6 @@ import { Meta } from '~/Components/Meta';
 import { Modals } from '~/Components/Modals';
 import { Menu } from '~/Components/Menu';
 import { StartOver } from '~/Components/StartOver';
-import { ChangeProduct } from '~/Components/ChangeProduct';
 import { ReviewConfig } from '~/Components/ReviewConfig';
 
 export const LayoutConfig = observer(({ children }) => {
@@ -36,20 +34,18 @@ export const LayoutConfig = observer(({ children }) => {
 						<div className="SiteNav-wrap">
 							<div className="flex items-center">
 								<div className="SiteNav-logo">
-									<Link href="/">
-										<a className="Logo">
-											<Image
-												src="/images/sw-logo-lite.svg"
-												alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems"
-												priority
-												unoptimized
-												loading="eager"
-												layout="responsive"
-												width="120"
-												height="37"
-											/>
-										</a>
-									</Link>
+									<a href="https://skyewallsbywws.com/" className="Logo">
+										<Image
+											src="/images/sw-logo-lite.svg"
+											alt="Skye Walls Replacement Moving Glass Walls and Windows by Western Window Systems"
+											priority
+											unoptimized
+											loading="eager"
+											layout="responsive"
+											width="120"
+											height="37"
+										/>
+									</a>
 								</div>
 								<div className="space-y-1">
 									<div className="Header-title space-x-0 xl:space-x-2">
@@ -73,24 +69,6 @@ export const LayoutConfig = observer(({ children }) => {
 														}}
 													>
 														<span className="Breadcrumb-text">Start Over</span>
-														&gt;
-													</button>
-												</li>
-												<li>
-													<button
-														className="Breadcrumb"
-														type="button"
-														onClick={() => {
-															menu.close();
-															modal.open({
-																name: 'changeProduct',
-																type: 'SLIDER',
-																showCloseBtnText: true,
-																content: <ChangeProduct selectedProduct={selectedProduct} />,
-															});
-														}}
-													>
-														<span className="Breadcrumb-text">Change Product</span>
 														&gt;
 													</button>
 												</li>

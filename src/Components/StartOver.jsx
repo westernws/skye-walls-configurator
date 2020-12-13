@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import Router from 'next/router';
+import Link from 'next/link';
 
 import { useMst } from '~/Stores/App.store';
 
@@ -14,13 +14,9 @@ export const StartOver = observer(() => {
 				from scratch. Are you sure you want to do that?
 			</p>
 			<div className="pt-4 -mt-4 -ml-4">
-				<button
-					className="Button ml-4"
-					type="button"
-					onClick={Router.reload}
-				>
-					Yes, I want to start over
-				</button>
+				<Link href="/">
+					<a className="Button ml-4">Yes, I want to start over</a>
+				</Link>
 				<button
 					className="Button Button--secondary mt-4 ml-4"
 					type="button"

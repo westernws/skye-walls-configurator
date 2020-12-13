@@ -31,28 +31,6 @@ export const SelectorMenu = observer(() => {
 							>
 								{selectionGroup.displayName}
 							</button>
-							{
-								// selectionGroup.optionGroups.length > 1 &&
-								// <ul className="SelectorSubMenu space-y-4">
-								// 	{
-								// 		selectionGroup.optionGroups.map((optionGroup) => {
-								// 			return (
-								// 				<li key={optionGroup.name}>
-								// 					<button
-								// 						className="SelectorSubMenu-item"
-								// 						type="button"
-								// 						onClick={() => {
-								// 							// window.scrollTo()
-								// 						}}
-								// 					>
-								// 						{optionGroup.name}
-								// 					</button>
-								// 				</li>
-								// 			);
-								// 		})
-								// 	}
-								// </ul>
-							}
 						</li>
 					);
 				})
