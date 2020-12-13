@@ -56,7 +56,7 @@
 
 @screen xl {
 	.PanelProduct {
-		@apply w-auto opacity-50;
+		@apply w-auto opacity-50 relative pb-20;
 		height: auto !important;
 		--panel-gap-x-multiplier: 2;
 		--panel-max-width: calc(33.3333% - (1.5rem * var(--panel-gap-x-multiplier)));
@@ -98,5 +98,11 @@
 	}
 	.PanelProduct-titleTall {
 		min-height: 140px;
+	}
+	.PanelProduct-cta {
+		@apply absolute;
+		@apply m-0 #{'!important'};
+		bottom: 2.5rem;
+		width: calc(100% - 2rem);
 	}
 }

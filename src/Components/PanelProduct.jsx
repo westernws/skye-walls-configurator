@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import cn from 'classnames';
 import { observer } from 'mobx-react-lite';
 import Image from 'next/image';
@@ -7,6 +6,7 @@ import Image from 'next/image';
 import { useMst } from '~/Stores/App.store';
 import { Color } from '~/Components/Color';
 import { getHeightByAspectRatio } from '~/util/getHeightByAspectRatio';
+import { PanelProductCta } from '~/Components/PanelProductCta';
 
 export const PanelProduct = observer(({ product }) => {
 	const appStore = useMst();
@@ -29,7 +29,7 @@ export const PanelProduct = observer(({ product }) => {
 	const detailsRef = useRef(null);
 	const heroRef = useRef(null);
 	const linkProps = {
-		className: 'ButtonHollow w-full mt-12',
+		className: 'ButtonHollow w-full mt-12 xl:mt-0',
 		...(!isOpen) && {
 			// Prevent hidden buttons from showing up when keyboard nav.
 			tabIndex: '-1',
@@ -141,24 +141,24 @@ export const PanelProduct = observer(({ product }) => {
 							</div>
 						}
 						<div className="Divider" />
-						<div className="PanelProduct-cta">
-							<Link href={configLink.href} as={configLink.as}>
-								<a {...linkProps}>
-									<strong>
-										{
-											hasColorOptions &&
-											'Continue Designing'
-										}
-										{
-											!hasColorOptions &&
-											'Design Yours'
-										}
-									</strong>
-								</a>
-							</Link>
-						</div>
+						{
+							!isMediaQueryXl &&
+							<PanelProductCta
+								configLink={configLink}
+								linkProps={linkProps}
+								hasColorOptions={hasColorOptions}
+							/>
+						}
 					</form>
 				</div>
+				{
+					isMediaQueryXl &&
+					<PanelProductCta
+						configLink={configLink}
+						linkProps={linkProps}
+						hasColorOptions={hasColorOptions}
+					/>
+				}
 			</div>
 		</TagName>
 	);
