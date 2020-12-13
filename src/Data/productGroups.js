@@ -1,6 +1,5 @@
-const aspectRatio = 1.24955009;
-const basePath = '/images/product-group';
-const width = 350;
+import illustrations from '~/Data/illustrations';
+
 const reviewImageWidth = 188;
 
 export default [
@@ -12,22 +11,10 @@ export default [
 			Used in contemporary living spaces, it can be finished in a variety of colors and does not require
 			regular maintenance.
 		`,
-		image: {
-			aspectRatio,
-			basePath,
-			fileName: 'sliding-door.png',
-			width,
-		},
-		animatedImage: {
-			aspectRatio,
-			basePath,
-			fileName: 'sliding-door.gif',
-			width,
-		},
+		image: illustrations.static.sliding,
+		animatedImage: illustrations.animated.sliding,
 		reviewImage: {
-			aspectRatio,
-			basePath,
-			fileName: 'sliding-door.png',
+			...illustrations.static.sliding,
 			width: reviewImageWidth,
 		},
 		products: ['camsd', 'pamsd', 'ssamsd'],
@@ -40,22 +27,10 @@ export default [
 			The most economical solution to transform your home, it stands up to the elements and is
 			nearly maintenance-free.
 		`,
-		image: {
-			aspectRatio,
-			basePath,
-			fileName: 'sliding-door.png',
-			width,
-		},
-		animatedImage: {
-			aspectRatio,
-			basePath,
-			fileName: 'sliding-door.gif',
-			width,
-		},
+		image: illustrations.static.slidingSimulatedSteel,
+		animatedImage: illustrations.animated.slidingSimulatedSteel,
 		reviewImage: {
-			aspectRatio,
-			basePath,
-			fileName: 'ss-sliding-door.png',
+			...illustrations.static.slidingSimulatedSteel,
 			width: reviewImageWidth,
 		},
 		products: ['vmsd'],
@@ -67,22 +42,10 @@ export default [
 		description: `
 			Combining clean modern design with durability and flexibility, it’s available in a variety of finishes.
 		`,
-		image: {
-			aspectRatio,
-			basePath,
-			fileName: 'folding-door.png',
-			width,
-		},
-		animatedImage: {
-			aspectRatio,
-			basePath,
-			fileName: 'folding-door.gif',
-			width,
-		},
+		image: illustrations.static.folding,
+		animatedImage: illustrations.animated.folding,
 		reviewImage: {
-			aspectRatio,
-			basePath,
-			fileName: 'folding-door.png',
+			...illustrations.static.folding,
 			width: reviewImageWidth,
 		},
 		products: ['cabfd', 'pabfd', 'ssabfd'],

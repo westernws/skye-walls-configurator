@@ -34,12 +34,9 @@ const ProductGroup = () => {
 							<h1 className="Heading text-blue items-center text-center flex-col text-2xl lg:text-3xl lg:flex-row">
 								Customize Your {selectedProductGroup?.displayGroupName || selectedCollection?.displayGroupName}
 							</h1>
-							{
-								selectedCollection.showProductGroupSelectControl &&
-								<Link href="/">
-									<a className="uppercase text-blue">Start over &gt;</a>
-								</Link>
-							}
+							<Link href="/">
+								<a className="uppercase text-blue">Start over &gt;</a>
+							</Link>
 						</header>
 						<PanelGroup className="mt-0">
 							{
