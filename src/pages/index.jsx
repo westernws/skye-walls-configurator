@@ -13,6 +13,7 @@ const Index = () => {
 		<Provider value={appStore}>
 			<Layout>
 				<div className="SiteMaxWidth m-auto">
+
 					<div className="Hero">
 						<Image
 							src="/images/hero.jpg"

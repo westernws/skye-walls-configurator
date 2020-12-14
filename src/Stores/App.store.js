@@ -1,18 +1,19 @@
 import { createContext, useContext } from 'react';
 import Router from 'next/router';
-import { unprotect } from 'mobx-state-tree';
+import { unprotect, getSnapshot, applySnapshot } from 'mobx-state-tree';
 
-import { uniqueId } from '~/util/uniqueId';
 import { AppModel } from '~/Models/App.model';
 import productCollectionsData from '~/Data/productCollections';
 import { ProductCollectionsFactory } from '~/Factories/ProductCollections.factory';
 import { ConfigPageModel } from '~/Models/ConfigPage.model';
 import { ProductPageModel } from '~/Models/ProductPage.model';
 
+global.getSnapshot = getSnapshot;
+global.applySnapshot = applySnapshot;
 const AppStoreContext = createContext();
 const { Provider } = AppStoreContext;
 const appStore = AppModel.create({
-	id: `AppModel_${uniqueId()}`,
+	id: 'AppModel_main',
 	productCollections: ProductCollectionsFactory(productCollectionsData),
 	env: 'STAGING',
 	modals: {},
@@ -41,14 +42,14 @@ Router.events.on('routeChangeComplete', () => {
 		const currentOptionGroup = product.selectionGroups[0].optionGroups[0].id;
 
 		appStore.setPage(ConfigPageModel.create({
-			id: `ConfigPageModel_${uniqueId()}`,
+			id: 'ConfigPageModel_main',
 			product,
 			currentOptionGroup,
 			currentSelectionGroup,
 		}));
 	} else if (Router.route === '/[product-collection]/[product-group]') {
 		appStore.setPage(ProductPageModel.create({
-			id: `ProductPageModel_${uniqueId()}`,
+			id: 'ProductPageModel_main',
 		}));
 	}
 	appStore.closeAllModals();

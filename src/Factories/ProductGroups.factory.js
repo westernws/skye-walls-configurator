@@ -1,6 +1,5 @@
 import productGroupData from '~/Data/productGroups';
 import { ProductGroupModel } from '~/Models/ProductGroup.model';
-import { uniqueId } from '~/util/uniqueId';
 import { ProductsFactory } from '~/Factories/Products.factory';
 import { ImageModel } from '~/Models/Image.model';
 
@@ -13,7 +12,7 @@ export const ProductGroupsFactory = (productGroups) => {
 		} = productGroup;
 
 		return ProductGroupModel.create({
-			id: `ProductGroupModel_${uniqueId()}`,
+			id: `ProductGroupModel_${name}`,
 			name,
 			displayName,
 			displayGroupName,
@@ -22,14 +21,14 @@ export const ProductGroupsFactory = (productGroups) => {
 				products: ProductsFactory(products),
 			},
 			image: ImageModel.create({
-				id: `ImageModel_${uniqueId()}`,
+				id: `ImageModel_${image.fileName}`,
 				aspectRatio: image.aspectRatio,
 				basePath: image.basePath,
 				fileName: image.fileName,
 				width: image.width,
 			}),
 			animatedImage: ImageModel.create({
-				id: `ImageModel_${uniqueId()}`,
+				id: `ImageModel_${animatedImage.fileName}`,
 				aspectRatio: animatedImage.aspectRatio,
 				basePath: animatedImage.basePath,
 				fileName: animatedImage.fileName,

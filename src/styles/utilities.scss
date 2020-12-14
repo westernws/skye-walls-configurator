@@ -2,4 +2,14 @@
 	.skye-transition {
 		@apply transition-all duration-200 ease-in-out;
 	}
+	@screen screen {
+		.hidden-for-screen {
+			@apply hidden #{'!important'};
+		}
+	}
+	@screen print {
+		.hidden-for-print {
+			@apply hidden #{'!important'};
+		}
+	}
 }

@@ -1,5 +1,4 @@
 import { ProductCollectionModel } from '~/Models/ProductCollection.model';
-import { uniqueId } from '~/util/uniqueId';
 import { ProductGroupsFactory } from '~/Factories/ProductGroups.factory';
 import { ProductsFactory } from '~/Factories/Products.factory';
 
@@ -10,7 +9,7 @@ export const ProductCollectionsFactory = (productCollections) => {
 		} = productCollection;
 
 		return ProductCollectionModel.create({
-			id: `ProductCollectionModel_${uniqueId()}`,
+			id: `ProductCollectionModel_${name}`,
 			name,
 			displayName,
 			displayGroupName,

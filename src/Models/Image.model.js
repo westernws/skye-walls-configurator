@@ -2,6 +2,7 @@ import { types } from 'mobx-state-tree';
 
 import { IMAGE_PATH } from '~/global.constants';
 import { themeConfig } from '~/util/themeConfig';
+import { isString } from '~/util/isString';
 
 export const ImageModel = types
 	.model({
@@ -23,7 +24,9 @@ export const ImageModel = types
 			return parseInt(self.screens[middleIdx], 10);
 		},
 		get screens() {
-			return Object.values(themeConfig.theme.screens).map(screen => screen.replace('px', ''));
+			const screens = Object.values(themeConfig.theme.screens).filter(screen => isString(screen));
+
+			return screens.map(screen => screen.replace('px', ''));
 		},
 		get src() {
 			return self.getSrcByWidth().src;

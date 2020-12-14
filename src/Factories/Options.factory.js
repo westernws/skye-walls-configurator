@@ -3,12 +3,11 @@ import { OptionColorModel } from '~/Models/OptionColor.model';
 import { OptionEnvironmentModel } from '~/Models/OptionEnvironment.model';
 import { EnvironmentImageModel } from '~/Models/EnvironmentImage.model';
 import { ImageModel } from '~/Models/Image.model';
-import { uniqueId } from '~/util/uniqueId';
 
-export const OptionsFactory = (options, optionGroupName) => {
+export const OptionsFactory = (options, optionGroupName, productName) => {
 	if (optionGroupName === 'color') {
 		return options.map(option => OptionColorModel.create({
-			id: `OptionColorModel_${uniqueId()}`,
+			id: `OptionColorModel_${productName + option.name}`,
 			name: option.name,
 			displayName: option.displayName,
 			description: option.description || '',
@@ -19,26 +18,26 @@ export const OptionsFactory = (options, optionGroupName) => {
 	}
 	if (['view', 'floor', 'wall'].includes(optionGroupName)) {
 		return options.map(option => OptionEnvironmentModel.create({
-			id: `OptionEnvironmentModel_${uniqueId()}`,
+			id: `OptionEnvironmentModel_${productName + option.name}`,
 			name: option.name,
 			description: option.description || '',
 			displayName: option.displayName,
 			hex: option.hex || '',
 			selected: typeof option.selected !== 'undefined',
 			image: EnvironmentImageModel.create({
-				id: `EnvironmentImageModel_${uniqueId()}`,
+				id: `EnvironmentImageModel_${productName + option.name}`,
 				...option.image,
 			}),
 			...(option.thumb) && {
 				thumb: EnvironmentImageModel.create({
-					id: `EnvironmentImageModel_${uniqueId()}`,
+					id: `EnvironmentImageModel_${productName + option.name}`,
 					...option.thumb,
 				}),
 			},
 		}));
 	}
 	return options.map(option => OptionModel.create({
-		id: `OptionModel_${uniqueId()}`,
+		id: `OptionModel_${productName + option.name}`,
 		name: option.name,
 		description: option.description || '',
 		displayName: option.displayName,
@@ -46,13 +45,13 @@ export const OptionsFactory = (options, optionGroupName) => {
 		selected: typeof option.selected !== 'undefined',
 		...(option.thumb) && {
 			thumb: ImageModel.create({
-				id: `ImageModel_${uniqueId()}`,
+				id: `ImageModel_${productName + option.name}`,
 				...option.thumb,
 			}),
 		},
 		...(option.detailImage) && {
 			detailImage: ImageModel.create({
-				id: `ImageModel_${uniqueId()}`,
+				id: `ImageModel_${productName + option.name}`,
 				...option.detailImage,
 			}),
 		},

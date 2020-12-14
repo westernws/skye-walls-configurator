@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import axios from 'axios';
 
 import { useMst } from '~/Stores/App.store';
 import { ConfigProductImagery } from '~/Components/ConfigProductImagery';
@@ -7,7 +8,8 @@ import { ReviewConfigOptions } from '~/Components/ReviewConfigOptions';
 import { HeadingBordered } from '~/Components/HeadingBordered';
 
 export const ReviewConfig = observer(() => {
-	const { modals, page } = useMst();
+	const appStore = useMst();
+	const { modals, page } = appStore;
 	const modal = modals.get('modal-primary');
 	const selectedProduct = page?.product;
 
@@ -47,8 +49,23 @@ export const ReviewConfig = observer(() => {
 					<button
 						type="button"
 						className="Button w-full"
+						onClick={() => {
+							const selectedOptionGroups = selectedProduct.optionGroups.filter((optionGroup) => {
+								return optionGroup.selectedOption;
+							});
+							axios.post('/api/save-pdf', {
+								link: selectedProduct.configLink.as,
+								productName: selectedProduct.name,
+								selectedOptionGroups: selectedOptionGroups.map((selectedOptionGroup) => {
+									return {
+										optionGroupName: selectedOptionGroup.name,
+										optionName: selectedOptionGroup.selectedOption.name,
+									};
+								}),
+							});
+						}}
 					>
-						Send to Skye Walls
+						Save to PDF
 					</button>
 				</div>
 			</div>

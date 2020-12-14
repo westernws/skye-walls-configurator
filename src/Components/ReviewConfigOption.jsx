@@ -57,10 +57,10 @@ export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick, 
 					</div>
 				}
 				{
-					hasManyOptionGroups &&
+					hasManyOptionGroups && Boolean(optionGroups.find(optionGroup => optionGroup.selectedOption)) &&
 					<div className="flex flex-col space-y-6 xl:flex-row xl:space-y-0 xl:space-x-6">
 						{
-							optionGroups.map((optionGroup) => {
+							optionGroups.filter(optionGroup => optionGroup.selectedOption).map((optionGroup) => {
 								console.log('optionGroup', optionGroup);
 								return (
 									<div key={optionGroup.name} className="flex flex-col items-center space-y-2">

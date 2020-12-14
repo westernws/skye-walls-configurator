@@ -1,9 +1,8 @@
 import optionGroupData from '~/Data/optionGroups';
 import { OptionGroupModel } from '~/Models/OptionGroup.model';
-import { uniqueId } from '~/util/uniqueId';
 import { OptionsFactory } from '~/Factories/Options.factory';
 
-export const OptionGroupsFactory = (productOptionGroups) => {
+export const OptionGroupsFactory = (productOptionGroups, productName) => {
 	if (!productOptionGroups?.length) {
 		return [];
 	}
@@ -30,14 +29,14 @@ export const OptionGroupsFactory = (productOptionGroups) => {
 		} = optionGroup;
 
 		return OptionGroupModel.create({
-			id: `OptionGroupModel_${uniqueId()}`,
+			id: `OptionGroupModel_${productName + name}`,
 			name,
 			displayName,
 			description,
 			selectionGroup,
 			useTooltip,
 			...(options.length) && {
-				options: OptionsFactory(options, optionGroup.name),
+				options: OptionsFactory(options, optionGroup.name, productName),
 			},
 		});
 	});
