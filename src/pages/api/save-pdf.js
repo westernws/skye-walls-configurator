@@ -1,9 +1,11 @@
 import puppeteer from 'puppeteer';
+import path from 'path';
+import fs from 'fs';
 
 const savePdf = async (req, res) => {
 	const browser = await puppeteer.launch({
-		headless: true,
-		args: ['—no-sandbox', '—disable-setuid-sandbox'],
+		// headless: true,
+		// args: ['—no-sandbox', '—disable-setuid-sandbox'],
 	});
 	const page = await browser.newPage();
 
@@ -12,34 +14,47 @@ const savePdf = async (req, res) => {
 	await page.goto(`http://buildlocal.skyewallsbywws.com${req.body.link}`, { waitUntil: 'networkidle2' });
 	await page.setViewport({ width: 500, height: 500 });
 	await page.emulateMediaType('screen');
-	const url = await page.evaluate(({ productName, selectedOptionGroups }) => {
-		app.page.setProduct(app.getProductByName(productName)); // eslint-disable-line no-undef
-		selectedOptionGroups.forEach(({ optionGroupName, optionName }) => {
-			app.page.product.setOption(optionGroupName, optionName); // eslint-disable-line no-undef
-		});
-		return {
-			productName,
-			selectedOptionGroups,
-		};
-	}, req.body);
-	console.log('url', url);
+	// const url = await page.evaluate(({ productName, selectedOptionGroups }) => {
+	// 	app.page.setProduct(app.getProductByName(productName)); // eslint-disable-line no-undef
+	// 	selectedOptionGroups.forEach(({ optionGroupName, optionName }) => {
+	// 		app.page.product.setOption(optionGroupName, optionName); // eslint-disable-line no-undef
+	// 	});
+	// 	return {
+	// 		productName,
+	// 		selectedOptionGroups,
+	// 	};
+	// }, req.body);
+	// console.log('url', url);
 	// await page.goto(`http://buildlocal.skyewallsbywws.com${url}`, { waitUntil: 'networkidle2' });
-	// const pdf = await page.pdf({
-	// 	path: path.join(process.env.PWD, 'tmp/pdf', 'test2.pdf'),
-	// 	format: 'Letter',
-	// 	printBackground: true,
-	// 	landscape: true,
-	// 	scale: 0.75,
-	// });
+	const filePath = path.join(process.env.PWD, 'tmp/pdf', 'test23.pdf');
+	const pdf = await page.pdf({
+		// path: filePath,
+		format: 'Letter',
+		printBackground: true,
+		landscape: true,
+		scale: 0.75,
+	});
 	await browser.close();
-
+	res.setHeader('Content-Type', 'application/pdf');
+	// res.setHeader('Content-Length', renderedPdfBuffer.byteLength);
+	res.setHeader('Content-Description', 'File Transfer');
+	res.setHeader('Content-Transfer-Encoding', 'binary');
+	res.setHeader('Access-Control-Expose-Headers', 'Content-Disposition');
+	res.setHeader('Content-Disposition', 'attachment; filename="example-file.pdf');
+	res.status(200).send(pdf);
 	// res.status(200);
-	// res.status(200).send(pdf);
-	// return pdf;
-	res.status(200).json({ foo: 'bar' });
+	// res.status(200).json({ foo: 'bar' });
 };
 
 export default savePdf;
+
+export const config = {
+	api: {
+		bodyParser: {
+			sizeLimit: '900kb',
+		},
+	},
+};
 
 // import { parse } from 'uri-parser';
 // import { addToUrl } from '~/util/addToUrl';
