@@ -10,12 +10,18 @@ import { SelectorMenu } from '~/Components/selectors/SelectorMenu';
 import { getSnapshot, applySnapshot } from 'mobx-state-tree';
 
 const ConfigProduct = ({ snapshot = {} }) => {
+	console.log('FOOBAR');
 	if (snapshot) {
+		console.log('snapshot', snapshot);
 		applySnapshot(appStore, snapshot);
 	}
 	return (
 		<Provider value={appStore}>
 			<LayoutConfig>
+				{
+					Boolean(snapshot) &&
+					<h1>SNAPSHOIT</h1>
+				}
 				<main className="MainComponent MainComponent--bleed">
 					<SelectorMenu />
 					<div className="block xl:flex xl:border-t-4 xl:border-solid xl:border-blue-100">

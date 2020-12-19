@@ -14,8 +14,9 @@ const savePdf = async (req, res) => {
 	const page = await browser.newPage();
 
 	// console.log('req.body.snapshot.id', req.body.snapshot.id);
-	console.log('res', res);
-	await page.goto(`https://${DOMAIN + req.body.link}`, { waitUntil: 'networkidle2' });
+	// console.log('req', req);
+	// console.log('DOMAIN', DOMAIN);
+	await page.goto(`https://${req.headers.host + req.body.link}?v=${new Date().valueOf()}`, { waitUntil: 'networkidle2' });
 	await page.setViewport({ width: 500, height: 500 });
 	await page.emulateMediaType('screen');
 	// const url = await page.evaluate(({ productName, selectedOptionGroups }) => {
