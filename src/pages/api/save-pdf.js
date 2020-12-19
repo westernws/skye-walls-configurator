@@ -26,24 +26,19 @@ const savePdf = async (req, res) => {
 	// }, req.body);
 	// console.log('url', url);
 	// await page.goto(`http://buildlocal.skyewallsbywws.com${url}`, { waitUntil: 'networkidle2' });
-	const filePath = path.join(process.env.PWD, 'tmp/pdf', 'test23.pdf');
-	const pdf = await page.pdf({
-		// path: filePath,
+	// const filePath = path.join(process.env.PWD, 'tmp/pdf', `product-pdf-${new Date().valueOf()}.pdf`);
+	const filePath = `/tmp/product-pdf-${new Date().valueOf()}.pdf`;
+
+	await page.pdf({
+		path: filePath,
 		format: 'Letter',
 		printBackground: true,
 		landscape: true,
 		scale: 0.75,
 	});
 	await browser.close();
-	res.setHeader('Content-Type', 'application/pdf');
-	// res.setHeader('Content-Length', renderedPdfBuffer.byteLength);
-	res.setHeader('Content-Description', 'File Transfer');
-	res.setHeader('Content-Transfer-Encoding', 'binary');
-	res.setHeader('Access-Control-Expose-Headers', 'Content-Disposition');
-	res.setHeader('Content-Disposition', 'attachment; filename="example-file.pdf');
-	res.status(200).send(pdf);
 	// res.status(200);
-	// res.status(200).json({ foo: 'bar' });
+	res.status(200).json({ file: filePath });
 };
 
 export default savePdf;
