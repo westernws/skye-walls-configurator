@@ -2,6 +2,7 @@ import { types } from 'mobx-state-tree';
 import flattenDeep from 'lodash/flattenDeep';
 import buildMediaQuery from 'tailwindcss/lib/util/buildMediaQuery';
 import { autorun } from 'mobx';
+import Router from 'next/router';
 
 import { ProductCollectionModel } from '~/Models/ProductCollection.model';
 import { ModalModel } from '~/Models/Modal.model';
@@ -18,8 +19,10 @@ export const AppModel = types
 		isMediaQueryXl: false,
 		env: types.enumeration('Environment', ['PROD', 'DEV', 'STAGING'], 'PROD'),
 	})
+	.volatile(() => ({
+		matchXlMq: null,
+	}))
 	.views(self => ({
-
 		get activePanelProduct() {
 			return self.allProducts.find(product => product.isActive) || {};
 		},
@@ -42,10 +45,10 @@ export const AppModel = types
 				return;
 			}
 			const xlMediaQueryStr = buildMediaQuery(themeConfig.theme.screens.xl);
-			const matchXlMq = window.matchMedia(xlMediaQueryStr);
 
-			self.setIsMediaQueryXl(matchXlMq.matches);
-			matchXlMq.addListener((mql) => {
+			self.matchXlMq = window.matchMedia(xlMediaQueryStr);
+			self.setIsMediaQueryXl(self.matchXlMq.matches);
+			self.matchXlMq.addListener((mql) => {
 				self.setIsMediaQueryXl(mql.matches);
 			});
 			autorun(() => {
@@ -101,6 +104,19 @@ export const AppModel = types
 				return;
 			}
 			product.setIsActive(true);
+		},
+		setConfigPage(productSlug) {
+			const product = self.getProductBySlug(productSlug);
+			const currentSelectionGroup = product.selectionGroups[0].id;
+			const currentOptionGroup = product.selectionGroups[0].optionGroups[0].id;
+
+			console.log('set page 2');
+			self.setPage(ConfigPageModel.create({
+				id: 'ConfigPageModel_main',
+				product,
+				currentOptionGroup,
+				currentSelectionGroup,
+			}));
 		},
 		setPage(pageModel) {
 			self.page = pageModel;

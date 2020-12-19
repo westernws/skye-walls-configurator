@@ -4,7 +4,9 @@ import cn from 'classnames';
 
 import { ColorFieldGroup } from '~/Components/ColorFieldGroup';
 
-export const Color = observer(({ product, hideLegend = false, type = '' }) => {
+export const Color = observer(({
+	product, hideLegend = false, type = '', customColorFontSize = 'text-sm',
+}) => {
 	const { colorOptionGroup } = product;
 	const hasColorOptions = Boolean(colorOptionGroup?.options?.length);
 	const standardColorOptions = colorOptionGroup.getOptionsByDisplayOptionGroupName('standard');
@@ -68,8 +70,8 @@ export const Color = observer(({ product, hideLegend = false, type = '' }) => {
 					</div>
 				</>
 			}
-			<div className="font-normal mt-2 text-sm">Custom Colors</div>
-			<div className="font-normal text-blue text-sm">We can match almost any finish.</div>
+			<div className={`font-normal mt-2 ${customColorFontSize}`}>Custom Colors</div>
+			<div className={`font-normal text-blue ${customColorFontSize}`}>We can match almost any finish.</div>
 		</fieldset>
 	);
 });

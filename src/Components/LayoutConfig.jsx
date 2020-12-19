@@ -134,7 +134,10 @@ export const LayoutConfig = observer(({ children }) => {
 					</nav>
 				</header>
 				{children}
-				<ReactTooltip effect="solid" className="Tooltip" />
+				{
+					process.browser &&
+					<ReactTooltip effect="solid" className="Tooltip" />
+				}
 			</div>
 		</>
 	);

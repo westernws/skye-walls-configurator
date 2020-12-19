@@ -1,4 +1,6 @@
 import React from 'react';
+import isEmpty from 'lodash/isEmpty';
+import { applySnapshot, getSnapshot } from 'mobx-state-tree';
 
 import { Provider, appStore } from '~/Stores/App.store';
 import { LayoutConfig } from '~/Components/LayoutConfig';
@@ -7,21 +9,18 @@ import { ClipboardListSolid } from '~/Components/svg/ClipboardListSolid.svg';
 import { SelectorPanel } from '~/Components/selectors/SelectorPanel';
 import { ReviewConfig } from '~/Components/ReviewConfig';
 import { SelectorMenu } from '~/Components/selectors/SelectorMenu';
-import { getSnapshot, applySnapshot } from 'mobx-state-tree';
 
 const ConfigProduct = ({ snapshot = {} }) => {
-	console.log('FOOBAR');
-	if (snapshot) {
-		console.log('snapshot', snapshot);
+	if (!isEmpty(snapshot)) {
+		console.log('snapshot exists');
 		applySnapshot(appStore, snapshot);
+	}
+	if (process.browser) {
+		appStore.setIsMediaQueryXl(appStore.matchXlMq.matches);
 	}
 	return (
 		<Provider value={appStore}>
 			<LayoutConfig>
-				{
-					Boolean(snapshot) &&
-					<h1>SNAPSHOIT</h1>
-				}
 				<main className="MainComponent MainComponent--bleed">
 					<SelectorMenu />
 					<div className="block xl:flex xl:border-t-4 xl:border-solid xl:border-blue-100">
@@ -56,6 +55,7 @@ const ConfigProduct = ({ snapshot = {} }) => {
 };
 
 export async function getServerSideProps(context) {
+	appStore.setConfigPage(context.query.product);
 	return {
 		props: {
 			snapshot: {
@@ -1077,7 +1077,7 @@ export async function getServerSideProps(context) {
 																"displayName": "White",
 																"description": "",
 																"finish": "",
-																"selected": false,
+																"selected": true,
 																"displayOptionGroupName": "standard",
 																"thumb": null,
 																"detailImage": null,
@@ -1125,7 +1125,7 @@ export async function getServerSideProps(context) {
 																"displayName": "Cinnamon Toast",
 																"description": "",
 																"finish": "",
-																"selected": true,
+																"selected": false,
 																"displayOptionGroupName": "designer",
 																"thumb": null,
 																"detailImage": null,
@@ -1371,7 +1371,7 @@ export async function getServerSideProps(context) {
 																"displayName": "Premium",
 																"description": "Minimal one-piece design and a comfortable grip. In brushed nickel or black. Not available on pocketing multi-slide doors.",
 																"finish": "Black",
-																"selected": true,
+																"selected": false,
 																"displayOptionGroupName": "",
 																"thumb": {
 																	"id": "ImageModel_camsdpb",
@@ -10849,8 +10849,8 @@ export async function getServerSideProps(context) {
 				"page": {
 					"id": "ConfigPageModel_main",
 					"product": "ProductModel_camsd",
-					"currentOptionGroup": "OptionGroupModel_camsdhandles",
-					"currentSelectionGroup": "SelectionGroupModel_handlescamsd",
+					"currentOptionGroup": "OptionGroupModel_camsdcolor",
+					"currentSelectionGroup": "SelectionGroupModel_colorcamsd",
 					"className": "Page--config"
 				},
 				"isMediaQueryXl": true,

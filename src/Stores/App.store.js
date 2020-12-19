@@ -33,24 +33,13 @@ appStore.modals.put({ id: 'modal-secondary' });
 appStore.modals.put({ id: 'modal-menu' });
 Router.events.on('routeChangeComplete', () => {
 	if (appStore.page) {
-		console.log('set page 1');
 		appStore.setPage(null);
 	}
 	if (Router.route.startsWith('/config/')) {
 		const { product: productSlug } = Router.query;
-		const product = appStore.getProductBySlug(productSlug);
-		const currentSelectionGroup = product.selectionGroups[0].id;
-		const currentOptionGroup = product.selectionGroups[0].optionGroups[0].id;
 
-		console.log('set page 2');
-		appStore.setPage(ConfigPageModel.create({
-			id: 'ConfigPageModel_main',
-			product,
-			currentOptionGroup,
-			currentSelectionGroup,
-		}));
+		appStore.setConfigPage(productSlug);
 	} else if (Router.route === '/[product-collection]/[product-group]') {
-		console.log('set page 3');
 		appStore.setPage(ProductPageModel.create({
 			id: 'ProductPageModel_main',
 		}));

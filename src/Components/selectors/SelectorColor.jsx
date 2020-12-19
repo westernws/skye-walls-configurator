@@ -20,7 +20,7 @@ export const SelectorColor = observer(() => {
 				</h3>
 			</div>
 			<div className="Divider" />
-			<Color product={product} hideLegend type="selector" />
+			<Color product={product} hideLegend type="selector" customColorFontSize="font-base" />
 		</div>
 	);
 });

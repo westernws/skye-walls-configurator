@@ -23,6 +23,9 @@ export const SelectorPanel = observer(() => {
 	}
 
 	useEffect(() => {
+		if (!process.browser) {
+			return;
+		}
 		selectorPanel.current.scrollTop = 0;
 		ReactTooltip.rebuild();
 	}, [currentSelectionGroup]);

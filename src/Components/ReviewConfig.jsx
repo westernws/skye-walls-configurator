@@ -69,30 +69,15 @@ export const ReviewConfig = observer(() => {
 								},
 								responseType: 'blob',
 							}).then((response) => {
-								// Try to find out the filename from the content disposition `filename` value
-								// const disposition = response.headers['content-disposition'];
-								// const matches = /"([^"]*)"/.exec(disposition);
-								// var filename = (matches != null && matches[1] ? matches[1] : 'file.pdf');
-								// The actual download
 								const blob = new Blob([response.data], { type: 'application/pdf' });
-								const link = document.createElement('a');
-								link.href = window.URL.createObjectURL(blob);
-								link.download = 'product.pdf';
+								const tempLink = document.createElement('a');
+								tempLink.href = window.URL.createObjectURL(blob);
+								tempLink.download = 'product.pdf';
 
-								document.body.appendChild(link);
-
-								link.click();
+								document.body.appendChild(tempLink);
+								tempLink.click();
+								document.body.removeChild(tempLink);
 							});
-							// axios.post('/api/save-pdf', {
-							// 	link: selectedProduct.configLink.as,
-								// productName: selectedProduct.name,
-								// selectedOptionGroups: selectedOptionGroups.map((selectedOptionGroup) => {
-								// 	return {
-								// 		optionGroupName: selectedOptionGroup.name,
-								// 		optionName: selectedOptionGroup.selectedOption.name,
-								// 	};
-								// }),
-							// });
 						}}
 					>
 						Save to PDF
