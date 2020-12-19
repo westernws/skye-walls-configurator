@@ -52,9 +52,6 @@ export const ReviewConfig = observer(() => {
 						type="button"
 						className="Button w-full"
 						onClick={() => {
-							const selectedOptionGroups = selectedProduct.optionGroups.filter((optionGroup) => {
-								return optionGroup.selectedOption;
-							});
 							appStore.closeAllModals();
 							delay(() => {
 								axios.request({

@@ -26,7 +26,6 @@ const savePdf = async (req, res) => {
 			request.continue();
 			return;
 		}
-		console.log('snapshot save-pdf', snapshot);
 		request.continue({
 			method: 'POST',
 			postData: snapshot,
@@ -58,7 +57,7 @@ export default savePdf;
 export const config = {
 	api: {
 		bodyParser: {
-			sizeLimit: '1mb',
+			sizeLimit: '50mb',
 		},
 	},
 };

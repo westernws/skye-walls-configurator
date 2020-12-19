@@ -5,7 +5,6 @@ import { unprotect, getSnapshot, applySnapshot } from 'mobx-state-tree';
 import { AppModel } from '~/Models/App.model';
 import productCollectionsData from '~/Data/productCollections';
 import { ProductCollectionsFactory } from '~/Factories/ProductCollections.factory';
-import { ConfigPageModel } from '~/Models/ConfigPage.model';
 import { ProductPageModel } from '~/Models/ProductPage.model';
 
 global.getSnapshot = getSnapshot;

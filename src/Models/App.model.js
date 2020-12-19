@@ -2,7 +2,6 @@ import { types } from 'mobx-state-tree';
 import flattenDeep from 'lodash/flattenDeep';
 import buildMediaQuery from 'tailwindcss/lib/util/buildMediaQuery';
 import { autorun } from 'mobx';
-import Router from 'next/router';
 
 import { ProductCollectionModel } from '~/Models/ProductCollection.model';
 import { ModalModel } from '~/Models/Modal.model';

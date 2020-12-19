@@ -23,35 +23,35 @@ export default function pardotFormHandler(req, res) {
 	const parsedLoc = parse(loc);
 
 	switch (formName) {
-	case 'emailListForm':
-		if (parsedReqUrl.queryKey.errors) {
-			const query = {};
+		case 'emailListForm':
+			if (parsedReqUrl.queryKey.errors) {
+				const query = {};
 
-			if (firstName) {
-				query.firstName = firstName;
+				if (firstName) {
+					query.firstName = firstName;
+				}
+				if (lastName) {
+					query.lastName = lastName;
+				}
+				if (email) {
+					query.email = email;
+				}
+				if (zipCode) {
+					query.zipCode = zipCode;
+				}
+				const locQuery = {
+					...parsedLoc.queryKey,
+					...query,
+					formError: formName,
+				};
+				loc = addToUrl(loc, serializeQueryKeys(locQuery));
+				loc += `#${formName}`;
 			}
-			if (lastName) {
-				query.lastName = lastName;
-			}
-			if (email) {
-				query.email = email;
-			}
-			if (zipCode) {
-				query.zipCode = zipCode;
-			}
-			const locQuery = {
-				...parsedLoc.queryKey,
-				...query,
-				formError: formName,
-			};
-			loc = addToUrl(loc, serializeQueryKeys(locQuery));
-			loc += `#${formName}`;
-		}
-		res.writeHead(302, { Location: loc });
-		res.end();
-		break;
-	default:
-		res.writeHead(302, { Location: '/' });
-		break;
+			res.writeHead(302, { Location: loc });
+			res.end();
+			break;
+		default:
+			res.writeHead(302, { Location: '/' });
+			break;
 	}
 }

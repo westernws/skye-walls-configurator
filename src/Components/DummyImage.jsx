@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const DummyImage = ({
-	className, width, height, text = 'FPO', color = '373737', fontSize = '48',
+	className, width, height, text = 'FPO',
 }) => {
 	return (
 		<img

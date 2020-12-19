@@ -1,10 +1,10 @@
-import {getSnapshot} from 'mobx-state-tree';
-import {appStore, Provider} from '-/src/Stores/App.store';
-import Router from 'next/router';
-import {ConfigPageModel} from '-/src/Models/ConfigPage.model';
+import React from 'react';
 
-const SavePdf = (props) => {
-	console.log('appStore', props.appStorePage);
+import { getSnapshot } from 'mobx-state-tree';
+import { appStore, Provider } from '-/src/Stores/App.store';
+import { ConfigPageModel } from '-/src/Models/ConfigPage.model';
+
+const SavePdf = () => {
 	return (
 		<Provider value={appStore}>
 			<h1>ohai</h1>
@@ -13,7 +13,6 @@ const SavePdf = (props) => {
 };
 
 export async function getServerSideProps(context) {
-	// console.log('context.res.query', context.query);
 	const { product: productSlug } = context.query;
 	const product = appStore.getProductBySlug(productSlug);
 	const currentSelectionGroup = product.selectionGroups[0].id;
