@@ -1,6 +1,7 @@
 import chromium from 'chrome-aws-lambda';
 import path from 'path';
 import fs from 'fs';
+import { DOMAIN } from '~/global.constants';
 
 const savePdf = async (req, res) => {
 	const browser = await chromium.puppeteer.launch({
@@ -14,7 +15,7 @@ const savePdf = async (req, res) => {
 
 	// console.log('req.body.snapshot.id', req.body.snapshot.id);
 	console.log('res', res);
-	await page.goto(`http://buildlocal.skyewallsbywws.com${req.body.link}`, { waitUntil: 'networkidle2' });
+	await page.goto(`https://${DOMAIN + req.body.link}`, { waitUntil: 'networkidle2' });
 	await page.setViewport({ width: 500, height: 500 });
 	await page.emulateMediaType('screen');
 	// const url = await page.evaluate(({ productName, selectedOptionGroups }) => {
