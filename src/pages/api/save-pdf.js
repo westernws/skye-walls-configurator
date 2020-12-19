@@ -1,7 +1,4 @@
 import chromium from 'chrome-aws-lambda';
-import path from 'path';
-import fs from 'fs';
-import { DOMAIN } from '~/global.constants';
 
 const savePdf = async (req, res) => {
 	const browser = await chromium.puppeteer.launch({
@@ -12,28 +9,33 @@ const savePdf = async (req, res) => {
 		ignoreHTTPSErrors: true,
 	});
 	const page = await browser.newPage();
+	const protocol = req.headers.host.includes('buildlocal') ? 'http' : 'https';
+	const {
+		link = '',
+		snapshot = '',
+	} = req.body;
+	const url = `${protocol}://${req.headers.host + link}`;
 
-	// console.log('req.body.snapshot.id', req.body.snapshot.id);
-	// console.log('req', req);
-	// console.log('DOMAIN', DOMAIN);
-	await page.goto(`http://${req.headers.host + req.body.link}?v=${new Date().valueOf()}`, { waitUntil: 'networkidle2' });
+	await page.setRequestInterception(true);
+	page.on('request', (request) => {
+		const {
+			_resourceType = '',
+		} = request;
+
+		if (_resourceType !== 'document') {
+			request.continue();
+			return;
+		}
+		console.log('snapshot save-pdf', snapshot);
+		request.continue({
+			method: 'POST',
+			postData: snapshot,
+		});
+	});
+	await page.goto(url, { waitUntil: 'networkidle2' });
 	await page.setViewport({ width: 500, height: 500 });
 	await page.emulateMediaType('screen');
-	// const url = await page.evaluate(({ productName, selectedOptionGroups }) => {
-	// 	app.page.setProduct(app.getProductByName(productName)); // eslint-disable-line no-undef
-	// 	selectedOptionGroups.forEach(({ optionGroupName, optionName }) => {
-	// 		app.page.product.setOption(optionGroupName, optionName); // eslint-disable-line no-undef
-	// 	});
-	// 	return {
-	// 		productName,
-	// 		selectedOptionGroups,
-	// 	};
-	// }, req.body);
-	// console.log('url', url);
-	// await page.goto(`http://buildlocal.skyewallsbywws.com${url}`, { waitUntil: 'networkidle2' });
-	const filePath = path.join(process.env.PWD, 'tmp/pdf', `product-pdf-${new Date().valueOf()}.pdf`);
 	await page.pdf({
-		// path: filePath,
 		format: 'Letter',
 		printBackground: true,
 		landscape: true,
@@ -49,16 +51,6 @@ const savePdf = async (req, res) => {
 		res.end(buffer);
 	});
 	await browser.close();
-	// res.setHeader('Content-Type', 'application/pdf');
-	// res.setHeader('Content-Length', renderedPdfBuffer.byteLength);
-	// res.setHeader('Content-Description', 'File Transfer');
-	// res.setHeader('Content-Transfer-Encoding', 'binary');
-	// res.setHeader('Access-Control-Expose-Headers', 'Content-Disposition');
-	// res.setHeader('Content-Disposition', 'attachment; filename="example-file.pdf');
-
-	// res.status(200);
-
-	// res.end(pdf);
 };
 
 export default savePdf;
@@ -66,65 +58,7 @@ export default savePdf;
 export const config = {
 	api: {
 		bodyParser: {
-			sizeLimit: '900kb',
+			sizeLimit: '1mb',
 		},
 	},
 };
-
-// import { parse } from 'uri-parser';
-// import { addToUrl } from '~/util/addToUrl';
-//
-// const serializeQueryKeys = (query, encode = false) => {
-// 	return Object.entries(query).map((entry) => {
-// 		return [
-// 			encode ? encodeURIComponent(entry[0]) : entry[0],
-// 			encode ? encodeURIComponent(entry[1]) : entry[1],
-// 		].join('=');
-// 	}).join('&');
-// };
-//
-// export default function pardotFormHandler(req, res) {
-// 	const { formName } = req.query;
-// 	const parsedReqUrl = parse(req.url);
-// 	const {
-// 		firstName,
-// 		lastName,
-// 		email,
-// 		zipCode,
-// 	} = parsedReqUrl.queryKey;
-// 	let loc = `${req.headers.referer}`;
-// 	const parsedLoc = parse(loc);
-//
-// 	switch (formName) {
-// 		case 'emailListForm':
-// 			if (parsedReqUrl.queryKey.errors) {
-// 				const query = {};
-//
-// 				if (firstName) {
-// 					query.firstName = firstName;
-// 				}
-// 				if (lastName) {
-// 					query.lastName = lastName;
-// 				}
-// 				if (email) {
-// 					query.email = email;
-// 				}
-// 				if (zipCode) {
-// 					query.zipCode = zipCode;
-// 				}
-// 				const locQuery = {
-// 					...parsedLoc.queryKey,
-// 					...query,
-// 					formError: formName,
-// 				};
-// 				loc = addToUrl(loc, serializeQueryKeys(locQuery));
-// 				loc += `#${formName}`;
-// 			}
-// 			res.writeHead(302, { Location: loc });
-// 			res.end();
-// 			break;
-// 		default:
-// 			res.writeHead(302, { Location: '/' });
-// 			break;
-// 	}
-// }

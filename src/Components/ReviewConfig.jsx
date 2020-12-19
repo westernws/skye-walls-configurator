@@ -1,7 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import axios from 'axios';
-import Link from 'next/link';
+import delay from 'lodash/delay';
+import { getSnapshot } from 'mobx-state-tree';
 
 import { useMst } from '~/Stores/App.store';
 import { ConfigProductImagery } from '~/Components/ConfigProductImagery';
@@ -47,9 +48,6 @@ export const ReviewConfig = observer(() => {
 			{/* 1800x1200 */}
 			<div className="ReviewFooter">
 				<div className="py-3 px-8 border-t border-gray-lighter border-solid">
-					<Link as={`${selectedProduct.configLink.as}/save-pdf`} href={`${selectedProduct.configLink.href}/save-pdf`}>
-						<a>Save PDF</a>
-					</Link>
 					<button
 						type="button"
 						className="Button w-full"
@@ -57,27 +55,28 @@ export const ReviewConfig = observer(() => {
 							const selectedOptionGroups = selectedProduct.optionGroups.filter((optionGroup) => {
 								return optionGroup.selectedOption;
 							});
+							appStore.closeAllModals();
+							delay(() => {
+								axios.request({
+									url: '/api/save-pdf',
+									method: 'post',
+									data: {
+										link: selectedProduct.configLink.as,
+										snapshot: JSON.stringify(getSnapshot(appStore)),
+									},
+									responseType: 'blob',
+								}).then((response) => {
+									const blob = new Blob([response.data], { type: 'application/pdf' });
+									const tempLink = document.createElement('a');
 
-							axios.request({
-								url: '/api/save-pdf',
-								method: 'post',
-								headers: {
+									tempLink.href = window.URL.createObjectURL(blob);
+									tempLink.download = 'product.pdf';
 
-								},
-								data: {
-									link: selectedProduct.configLink.as,
-								},
-								responseType: 'blob',
-							}).then((response) => {
-								const blob = new Blob([response.data], { type: 'application/pdf' });
-								const tempLink = document.createElement('a');
-								tempLink.href = window.URL.createObjectURL(blob);
-								tempLink.download = 'product.pdf';
-
-								document.body.appendChild(tempLink);
-								tempLink.click();
-								document.body.removeChild(tempLink);
-							});
+									document.body.appendChild(tempLink);
+									tempLink.click();
+									document.body.removeChild(tempLink);
+								});
+							}, 500);
 						}}
 					>
 						Save to PDF
