@@ -68,6 +68,20 @@ export const ReviewConfig = observer(() => {
 									link: selectedProduct.configLink.as,
 								},
 								responseType: 'blob',
+							}).then((response) => {
+								// Try to find out the filename from the content disposition `filename` value
+								// const disposition = response.headers['content-disposition'];
+								// const matches = /"([^"]*)"/.exec(disposition);
+								// var filename = (matches != null && matches[1] ? matches[1] : 'file.pdf');
+								// The actual download
+								const blob = new Blob([response.data], { type: 'application/pdf' });
+								const link = document.createElement('a');
+								link.href = window.URL.createObjectURL(blob);
+								link.download = 'product.pdf';
+
+								document.body.appendChild(link);
+
+								link.click();
 							});
 							// axios.post('/api/save-pdf', {
 							// 	link: selectedProduct.configLink.as,
