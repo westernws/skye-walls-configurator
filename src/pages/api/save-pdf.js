@@ -1,11 +1,14 @@
-import puppeteer from 'puppeteer';
+import chromium from 'chrome-aws-lambda';
 import path from 'path';
 import fs from 'fs';
 
 const savePdf = async (req, res) => {
-	const browser = await puppeteer.launch({
-		// headless: true,
-		// args: ['—no-sandbox', '—disable-setuid-sandbox'],
+	const browser = await chromium.puppeteer.launch({
+		args: [...chromium.args, '--hide-scrollbars', '--disable-web-security'],
+		defaultViewport: chromium.defaultViewport,
+		executablePath: await chromium.executablePath,
+		headless: true,
+		ignoreHTTPSErrors: true,
 	});
 	const page = await browser.newPage();
 

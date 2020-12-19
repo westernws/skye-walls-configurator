@@ -19,6 +19,7 @@
 		"@babel/plugin-proposal-optional-chaining": "^7.10.1",
 		"autoprefixer": "^9.8.0",
 		"axios": "^0.19.2",
+		"chrome-aws-lambda": "^5.5.0",
 		"circular-dependency-plugin": "^5.2.0",
 		"classnames": "^2.2.6",
 		"lodash": "^4.17.15",
