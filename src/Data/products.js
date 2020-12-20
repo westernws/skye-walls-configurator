@@ -516,9 +516,33 @@ const foldingClassicPerformanceImages = [
 		width: 1230,
 	},
 	{
+		color: 'an',
+		handle: 'db',
+		fileName: '7950-aluminum-autumn-night-dallas-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'an',
+		handle: 'dbn',
+		fileName: '7950-aluminum-autumn-night-dallas-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
 		color: 'bb',
 		handle: null,
 		fileName: '7950-aluminum-bison-beige-no-handle-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'bb',
+		handle: 'db',
+		fileName: '7950-aluminum-bison-beige-dallas-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'bb',
+		handle: 'dbn',
+		fileName: '7950-aluminum-bison-beige-dallas-brushed-nickel-classic-performance.png',
 		width: 1230,
 	},
 	{
@@ -552,6 +576,18 @@ const foldingClassicPerformanceImages = [
 		width: 1230,
 	},
 	{
+		color: 'briar',
+		handle: 'db',
+		fileName: '7950-aluminum-briar-dallas-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'briar',
+		handle: 'dbn',
+		fileName: '7950-aluminum-briar-dallas-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
 		color: 'ba',
 		handle: null,
 		fileName: '7950-aluminum-bronze-anodized-no-handle-classic-performance.png',
@@ -567,6 +603,18 @@ const foldingClassicPerformanceImages = [
 		color: 'ba',
 		handle: 'fmbn',
 		fileName: '7950-aluminum-bronze-anodized-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'ba',
+		handle: 'db',
+		fileName: '7950-aluminum-bronze-anodized-dallas-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'ba',
+		handle: 'dbn',
+		fileName: '7950-aluminum-bronze-anodized-dallas-brushed-nickel-classic-performance.png',
 		width: 1230,
 	},
 	{
@@ -588,6 +636,18 @@ const foldingClassicPerformanceImages = [
 		width: 1230,
 	},
 	{
+		color: 'ct',
+		handle: 'db',
+		fileName: '7950-aluminum-cinnamon-toast-dallas-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'ct',
+		handle: 'dbn',
+		fileName: '7950-aluminum-cinnamon-toast-dallas-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
 		color: 'hb',
 		handle: null,
 		fileName: '7950-aluminum-hillside-bronze-no-handle-classic-performance.png',
@@ -603,6 +663,18 @@ const foldingClassicPerformanceImages = [
 		color: 'hb',
 		handle: 'fmbn',
 		fileName: '7950-aluminum-hillside-bronze-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'hb',
+		handle: 'db',
+		fileName: '7950-aluminum-hillside-bronze-dallas-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'hb',
+		handle: 'dbn',
+		fileName: '7950-aluminum-autumn-night-dallas-brushed-nickel-classic-performance.png',
 		width: 1230,
 	},
 	{
@@ -624,6 +696,18 @@ const foldingClassicPerformanceImages = [
 		width: 1230,
 	},
 	{
+		color: 'nw',
+		handle: 'db',
+		fileName: '7950-aluminum-navajo-white-dallas-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'nw',
+		handle: 'dbn',
+		fileName: '7950-aluminum-navajo-white-dallas-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
 		color: 'sa',
 		handle: null,
 		fileName: '7950-aluminum-satin-anodized-no-handle-classic-performance.png',
@@ -639,6 +723,18 @@ const foldingClassicPerformanceImages = [
 		color: 'sa',
 		handle: 'fmbn',
 		fileName: '7950-aluminum-satin-anodized-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'sa',
+		handle: 'db',
+		fileName: '7950-aluminum-satin-anodized-dallas-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'sa',
+		handle: 'dbn',
+		fileName: '7950-aluminum-satin-anodized-dallas-brushed-nickel-classic-performance.png',
 		width: 1230,
 	},
 	{
@@ -660,6 +756,18 @@ const foldingClassicPerformanceImages = [
 		width: 1230,
 	},
 	{
+		color: 'sb',
+		handle: 'db',
+		fileName: '7950-aluminum-stonish-beige-dallas-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'sb',
+		handle: 'dbn',
+		fileName: '7950-aluminum-stonish-beige-dallas-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
 		color: 'warmtone',
 		handle: null,
 		fileName: '7950-aluminum-warmtone-no-handle-classic-performance.png',
@@ -675,6 +783,18 @@ const foldingClassicPerformanceImages = [
 		color: 'warmtone',
 		handle: 'fmbn',
 		fileName: '7950-aluminum-warmtone-flush-mounted-brushed-nickel-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'warmtone',
+		handle: 'db',
+		fileName: '7950-aluminum-warmtone-dallas-black-classic-performance.png',
+		width: 1230,
+	},
+	{
+		color: 'warmtone',
+		handle: 'dbn',
+		fileName: '7950-aluminum-warmtone-dallas-brushed-nickel-classic-performance.png',
 		width: 1230,
 	},
 	{
@@ -695,61 +815,16 @@ const foldingClassicPerformanceImages = [
 		fileName: '7950-aluminum-white-flush-mounted-brushed-nickel-classic-performance.png',
 		width: 1230,
 	},
-];
-const images = [
 	{
-		color: 'ba',
-		fileName: '7600-2xo-bronze-ano.png',
-		width: 1230,
-	},
-	{
-		color: 'sa',
-		fileName: '7600-2xo-satin-ano.png',
-		width: 1230,
-	},
-	{
-		color: 'warmtone',
-		fileName: '7600-2xo-warmtone.png',
+		color: 'white',
+		handle: 'db',
+		fileName: '7950-aluminum-white-dallas-black-classic-performance.png',
 		width: 1230,
 	},
 	{
 		color: 'white',
-		fileName: '7600-2xo-white.png',
-		width: 1230,
-	},
-	{
-		color: 'an',
-		fileName: '7600-2xo-white.png',
-		width: 1230,
-	},
-	{
-		color: 'bb',
-		fileName: '7600-2xo-white.png',
-		width: 1230,
-	},
-	{
-		color: 'briar',
-		fileName: '7600-2xo-white.png',
-		width: 1230,
-	},
-	{
-		color: 'ct',
-		fileName: '7600-2xo-white.png',
-		width: 1230,
-	},
-	{
-		color: 'hb',
-		fileName: '7600-2xo-white.png',
-		width: 1230,
-	},
-	{
-		color: 'nw',
-		fileName: '7600-2xo-white.png',
-		width: 1230,
-	},
-	{
-		color: 'sb',
-		fileName: '7600-2xo-white.png',
+		handle: 'dbn',
+		fileName: '7950-aluminum-white-dallas-brushed-nickel-classic-performance.png',
 		width: 1230,
 	},
 ];
@@ -1353,11 +1428,52 @@ export default [
 			'Flush-mounted handle so panels easily slide past each other',
 			'After-market screening solution',
 		],
-		images,
+		baseImagePath: '/images/product/sliding/vinyl',
+		images: [
+			{
+				color: 'almond',
+				handle: null,
+				fileName: '3700-vinyl-almond-cpull-almond.png',
+				width: 1230,
+			},
+			{
+				color: 'almond',
+				handle: 'cpa',
+				fileName: '3700-vinyl-almond-cpull-almond.png',
+				width: 1230,
+			},
+			{
+				color: 'black',
+				handle: null,
+				fileName: '3700-vinyl-black-cpull-black.png',
+				width: 1230,
+			},
+			{
+				color: 'black',
+				handle: 'cpb',
+				fileName: '3700-vinyl-black-cpull-black.png',
+				width: 1230,
+			},
+			{
+				color: 'white',
+				handle: null,
+				fileName: '3700-vinyl-white-cpull-white.png',
+				width: 1230,
+			},
+			{
+				color: 'white',
+				handle: 'cpw',
+				fileName: '3700-vinyl-white-cpull-white.png',
+				width: 1230,
+			},
+		],
 		selectionGroups: [
 			{
 				name: 'color',
-				optionGroups: colorOptionGroups,
+				optionGroups: [{
+					name: 'color',
+					options: ['black', 'almond', 'white'],
+				}],
 			},
 			{
 				name: 'handles',
@@ -1402,7 +1518,7 @@ export default [
 				name: 'handles',
 				optionGroups: [{
 					name: 'handles',
-					options: ['fmbn', 'fmb'],
+					options: ['fmbn', 'fmb', 'db', 'dbn'],
 				}],
 			},
 			{
@@ -1440,7 +1556,7 @@ export default [
 				name: 'handles',
 				optionGroups: [{
 					name: 'handles',
-					options: ['fmbn', 'fmb'],
+					options: ['fmbn', 'fmb', 'db', 'dbn'],
 				}],
 			},
 			{
@@ -1482,6 +1598,18 @@ export default [
 				width: 1230,
 			},
 			{
+				color: 'an',
+				handle: 'db',
+				fileName: '7950-aluminum-autumn-night-dallas-black-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'an',
+				handle: 'dbn',
+				fileName: '7950-aluminum-autumn-night-dallas-brushed-nickel-simulated-steel.png',
+				width: 1230,
+			},
+			{
 				color: 'bb',
 				handle: null,
 				fileName: '7950-aluminum-bison-beige-no-handle-simulated-steel.png',
@@ -1497,6 +1625,18 @@ export default [
 				color: 'bb',
 				handle: 'fmbn',
 				fileName: '7950-aluminum-bison-beige-flush-mounted-brushed-nickel-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'bb',
+				handle: 'db',
+				fileName: '7950-aluminum-bison-beige-dallas-black-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'bb',
+				handle: 'dbn',
+				fileName: '7950-aluminum-bison-beige-dallas-brushed-nickel-simulated-steel.png',
 				width: 1230,
 			},
 			{
@@ -1518,6 +1658,18 @@ export default [
 				width: 1230,
 			},
 			{
+				color: 'briar',
+				handle: 'db',
+				fileName: '7950-aluminum-briar-dallas-black-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'briar',
+				handle: 'dbn',
+				fileName: '7950-aluminum-briar-dallas-brushed-nickel-simulated-steel.png',
+				width: 1230,
+			},
+			{
 				color: 'ba',
 				handle: null,
 				fileName: '7950-aluminum-bronze-anodized-no-handle-simulated-steel.png',
@@ -1533,6 +1685,18 @@ export default [
 				color: 'ba',
 				handle: 'fmbn',
 				fileName: '7950-aluminum-bronze-anodized-flush-mounted-brushed-nickel-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'ba',
+				handle: 'db',
+				fileName: '7950-aluminum-bronze-anodized-dallas-black-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'ba',
+				handle: 'dbn',
+				fileName: '7950-aluminum-bronze-anodized-dallas-brushed-nickel-simulated-steel.png',
 				width: 1230,
 			},
 			{
@@ -1554,6 +1718,18 @@ export default [
 				width: 1230,
 			},
 			{
+				color: 'ct',
+				handle: 'db',
+				fileName: '7950-aluminum-cinnamon-toast-dallas-black-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'ct',
+				handle: 'dbn',
+				fileName: '7950-aluminum-cinnamon-toast-dallas-brushed-nickel-simulated-steel.png',
+				width: 1230,
+			},
+			{
 				color: 'hb',
 				handle: null,
 				fileName: '7950-aluminum-hillside-bronze-no-handle-simulated-steel.png',
@@ -1569,6 +1745,18 @@ export default [
 				color: 'hb',
 				handle: 'fmbn',
 				fileName: '7950-aluminum-hillside-bronze-flush-mounted-brushed-nickel-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'hb',
+				handle: 'db',
+				fileName: '7950-aluminum-hillside-bronze-dallas-black-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'hb',
+				handle: 'dbn',
+				fileName: '7950-aluminum-hillside-bronze-dallas-brushed-nickel-simulated-steel.png',
 				width: 1230,
 			},
 			{
@@ -1590,6 +1778,18 @@ export default [
 				width: 1230,
 			},
 			{
+				color: 'nw',
+				handle: 'db',
+				fileName: '7950-aluminum-navajo-white-dallas-black-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'nw',
+				handle: 'dbn',
+				fileName: '7950-aluminum-navajo-white-dallas-brushed-nickel-simulated-steel.png',
+				width: 1230,
+			},
+			{
 				color: 'sa',
 				handle: null,
 				fileName: '7950-aluminum-satin-anodized-no-handle-simulated-steel.png',
@@ -1605,6 +1805,18 @@ export default [
 				color: 'sa',
 				handle: 'fmbn',
 				fileName: '7950-aluminum-satin-anodized-flush-mounted-brushed-nickel-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'sa',
+				handle: 'db',
+				fileName: '7950-aluminum-satin-anodized-dallas-black-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'sa',
+				handle: 'dbn',
+				fileName: '7950-aluminum-satin-anodized-dallas-brushed-nickel-simulated-steel.png',
 				width: 1230,
 			},
 			{
@@ -1626,6 +1838,18 @@ export default [
 				width: 1230,
 			},
 			{
+				color: 'sb',
+				handle: 'db',
+				fileName: '7950-aluminum-stonish-beige-dallas-black-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'sb',
+				handle: 'dbn',
+				fileName: '7950-aluminum-stonish-beige-dallas-brushed-nickel-simulated-steel.png',
+				width: 1230,
+			},
+			{
 				color: 'warmtone',
 				handle: null,
 				fileName: '7950-aluminum-warmtone-no-handle-simulated-steel.png',
@@ -1641,6 +1865,18 @@ export default [
 				color: 'warmtone',
 				handle: 'fmbn',
 				fileName: '7950-aluminum-warmtone-flush-mounted-brushed-nickel-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'warmtone',
+				handle: 'db',
+				fileName: '7950-aluminum-warmtone-dallas-black-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'warmtone',
+				handle: 'dbn',
+				fileName: '7950-aluminum-warmtone-dallas-brushed-nickel-simulated-steel.png',
 				width: 1230,
 			},
 			{
@@ -1661,6 +1897,18 @@ export default [
 				fileName: '7950-aluminum-white-flush-mounted-brushed-nickel-simulated-steel.png',
 				width: 1230,
 			},
+			{
+				color: 'white',
+				handle: 'db',
+				fileName: '7950-aluminum-white-dallas-black-simulated-steel.png',
+				width: 1230,
+			},
+			{
+				color: 'white',
+				handle: 'dbn',
+				fileName: '7950-aluminum-white-dallas-brushed-nickel-simulated-steel.png',
+				width: 1230,
+			},
 		],
 		selectionGroups: [
 			{
@@ -1678,7 +1926,7 @@ export default [
 				name: 'handles',
 				optionGroups: [{
 					name: 'handles',
-					options: ['fmbn', 'fmb'],
+					options: ['fmbn', 'fmb', 'db', 'dbn'],
 				}],
 			},
 			{

@@ -15,6 +15,18 @@ module.exports = [
 		useTooltip: true,
 		options: [
 			{
+				name: 'almond',
+				displayName: 'Almond',
+				...standardDisplayOptionGroup,
+				hex: 'F5EDE0',
+			},
+			{
+				name: 'black',
+				displayName: 'Black',
+				...standardDisplayOptionGroup,
+				hex: '424143',
+			},
+			{
 				name: 'ba',
 				displayName: 'Bronze Anodized',
 				...standardDisplayOptionGroup,
@@ -157,7 +169,7 @@ module.exports = [
 				name: 'fmb',
 				displayName: 'Flush-Mounted',
 				finish: 'Black',
-				description: 'Clean narrow design allows panels to easily slide past each other. Available in brushed nickel or black.',
+				description: 'Clean narrow design allows panels to easily slide past each other.',
 				detailImage: {
 					basePath: '/images/handle/detail',
 					fileName: 'Handle-7600-Flush-Mount-B.png',
@@ -208,12 +220,12 @@ module.exports = [
 				description: 'For a consistent look, this standard handle matches the color of the door frame.',
 				detailImage: {
 					basePath: '/images/handle/detail',
-					fileName: 'Handle-7600-Contemporary-B.png',
+					fileName: 'Handle-3700-CPull-Almond.png',
 					width: 400,
 				},
 				thumb: {
 					basePath: '/images/handle/thumb',
-					fileName: 'Handle-7600-Contemporary-B.png',
+					fileName: 'Handle-3700-CPull-Almond.png',
 					width: 150,
 				},
 			},
@@ -224,12 +236,12 @@ module.exports = [
 				description: 'For a consistent look, this standard handle matches the color of the door frame.',
 				detailImage: {
 					basePath: '/images/handle/detail',
-					fileName: 'Handle-7600-Contemporary-B.png',
+					fileName: 'Handle-3700-CPull-Black.png',
 					width: 400,
 				},
 				thumb: {
 					basePath: '/images/handle/thumb',
-					fileName: 'Handle-7600-Contemporary-B.png',
+					fileName: 'Handle-3700-CPull-Black.png',
 					width: 150,
 				},
 			},
@@ -240,12 +252,12 @@ module.exports = [
 				description: 'For a consistent look, this standard handle matches the color of the door frame.',
 				detailImage: {
 					basePath: '/images/handle/detail',
-					fileName: 'Handle-7600-Contemporary-B.png',
+					fileName: 'Handle-3700-CPull-White.png',
 					width: 400,
 				},
 				thumb: {
 					basePath: '/images/handle/thumb',
-					fileName: 'Handle-7600-Contemporary-B.png',
+					fileName: 'Handle-3700-CPull-White.png',
 					width: 150,
 				},
 			},
@@ -297,17 +309,34 @@ module.exports = [
 				},
 			},
 			{
-				name: 'dh',
-				displayName: 'Dallas Handle',
-				description: 'Located on the swinging panel, making it convenient for everyday use.',
+				name: 'db',
+				displayName: 'Dallas',
+				finish: 'Black',
+				description: 'Each of our folding doors features the following: a Dallas handle located on the swinging panel; a D-shaped Pull handle, which aids in opening and closing the door; and an Inactive Lock handle which secures the door panels.',
 				detailImage: {
 					basePath: '/images/handle/detail',
-					fileName: 'Handle-7600-Contemporary-B.png',
+					fileName: 'Handle-7950-Dallas-Black.png',
 					width: 400,
 				},
 				thumb: {
 					basePath: '/images/handle/thumb',
-					fileName: 'Handle-7600-Contemporary-B.png',
+					fileName: 'Handle-7950-Dallas-Black.png',
+					width: 150,
+				},
+			},
+			{
+				name: 'dbn',
+				displayName: 'Dallas',
+				finish: 'Brushed Nickel',
+				description: 'Each of our folding doors features the following: a Dallas handle located on the swinging panel; a D-shaped Pull handle, which aids in opening and closing the door; and an Inactive Lock handle which secures the door panels.',
+				detailImage: {
+					basePath: '/images/handle/detail',
+					fileName: 'Handle-7950-Dallas-Brushed-Nickel.png',
+					width: 400,
+				},
+				thumb: {
+					basePath: '/images/handle/thumb',
+					fileName: 'Handle-7950-Dallas-Brushed-Nickel.png',
 					width: 150,
 				},
 			},
