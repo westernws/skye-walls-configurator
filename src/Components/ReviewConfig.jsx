@@ -75,6 +75,7 @@ export const ReviewConfig = observer(() => {
 									snapshot,
 								},
 							}).then((response) => {
+								// Since save-as dialog cannot be opened from an AJAX request, we do this instead.
 								const {
 									data: {
 										data: {
