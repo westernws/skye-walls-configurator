@@ -21,8 +21,8 @@ export default [
 			The most economical solution to transform your home, it stands up to the elements and is
 			nearly maintenance-free.
 		`,
-		image: illustrations.static.slidingSimulatedSteel,
-		animatedImage: illustrations.animated.slidingSimulatedSteel,
+		image: illustrations.static.sliding,
+		animatedImage: illustrations.animated.sliding,
 		products: ['vmsd'],
 	},
 	{

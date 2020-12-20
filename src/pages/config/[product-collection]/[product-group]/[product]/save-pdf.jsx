@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { getSnapshot } from 'mobx-state-tree';
-import { appStore, Provider } from '-/src/Stores/App.store';
-import { ConfigPageModel } from '-/src/Models/ConfigPage.model';
+import { appStore, Provider } from '~/Stores/App.store';
+import { ConfigPageModel } from '~/Models/ConfigPage.model';
 
 const SavePdf = () => {
 	return (
