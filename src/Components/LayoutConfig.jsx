@@ -9,6 +9,7 @@ import { Modals } from '~/Components/Modals';
 import { Menu } from '~/Components/Menu';
 import { StartOver } from '~/Components/StartOver';
 import { ReviewConfig } from '~/Components/ReviewConfig';
+import { ContactUs } from '~/Components/ContactUs';
 
 export const LayoutConfig = observer(({ children }) => {
 	const {
@@ -120,6 +121,13 @@ export const LayoutConfig = observer(({ children }) => {
 										className="Button xl:px-12"
 										type="button"
 										onClick={() => {
+											modal.open({
+												title: 'Contact Us',
+												type: 'FROSTY',
+												showCloseBtn: true,
+												showBackdrop: true,
+												content: <ContactUs />,
+											});
 										}}
 									>
 										Send to Skye Walls

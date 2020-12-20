@@ -157,18 +157,17 @@ const Product = types
 			return result;
 		},
 		get selectedOptions() {
-			const selectedOptions = [
-				self.selectedColor,
-				self.selectedFloorTracks,
-				self.selectedHandle,
-			];
+			const result = [];
 
-			return selectedOptions.map((selectedOption) => {
-				return {
-					optionGroup: selectedOption.parent,
-					option: selectedOption,
-				};
+			self.optionGroups.forEach((optionGroup) => {
+				const selectedOption = optionGroup.options?.find?.(option => option.selected) || '';
+				const selectedOptionPart = selectedOption?.name?.split?.('-')?.[0] || '';
+
+				if (selectedOptionPart) {
+					result.push(`${optionGroup.name}_${selectedOptionPart}`);
+				}
 			});
+			return result.join('|');
 		},
 		get selectedWall() {
 			return self.wallOptionGroup?.options?.find?.(option => option.selected) || {};
