@@ -52,6 +52,9 @@ const Product = types
 		get floorTracksOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'floor-sills') || {};
 		},
+		get generatedPdfFilename() {
+			return `skye-walls-${kebabCase(self.selectedColor.displayName)}-${kebabCase(self.displayName)}.pdf`;
+		},
 		get handleOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'handles') || {};
 		},

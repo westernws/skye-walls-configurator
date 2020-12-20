@@ -58,6 +58,7 @@ export const ReviewConfig = observer(() => {
 									url: '/api/save-pdf',
 									method: 'post',
 									data: {
+										filename: selectedProduct.generatedPdfFilename,
 										link: selectedProduct.configLink.as,
 										snapshot: JSON.stringify(getSnapshot(appStore)),
 									},
@@ -72,7 +73,7 @@ export const ReviewConfig = observer(() => {
 									const tempLink = document.createElement('a');
 
 									tempLink.href = href;
-									tempLink.target = '_blank';
+									// tempLink.target = '_blank';
 
 									document.body.appendChild(tempLink);
 									tempLink.click();

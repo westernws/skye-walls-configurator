@@ -16,6 +16,7 @@ const savePdf = async (req, res) => {
 	const page = await browser.newPage();
 	const protocol = req.headers.host.includes('buildlocal') ? 'http' : 'https';
 	const {
+		filename = '',
 		link = '',
 		snapshot = '',
 	} = req.body;
@@ -56,11 +57,13 @@ const savePdf = async (req, res) => {
 			ACL: 'public-read',
 			Body: buffer,
 			Bucket: BUCKET_NAME,
+			ContentDisposition: `attachment; filename="${filename}"`,
 			ContentLength: buffer.byteLength,
 			ContentType: 'application/pdf',
-			Key: 'generated-product-config/product.pdf',
+			Key: `generated-product-config/${filename}`,
 		};
 
+		console.log('filename', filename);
 		s3.upload(uploadParams, (error, data) => {
 			res.status(200).json({
 				error,
@@ -80,11 +83,3 @@ const savePdf = async (req, res) => {
 };
 
 export default savePdf;
-
-export const config = {
-	api: {
-		bodyParser: {
-			sizeLimit: '50mb',
-		},
-	},
-};
