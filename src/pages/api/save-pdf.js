@@ -1,4 +1,9 @@
 import chromium from 'chrome-aws-lambda';
+import aws from 'aws-sdk';
+
+import {
+	ACCESS_KEY_ID, BUCKET_NAME, REGION, SECRET_ACCESS_KEY,
+} from '~/global.constants';
 
 const savePdf = async (req, res) => {
 	const browser = await chromium.puppeteer.launch({
@@ -40,14 +45,36 @@ const savePdf = async (req, res) => {
 		landscape: true,
 		scale: 0.75,
 	}).then((buffer) => {
-		res.writeHead(200, {
-			'Content-Type': 'application/pdf',
-			'Content-Description': 'File Transfer',
-			'Content-Transfer-Encoding': 'binary',
-			'Access-Control-Expose-Headers': 'Content-Disposition',
-			'Content-Disposition': 'attachment; filename="example-file.pdf',
+		aws.config.update({
+			accessKeyId: ACCESS_KEY_ID,
+			secretAccessKey: SECRET_ACCESS_KEY,
+			region: REGION,
+			signatureVersion: 'v4',
 		});
-		res.end(buffer);
+		const s3 = new aws.S3();
+		const uploadParams = {
+			ACL: 'public-read',
+			Body: buffer,
+			Bucket: BUCKET_NAME,
+			ContentLength: buffer.byteLength,
+			ContentType: 'application/pdf',
+			Key: 'generated-product-config/product.pdf',
+		};
+
+		s3.upload(uploadParams, (error, data) => {
+			res.status(200).json({
+				error,
+				data,
+			});
+		});
+		// res.writeHead(200, {
+		// 	'Content-Type': 'application/pdf',
+		// 	'Content-Description': 'File Transfer',
+		// 	'Content-Transfer-Encoding': 'binary',
+		// 	'Access-Control-Expose-Headers': 'Content-Disposition',
+		// 	'Content-Disposition': 'attachment; filename="example-file.pdf',
+		// });
+		// res.end(buffer);
 	});
 	await browser.close();
 };

@@ -61,13 +61,18 @@ export const ReviewConfig = observer(() => {
 										link: selectedProduct.configLink.as,
 										snapshot: JSON.stringify(getSnapshot(appStore)),
 									},
-									responseType: 'blob',
 								}).then((response) => {
-									const blob = new Blob([response.data], { type: 'application/pdf' });
+									const {
+										data: {
+											data: {
+												Location: href = '',
+											} = {},
+										} = {},
+									} = response;
 									const tempLink = document.createElement('a');
 
-									tempLink.href = window.URL.createObjectURL(blob);
-									tempLink.download = 'product.pdf';
+									tempLink.href = href;
+									tempLink.target = '_blank';
 
 									document.body.appendChild(tempLink);
 									tempLink.click();

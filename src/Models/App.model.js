@@ -109,7 +109,6 @@ export const AppModel = types
 			const currentSelectionGroup = product.selectionGroups[0].id;
 			const currentOptionGroup = product.selectionGroups[0].optionGroups[0].id;
 
-			console.log('set page 2');
 			self.setPage(ConfigPageModel.create({
 				id: 'ConfigPageModel_main',
 				product,

@@ -10,14 +10,18 @@
 		"not op_mini all"
 	],
 	"scripts": {
+		"cdk": "cdk",
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start"
 	},
 	"dependencies": {
+		"@aws-cdk/aws-s3": "^1.79.0",
+		"@aws-cdk/core": "^1.79.0",
 		"@babel/core": "^7.12.7",
 		"@babel/plugin-proposal-optional-chaining": "^7.10.1",
 		"autoprefixer": "^9.8.0",
+		"aws-sdk": "^2.814.0",
 		"axios": "^0.19.2",
 		"chrome-aws-lambda": "^5.5.0",
 		"circular-dependency-plugin": "^5.2.0",
@@ -42,6 +46,7 @@
 		"uri-parser": "^1.0.1"
 	},
 	"devDependencies": {
+		"aws-cdk": "^1.79.0",
 		"babel-eslint": "^10.0.1",
 		"eslint": "7.14.0",
 		"eslint-config-airbnb": "18.2.1",

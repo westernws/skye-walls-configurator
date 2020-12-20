@@ -13,7 +13,6 @@ import { SelectorMenu } from '~/Components/selectors/SelectorMenu';
 
 const ConfigProduct = ({ snapshot = null }) => {
 	if (!isEmpty(snapshot)) {
-		console.log('snapshot exists');
 		applySnapshot(appStore, JSON.parse(snapshot));
 	}
 	if (process.browser) {
