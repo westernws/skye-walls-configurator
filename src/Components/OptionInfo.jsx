@@ -11,8 +11,9 @@ export const OptionInfo = observer(({ option }) => {
 		description = '',
 		finish = '',
 	} = option;
-	const width = isMediaQueryXl ? '420' : '825';
+	const width = isMediaQueryXl ? 420 : 825;
 	const height = width;
+	const descHeight = isMediaQueryXl ? height : 0;
 	const hasFinish = Boolean(finish);
 
 	return (
@@ -28,7 +29,7 @@ export const OptionInfo = observer(({ option }) => {
 					height={height}
 				/>
 			}
-			<div className="px-12">
+			<div className="px-12 xl:pb-12 xl:overflow-auto" style={{ height: `calc(100vh - ${descHeight}px)` }}>
 				<div className="xl:px-4 space-y-2 mb-4">
 					<h1 className="text-3xl text-blue">
 						<span className="block">{`${displayName}${(hasFinish ? ',' : '')}`}</span>
