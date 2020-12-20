@@ -45,7 +45,6 @@ export const ReviewConfig = observer(() => {
 					</div>
 				</div>
 			</div>
-			{/* 1800x1200 */}
 			<div className="ReviewFooter print:hidden">
 				<div className="py-3 px-8 border-t border-gray-lighter border-solid">
 					<button
@@ -59,6 +58,7 @@ export const ReviewConfig = observer(() => {
 								modal.open({
 									title: 'Save to PDF',
 									type: 'MODAL',
+									showCloseBtn: false,
 									content: (
 										<p className="font-italic text-lg">
 											Please wait while we generate a PDF for your configured product…
