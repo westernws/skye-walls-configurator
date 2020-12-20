@@ -38,8 +38,6 @@ const savePdf = async (req, res) => {
 		});
 	});
 	await page.goto(url, { waitUntil: 'networkidle2' });
-	await page.setViewport({ width: 500, height: 500 });
-	await page.emulateMediaType('screen');
 	await page.pdf({
 		format: 'Letter',
 		printBackground: true,
@@ -63,21 +61,12 @@ const savePdf = async (req, res) => {
 			Key: `generated-product-config/${filename}`,
 		};
 
-		console.log('filename', filename);
 		s3.upload(uploadParams, (error, data) => {
 			res.status(200).json({
 				error,
 				data,
 			});
 		});
-		// res.writeHead(200, {
-		// 	'Content-Type': 'application/pdf',
-		// 	'Content-Description': 'File Transfer',
-		// 	'Content-Transfer-Encoding': 'binary',
-		// 	'Access-Control-Expose-Headers': 'Content-Disposition',
-		// 	'Content-Disposition': 'attachment; filename="example-file.pdf',
-		// });
-		// res.end(buffer);
 	});
 	await browser.close();
 };

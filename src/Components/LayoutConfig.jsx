@@ -52,7 +52,7 @@ export const LayoutConfig = observer(({ children }) => {
 									<div className="Header-title space-x-0 xl:space-x-2">
 										<h1 className="text-lg leading-tight font-bold">{selectedProduct.displayName}</h1>
 									</div>
-									<ul className="space-x-6 hidden xl:flex">
+									<ul className="space-x-6 hidden xl:flex print:hidden">
 										{
 											!isReviewModalOpen &&
 											<>
@@ -95,7 +95,7 @@ export const LayoutConfig = observer(({ children }) => {
 							</div>
 							{
 								!isReviewModalOpen &&
-								<div className="ConfigReview hidden xl:block xl:-mr-4">
+								<div className="ConfigReview hidden xl:block xl:-mr-4 print:hidden">
 									<button
 										className="Button xl:px-12"
 										type="button"
@@ -134,6 +134,9 @@ export const LayoutConfig = observer(({ children }) => {
 					</nav>
 				</header>
 				{children}
+				<div className="screen:hidden">
+					<ReviewConfig />
+				</div>
 				{
 					process.browser &&
 					<ReactTooltip effect="solid" className="Tooltip" />

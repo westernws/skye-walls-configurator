@@ -33,3 +33,11 @@
 		--config-image-width: calc(100vw - #{$configSelectorPanelContainerWidth});
 	}
 }
+
+@screen print {
+	.MainComponent {
+		@apply m-0 #{'!important'};
+		--config-image-width: 100vw;
+		--config-image-height: 95vh;
+	}
+}

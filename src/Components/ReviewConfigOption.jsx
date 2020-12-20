@@ -25,8 +25,8 @@ export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick, 
 
 	return (
 		<div className="ReviewConfigOption space-y-6 xl:space-y-0">
-			<div className="flex flex-col flex-shrink-0 xl:space-y-4">
-				<h2 className="font-bold text-blue">
+			<div className="flex flex-col flex-shrink-0 xl:space-y-4 print:flex-row print:space-y-0 print:space-x-2">
+				<h2 className="font-bold text-blue print:text-black">
 					{(selectionGroup.displayNameSingular || selectionGroup.displayName)}:
 				</h2>
 				{
@@ -37,7 +37,7 @@ export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick, 
 			<div className="xl:flex xl:items-center">
 				{
 					!hasManyOptionGroups && Boolean(thumb) &&
-					<div className={cn('ReviewConfigOption-thumb', {
+					<div className={cn('ReviewConfigOption-thumb print:hidden', {
 						'xl:p-8': padThumb,
 					})}
 					>
@@ -52,21 +52,20 @@ export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick, 
 				}
 				{
 					!hasManyOptionGroups && Boolean(hex) &&
-					<div>
+					<div className="print:hidden">
 						<div className="ReviewConfigOption-swatch" style={{ backgroundColor: `#${hex}` }} />
 					</div>
 				}
 				{
 					hasManyOptionGroups && Boolean(optionGroups.find(optionGroup => optionGroup.selectedOption)) &&
-					<div className="flex flex-col space-y-6 xl:flex-row xl:space-y-0 xl:space-x-6">
+					<div className="flex flex-col space-y-6 xl:flex-row xl:space-y-0 xl:space-x-6 print:block print:space-x-0 print:ml-8">
 						{
 							optionGroups.filter(optionGroup => optionGroup.selectedOption).map((optionGroup) => {
-								console.log('optionGroup', optionGroup);
 								return (
-									<div key={optionGroup.name} className="flex flex-col items-center space-y-2">
+									<div key={optionGroup.name} className="flex flex-col items-center space-y-2 print:block print:space-y-0">
 										{
 											Boolean(optionGroup.selectedOption.thumb) &&
-											<div className={cn('ReviewConfigOption-thumb p-0', {
+											<div className={cn('ReviewConfigOption-thumb p-0 print:hidden', {
 												'xl:p-8': padThumb,
 											})}
 											>
@@ -81,15 +80,15 @@ export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick, 
 										}
 										{
 											Boolean(optionGroup.selectedOption.hex) &&
-											<div className="flex flex-col justify-center h-full">
+											<div className="flex flex-col justify-center h-full print:hidden">
 												<div
 													className="ReviewConfigOption-swatchMulti"
 													style={{ backgroundColor: `#${optionGroup.selectedOption.hex}` }}
 												/>
 											</div>
 										}
-										<h3 className="flex flex-col items-center">
-											<strong className="text-blue">{optionGroup.displayName}</strong>
+										<h3 className="flex flex-col items-center print:block print:space-x-2">
+											<strong className="text-blue print:text-black">{optionGroup.displayName}</strong>
 											{
 												Boolean(optionGroup.selectedOption) &&
 												<span>{optionGroup.selectedOption.displayName}</span>
@@ -101,7 +100,7 @@ export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick, 
 						}
 					</div>
 				}
-				<div className="ReviewConfigOption-control">
+				<div className="ReviewConfigOption-control print:hidden">
 					<button
 						className="w-10"
 						type="button"

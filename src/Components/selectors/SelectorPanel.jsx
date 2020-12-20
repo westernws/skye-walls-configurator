@@ -39,7 +39,7 @@ export const SelectorPanel = observer(() => {
 	}
 
 	return (
-		<div className="SelectorPanelContainer">
+		<div className="SelectorPanelContainer print:hidden">
 			<div className="SelectorPanelNav xl:hidden">
 				<div className="text-base px-4 h-8 flex justify-between items-center">
 					<h2 className="font-bold uppercase">{currentSelectionGroup.displayName}</h2>

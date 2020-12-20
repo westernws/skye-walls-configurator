@@ -30,3 +30,9 @@
 		}
 	}
 }
+
+@screen print {
+	.ReviewConfigOption {
+		@apply p-0 border-none block;
+	}
+}

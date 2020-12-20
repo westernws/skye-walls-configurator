@@ -13,7 +13,7 @@ export const Menu = observer(({ selectedProduct, optionGroups }) => {
 	const menu = modals.get('modal-menu');
 
 	return (
-		<ul className="Menu xl:hidden">
+		<ul className="Menu xl:hidden print:hidden">
 			<li>
 				<button
 					type="button"

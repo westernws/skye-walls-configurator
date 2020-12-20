@@ -28,7 +28,7 @@ const ConfigProduct = ({ snapshot = null }) => {
 							<div className="ConfigImage">
 								<ConfigProductImagery />
 							</div>
-							<div className="ConfigReview xl:hidden">
+							<div className="ConfigReview xl:hidden print:hidden">
 								<button
 									className="Button Button--secondarySmall w-full justify-center"
 									type="button"

@@ -10,7 +10,7 @@ export const ReviewConfigOptions = observer(({ product }) => {
 	const modal = modals.get('modal-secondary');
 
 	return (
-		<div className="space-y-6">
+		<div className="space-y-6 print:space-y-0">
 			<ReviewConfigOption
 				padThumb={false}
 				selectionGroup={{
@@ -77,7 +77,7 @@ export const ReviewConfigOptions = observer(({ product }) => {
 					);
 				})
 			}
-			<p className="text-base my-12 text-blue text-center">
+			<p className="text-base my-12 text-blue text-center print:text-black">
 				Screening solutions available. Ask your Skye Walls expert.
 			</p>
 		</div>

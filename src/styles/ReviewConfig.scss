@@ -8,3 +8,12 @@
 		@apply border-t-4 border-solid border-gray-light100;
 	}
 }
+
+@screen print {
+	.ReviewConfig {
+		@apply h-auto;
+		.ReviewConfig-body {
+			@apply border-none;
+		}
+	}
+}

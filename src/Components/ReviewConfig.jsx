@@ -21,7 +21,7 @@ export const ReviewConfig = observer(() => {
 	selectedProduct.productGroupImage.setWidth(188);
 	return (
 		<div className="ReviewConfigContainer">
-			<div className="ReviewNav xl:hidden">
+			<div className="ReviewNav xl:hidden print:hidden">
 				<button
 					type="button"
 					className="Button Button--tertiary justify-center"
@@ -33,7 +33,7 @@ export const ReviewConfig = observer(() => {
 				</button>
 			</div>
 			<div className="ReviewConfig">
-				<div className="ConfigImage ConfigImage--review">
+				<div className="ConfigImage ConfigImage--review print:hidden">
 					<ConfigProductImagery />
 				</div>
 				<div className="SiteMaxWidth m-auto">
@@ -46,40 +46,51 @@ export const ReviewConfig = observer(() => {
 				</div>
 			</div>
 			{/* 1800x1200 */}
-			<div className="ReviewFooter">
+			<div className="ReviewFooter print:hidden">
 				<div className="py-3 px-8 border-t border-gray-lighter border-solid">
 					<button
 						type="button"
 						className="Button w-full"
 						onClick={() => {
 							appStore.closeAllModals();
+							const snapshot = JSON.stringify(getSnapshot(appStore));
+
 							delay(() => {
-								axios.request({
-									url: '/api/save-pdf',
-									method: 'post',
-									data: {
-										filename: selectedProduct.generatedPdfFilename,
-										link: selectedProduct.configLink.as,
-										snapshot: JSON.stringify(getSnapshot(appStore)),
-									},
-								}).then((response) => {
-									const {
-										data: {
-											data: {
-												Location: href = '',
-											} = {},
-										} = {},
-									} = response;
-									const tempLink = document.createElement('a');
-
-									tempLink.href = href;
-									// tempLink.target = '_blank';
-
-									document.body.appendChild(tempLink);
-									tempLink.click();
-									document.body.removeChild(tempLink);
+								modal.open({
+									title: 'Save to PDF',
+									type: 'MODAL',
+									content: (
+										<p className="font-italic text-lg">
+											Please wait while we generate a PDF for your configured product…
+										</p>
+									),
 								});
 							}, 500);
+							axios.request({
+								url: '/api/save-pdf',
+								method: 'post',
+								data: {
+									filename: selectedProduct.generatedPdfFilename,
+									link: selectedProduct.configLink.as,
+									snapshot,
+								},
+							}).then((response) => {
+								const {
+									data: {
+										data: {
+											Location: href = '',
+										} = {},
+									} = {},
+								} = response;
+								const tempLink = document.createElement('a');
+
+								modal.close();
+								tempLink.href = href;
+
+								document.body.appendChild(tempLink);
+								tempLink.click();
+								document.body.removeChild(tempLink);
+							});
 						}}
 					>
 						Save to PDF

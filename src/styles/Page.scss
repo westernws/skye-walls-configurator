@@ -24,3 +24,11 @@
 		--header-height: 80px;
 	}
 }
+
+@screen print {
+	.Page.Page--config {
+		body {
+			@apply overflow-auto overflow-x-hidden;
+		}
+	}
+}

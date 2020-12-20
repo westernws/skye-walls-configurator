@@ -42,3 +42,15 @@
 		@apply text-4xl;
 	}
 }
+
+@screen print {
+	.Heading.Heading--bordered {
+		@apply text-left mt-12 text-black;
+		&::before {
+			@apply hidden;
+		}
+		.Heading-text {
+			@apply pl-0;
+		}
+	}
+}

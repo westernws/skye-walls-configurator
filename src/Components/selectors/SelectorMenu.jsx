@@ -12,7 +12,7 @@ export const SelectorMenu = observer(() => {
 		return null;
 	}
 	return (
-		<ul className="SelectorMenu">
+		<ul className="SelectorMenu print:hidden">
 			{
 				product.selectionGroups.map((selectionGroup) => {
 					return (

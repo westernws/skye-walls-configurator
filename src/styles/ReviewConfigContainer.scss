@@ -7,3 +7,10 @@
 @screen xl {
 	--review-nav-height: 0;
 }
+
+@screen print {
+	.ReviewConfigContainer {
+		@apply border-none;
+		page-break-before: always;
+	}
+}
