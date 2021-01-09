@@ -157,7 +157,7 @@ const Product = types
 			return result;
 		},
 		get selectedOptions() {
-			const result = [];
+			const result = [self.slug];
 
 			self.optionGroups.forEach((optionGroup) => {
 				const selectedOption = optionGroup.options?.find?.(option => option.selected) || '';

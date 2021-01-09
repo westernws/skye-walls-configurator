@@ -184,6 +184,9 @@
 (function () {
 	'use strict'
 	var $ = window.pardot.$;
+	var params = new URLSearchParams(window.location.search);
+	var configProductParam = params.get('productConfig');
+
 	window.$ = $;
 	$(function () {
 		var leftColFieldNames = ['.first_name', '.email', '.city', ];
@@ -204,9 +207,11 @@
 		var leftColElems = $(leftColFieldsSelector);
 		var rightColFieldsSelector = rightColFields.join(', ');
 		var rightColElems = $(rightColFieldsSelector);
-		$('form').prepend('<div class="cf-fields"><div class="cf-left-col" /><div class="cf-right-col" /></div>');
-		leftColElems.appendTo($('.cf-left-col'));
-		rightColElems.appendTo($('.cf-right-col'));
+		// if (!configProductParam) {
+		// 	$('form').prepend('<div class="cf-fields"><div class="cf-left-col" /><div class="cf-right-col" /></div>');
+		// 	leftColElems.appendTo($('.cf-left-col'));
+		// 	rightColElems.appendTo($('.cf-right-col'));
+		// }
 		$('option:selected', 'select[name="694473_56131pi_694473_56131"]').removeAttr('selected');
 		$('select[name="694473_56131pi_694473_56131"]').find('option:contains("Skye")').attr("selected",true);
 		$('form.form .skyewalls-opt-in span.value').insertBefore('form.form .skyewalls-opt-in label.field-label');
@@ -220,8 +225,6 @@
 		if (typeof window.URLSearchParams === 'undefined') {
 			return;
 		}
-		var params = new URLSearchParams(window.location.search);
-		var configProductParam = params.get('productConfig');
 		var $configProductElem = $('.skye-configured-product').find(':text');
 
 		if (!configProductParam) {
