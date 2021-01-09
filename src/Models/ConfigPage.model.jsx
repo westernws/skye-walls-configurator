@@ -1,5 +1,8 @@
-import { types, getRoot } from 'mobx-state-tree';
+import { types, getRoot, getSnapshot } from 'mobx-state-tree';
 import { autorun } from 'mobx';
+import delay from 'lodash/delay';
+import axios from 'axios';
+import React from 'react';
 
 import { ProductModel } from '~/Models/Product.model';
 import { OptionGroupModel } from '~/Models/OptionGroup.model';
@@ -105,6 +108,54 @@ export const ConfigPageModel = types
 			},
 			beforeDestroy() {
 				mqDispose();
+			},
+			savePdf() {
+				const appStore = getRoot(self);
+				const { modals } = appStore;
+				const modal = modals.get('modal-primary');
+				const selectedProduct = self.product;
+
+				appStore.closeAllModals();
+				const snapshot = JSON.stringify(getSnapshot(appStore));
+
+				delay(() => {
+					modal.open({
+						title: 'Save to PDF',
+						type: 'MODAL',
+						showCloseBtn: false,
+						content: (
+							<p className="font-italic text-lg">
+								Please wait while we generate a PDF for your configured product…
+							</p>
+						),
+					});
+				}, 500);
+				axios.request({
+					url: '/api/save-pdf',
+					method: 'post',
+					data: {
+						filename: selectedProduct.generatedPdfFilename,
+						link: selectedProduct.configLink.as,
+						snapshot,
+					},
+				}).then((response) => {
+					// Since save-as dialog cannot be opened from an AJAX request, we do this instead.
+					const {
+						data: {
+							data: {
+								Location: href = '',
+							} = {},
+						} = {},
+					} = response;
+					const tempLink = document.createElement('a');
+
+					modal.close();
+					tempLink.href = href;
+
+					document.body.appendChild(tempLink);
+					tempLink.click();
+					document.body.removeChild(tempLink);
+				});
 			},
 			setCurrentOptionGroup(optionGroupId) {
 				self.currentOptionGroup = optionGroupId;

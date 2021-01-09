@@ -1,8 +1,5 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import axios from 'axios';
-import delay from 'lodash/delay';
-import { getSnapshot } from 'mobx-state-tree';
 
 import { useMst } from '~/Stores/App.store';
 import { ConfigProductImagery } from '~/Components/ConfigProductImagery';
@@ -50,51 +47,9 @@ export const ReviewConfig = observer(() => {
 					<button
 						type="button"
 						className="Button w-full"
-						onClick={() => {
-							appStore.closeAllModals();
-							const snapshot = JSON.stringify(getSnapshot(appStore));
-
-							delay(() => {
-								modal.open({
-									title: 'Save to PDF',
-									type: 'MODAL',
-									showCloseBtn: false,
-									content: (
-										<p className="font-italic text-lg">
-											Please wait while we generate a PDF for your configured product…
-										</p>
-									),
-								});
-							}, 500);
-							axios.request({
-								url: '/api/save-pdf',
-								method: 'post',
-								data: {
-									filename: selectedProduct.generatedPdfFilename,
-									link: selectedProduct.configLink.as,
-									snapshot,
-								},
-							}).then((response) => {
-								// Since save-as dialog cannot be opened from an AJAX request, we do this instead.
-								const {
-									data: {
-										data: {
-											Location: href = '',
-										} = {},
-									} = {},
-								} = response;
-								const tempLink = document.createElement('a');
-
-								modal.close();
-								tempLink.href = href;
-
-								document.body.appendChild(tempLink);
-								tempLink.click();
-								document.body.removeChild(tempLink);
-							});
-						}}
+						onClick={page.savePdf}
 					>
-						Save to PDF
+						Save
 					</button>
 				</div>
 			</div>
