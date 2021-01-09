@@ -116,9 +116,16 @@ export const LayoutConfig = observer(({ children }) => {
 							}
 							{
 								isReviewModalOpen &&
-								<div className="hidden xl:block">
+								<div className="hidden xl:block xl:space-x-6">
 									<button
 										className="Button xl:px-12"
+										type="button"
+										onClick={page.savePdf}
+									>
+										Save
+									</button>
+									<button
+										className="Button Button--inverted xl:px-12"
 										type="button"
 										onClick={() => {
 											modal.open({

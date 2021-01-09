@@ -5,6 +5,7 @@ import { useMst } from '~/Stores/App.store';
 import { ConfigProductImagery } from '~/Components/ConfigProductImagery';
 import { ReviewConfigOptions } from '~/Components/ReviewConfigOptions';
 import { HeadingBordered } from '~/Components/HeadingBordered';
+import { ContactUs } from '~/Components/ContactUs';
 
 export const ReviewConfig = observer(() => {
 	const appStore = useMst();
@@ -43,13 +44,28 @@ export const ReviewConfig = observer(() => {
 				</div>
 			</div>
 			<div className="ReviewFooter print:hidden">
-				<div className="py-3 px-8 border-t border-gray-lighter border-solid">
+				<div className="flex justify-center items-center py-3 px-8 border-t border-gray-lighter border-solid space-x-6">
 					<button
 						type="button"
-						className="Button w-full"
+						className="Button w-6/12"
 						onClick={page.savePdf}
 					>
 						Save
+					</button>
+					<button
+						className="Button Button--inverted w-6/12 xl:px-12"
+						type="button"
+						onClick={() => {
+							modal.open({
+								title: 'Contact Us',
+								type: 'FROSTY',
+								showCloseBtn: true,
+								showBackdrop: true,
+								content: <ContactUs />,
+							});
+						}}
+					>
+						Send to Skye Walls
 					</button>
 				</div>
 			</div>

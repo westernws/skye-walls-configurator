@@ -32,6 +32,12 @@
 			height: 1em;
 		}
 	}
+	&.Button--inverted {
+		@apply bg-blue border-2 border-solid border-blue;
+		&:hover {
+			@apply bg-white text-blue;
+		}
+	}
 }
 
 .ButtonHollow {
