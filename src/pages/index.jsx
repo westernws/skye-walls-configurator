@@ -16,7 +16,7 @@ const Index = () => {
 
 					<div className="Hero">
 						<Image
-							src="/images/hero.jpg"
+							src="/images/hero.png"
 							className="Hero-image"
 							alt=""
 							priority

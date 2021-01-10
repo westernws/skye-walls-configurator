@@ -104,7 +104,7 @@ module.exports = [
 				description: 'Designed for effectiveness in most climates, a built-in self-drainage weep system helps to safeguard against water intrusion.',
 				detailImage: {
 					basePath: '/images/sill/detail',
-					fileName: 'Sill-Water-Barrier.jpg',
+					fileName: 'Sill-Water-Barrier.png',
 					width: 400,
 				},
 				thumb: {
@@ -119,7 +119,7 @@ module.exports = [
 				description: 'When ease of entry is more important than performance against the elements. Lines up with most interior flooring.',
 				detailImage: {
 					basePath: '/images/sill/detail',
-					fileName: 'Sill-Flush.jpg',
+					fileName: 'Sill-Flush.png',
 					width: 400,
 				},
 				thumb: {
@@ -134,7 +134,7 @@ module.exports = [
 				description: 'Ideal for projects where a continuation of flooring from the inside to the outdoors needs to appear virtually seamless.',
 				detailImage: {
 					basePath: '/images/sill/detail',
-					fileName: 'Sill-Thinline.jpg',
+					fileName: 'Sill-Thinline.png',
 					width: 400,
 				},
 				thumb: {
