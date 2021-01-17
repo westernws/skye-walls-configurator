@@ -54,6 +54,11 @@ const OptionGroup = types
 		},
 	}))
 	.actions(self => ({
+		deselect() {
+			self.options.forEach((o) => {
+				o.selected = false;
+			});
+		},
 		getOptionsByDisplayOptionGroupName(displayGroupName) {
 			return self.options?.filter?.((option) => {
 				return option.displayOptionGroupName === displayGroupName;

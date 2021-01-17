@@ -20,6 +20,7 @@ export const ProductsFactory = (products) => {
 			features,
 			selectionGroups = [],
 			images,
+			isVinyl,
 		} = product;
 		const selectionGroupModels = SelectionGroupsFactory(selectionGroups, name);
 		const colorSelectionGroup = selectionGroupModels.find(sgm => sgm.name === 'color');
@@ -52,6 +53,7 @@ export const ProductsFactory = (products) => {
 			features,
 			selectionGroups: selectionGroupModels,
 			images: ProductImageFactory(images, colorOptions, baseImagePath, handleOptions),
+			isVinyl,
 		});
 
 		return model;

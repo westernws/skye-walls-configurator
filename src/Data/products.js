@@ -1428,12 +1428,13 @@ export default [
 			'Flush-mounted handle so panels easily slide past each other',
 			'After-market screening solution',
 		],
+		isVinyl: true,
 		baseImagePath: '/images/product/sliding/vinyl',
 		images: [
 			{
 				color: 'almond',
 				handle: null,
-				fileName: '3700-vinyl-almond-cpull-almond.png',
+				fileName: '3700-vinyl-almond-no-handle.png',
 				width: 1230,
 			},
 			{
@@ -1443,9 +1444,15 @@ export default [
 				width: 1230,
 			},
 			{
+				color: 'almond',
+				handle: 'fmb',
+				fileName: '3700-vinyl-almond-flush-mounted-black.png',
+				width: 1230,
+			},
+			{
 				color: 'black',
 				handle: null,
-				fileName: '3700-vinyl-black-cpull-black.png',
+				fileName: '3700-vinyl-black-no-handle.png',
 				width: 1230,
 			},
 			{
@@ -1455,15 +1462,27 @@ export default [
 				width: 1230,
 			},
 			{
+				color: 'black',
+				handle: 'fmb',
+				fileName: '3700-vinyl-black-flush-mounted-black.png',
+				width: 1230,
+			},
+			{
 				color: 'white',
 				handle: null,
-				fileName: '3700-vinyl-white-cpull-white.png',
+				fileName: '3700-vinyl-white-no-handle.png',
 				width: 1230,
 			},
 			{
 				color: 'white',
 				handle: 'cpw',
 				fileName: '3700-vinyl-white-cpull-white.png',
+				width: 1230,
+			},
+			{
+				color: 'white',
+				handle: 'fmb',
+				fileName: '3700-vinyl-white-flush-mounted-black.png',
 				width: 1230,
 			},
 		],
@@ -1480,6 +1499,7 @@ export default [
 				optionGroups: [{
 					name: 'handles',
 					options: ['cpa', 'cpb', 'cpw', 'fmb'],
+					useOptionsFilter: 'vinylHandles',
 				}],
 			},
 			{

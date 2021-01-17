@@ -24,7 +24,11 @@ export const SelectorValueStandard = observer(({ optionGroup, simpleHeader = fal
 	} = page;
 	const primaryModal = modals.get('modal-primary');
 	const [isOpen, setIsOpen] = useState(false);
-	let maxHeight = isOpen ? `${optionGroup.options.length * 150}px` : 0;
+	let optionsToUse = optionGroup.options;
+	if (product.isVinyl && optionGroup.name === 'handles') {
+		optionsToUse = product.vinylHandleOptions;
+	}
+	let maxHeight = isOpen ? `${optionsToUse.length * 150}px` : 0;
 
 	if (isMediaQueryXl || alwaysOpen) {
 		maxHeight = 'none';
@@ -57,7 +61,7 @@ export const SelectorValueStandard = observer(({ optionGroup, simpleHeader = fal
 						}
 						{
 							!isOpen && !alwaysOpen &&
-							<div className="font-bold">{`(${optionGroup.options?.length || 1})`}</div>
+							<div className="font-bold">{`(${optionsToUse?.length || 1})`}</div>
 						}
 					</div>
 				</button>
@@ -77,8 +81,8 @@ export const SelectorValueStandard = observer(({ optionGroup, simpleHeader = fal
 				})}
 			>
 				{
-					optionGroup.options.map((option) => {
-						const isSelected = optionGroup.options.find(o => o.selected)?.name === option.name;
+					optionsToUse.map((option) => {
+						const isSelected = optionsToUse.find(o => o.selected)?.name === option.name;
 
 						return (
 							<li

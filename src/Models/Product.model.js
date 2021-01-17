@@ -20,6 +20,7 @@ const Product = types
 		inheritedFeatures: '',
 		inheritedFeaturesLong: '',
 		isActive: false,
+		isVinyl: false,
 		selectionGroups: types.array(SelectionGroupModel),
 	})
 	.views(self => ({
@@ -192,6 +193,21 @@ const Product = types
 		get srcSet() {
 			return self.selectedImage.srcSet;
 		},
+		get vinylHandleOptions() {
+			const colorMap = {
+				black: 'cpb',
+				almond: 'cpa',
+				white: 'cpw',
+			};
+			const result = [
+				colorMap[self.colorOptionGroup.selectedOption.name],
+				'fmb',
+			];
+
+			return self.handleOptionGroup.options.filter((option) => {
+				return result.includes(option.name);
+			});
+		},
 		get wallOptionGroup() {
 			return self.optionGroups?.find?.(optGroup => optGroup.name === 'wall') || {};
 		},
@@ -226,11 +242,18 @@ const Product = types
 			const colorName = isString(color) ? color : color.name;
 			const selectedColor = colorOptions.find(option => option.name === colorName);
 
+			if (self.isVinyl) {
+				self.setOption('handles', null);
+			}
 			self.colorOptionGroup.setSelected(selectedColor);
 		},
 		setOption(optionGroupName, optionName) {
 			const optionGroup = self.getOptionGroupByName(optionGroupName);
 
+			if (!optionName) {
+				optionGroup.deselect();
+				return;
+			}
 			if (!optionGroup) {
 				return;
 			}
