@@ -564,7 +564,7 @@ module.exports = [
 					width: 1230,
 				},
 				thumb: {
-					basePath: '/images/environment/background',
+					basePath: '/images/environment/background/thumb',
 					fileName: 'View-Sliding-Cityscape.png',
 					width: 150,
 				},
@@ -578,7 +578,7 @@ module.exports = [
 					width: 1230,
 				},
 				thumb: {
-					basePath: '/images/environment/background',
+					basePath: '/images/environment/background/thumb',
 					fileName: 'View-Sliding-Desert.png',
 					width: 150,
 				},
@@ -592,7 +592,7 @@ module.exports = [
 					width: 1230,
 				},
 				thumb: {
-					basePath: '/images/environment/background',
+					basePath: '/images/environment/background/thumb',
 					fileName: 'View-Sliding-Mountain-View.png',
 					width: 150,
 				},
@@ -606,7 +606,7 @@ module.exports = [
 					width: 1230,
 				},
 				thumb: {
-					basePath: '/images/environment/background',
+					basePath: '/images/environment/background/thumb',
 					fileName: 'View-Sliding-Oceanside.png',
 					width: 150,
 				},
@@ -620,7 +620,7 @@ module.exports = [
 					width: 1230,
 				},
 				thumb: {
-					basePath: '/images/environment/background',
+					basePath: '/images/environment/background/thumb',
 					fileName: 'View-Sliding-Poolside.png',
 					width: 150,
 				},
@@ -634,7 +634,7 @@ module.exports = [
 					width: 1230,
 				},
 				thumb: {
-					basePath: '/images/environment/background',
+					basePath: '/images/environment/background/thumb',
 					fileName: 'View-Sliding-Wild-Thing.png',
 					width: 150,
 				},
@@ -648,7 +648,7 @@ module.exports = [
 					width: 1230,
 				},
 				thumb: {
-					basePath: '/images/environment/background',
+					basePath: '/images/environment/background/thumb',
 					fileName: 'View-Folding-Cityscape.png',
 					width: 150,
 				},
@@ -662,7 +662,7 @@ module.exports = [
 					width: 1230,
 				},
 				thumb: {
-					basePath: '/images/environment/background',
+					basePath: '/images/environment/background/thumb',
 					fileName: 'View-Folding-Desert.png',
 					width: 150,
 				},
@@ -676,7 +676,7 @@ module.exports = [
 					width: 1230,
 				},
 				thumb: {
-					basePath: '/images/environment/background',
+					basePath: '/images/environment/background/thumb',
 					fileName: 'View-Folding-Mountain-View.png',
 					width: 150,
 				},
@@ -690,7 +690,7 @@ module.exports = [
 					width: 1230,
 				},
 				thumb: {
-					basePath: '/images/environment/background',
+					basePath: '/images/environment/background/thumb',
 					fileName: 'View-Folding-Oceanside.png',
 					width: 150,
 				},
@@ -704,7 +704,7 @@ module.exports = [
 					width: 1230,
 				},
 				thumb: {
-					basePath: '/images/environment/background',
+					basePath: '/images/environment/background/thumb',
 					fileName: 'View-Folding-Poolside.png',
 					width: 150,
 				},
@@ -718,7 +718,7 @@ module.exports = [
 					width: 1230,
 				},
 				thumb: {
-					basePath: '/images/environment/background',
+					basePath: '/images/environment/background/thumb',
 					fileName: 'View-Folding-Wild-Thing.png',
 					width: 150,
 				},
