@@ -18,7 +18,7 @@ export const ContactUs = () => {
 				src={`https://go.westernwindowsystems.com/l/694473/2020-07-07/38mf5j?hideComments&productConfig=${selectedOptions}`}
 				title="Contact Us"
 				className="w-full my-8 mx-auto"
-				style={{ height: '600px' }}
+				style={{ minHeight: '300px' }}
 			/>
 		</>
 	);
