@@ -39,7 +39,7 @@ export const Meta = () => {
 			<meta name="msapplication-TileColor" content="#2d89ef" />
 			<meta name="theme-color" content="#ffffff" />
 
-			<link rel="stylesheet" href="//use.typekit.net/kex0feu.css" />
+			<link rel="stylesheet preload" href="//use.typekit.net/kex0feu.css" />
 		</Head>
 	);
 };
