@@ -4,6 +4,7 @@ import Head from 'next/head';
 export const Meta = () => {
 	return (
 		<Head>
+			<link rel="preload" as="style" href="//use.typekit.net/kex0feu.css" />
 			<title>Skye Walls Builder &mdash; Western Window Systems</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
@@ -29,7 +30,7 @@ export const Meta = () => {
 			<meta name="msapplication-TileColor" content="#2d89ef" />
 			<meta name="theme-color" content="#ffffff" />
 
-			<link rel="stylesheet preload" href="//use.typekit.net/kex0feu.css" />
+			<link rel="stylesheet" href="//use.typekit.net/kex0feu.css" />
 		</Head>
 	);
 };
