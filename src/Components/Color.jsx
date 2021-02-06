@@ -71,7 +71,7 @@ export const Color = observer(({
 				</>
 			}
 			<div className={`font-normal mt-2 ${customColorFontSize}`}>Custom Colors</div>
-			<div className={`font-normal text-blue ${customColorFontSize}`}>We can match almost any finish.</div>
+			<div className={`font-normal ${customColorFontSize}`}>We can match almost any finish.</div>
 		</fieldset>
 	);
 });
