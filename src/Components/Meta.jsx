@@ -9,7 +9,7 @@ export const Meta = () => {
 			<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
 			{/* COMMON TAGS */}
-			<meta charset="utf-8" />
+			<meta charSet="utf-8" />
 			{/* Search Engine */}
 			<meta name="description" content="Build your own Skye Walls environment" />
 			{/* Schema.org for Google */}
