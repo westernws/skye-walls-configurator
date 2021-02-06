@@ -1,7 +1,7 @@
 import React from 'react';
 import isEmpty from 'lodash/isEmpty';
 import getRawBody from 'raw-body';
-import { applySnapshot, getSnapshot } from 'mobx-state-tree';
+import { applySnapshot } from 'mobx-state-tree';
 
 import { Provider, appStore } from '~/Stores/App.store';
 import { LayoutConfig } from '~/Components/LayoutConfig';
@@ -11,9 +11,11 @@ import { SelectorPanel } from '~/Components/selectors/SelectorPanel';
 import { ReviewConfig } from '~/Components/ReviewConfig';
 import { SelectorMenu } from '~/Components/selectors/SelectorMenu';
 
-const ConfigProduct = ({ snapshot = null }) => {
+const ConfigProduct = ({ snapshot = null, productSlug = '' }) => {
 	if (!isEmpty(snapshot)) {
 		applySnapshot(appStore, JSON.parse(snapshot));
+	} else {
+		appStore.setConfigPage(productSlug);
 	}
 	if (process.browser) {
 		appStore.setIsMediaQueryXl(appStore.matchXlMq.matches);
@@ -63,10 +65,10 @@ export const getServerSideProps = async (context) => {
 
 		snapshot = body.toString('utf-8');
 	}
-
 	return {
 		props: {
-			snapshot: snapshot || JSON.stringify(getSnapshot(appStore)),
+			snapshot,
+			productSlug: context.query.product,
 		},
 	};
 };
