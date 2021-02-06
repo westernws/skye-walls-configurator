@@ -1538,7 +1538,7 @@ export default [
 				name: 'handles',
 				optionGroups: [{
 					name: 'handles',
-					options: ['fmbn', 'fmb', 'db', 'dbn'],
+					options: ['db', 'dbn'],
 				}],
 			},
 			{
@@ -1576,7 +1576,7 @@ export default [
 				name: 'handles',
 				optionGroups: [{
 					name: 'handles',
-					options: ['fmbn', 'fmb', 'db', 'dbn'],
+					options: ['db', 'dbn'],
 				}],
 			},
 			{
@@ -1946,7 +1946,7 @@ export default [
 				name: 'handles',
 				optionGroups: [{
 					name: 'handles',
-					options: ['fmbn', 'fmb', 'db', 'dbn'],
+					options: ['db', 'dbn'],
 				}],
 			},
 			{
