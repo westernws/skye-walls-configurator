@@ -22,7 +22,7 @@
 		"@babel/plugin-proposal-optional-chaining": "^7.10.1",
 		"autoprefixer": "^9.8.0",
 		"aws-sdk": "^2.814.0",
-		"axios": "^0.19.2",
+		"axios": "^0.21.1",
 		"chrome-aws-lambda": "^5.5.0",
 		"circular-dependency-plugin": "^5.2.0",
 		"classnames": "^2.2.6",
