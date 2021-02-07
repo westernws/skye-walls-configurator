@@ -1,0 +1,30 @@
+.Hero {
+	@apply relative;
+	&::after {
+		@apply block h-0 w-full;
+		content: ' ';
+		padding-bottom: 45.15%;
+	}
+}
+.Hero-image {
+	@apply absolute top-0 left-0 w-full object-cover;
+}
+.Hero-text {
+	@apply hidden absolute top-0 bottom-0 flex-col justify-center pl-20 w-full;
+}
+
+@screen md {
+	.Hero::after {
+		// This is calculated based on height / width
+		padding-bottom: 25.3807%;
+	}
+	.Hero-image {
+		@apply object-contain;
+	}
+}
+
+@screen md {
+	.Hero-text {
+		@apply flex;
+	}
+}

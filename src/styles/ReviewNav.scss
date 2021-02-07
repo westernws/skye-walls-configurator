@@ -1,0 +1,10 @@
+.ReviewNav {
+	@apply flex;
+	height: var(--review-nav-height);
+}
+
+@screen xl {
+	.ReviewNav {
+		@apply h-6 -ml-4;
+	}
+}

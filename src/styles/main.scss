@@ -1,0 +1,35 @@
+@import '_includes';
+
+.SiteMaxWidth {
+	max-width: var(--site-max-width);
+}
+.Icon {
+	@apply w-8;
+	&.Icon--sm {
+		@apply w-6;
+	}
+}
+.Rule {
+	width: 50px;
+	border-bottom: 2px solid theme('colors.gray.default');
+}
+.SelectorPanelNav {
+	@apply border-b border-white border-solid bg-gray-light100;
+	height: var(--config-selector-panel-nav-height);
+	&::after {
+		@apply bg-white w-full block;
+		height: 1px;
+		background: #d1d1d1;
+		content: ' ';
+	}
+}
+.ReviewFooter {
+	height: var(--review-footer-height);
+}
+.CheckmarkWhiteOnBlue {
+	@apply bg-blue rounded-full border-white;
+	line-height: 1.75;
+	width: 26px;
+	height: 26px;
+}
+// 655 x 236 36.03%

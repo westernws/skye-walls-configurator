@@ -1,0 +1,30 @@
+.SiteSubnav {
+	@apply bg-black text-white pr-6 pl-6 m-auto flex sticky top-0 transition-all duration-200 ease-in-out;
+	min-height: 60px;
+	max-width: var(--site-max-width);
+}
+.SiteSubnav-wrap {
+	@apply flex items-center w-full;
+}
+.SiteSubnav-items {
+	@apply flex items-center text-sm h-full;
+	li {
+		@apply h-full ml-1;
+		a {
+			@apply flex items-center h-full pl-6 pr-6 transition-all duration-200 ease-in-out;
+			border: 1px solid theme('colors.transparent');
+			border-left: none;
+			border-right: none;
+			&:hover,
+			&.is-active {
+				@apply text-gray bg-white transition-all duration-200 ease-in-out;
+				border: 1px solid theme('colors.gray.lighter');
+				border-left: none;
+				border-right: none;
+			}
+		}
+	}
+	li + li {
+		@apply ml-1;
+	}
+}

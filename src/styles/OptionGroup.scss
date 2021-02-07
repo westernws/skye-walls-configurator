@@ -1,0 +1,35 @@
+.OptionGroup {
+	@apply flex-wrap;
+}
+.OptionGroup-option {
+	@apply relative bg-white border border-solid border-gray-light25 leading-tight;
+	&.is-selected {
+		@apply border-8 border-blue-100;
+	}
+}
+.OptionGroup-optionName {
+	@apply text-left p-3;
+	word-break: break-word;
+}
+.OptionGroup-checkmark {
+	@apply mr-2;
+}
+
+@screen xl {
+	.OptionGroup {
+		@apply flex items-center -ml-4 -mt-8;
+	}
+	.OptionGroup-option {
+		@apply mt-8 #{'!important'};
+		@apply ml-4;
+		width: calc(50% - 1rem);
+	}
+	.OptionGroup-checkmark {
+		@apply absolute m-0;
+		top: -12px;
+		right: -12px;
+	}
+	.OptionGroup-optionName {
+		@apply text-sm text-right;
+	}
+}

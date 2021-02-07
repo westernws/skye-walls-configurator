@@ -1,0 +1,34 @@
+.Page {
+	--header-height: 80px;
+	--modal-container-offset-y: var(--header-height);
+	body {
+		@apply text-sm h-full;
+	}
+	&.Page--config {
+		--header-height: 70px;
+		--modal-container-offset-y: 0;
+		body {
+			@apply overflow-hidden;
+		}
+	}
+}
+
+@screen md {
+	.Page body {
+		@apply text-lg;
+	}
+}
+
+@screen xl {
+	.Page.Page--config {
+		--header-height: 80px;
+	}
+}
+
+@screen print {
+	.Page.Page--config {
+		body {
+			@apply overflow-auto overflow-x-hidden;
+		}
+	}
+}

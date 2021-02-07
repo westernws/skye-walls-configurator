@@ -1,0 +1,149 @@
+.Modal {
+	@apply relative transition-opacity duration-300 ease-in-out opacity-0;
+	pointer-events: none;
+	&.is-closed {
+		@apply -z-10;
+	}
+	&.is-open {
+		@apply opacity-100 z-30;
+		pointer-events: all;
+	}
+}
+.Modal-backdrop {
+	@apply w-screen h-screen fixed top-0 left-0 z-10 bg-blue-500 bg-opacity-75 outline-none;
+}
+.Modal-container {
+	@apply bg-white fixed z-10 overflow-y-scroll left-0 right-0;
+	margin: auto;
+	width: 90%;
+	max-width: var(--site-max-width);
+	max-height: 90%;
+	top: var(--modal-container-offset-y);
+}
+.Modal-closeBtn {
+	@apply fixed bg-red rounded-full z-20;
+	top: calc(5% - 16px);
+	right: calc(5% - 16px);
+}
+.Modal-closeBtnImg svg {
+	@apply w-8 h-8 p-1;
+}
+.Modal-content {
+	@apply p-12;
+}
+.Modal.Modal--tight {
+	.Modal-container {
+		top: 5%;
+	}
+	.Modal-content {
+		@apply p-4;
+	}
+}
+.Modal.Modal--menu {
+	&.is-open {
+		@apply z-10;
+	}
+	.Modal-container {
+		@apply absolute;
+		width: 100%;
+		left: 0;
+		overflow-y: auto;
+		max-height: calc(var(--vh100) - var(--header-height) - var(--device-header-h) - var(--device-footer-h));
+	}
+	.Modal-closeBtn {
+		@apply hidden;
+	}
+	.Modal-content {
+		@apply p-0;
+	}
+}
+.Modal.Modal--frosty {
+	&.is-open {
+		@apply z-10;
+	}
+	.Modal-backdrop {
+		//@apply bg-gray-lighter bg-opacity-25;
+	}
+	.Modal-container {
+		@apply overflow-visible;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.Modal-content {
+		@apply relative px-8 pt-12 pb-8;
+	}
+	.Modal-closeBtn {
+		@apply absolute;
+		top: 1rem;
+		right: 1rem;
+	}
+	.Modal-closeBtnImg {
+		svg {
+			@apply bg-white p-0;
+		}
+	}
+}
+.Modal.Modal--slider,
+.Modal.Modal--sliderSecondary,
+.Modal.Modal--sliderTertiary {
+	@apply z-30;
+	.Modal-backdrop {
+		@apply bg-blue-500 bg-opacity-75;
+	}
+	.Modal-container {
+		@apply flex h-full top-0 bottom-0 m-0 transition-all duration-300 ease-in-out overflow-hidden;
+		left: auto;
+		right: -900px;
+		width: 900px;
+		height: 100%;
+		max-height: none;
+	}
+	.Modal-closeBtn {
+		@apply static h-full p-2 flex flex-col flex-shrink-0 items-center rounded-none bg-blue text-white;
+	}
+	.Modal-closeBtnText {
+		@apply transform -rotate-90 text-white font-bold mt-6;
+	}
+	.Modal-closeBtnImg {
+		@apply order-first;
+	}
+	.Modal-content {
+		@apply flex-grow p-0;
+	}
+	&.is-open {
+		.Modal-container {
+			right: 0;
+		}
+	}
+}
+.Modal.Modal--sliderSecondary {
+	.Modal-container {
+		right: -450px;
+		width: 450px;
+	}
+}
+.Modal.Modal--sliderTertiary {
+	.Modal-container {
+		right: -468px;
+		width: 468px;
+	}
+}
+.Modal.Modal--panel {
+	@apply z-30;
+	.Modal-container {
+		@apply w-full transition-all duration-300 ease-in-out;
+		top: auto;
+		bottom: calc((var(--vh100) * -1) + var(--header-height) + var(--device-header-h) + var(--device-footer-h));
+		height: calc(var(--vh100) - var(--device-header-h) - var(--device-footer-h) - var(--header-height));
+		max-width: none;
+		max-height: none;
+	}
+	.Modal-content {
+		@apply p-0;
+	}
+	&.is-open {
+		.Modal-container {
+			bottom: 0;
+		}
+	}
+}

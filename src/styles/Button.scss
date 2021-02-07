@@ -1,0 +1,49 @@
+.Button {
+	@apply
+		inline-block text-base bg-red text-white py-2 px-4 text-center uppercase font-bold
+		transition-all duration-200 ease-in-out border border-transparent rounded-full;
+	&:hover {
+		@apply bg-blue;
+	}
+	&.Button--secondary {
+		@apply bg-gray text-white;
+		&:hover {
+			@apply bg-white border border-gray text-gray;
+		}
+	}
+	&.Button--secondarySmall {
+		@apply bg-gray text-white text-sm px-2 py-1 flex items-center justify-center;
+		&:hover,
+		&[disabled]{
+			@apply bg-white border border-gray text-gray;
+		}
+		&[disabled] {
+			@apply opacity-50;
+		}
+		svg {
+			@apply mr-2;
+			height: 1em;
+		}
+	}
+	&.Button--tertiary {
+		@apply bg-transparent text-red flex items-center justify-center text-xs font-normal;
+		svg {
+			@apply mr-2;
+			height: 1em;
+		}
+	}
+	&.Button--inverted {
+		@apply bg-blue border-2 border-solid border-blue;
+		&:hover {
+			@apply bg-white text-blue;
+		}
+	}
+}
+
+.ButtonHollow {
+	@apply inline-block text-base text-red p-3 text-center uppercase font-bold
+	transition-all duration-200 ease-in-out border-2 border-solid border-red rounded-full;
+	&:hover {
+		@apply bg-red border-transparent text-white;
+	}
+}

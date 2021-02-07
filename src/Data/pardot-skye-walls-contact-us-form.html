@@ -1,0 +1,248 @@
+<p>
+	<span class="intro-text">Have a question? Send us an email and we’ll get back to you shortly.</span>
+	<style type="text/css">
+		.intro-text {
+			font-size: 18px;
+			font-family: sans-serif;
+			color: #000;
+			text-align: left;
+			margin: 0 0 25px;
+		}
+		form#pardot-form .skye-configured-product {
+			display: none;
+		}
+		form#pardot-form {
+			display: block;
+			margin: 0 auto;
+			max-width: 725px;
+		}
+		.cf-fields {
+			display: flex;
+			justify-content: space-between;
+		}
+		.cf-phone-state {
+			display: flex;
+			justify-content: space-between;
+		}
+		.cf-phone-state .form-field {
+			width: 48%;
+		}
+		.cf-left-col,
+		.cf-right-col {
+			width: 45%;
+		}
+		p { display: block; }
+		form.form input.text {
+			width: 100% !important;
+			border: 1px solid #000;
+			border-radius: 0;
+			font-weight:14px!important;
+		}
+		input::placeholder {
+			color: #000;
+		}
+		form.form p {
+			margin: 0 0 1rem;
+			padding: 0;
+		}
+		form.form select {
+			height: 36px;
+		}
+
+		form.form .Skye_Walls_Interests select {
+			width: 70% !important;
+			padding: 5px;
+			font-size: 13px;
+			line-height: 1;
+			border: 0;
+			border-radius: 0;
+			border: 1px solid #000;
+			height: 36px;
+			background: url(https://skyewallsbywws.com/wp-content/uploads/2020/04/blue-down-1.jpg) no-repeat right #fff;
+			-webkit-appearance: none;
+			background-position-x: right;
+		}
+
+		form.form .Skye_Walls_Consultation_Type select {
+			width: 70% !important;
+			padding: 5px;
+			font-size: 13px;
+			line-height: 1;
+			border: 0;
+			border-radius: 0;
+			border: 1px solid #000;
+			height: 36px;
+			background: url(https://skyewallsbywws.com/wp-content/uploads/2020/04/blue-down-1.jpg) no-repeat right #fff;
+			-webkit-appearance: none;
+			background-position-x: right;
+		}
+
+
+		form.form .state select {
+			width: 100% !important;
+			padding: 5px;
+			font-size: 13px;
+			line-height: 1;
+			border: 0;
+			border-radius: 0;
+			border: 1px solid #000;
+			height: 36px;
+			background: url(https://skyewallsbywws.com/wp-content/uploads/2020/04/blue-down-1.jpg) no-repeat right #fff;
+			-webkit-appearance: none;
+			background-position-x: right;
+		}
+		form.form textarea.standard {
+			width: auto;
+			height: 135px;
+			font-family:arial!important;
+			font-size:14px!important;
+			color:#000!important;
+			font-style:italic!important;
+			padding:10px;
+		}
+		form.form p.submit {
+			margin: 0 !important;
+			padding: 0;
+			position: static;
+		}
+		form.form p.submit input {
+			display: block;
+			width: auto;
+			margin: 0 auto;
+			padding: 0 30px;
+			background: #b73d25;
+			text-transform: uppercase;
+			color: #fff;
+			border-radius: 10px;
+			font-weight: bold;
+			text-shadow: none;
+			height: 50px;
+			margin-top:50px;
+		}
+		form.form .Skye_Walls_Interests select {width:65%;}
+		form.form .consultation-type select {width:65%;}
+		form.form textarea.standard {width:100%!important;}
+
+		form.form span.value {
+			margin-left:0!important;
+			width:20px!important;
+		}
+		form.form .terms-privacy {
+			display:flex;
+			font-size:10px;
+		}
+		form.form .terms-privacy label.field-label {
+			width:97%!important;
+			float:right;
+			padding:0!important;
+			font-size:11px;
+			font-family:arial;
+			color:#808080;
+			text-align:left;
+			font-weight:normal!important;
+			background-image:none!important;
+			display:block!important;
+		}
+		form.form .terms-privacy span.value label.inline {
+			display:none!important;
+		}
+		form.form .terms-privacy input {
+			width: 20px;
+			padding-left: 0 !important;
+			margin-left: 0 !important;
+		}
+		form.form .terms-privacy label {display:block!important;}
+		form.form .skyewalls-opt-in {
+			display:flex;
+			font-size:10px;
+		}
+		form.form .skyewalls-opt-in label.field-label {
+			width:97%!important;
+			float:right;
+			padding:0!important;
+			font-size:11px;
+			font-family:arial;
+			color:#808080;
+			text-align:left;
+			display:block!important;
+			font-weight:normal!important;
+			background-image:none!important;
+		}
+		form.form .skyewalls-opt-in label.inline {
+			display:none;
+		}
+		form.form .skyewalls-opt-in input {
+			width: 20px;
+			padding-left: 0 !important;
+			margin-left: 0 !important;
+		}
+		@media screen and (max-width: 600px) {
+			.cf-fields,
+			.cf-phone-state {
+				display: block;
+			}
+			.cf-left-col,
+			.cf-right-col,
+			.cf-phone-state .form-field,
+			form.form textarea.standard {
+				width: 100%;
+			}
+		}
+	</style>
+	<script>
+		(function () {
+			'use strict'
+			var $ = window.pardot.$;
+			var params = new URLSearchParams(window.location.search);
+			var configProductParam = params.get('productConfig');
+
+			window.$ = $;
+			$(function () {
+				var leftColFieldNames = ['.first_name', '.email', '.city', ];
+				var rightColFieldNames = ['.last_name', '.phone', '.state', ]
+				var getFieldSelector = function (fieldName) {
+					var fieldSelector = '.form-field' + fieldName;
+					return fieldSelector + ', ' + fieldSelector + ' + [id^="error_for_"]';
+				}
+				var leftColFields = [];
+				var rightColFields = [];
+				$(leftColFieldNames).each(function (idx, fieldName) {
+					leftColFields.push(getFieldSelector(fieldName));
+				});
+				$(rightColFieldNames).each(function (idx, fieldName) {
+					rightColFields.push(getFieldSelector(fieldName));
+				});
+				var leftColFieldsSelector = leftColFields.join(', ');
+				var leftColElems = $(leftColFieldsSelector);
+				var rightColFieldsSelector = rightColFields.join(', ');
+				var rightColElems = $(rightColFieldsSelector);
+				// if (!configProductParam) {
+				// 	$('form').prepend('<div class="cf-fields"><div class="cf-left-col" /><div class="cf-right-col" /></div>');
+				// 	leftColElems.appendTo($('.cf-left-col'));
+				// 	rightColElems.appendTo($('.cf-right-col'));
+				// }
+				$('option:selected', 'select[name="694473_56131pi_694473_56131"]').removeAttr('selected');
+				$('select[name="694473_56131pi_694473_56131"]').find('option:contains("Skye")').attr("selected",true);
+				$('form.form .skyewalls-opt-in span.value').insertBefore('form.form .skyewalls-opt-in label.field-label');
+				$('form.form .terms-privacy span.value').insertBefore('form.form .terms-privacy label.field-label');
+				$('form.form .terms-privacy span.value').insertBefore('form.form .terms-privacy label.field-label');
+				$('form.form .terms-privacy label.field-label').html('Skye Walls by Western Windows values your privacy. Check this box to indicate you have read our <a href="https://www.skyewallsbywws.com/privacy-policy" target="_blank">Privacy Policy</a> and <a href="https://www.skyewallsbywws.com/terms-of-use" target="_blank">Terms of Use</a>.');
+				$(".terms-privacy input").attr("checked", true);
+			});
+			$(function () {
+				// Get the configured product
+				if (typeof window.URLSearchParams === 'undefined') {
+					return;
+				}
+				var $configProductElem = $('.skye-configured-product').find(':text');
+
+				if (!configProductParam) {
+					return;
+				}
+				if (/hideComments/.test(window.location.search)) {
+					$('.form-field.comments').hide();
+				}
+				$configProductElem.val(configProductParam);
+			});
+		}());
+	</script></p>

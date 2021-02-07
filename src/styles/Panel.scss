@@ -1,0 +1,67 @@
+.Panel {
+	--panel-width: theme('width.full');
+	--panel-gap-x-multiplier: 0;
+	--panel-max-width: none;
+
+	@apply bg-blue-200 mt-6 mb-6 ml-12 flex flex-col justify-between transition-all duration-200 ease-in-out;
+	width: calc(var(--panel-width) - (theme('spacing[12]') * var(--panel-gap-x-multiplier)));
+	max-width: var(--panel-max-width);
+	&:hover {
+		@apply bg-opacity-50;
+		.Panel-image {
+			@apply opacity-0;
+		}
+		.Panel-animatedImage {
+			@apply opacity-100;
+		}
+	}
+	&.Panel--product {
+		@apply bg-white;
+	}
+}
+.Panel-img {
+	@apply absolute;
+}
+.Panel-text,
+.Panel-desc,
+.Panel-image {
+	@apply transition-all duration-200 ease-in-out;
+}
+.Panel-image,
+.Panel-animatedImage {
+	@apply absolute top-0 left-0 #{'!important'};
+}
+.Panel-animatedImage {
+	@apply opacity-0;
+}
+
+@screen md {
+	.Panel {
+		--panel-gap-x-multiplier: 1;
+		--panel-width: theme('width.full');
+	}
+	.Panel-desc {
+		min-height: 110px;
+	}
+}
+@screen xl {
+	.Panel {
+		--panel-gap-x-multiplier: 1;
+		--panel-max-width: 427.5px;
+	}
+}
+@screen 3xl {
+	.Panel {
+		width: auto;
+		--panel-gap-x-multiplier: 2;
+		--panel-max-width: 387.3px;
+	}
+}
+
+@screen 4xl {
+	.Panel {
+		width: auto;
+		--panel-gap-x-multiplier: 2;
+		--panel-max-width: 447px;
+	}
+}

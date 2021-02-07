@@ -1,0 +1,56 @@
+.Heading {
+	&.Heading--ruled {
+		&::after {
+			@apply mt-4 mb-4 block;
+			content: ' ';
+			border-bottom: 2px solid theme('colors.gray.default');
+			width: 50px;
+		}
+	}
+	.Heading-rule {
+		@apply mt-2 ml-4 mr-4;
+		width: 30px;
+		border-bottom: 2px solid theme('colors.gray.default');
+	}
+	.Heading-centerRule {
+		width: 30px;
+		border-bottom: 2px solid theme('colors.gray.default');
+	}
+
+	&.Heading--bordered {
+		@apply text-center text-blue text-2xl;
+		&::before {
+			@apply absolute bg-gradient-to-r from-white via-blue-100 w-full block;
+			content: ' ';
+			height: 6px;
+			top: 50%;
+		}
+		.Heading-text {
+			@apply bg-white px-6 z-0 relative;
+		}
+	}
+}
+
+@screen lg {
+	.Heading.Heading--bordered {
+		@apply text-3xl;
+	}
+}
+
+@screen 3xl {
+	.Heading.Heading--bordered {
+		@apply text-4xl;
+	}
+}
+
+@screen print {
+	.Heading.Heading--bordered {
+		@apply text-left mt-12 text-black;
+		&::before {
+			@apply hidden;
+		}
+		.Heading-text {
+			@apply pl-0;
+		}
+	}
+}

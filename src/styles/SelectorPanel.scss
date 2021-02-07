@@ -1,0 +1,23 @@
+.SelectorPanel {
+	--config-selector-panel-margin-y: theme('margin[2]');
+	@apply overflow-auto;
+	margin-top: var(--config-selector-panel-margin-y);
+	height: calc(var(--vh100) - var(--device-header-h) - var(--device-footer-h) - var(--config-selector-panel-offset-y) - var(--config-selector-panel-nav-height) - var(--config-selector-panel-margin-y));
+	.SelectorPanel-inside {
+		@apply px-4 pt-10 text-base;
+		padding-bottom: 10rem;
+	}
+}
+.SelectorPanel.is-debug {
+	border: 1px solid red;
+	.SelectorPanel-inside {
+		height: 2000px;
+	}
+}
+
+@screen xl {
+	.SelectorPanel {
+		@apply mt-0;
+		height: var(--config-image-height);
+	}
+}

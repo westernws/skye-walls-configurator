@@ -1,0 +1,15 @@
+.Header {
+	@apply bg-white w-full;
+}
+.Header--fixed {
+	@apply fixed top-0 z-20;
+}
+.Header-title {
+	@apply items-baseline;
+}
+
+@screen xl {
+	.Header-title {
+		@apply flex;
+	}
+}

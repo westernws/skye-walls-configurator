@@ -1,0 +1,119 @@
+$configSelectorPanelContainerWidth: 100%;
+
+:root {
+	--site-max-width: 1500px;
+	--modal-width: 90vw;
+	--vh100: 100vh;
+	--vw100: 100vw;
+	// do not remove "px" even though it is zero
+	--device-header-h: 0px;
+	--device-footer-h: 0px;
+}
+::selection {
+	color: theme('colors.gray.default');
+	background: theme('colors.blue.100');
+}
+html {
+	scroll-behavior: smooth;
+}
+body {
+	@apply bg-white p-0 text-black;
+}
+img {
+	@apply w-full h-auto;
+}
+button[disabled] {
+	cursor: default;
+}
+*:focus {
+	// Some exciting button focus styles
+	outline-color: theme('colors.outline') !important;
+}
+*:focus:not(:focus-visible) {
+	// Undo all the above focused button styles
+	// if the button has focus but the browser wouldn't normally
+	// show default focus styles
+	outline: none;
+}
+*:focus-visible {
+	// Some even *more* exciting button focus styles
+}
+// iPad Pro 12.9 portrait
+@media (device-width: 1024px) and (device-height: 1366px) and (orientation: portrait) {
+	:root {
+		--vw100: 1024px;
+		--vh100: 1366px;
+		--device-header-h: 39px;
+	}
+}
+// iPad Pro 12.9 landscape
+@media (device-width: 1024px) and (device-height: 1366px) and (orientation: landscape) {
+	:root {
+		--vh100: 1024px;
+		--vw100: 1366px;
+		--device-header-h: 39px;
+	}
+}
+// iPad Pro 11 portrait
+@media (device-width: 834px) and (device-height: 1194px) and (orientation: portrait) {
+	:root {
+		--vw100: 834px;
+		--vh100: 1194px;
+		--device-header-h: 74px;
+	}
+}
+// iPad Pro 11 landscape
+@media (device-width: 834px) and (device-height: 1194px) and (orientation: landscape) {
+	:root {
+		--vh100: 834px;
+		--vw100: 1194px;
+		--device-header-h: 74px;
+	}
+}
+// iPad mini portrait
+@media (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+	:root {
+		--vw100: 768px;
+		--vh100: 1024px;
+		--device-header-h: 70px;
+	}
+}
+// iPad mini landscape
+@media (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+	:root {
+		--vh100: 768px;
+		--vw100: 1024px;
+		--device-header-h: 70px;
+	}
+}
+// iPhone 11 Pro Max portrait
+@media (device-width: 414px) and (device-height: 896px) and (orientation: portrait) {
+	:root {
+		--vw100: 414px;
+		--vh100: 896px;
+		--device-header-h: 64px;
+	}
+}
+// iPhone 11 Pro Max landscape
+@media (device-width: 414px) and (device-height: 896px) and (orientation: landscape) {
+	:root {
+		--vh100: 414px;
+		--vw100: 896px;
+	}
+}
+// iPhone 11 Pro portrait
+@media (device-width: 375px) and (device-height: 812px) and (orientation: portrait) {
+	:root {
+		--vw100: 375px;
+		--vh100: 812px;
+		--device-header-h: 75px;
+		--device-footer-h: 102px;
+	}
+}
+// iPhone 11 Pro landscape
+@media (device-width: 375px) and (device-height: 812px) and (orientation: landscape) {
+	:root {
+		--vh100: 375px;
+		--vw100: 812px;
+	}
+}

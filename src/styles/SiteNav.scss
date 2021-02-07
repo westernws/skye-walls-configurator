@@ -1,0 +1,40 @@
+.SiteNav {
+	@apply m-auto pl-6;
+	max-width: var(--site-max-width);
+}
+.SiteNav-wrap {
+	@apply flex items-center justify-between;
+	height: var(--header-height);
+}
+.SiteNav-logo {
+	@apply mr-6 flex-shrink-0;
+	width: 120px;
+}
+
+.SiteNav.SiteNav--config {
+	& {
+		@apply pl-3;
+	}
+	.SiteNav-logo {
+		@apply mr-3;
+		width: 80px;
+	}
+}
+
+@screen xl {
+	.SiteNav {
+		@apply pr-6;
+	}
+	.SiteNav.SiteNav--config {
+		& {
+			@apply px-6 max-w-none;
+		}
+		.SiteNav-wrap {
+			height: var(--header-height);
+		}
+		.SiteNav-logo {
+			@apply mr-6;
+			width: 120px;
+		}
+	}
+}

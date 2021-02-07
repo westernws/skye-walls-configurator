@@ -1,0 +1,88 @@
+$swatchBorderColor: #C3C0C0;
+$swatchSelectedColor: #32739D;
+
+.Radio {
+	&.Radio--color,
+	&.Radio--colorSelector {
+		.Radio-group {
+			@apply grid gap-2;
+			grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+		}
+		.Radio-fieldGroup {
+			@apply text-4xl relative;
+		}
+		.Radio-label {
+			@apply relative float-left rounded-full cursor-pointer;
+			width: 1em;
+			height: 1em;
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' preserveAspectRatio='none'%3E%3Ccircle cx='50%' cy='50%' r='4' stroke-width='1' stroke='%23#{str-slice(#{$swatchBorderColor}, 2)}' fill='transparent' /%3E%3C/svg%3E") no-repeat 50% 50%;
+			background-size: 1.30em;
+			&:active {
+				@apply outline-none;
+			}
+		}
+		.Radio-control {
+			@apply opacity-0 absolute;
+			&:focus-visible ~ .Radio-label {
+				outline: 2px solid theme('colors.outline');
+			}
+			&:checked ~ .Radio-label {
+				border: 0.125em solid $swatchSelectedColor;
+				&::after {
+					@apply absolute rounded-full;
+					content: ' ';
+					background: url(/images/check-solid-white.svg) no-repeat 50% 50% $swatchSelectedColor;
+					border: 0.05em solid theme('colors.white');
+					background-size: 0.3em;
+					width: 0.55em;
+					height: 0.55em;
+					top: -0.3em;
+					left: 0.5em;
+				}
+			}
+		}
+		.Radio-displayName {
+			@apply text-sm font-normal mt-4 mb-3;
+		}
+	}
+	&.Radio--colorSelector {
+		@apply pt-8;
+		.Radio-group {
+			@apply mb-6;
+			grid-template-columns: repeat(auto-fill, minmax(calc(25vw - 2.3rem), 1fr));
+		}
+		.Radio-fieldGroup {
+			@apply mb-6;
+			font-size: calc(25vw - 2.3rem);
+		}
+		.Radio-displayName {
+			@apply text-base;
+			margin-bottom: 5vw;
+		}
+	}
+}
+
+@screen md {
+	.Radio.Radio--colorSelector {
+		.Radio-group {
+			@apply gap-4;
+			grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+		}
+		.Radio-fieldGroup {
+			font-size: 5rem;
+		}
+		.Radio-displayName {
+			@apply mb-3;
+		}
+	}
+}
+@screen xl {
+	.Radio-displayName {
+		@apply text-sm;
+	}
+	.Radio.Radio--colorSelector {
+		.Radio-fieldGroup {
+			font-size: 4.7rem;
+		}
+	}
+}

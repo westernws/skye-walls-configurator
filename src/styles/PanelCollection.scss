@@ -1,0 +1,39 @@
+.PanelCollection {
+	@apply flex flex-col;
+}
+.PanelCollection-item {
+	@apply pt-20 w-full;
+}
+.PanelCollection-description {
+	@apply text-center w-full;
+}
+
+@screen md {
+	.PanelCollection-item {
+		@apply w-6/12;
+	}
+	.PanelCollection {
+		@apply flex-row;
+	}
+	.PanelCollection-description {
+		min-height: 135px;
+	}
+}
+
+@screen xl {
+	.PanelCollection-description {
+		@apply w-7/12;
+	}
+}
+
+@screen 3xl {
+	.PanelCollection-item:last-child .PanelCollection-description {
+		@apply w-full;
+	}
+	.PanelCollection-item {
+		@apply w-4/12;
+	}
+	.PanelCollection-item:first-child {
+		@apply w-8/12;
+	}
+}

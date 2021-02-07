@@ -1,0 +1,43 @@
+.MainComponent {
+	// The main image of the build
+	--config-image-width: auto;
+	--config-image-height: 30vmax;
+	--config-space-y: 2rem;
+	// The nav "color" "screen" etc
+	--config-selector-panel-nav-height: 32px;
+	--config-review-offset-y: calc(var(--header-height) + var(--config-image-height) + var(--config-space-y));
+	// Y axis of the selector options
+	--config-selector-panel-offset-y: calc(var(--config-review-offset-y) + var(--config-selector-panel-nav-height) + (var(--config-space-y) / 2));
+
+	@apply px-6 m-auto;
+	max-width: var(--site-max-width);
+	&.MainComponent--bleed {
+		--site-overflow: hidden;
+		@apply p-0 max-w-none;
+		margin: var(--header-height) 0 0;
+	}
+}
+
+@screen xl {
+	$configSelectorPanelContainerWidth: 550px;
+	.MainComponent {
+		--config-image-width: calc(100vw - #{$configSelectorPanelContainerWidth});
+		--config-selector-panel-nav-height: 40px;
+		--config-image-height: calc(var(--vh100) - var(--device-header-h) - var(--device-footer-h) - var(--header-height) - var(--config-selector-panel-nav-height));
+	}
+}
+
+@screen 3xl {
+	$configSelectorPanelContainerWidth: 600px;
+	.MainComponent {
+		--config-image-width: calc(100vw - #{$configSelectorPanelContainerWidth});
+	}
+}
+
+@screen print {
+	.MainComponent {
+		@apply m-0 #{'!important'};
+		--config-image-width: 100vw;
+		--config-image-height: 95vh;
+	}
+}

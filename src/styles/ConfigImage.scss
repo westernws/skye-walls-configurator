@@ -1,0 +1,39 @@
+.ConfigImage {
+	@apply relative;
+	width: var(--config-image-width);
+	height: var(--config-image-height);
+	.ConfigImage-image,
+	.ConfigImage-imageBackground,
+	.ConfigImage-imageProduct,
+	.ConfigImage-imageWall {
+		@apply w-auto h-full m-auto object-contain px-5 pt-8 pb-0 absolute inset-0;
+	}
+	.ConfigImage-imageBackground {
+		z-index: 1;
+	}
+	.ConfigImage-imageProduct {
+		z-index: 2;
+	}
+	.ConfigImage-imageWall {
+		@apply p-0;
+	}
+	&.is-debug {
+		@apply border border-solid border-red;
+	}
+}
+.ConfigImage.ConfigImage--review {
+	@apply w-auto h-auto;
+	&::after {
+		@apply block h-0 w-full;
+		padding-bottom: 82.11%;
+		content: ' ';
+	}
+}
+
+@screen xl {
+	.ConfigImage {
+		.ConfigImage-image {
+			@apply p-5;
+		}
+	}
+}
