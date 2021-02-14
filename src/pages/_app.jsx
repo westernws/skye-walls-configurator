@@ -12,7 +12,7 @@ export default function SkyeConfigurator({ Component, pageProps }) {
 	return (
 		<>
 			<Component {...pageProps} />
-			{/* Hotjar Tracking Code for https://build.skyewallsbywws.com */}
+			{/* Hotjar Tracking Code */}
 			<script
 				dangerouslySetInnerHTML={{
 					__html: `
