@@ -101,7 +101,7 @@ export const ImageGrid = observer(({ optionGroup, simpleHeader = false, alwaysOp
 										}
 										{
 											!option.thumb &&
-											<DummyImage className="block" width="120" height="120" />
+											<DummyImage className="block" width="120" height="120" text="Image missing" />
 										}
 									</div>
 									{

@@ -1,13 +1,22 @@
 import React from 'react';
 import cn from 'classnames';
+import Image from 'next/image';
 
-import { DummyImage } from '~/Components/DummyImage';
 import { ChevronSolid } from '~/Components/svg/ChevronSolid.svg';
 
 export const MenuListItemCollection = ({
 	productCollection, isOpen, setIsOpen, children,
 }) => {
-	const { displayName } = productCollection;
+	const {
+		displayName,
+		productGroups: [
+			{
+				image: {
+					src: imageSrc = '',
+				} = {},
+			} = {},
+		] = [],
+	} = productCollection;
 
 	return (
 		<li>
@@ -19,7 +28,14 @@ export const MenuListItemCollection = ({
 				}}
 			>
 				<div className="Menu-leftCol space-x-4">
-					<DummyImage className="Menu-itemModelCollectionImg" width="125" height="70" />
+					<Image
+						src={imageSrc}
+						width={125}
+						height={70}
+						layout="intrinsic"
+						className="Menu-itemModelCollectionImg"
+						alt=""
+					/>
 					<div className="text-sm font-bold uppercase text-left">{displayName}</div>
 				</div>
 				<div className="Menu-rightCol">

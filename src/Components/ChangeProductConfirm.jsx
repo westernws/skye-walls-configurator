@@ -1,11 +1,13 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { useMst } from '~/Stores/App.store';
-import { DummyImage } from '~/Components/DummyImage';
 
-export const ChangeProductConfirm = observer(({ newProductLink, onDeclineClick, showProductImagery = true }) => {
+export const ChangeProductConfirm = observer(({
+	currentImageSrc, newImageSrc, newProductLink, onDeclineClick, showProductImagery = true,
+}) => {
 	const { closeAllModals } = useMst();
 
 	return (
@@ -14,10 +16,24 @@ export const ChangeProductConfirm = observer(({ newProductLink, onDeclineClick, 
 				showProductImagery &&
 				<div className="ChangeProductImagery xl:m-4">
 					<div className="ChangeProductImagery-before">
-						<DummyImage width="130" height="130" />
+						<Image
+							src={currentImageSrc}
+							width={130}
+							height={130}
+							layout="intrinsic"
+							className="Menu-itemModelProductImg opacity-50"
+							alt=""
+						/>
 					</div>
 					<div className="ChangeProductImagery-after">
-						<DummyImage width="210" height="200" />
+						<Image
+							src={newImageSrc}
+							width={210}
+							height={200}
+							layout="intrinsic"
+							className="Menu-itemModelProductImg"
+							alt=""
+						/>
 					</div>
 				</div>
 			}

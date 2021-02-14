@@ -2,15 +2,29 @@ import React from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
 
-import { DummyImage } from '~/Components/DummyImage';
 import { ChangeProductConfirm } from '~/Components/ChangeProductConfirm';
 import { useMst } from '~/Stores/App.store';
 
 export const MenuListItemProduct = ({ product, isSelected = false }) => {
-	const { modals } = useMst();
-	const { displayName } = product;
+	const {
+		modals,
+		page: {
+			product: {
+				productGroupImage: {
+					src: currentProductGroupImageSrc = '',
+				} = {},
+			} = {},
+		} = {},
+	} = useMst();
+	const {
+		displayName,
+		productGroupImage: {
+			src: newProductGroupImageSrc = '',
+		} = {},
+	} = product;
 	const modal = modals.get('modal-primary');
 
+	console.log('product.productGroupImage.src', product.productGroupImage.src);
 	return (
 		<li className={cn('bg-white', {
 			'border-b-4': isSelected,
@@ -25,12 +39,25 @@ export const MenuListItemProduct = ({ product, isSelected = false }) => {
 					modal.open({
 						type: 'MODAL',
 						name: 'changeProductConfirm',
-						content: <ChangeProductConfirm newProductLink={product.configLink} />,
+						content: (
+							<ChangeProductConfirm
+								newProductLink={product.configLink}
+								currentImageSrc={currentProductGroupImageSrc}
+								newImageSrc={newProductGroupImageSrc}
+							/>
+						),
 					});
 				}}
 			>
 				<div className="flex">
-					<DummyImage className="Menu-itemModelProductImg" width="100" height="88" />
+					<Image
+						src={newProductGroupImageSrc}
+						width={100}
+						height={88}
+						layout="intrinsic"
+						className="Menu-itemModelProductImg"
+						alt=""
+					/>
 					<div className="text-sm text-left">{displayName}</div>
 				</div>
 				{
