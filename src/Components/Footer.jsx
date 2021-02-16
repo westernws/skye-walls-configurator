@@ -125,12 +125,6 @@ export const Footer = () => {
 				</footer>
 			</div>
 			<div className="SiteMaxWidth m-auto relative">
-				<div className="absolute text-white text-xs opacity-50 px-4 left-0">
-					{'Icons powered by '}
-					<a className="text-white" href="https://fontawesome.com/license">
-						Font Awesome
-					</a>
-				</div>
 				<div className="BackToTop">
 					<button
 						type="button"

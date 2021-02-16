@@ -47,7 +47,6 @@ Router.events.on('routeChangeComplete', () => {
 });
 if (process.browser) {
 	global.app = appStore;
-	console.log(appStore.toJSON());
 }
 
 export {
