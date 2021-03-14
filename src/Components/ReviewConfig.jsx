@@ -58,6 +58,7 @@ export const ReviewConfig = observer(() => {
 						className="Button Button--inverted w-6/12 xl:px-12"
 						type="button"
 						onClick={() => {
+							appStore.contactUs.reset();
 							modal.open({
 								title: 'Contact Us',
 								type: 'FROSTY',

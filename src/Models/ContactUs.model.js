@@ -1,6 +1,7 @@
 import { types } from 'mobx-state-tree';
 import mapKeys from 'lodash/mapKeys';
 import pick from 'lodash/pick';
+import axios from 'axios';
 
 import { ProductModel } from '~/Models/Product.model';
 
@@ -17,19 +18,19 @@ export const ContactUsModel = types
 		// 'retURL': 'https://build.skyewallsbywws.local',
 		debug: 0,
 		debugEmail: '',
-		firstName: 'Test firstname',
-		lastName: 'Test lastname',
-		email: 'test@example.com',
-		state: 'Minnesota',
-		phone: '6125551234',
-		city: 'Test city',
 		emailOptIn: true,
-		// firstName: '',
-		// lastName: '',
-		// email: '',
-		// state: '',
-		// phone: '',
-		// city: '',
+		// firstName: 'Test firstname from the model',
+		// lastName: 'Test lastname',
+		// email: 'test@example.com',
+		// state: 'Minnesota',
+		// phone: '6125551234',
+		// city: 'Test city',
+		firstName: '',
+		lastName: '',
+		email: '',
+		state: '',
+		phone: '',
+		city: '',
 		configuredProduct: types.maybeNull(types.reference(ProductModel)),
 	})
 	.views(self => ({
@@ -94,12 +95,20 @@ export const ContactUsModel = types
 
 			return {
 				...result,
+				...(self.isDebugMode) && {
+					...self.debugFields,
+				},
 				emailOptOut: self.emailOptOut,
 			};
 		},
-		get payloadWithDebug() {
-			return { ...self.payload, ...self.debugFields };
+		get isDebugMode() {
+			return (self.debug && self.debugEmail);
 		},
+	}))
+	.volatile(() => ({
+		hasSubmitted: false,
+		isLoading: false,
+		hasErrors: false,
 	}))
 	.actions(self => ({
 		mapKeysToSalesforce(obj) {
@@ -110,5 +119,21 @@ export const ContactUsModel = types
 		},
 		setField(name, value) {
 			self[name] = value;
+		},
+		submitHandler: async (event) => {
+			event.preventDefault();
+			self.isLoading = true;
+			const payload = self.mapKeysToSalesforce(self.payload);
+			const webToLeadResponse = await axios.post('/api/salesforce/web-to-lead', payload);
+			const { status = 200 } = webToLeadResponse;
+
+			self.hasErrors = status !== 200;
+			self.hasSubmitted = true;
+			self.isLoading = false;
+		},
+		reset() {
+			self.isLoading = false;
+			self.hasSubmitted = false;
+			self.hasErrors = false;
 		},
 	}));

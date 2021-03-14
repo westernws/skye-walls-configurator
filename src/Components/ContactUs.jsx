@@ -20,6 +20,10 @@ export const ContactUs = observer(() => {
 				emailOptIn = true,
 			} = {},
 			setField = noop,
+			submitHandler = noop,
+			hasSubmitted = false,
+			isLoading = false,
+			hasErrors = false,
 		},
 	} = useMst();
 	const { setValue: setFirstName } = useInput(firstName);
@@ -34,9 +38,6 @@ export const ContactUs = observer(() => {
 	const form = useRef();
 	const submitBtn = useRef();
 	const hasSsrFormErrors = router.query?.formError === formId;
-	// const submitHandler = () => {
-	//
-	// };
 
 	useEffect(() => {
 		if (!process.browser || !hasSsrFormErrors || form.current.checkValidity()) {
@@ -45,11 +46,41 @@ export const ContactUs = observer(() => {
 		setTimeout(() => submitBtn.current.click(), 1500);
 	}, [hasSsrFormErrors]);
 
+	if (hasSubmitted) {
+		if (hasErrors) {
+			return (
+				<>
+					<h1 className="text-blue text-2xl">We encounted an error.</h1>
+					<p className="text-lg">
+						{'We could not complete your request. For assistance, please contact us at '}
+						<a href="tel:8775331250">877-533-1250</a>.
+					</p>
+				</>
+			);
+		}
+		return (
+			<>
+				<img
+					className="m-auto block"
+					src="https://skyewallsbywws.com/cdn-cgi/image/fit=contain%2Cf=auto%2Cwidth=125%2Cdpr=1%2C/wp-content/themes/skyewalls/images/thumbs-up.png"
+					alt=""
+					width="125"
+					height="169"
+					style={{ width: '125px', height: '169px' }}
+				/>
+				<div className="text-center">
+					<h1 className="text-blue text-2xl">Thanks And Hang In There!</h1>
+					<p className="text-lg">A Skye Walls expert will be contacting you shortly.</p>
+				</div>
+			</>
+		);
+	}
 	return (
 		<form
 			className="space-y-6 md:w-2/3"
 			id={formId}
 			ref={form}
+			onSubmit={submitHandler}
 		>
 			<div className="divide-y divide-gray-light divide-opacity-50 space-y-6">
 				<div className="space-y-6">
@@ -170,6 +201,7 @@ export const ContactUs = observer(() => {
 										setField('state', value);
 									}}
 								>
+									<option value="">Select a state</option>
 									{
 										usStates.map((usState) => {
 											const { key, value } = usState;
@@ -241,7 +273,6 @@ export const ContactUs = observer(() => {
 					<div className="CheckboxField">
 						<input
 							id={`emailOptIn-${formId}`}
-							required
 							className="CheckboxField-control"
 							type="checkbox"
 							checked={emailOptIn}
@@ -266,7 +297,14 @@ export const ContactUs = observer(() => {
 					</div>
 				</div>
 				<div className="pt-6">
-					<button className="Button" type="submit" ref={submitBtn}>Submit</button>
+					<button
+						className="Button w-40"
+						type="submit"
+						ref={submitBtn}
+						disabled={isLoading}
+					>
+						{isLoading ? 'Processing…' : 'Submit'}
+					</button>
 				</div>
 			</div>
 		</form>

@@ -38,6 +38,9 @@
 			@apply bg-white text-blue;
 		}
 	}
+	&[disabled] {
+		@apply bg-gray-light;
+	}
 }
 
 .ButtonHollow {
