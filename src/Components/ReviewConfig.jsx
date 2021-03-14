@@ -17,6 +17,8 @@ export const ReviewConfig = observer(() => {
 		return null;
 	}
 	selectedProduct.productGroupImage.setWidth(188);
+	appStore.contactUs.setConfiguredProduct(selectedProduct);
+
 	return (
 		<div className="ReviewConfigContainer">
 			<div className="ReviewNav xl:hidden print:hidden">
@@ -56,6 +58,7 @@ export const ReviewConfig = observer(() => {
 						className="Button Button--inverted w-6/12 xl:px-12"
 						type="button"
 						onClick={() => {
+							appStore.contactUs.reset();
 							modal.open({
 								title: 'Contact Us',
 								type: 'FROSTY',

@@ -1,0 +1,136 @@
+<!doctype>
+<html>
+<head>
+	<meta charSet="utf-8"/>
+</head>
+<body>
+<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+	<!-- Hidden fields -->
+	<input name="recordType" type=hidden value="0122J000000ccPB">
+	<input name="oid" type=hidden value="00D50000000cwoW">
+	<input name="country" type="hidden" value="United States"/>
+	<input name="company" type="hidden" value="" />
+	<input id="00N5000000A8soO" name="Created_By_WebTo_Lead__c" type="hidden" value="1"/>
+	<!-- <input type=hidden name="retURL" value="http://"> -->
+
+	<!-- Debug fields -->
+<!--	<input name="debug" type="hidden" value=1>-->
+<!--	<input name="debugEmail" type="hidden" value="[[INSERT_EMAIL_HERE]]">-->
+
+	<!-- Visible fields -->
+	<label>Get our latest news!</label>
+	<input checked name="emailOptOut" type="Radio" value="0"/> Yes
+	<input name="emailOptOut" type="Radio" value="1"/> No
+	<br>
+	<!-- WebTo Lead: -->
+
+	<label for="first_name">First Name</label>
+	<input id="first_name" maxlength="40" name="first_name" size="20" type="text" value="Testfirst"/>
+	<br>
+
+	<label for="last_name">Last Name</label>
+	<input id="last_name" maxlength="80" name="last_name" size="20" type="text" value="Testlast"/>
+	<br>
+
+	<label for="email">Email</label>
+	<input id="email" maxlength="80" name="email" size="20" type="text" value="test@example.com"/>
+	<br>
+
+	<label for="state">State</label>
+	<select id="state" name="state">
+		<option value="Alabama">Alabama</option>
+		<option value="Alaska">Alaska</option>
+		<option value="Arizona">Arizona</option>
+		<option value="Arkansas">Arkansas</option>
+		<option value="California - Northern">California - Northern</option>
+		<option value="California - Southern">California - Southern</option>
+		<option value="Colorado">Colorado</option>
+		<option value="Connecticut">Connecticut</option>
+		<option value="Delaware">Delaware</option>
+		<option value="District of Columbia">District of Columbia</option>
+		<option value="Florida - Northern">Florida - Northern</option>
+		<option value="Florida - Southern">Florida - Southern</option>
+		<option value="Georgia">Georgia</option>
+		<option value="Hawaii">Hawaii</option>
+		<option value="Idaho">Idaho</option>
+		<option value="Illinois">Illinois</option>
+		<option value="Indiana">Indiana</option>
+		<option value="Iowa">Iowa</option>
+		<option value="Kansas">Kansas</option>
+		<option value="Kentucky">Kentucky</option>
+		<option value="Louisiana">Louisiana</option>
+		<option value="Maine">Maine</option>
+		<option value="Maryland">Maryland</option>
+		<option value="Massachusetts">Massachusetts</option>
+		<option value="Michigan">Michigan</option>
+		<option selected value="Minnesota">Minnesota</option>
+		<option value="Mississippi">Mississippi</option>
+		<option value="Missouri">Missouri</option>
+		<option value="Montana">Montana</option>
+		<option value="Nebraska">Nebraska</option>
+		<option value="Nevada">Nevada</option>
+		<option value="New Hampshire">New Hampshire</option>
+		<option value="New Jersey">New Jersey</option>
+		<option value="New Mexico">New Mexico</option>
+		<option value="New York">New York</option>
+		<option value="North Carolina">North Carolina</option>
+		<option value="North Dakota">North Dakota</option>
+		<option value="Ohio">Ohio</option>
+		<option value="Oklahoma">Oklahoma</option>
+		<option value="Oregon">Oregon</option>
+		<option value="Pennsylvania">Pennsylvania</option>
+		<option value="Rhode Island">Rhode Island</option>
+		<option value="South Carolina">South Carolina</option>
+		<option value="South Dakota">South Dakota</option>
+		<option value="Tennessee">Tennessee</option>
+		<option value="Texas - Central">Texas - Central</option>
+		<option value="Texas - Northern">Texas - Northern</option>
+		<option value="Texas - Southern">Texas - Southern</option>
+		<option value="Utah">Utah</option>
+		<option value="Vermont">Vermont</option>
+		<option value="Virginia">Virginia</option>
+		<option value="Washington">Washington</option>
+		<option value="West Virginia">West Virginia</option>
+		<option value="Wisconsin">Wisconsin</option>
+		<option value="Wyoming">Wyoming</option>
+	</select>
+	<br>
+
+	<label for="phone">Phone</label>
+	<input id="phone" maxlength="40" name="phone" size="20" type="text" value="6125551234"/>
+	<br>
+
+	<label for="city">City</label>
+	<input id="city" maxlength="40" name="city" size="20" type="text" value="testcity"/>
+	<br>
+
+	Comments:
+	<textarea id="00N5000000A5zaM" name="00N5000000A5zaM" rows="3" type="text" wrap="soft">productConfig_test</textarea>
+	<br>
+
+	<label for="industry">Industry</label>
+	<select id="industry" name="industry">
+		<option value="">--None--</option>
+		<option value="Architect">Architect</option>
+		<option selected value="Commercial">Commercial</option>
+		<option value="Custom Builder">Custom Builder</option>
+		<option value="Dealer">Dealer</option>
+		<option value="Designer">Designer</option>
+		<option value="Homeowner">Homeowner</option>
+		<option value="Production Architect">Production Architect</option>
+		<option value="Production Builder">Production Builder</option>
+		<option value="Production Dealer">Production Dealer</option>
+		<option value="Remodeler">Remodeler</option>
+		<option value="VP Multi-Family">VP Multi-Family</option>
+		<option value="White Paper">White Paper</option>
+		<option value="Glazier">Glazier</option>
+		<option value="Contractor">Contractor</option>
+		<option value="Skye Walls">Skye Walls</option>
+	</select>
+	<br>
+
+	<input name="submit" type="submit">
+
+</form>
+</body>
+</html>

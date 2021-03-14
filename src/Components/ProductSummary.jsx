@@ -8,7 +8,7 @@ export const ProductSummary = ({ product }) => {
 	return (
 		<div className="ProductSummary space-y-5">
 			<div>
-				<h2 className="Heading font-bold uppercase flex-col text-l md:text-2xl lg:flex-row">
+				<h2 className="Heading font-semibold uppercase flex-col text-l md:text-2xl lg:flex-row">
 					{displayName}
 				</h2>
 				<p className="text-sm">{inheritedFeaturesLong} {description}</p>
@@ -22,7 +22,7 @@ export const ProductSummary = ({ product }) => {
 						}
 						return (
 							<div key={optionGroup.name} className="ml-2 md:ml-8">
-								<h3 className="text-xs uppercase font-bold mb-4">
+								<h3 className="text-xs uppercase font-semibold mb-4">
 									{optionGroup.summaryDisplayName || optionGroup.displayName}
 								</h3>
 								<ul className="Checklist text-xs">

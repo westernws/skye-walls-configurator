@@ -27,7 +27,7 @@ export const Footer = () => {
 						</Link>
 					</div>
 					<div>
-						<h3 className="text-lg uppercase font-bold">How Can We Help?</h3>
+						<h3 className="text-lg uppercase font-semibold">How Can We Help?</h3>
 						<ul className="leading-loose FooterMenu">
 							<li>
 								<a href="tel:877-553-1250">877-553-1250</a>
@@ -66,7 +66,7 @@ export const Footer = () => {
 					</div>
 					<div className="space-y-12">
 						<div>
-							<h3 className="text-lg uppercase font-bold text-white">Follow Us</h3>
+							<h3 className="text-lg uppercase font-semibold text-white">Follow Us</h3>
 							<ul className="Sociables space-x-4">
 								<li>
 									<a

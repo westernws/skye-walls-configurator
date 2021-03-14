@@ -45,7 +45,7 @@
 }
 .PanelProduct-title,
 .PanelProduct-titleTall {
-	@apply leading-tight font-bold;
+	@apply leading-tight font-semibold;
 }
 .PanelProduct-moreInfo {
 	@apply inline-block w-4 opacity-50 transition-all duration-500 ease-in-out;

@@ -13,7 +13,7 @@ export const ProductSelect = observer(({ displayGroupName, products, selectedPro
 
 	return (
 		<>
-			<h2 className="border-b border-gray-light py-2 text-sm font-bold">{displayGroupName}</h2>
+			<h2 className="border-b border-gray-light py-2 text-sm font-semibold">{displayGroupName}</h2>
 			{
 				products.map((product) => {
 					const isSelectedProduct = product.name === selectedProduct.name;
@@ -29,7 +29,7 @@ export const ProductSelect = observer(({ displayGroupName, products, selectedPro
 								<DummyImage width={isMediaQueryXl ? '165' : '250'} height="80" />
 							</div>
 							<div className="space-y-2 flex-grow flex flex-col justify-center">
-								<h3 className="text-sm uppercase font-bold">{product.displayName}</h3>
+								<h3 className="text-sm uppercase font-semibold">{product.displayName}</h3>
 								<button
 									type="button"
 									className="Button Button--secondarySmall w-full"

@@ -1,6 +1,6 @@
 .TextField {
 	.TextField-label {
-		@apply uppercase font-bold;
+		@apply uppercase font-semibold;
 	}
 	.TextField-control {
 		@apply appearance-none bg-white w-full border border-solid border-gray-light px-4 py-2 transition-all duration-300 ease-in-out;

@@ -15,7 +15,7 @@ export const HeaderStandard = ({ optionGroup }) => {
 			<div className="flex justify-between items-baseline">
 				<h2 className="text-blue text-3xl">{displayName}</h2>
 				<h3 className="text-right pb-2">
-					<span className="font-bold">{`${selectedDisplayName}${(hasFinish ? ', ' : '')}`}</span>
+					<span className="font-semibold">{`${selectedDisplayName}${(hasFinish ? ', ' : '')}`}</span>
 					{
 						hasFinish &&
 						<span className="italic">{finish}</span>

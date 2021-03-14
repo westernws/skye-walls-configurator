@@ -43,7 +43,7 @@ export const Panel = ({
 					</div>
 				</div>
 				<div className="px-12 space-y-6">
-					<h2 className="Panel-text font-bold leading-tight text-2xl lg:text-3xl">{title}</h2>
+					<h2 className="Panel-text font-semibold leading-tight text-2xl lg:text-3xl">{title}</h2>
 					<p className="Panel-desc">{shortDesc}</p>
 				</div>
 			</div>

@@ -39,7 +39,7 @@ export const ImageGrid = observer(({ optionGroup, simpleHeader = false, alwaysOp
 						setIsOpen(!isOpen);
 					}}
 				>
-					<h4 className="uppercase font-bold">{optionGroup.displayName}</h4>
+					<h4 className="uppercase font-semibold">{optionGroup.displayName}</h4>
 					<div>
 						{
 							isOpen && !alwaysOpen &&
@@ -49,7 +49,7 @@ export const ImageGrid = observer(({ optionGroup, simpleHeader = false, alwaysOp
 						}
 						{
 							!isOpen && !alwaysOpen &&
-							<div className="font-bold">{`(${optionGroup.options?.length || 1})`}</div>
+							<div className="font-semibold">{`(${optionGroup.options?.length || 1})`}</div>
 						}
 					</div>
 				</button>

@@ -21,7 +21,7 @@ export const ChangeProduct = observer(({ selectedProduct }) => {
 					</div>
 				</div>
 				<div className="space-y-4">
-					<h1 className="text-xl font-bold uppercase">Change Your Product</h1>
+					<h1 className="text-xl font-semibold uppercase">Change Your Product</h1>
 					<div className="Rule" />
 					<ol className="list-decimal list-inside ml-4">
 						<li>Select model from the dropdown menu</li>

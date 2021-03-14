@@ -152,18 +152,18 @@ export const Layout = observer(({ children }) => {
 							</ul>
 							<nav className="hidden xl:block">
 								<ul className="flex px-4 space-x-6 text-base">
-									<li className="font-bold text-blue">
+									<li className="font-semibold text-blue">
 										<Link href="/">
 											<a>Design Your Door</a>
 										</Link>
 									</li>
-									<li className="font-bold text-blue">
+									<li className="font-semibold text-blue">
 										<a href="https://skyewallsbywws.com/real-stories/">Real Stories</a>
 									</li>
-									<li className="font-bold text-blue">
+									<li className="font-semibold text-blue">
 										<a href="https://skyewallsbywws.com/tips-and-advice/">Tips & Advice</a>
 									</li>
-									<li className="font-bold text-blue">
+									<li className="font-semibold text-blue">
 										<a href="https://skyewallsbywws.com/contact/">Contact</a>
 									</li>
 								</ul>

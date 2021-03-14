@@ -47,7 +47,7 @@ const ProductGroup = () => {
 								})
 							}
 						</PanelGroup>
-						<p className="font-bold text-center text-sm text-blue">
+						<p className="font-semibold text-center text-sm text-blue">
 							More panels are available based on opening size.<br />
 							Speak with your local sales team to see what is the right size for your home.
 						</p>

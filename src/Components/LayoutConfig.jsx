@@ -51,7 +51,7 @@ export const LayoutConfig = observer(({ children }) => {
 								</div>
 								<div className="space-y-1">
 									<div className="Header-title space-x-0 xl:space-x-2">
-										<h1 className="text-lg leading-tight font-bold">{selectedProduct.displayName}</h1>
+										<h1 className="text-lg leading-tight font-semibold">{selectedProduct.displayName}</h1>
 									</div>
 									<ul className="space-x-6 hidden xl:flex print:hidden">
 										{

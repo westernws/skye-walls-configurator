@@ -51,7 +51,7 @@ export const SelectorValueStandard = observer(({ optionGroup, simpleHeader = fal
 						setIsOpen(!isOpen);
 					}}
 				>
-					<h4 className="uppercase font-bold">{optionGroup.displayName}</h4>
+					<h4 className="uppercase font-semibold">{optionGroup.displayName}</h4>
 					<div>
 						{
 							isOpen && !alwaysOpen &&
@@ -61,7 +61,7 @@ export const SelectorValueStandard = observer(({ optionGroup, simpleHeader = fal
 						}
 						{
 							!isOpen && !alwaysOpen &&
-							<div className="font-bold">{`(${optionsToUse?.length || 1})`}</div>
+							<div className="font-semibold">{`(${optionsToUse?.length || 1})`}</div>
 						}
 					</div>
 				</button>
