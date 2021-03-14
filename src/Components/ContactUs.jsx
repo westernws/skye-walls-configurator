@@ -1,10 +1,13 @@
 import React, { useEffect, useRef } from 'react';
+import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/router';
+import noop from 'lodash/noop';
 
 import { useMst } from '~/Stores/App.store';
 import { usStates } from '~/Data/usStates.constants';
+import { useInput } from '~/util/useInput';
 
-export const ContactUs = () => {
+export const ContactUs = observer(() => {
 	const {
 		contactUs: {
 			visibleFields: {
@@ -16,19 +19,21 @@ export const ContactUs = () => {
 				city = '',
 				emailOptIn = true,
 			} = {},
+			setField = noop,
 		},
 	} = useMst();
+	const { setValue: setFirstName } = useInput(firstName);
+	const { setValue: setLastName } = useInput(lastName);
+	const { setValue: setEmail } = useInput(email);
+	const { setValue: setState } = useInput(state);
+	const { setValue: setPhone } = useInput(phone);
+	const { setValue: setCity } = useInput(city);
+	const { setValue: setEmailOptIn } = useInput(emailOptIn);
 	const router = useRouter();
 	const formId = 'contactUsForm';
 	const form = useRef();
 	const submitBtn = useRef();
 	const hasSsrFormErrors = router.query?.formError === formId;
-	// const {
-	// 	firstName = '',
-	// 	lastName = '',
-	// 	email = '',
-	// 	zipCode = '',
-	// } = router?.query;
 	// const submitHandler = () => {
 	//
 	// };
@@ -71,7 +76,17 @@ export const ContactUs = () => {
 									pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
 									title="Please enter a valid first name"
 									minLength="2"
-									defaultValue={firstName}
+									value={firstName}
+									onChange={(event) => {
+										const {
+											target: {
+												value = '',
+											} = {},
+										} = event;
+
+										setFirstName(value);
+										setField('firstName', value);
+									}}
 								/>
 							</div>
 							<div className="TextField space-y-2 md:w-1/2">
@@ -88,7 +103,17 @@ export const ContactUs = () => {
 									pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
 									title="Please enter a valid last name"
 									minLength="2"
-									defaultValue={lastName}
+									value={lastName}
+									onChange={(event) => {
+										const {
+											target: {
+												value = '',
+											} = {},
+										} = event;
+
+										setLastName(value);
+										setField('lastName', value);
+									}}
 								/>
 							</div>
 						</div>
@@ -107,7 +132,17 @@ export const ContactUs = () => {
 									pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
 									title="Please enter a valid city"
 									minLength="2"
-									defaultValue={city}
+									value={city}
+									onChange={(event) => {
+										const {
+											target: {
+												value = '',
+											} = {},
+										} = event;
+
+										setCity(value);
+										setField('city', value);
+									}}
 								/>
 							</div>
 							<div className="SelectField space-y-2 md:w-1/2">
@@ -123,7 +158,17 @@ export const ContactUs = () => {
 									required
 									title="Please enter a valid state"
 									minLength="2"
-									defaultValue={state}
+									value={state}
+									onChange={(event) => {
+										const {
+											target: {
+												value = '',
+											} = {},
+										} = event;
+
+										setState(value);
+										setField('state', value);
+									}}
 								>
 									{
 										usStates.map((usState) => {
@@ -149,7 +194,17 @@ export const ContactUs = () => {
 									id={`email-${formId}`}
 									name="email"
 									className="TextField-control"
-									defaultValue={email}
+									value={email}
+									onChange={(event) => {
+										const {
+											target: {
+												value = '',
+											} = {},
+										} = event;
+
+										setEmail(value);
+										setField('email', value);
+									}}
 								/>
 							</div>
 							<div className="TextField space-y-2 md:w-1/2">
@@ -168,7 +223,17 @@ export const ContactUs = () => {
 									minLength="10"
 									maxLength="12"
 									title="Please enter a valid phone number"
-									defaultValue={phone}
+									value={phone}
+									onChange={(event) => {
+										const {
+											target: {
+												value = '',
+											} = {},
+										} = event;
+
+										setPhone(value);
+										setField('phone', value);
+									}}
 								/>
 							</div>
 						</div>
@@ -179,7 +244,17 @@ export const ContactUs = () => {
 							required
 							className="CheckboxField-control"
 							type="checkbox"
-							defaultChecked={emailOptIn}
+							checked={emailOptIn}
+							onChange={(event) => {
+								const {
+									target: {
+										checked = false,
+									} = {},
+								} = event;
+
+								setEmailOptIn(checked);
+								setField('emailOptIn', checked);
+							}}
 						/>
 						<label
 							htmlFor={`emailOptIn-${formId}`}
@@ -189,10 +264,6 @@ export const ContactUs = () => {
 							future product announcements.
 						</label>
 					</div>
-					<div className="sr-only">
-						<label htmlFor="pardot_extra_field">Comments</label>
-						<input type="text" id="pardot_extra_field" name="pardot_extra_field" />
-					</div>
 				</div>
 				<div className="pt-6">
 					<button className="Button" type="submit" ref={submitBtn}>Submit</button>
@@ -200,4 +271,4 @@ export const ContactUs = () => {
 			</div>
 		</form>
 	);
-};
+});

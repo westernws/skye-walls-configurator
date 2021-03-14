@@ -108,4 +108,7 @@ export const ContactUsModel = types
 		setConfiguredProduct(productModelId) {
 			self.configuredProduct = productModelId;
 		},
+		setField(name, value) {
+			self[name] = value;
+		},
 	}));
