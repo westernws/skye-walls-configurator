@@ -8,6 +8,7 @@ import { ModalModel } from '~/Models/Modal.model';
 import { ConfigPageModel } from '~/Models/ConfigPage.model';
 import { ProductPageModel } from '~/Models/ProductPage.model';
 import { themeConfig } from '~/util/themeConfig';
+import { ContactUsModel } from '~/Models/ContactUs.model';
 
 export const AppModel = types
 	.model('App', {
@@ -17,6 +18,7 @@ export const AppModel = types
 		page: types.maybeNull(types.union(ConfigPageModel, ProductPageModel)),
 		isMediaQueryXl: false,
 		env: types.enumeration('Environment', ['PROD', 'DEV', 'STAGING'], 'PROD'),
+		contactUs: ContactUsModel,
 	})
 	.volatile(() => ({
 		matchXlMq: null,

@@ -6,6 +6,7 @@ import { AppModel } from '~/Models/App.model';
 import productCollectionsData from '~/Data/productCollections';
 import { ProductCollectionsFactory } from '~/Factories/ProductCollections.factory';
 import { ProductPageModel } from '~/Models/ProductPage.model';
+import { ContactUsModel } from '~/Models/ContactUs.model';
 
 global.getSnapshot = getSnapshot;
 global.applySnapshot = applySnapshot;
@@ -16,6 +17,10 @@ const appStore = AppModel.create({
 	productCollections: ProductCollectionsFactory(productCollectionsData),
 	env: 'STAGING',
 	modals: {},
+	contactUs: ContactUsModel.create({
+		id: 'ContactUsModel_main',
+		configuredProduct: null,
+	}),
 });
 const useMst = () => {
 	const store = useContext(AppStoreContext);
