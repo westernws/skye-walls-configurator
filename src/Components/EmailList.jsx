@@ -34,7 +34,7 @@ export const EmailList = () => {
 			<div className="divide-y divide-gray-light divide-opacity-50 space-y-6">
 				<div className="space-y-6">
 					<div className="space-y-4">
-						<h2 className="Heading font-bold uppercase flex-col text-lg md:text-3xl lg:flex-row">
+						<h2 className="Heading font-semibold uppercase flex-col text-lg md:text-3xl lg:flex-row">
 							Stay in the Loop
 						</h2>
 						<span className="Rule block" />
@@ -46,7 +46,7 @@ export const EmailList = () => {
 					<div className="space-y-4">
 						{
 							hasSsrFormErrors &&
-							<div className="text-red font-bold">
+							<div className="text-red font-semibold">
 								The request was not completed.<br />
 								A required field was missing, the form was invalid, or another issue occurred.<br />
 								Please try again or <a className="underline text-blue" href="#">Report issue</a>.

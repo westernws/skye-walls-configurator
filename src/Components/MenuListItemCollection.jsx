@@ -20,7 +20,7 @@ export const MenuListItemCollection = ({
 			>
 				<div className="Menu-leftCol space-x-4">
 					<DummyImage className="Menu-itemModelCollectionImg" width="125" height="70" />
-					<div className="text-sm font-bold uppercase text-left">{displayName}</div>
+					<div className="text-sm font-semibold uppercase text-left">{displayName}</div>
 				</div>
 				<div className="Menu-rightCol">
 					<div className={cn('Menu-control', {

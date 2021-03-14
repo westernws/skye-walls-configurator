@@ -1,6 +1,6 @@
 .Button {
 	@apply
-		inline-block text-base bg-red text-white py-2 px-4 text-center uppercase font-bold
+		inline-block text-base bg-red text-white py-2 px-4 text-center uppercase font-semibold
 		transition-all duration-200 ease-in-out border border-transparent rounded-full;
 	&:hover {
 		@apply bg-blue;
@@ -41,7 +41,7 @@
 }
 
 .ButtonHollow {
-	@apply inline-block text-base text-red p-3 text-center uppercase font-bold
+	@apply inline-block text-base text-red p-3 text-center uppercase font-semibold
 	transition-all duration-200 ease-in-out border-2 border-solid border-red rounded-full;
 	&:hover {
 		@apply bg-red border-transparent text-white;

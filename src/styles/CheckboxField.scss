@@ -1,7 +1,7 @@
 .CheckboxField {
 	@apply flex relative;
 	.CheckboxField-label {
-		@apply font-bold pl-10 cursor-pointer;
+		@apply font-semibold pl-10 cursor-pointer;
 	}
 	.CheckboxField-control {
 		@apply absolute cursor-pointer;

@@ -15,7 +15,7 @@ export const SelectorColor = observer(() => {
 		<div>
 			<div className="flex justify-between items-baseline">
 				<h2 className="text-blue text-3xl">{currentSelectionGroup.displayName}</h2>
-				<h3 className="text-right pb-2 font-bold">
+				<h3 className="text-right pb-2 font-semibold">
 					{product.selectedColor.displayName}
 				</h3>
 			</div>

@@ -17,7 +17,7 @@ export const Color = observer(({
 	}
 	return (
 		<fieldset
-			className={cn('Radio font-bold', {
+			className={cn('Radio font-semibold', {
 				'Radio--color': !type,
 				'Radio--colorSelector': type === 'selector',
 			})}

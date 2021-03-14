@@ -122,12 +122,12 @@ export const PanelProduct = observer(({ product }) => {
 						{
 							Boolean(features.length) &&
 							<div className="PanelProduct-includes space-y-4">
-								<h3 className="font-bold text-sm">
+								<h3 className="font-semibold text-sm">
 									Features:
 								</h3>
 								{
 									Boolean(product.inheritedFeatures) &&
-									<strong className="font-bold text-sm text-blue">
+									<strong className="font-semibold text-sm text-blue">
 										{product.inheritedFeatures}:
 									</strong>
 								}

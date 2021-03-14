@@ -9,7 +9,7 @@
 	&.is-active {
 		@apply bg-blue text-white;
 		.SelectorMenu-button {
-			@apply font-bold;
+			@apply font-semibold;
 		}
 	}
 	&:hover {
@@ -27,7 +27,7 @@
 	margin-left: -20px;
 }
 .SelectorSubMenu-item {
-	@apply uppercase text-left pl-8 pr-4 py-2 text-sm font-bold w-full transition-all duration-300 ease-in-out;
+	@apply uppercase text-left pl-8 pr-4 py-2 text-sm font-semibold w-full transition-all duration-300 ease-in-out;
 	&:hover {
 		@apply bg-white text-gray;
 	}

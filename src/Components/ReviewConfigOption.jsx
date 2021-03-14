@@ -26,7 +26,7 @@ export const ReviewConfigOption = observer(({ selectionGroup = {}, onEditClick, 
 	return (
 		<div className="ReviewConfigOption space-y-6 xl:space-y-0">
 			<div className="flex flex-col flex-shrink-0 xl:space-y-4 print:flex-row print:space-y-0 print:space-x-2">
-				<h2 className="font-bold text-blue print:text-black">
+				<h2 className="font-semibold text-blue print:text-black">
 					{(selectionGroup.displayNameSingular || selectionGroup.displayName)}:
 				</h2>
 				{
