@@ -81,7 +81,8 @@ export const ContactUsModel = types
 			};
 		},
 		get emailOptOut() {
-			return !self.emailOptIn;
+			// Value must be "1" in order for Salesforce to properly consume.
+			return !self.emailOptIn ? 1 : 0;
 		},
 		get payload() {
 			const fields = {
@@ -98,7 +99,9 @@ export const ContactUsModel = types
 				...(self.isDebugMode) && {
 					...self.debugFields,
 				},
-				emailOptOut: self.emailOptOut,
+				...(self.emailOptOut) && {
+					emailOptOut: self.emailOptOut,
+				},
 			};
 		},
 		get isDebugMode() {

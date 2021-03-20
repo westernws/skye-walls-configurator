@@ -272,6 +272,38 @@ export const ContactUs = observer(() => {
 					</div>
 					<div className="CheckboxField">
 						<input
+							id={`privacyPolicy-${formId}`}
+							className="CheckboxField-control"
+							type="checkbox"
+							required
+						/>
+						<label
+							htmlFor={`privacyPolicy-${formId}`}
+							className="CheckboxField-label text-base md:text-sm"
+						>
+							{`
+								Skye Walls by Western Window Systems values your privacy. Check this box to indicate you
+								have read our
+							`}
+							<a
+								href="https://skyewallsbywws.com/privacy-policy"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-blue underline"
+							>Privacy Policy
+							</a>
+							{' and '}
+							<a
+								href="https://skyewallsbywws.com/terms-of-use"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-blue underline"
+							>Terms of Use
+							</a>
+						</label>
+					</div>
+					<div className="CheckboxField">
+						<input
 							id={`emailOptIn-${formId}`}
 							className="CheckboxField-control"
 							type="checkbox"

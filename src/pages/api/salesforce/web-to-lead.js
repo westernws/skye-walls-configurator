@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const serializePayload = (query, encode = false) => {
+const serialize = (query, encode = false) => {
 	return Object.entries(query).map((entry) => {
 		return [
 			encode ? encodeURIComponent(entry[0]) : entry[0],
@@ -20,8 +20,10 @@ export default async function salesForceFormHandler(req, res) {
 		status = 412;
 		return res.status(status).json(json);
 	}
-	const result = await axios.post('https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8', serializePayload(payload));
+	const serializedPayload = serialize(payload);
+	const result = await axios.post('https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8', serializedPayload);
 
+	// console.log('serializedPayload', serializedPayload);
 	status = result.status;
 	json.success = status === 200;
 
