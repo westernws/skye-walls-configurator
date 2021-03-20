@@ -4,7 +4,6 @@ import { OptionEnvironmentModel } from '~/Models/OptionEnvironment.model';
 import { EnvironmentImageModel } from '~/Models/EnvironmentImage.model';
 import { ImageModel } from '~/Models/Image.model';
 
-// Test2
 export const OptionsFactory = (options, optionGroupName, productName) => {
 	if (optionGroupName === 'color') {
 		return options.map(option => OptionColorModel.create({
