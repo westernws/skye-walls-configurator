@@ -51,7 +51,7 @@ export const ContactUs = observer(() => {
 			return;
 		}
 		window.dataLayer.push({
-			eventAction: 'builder contact form submitted',
+			event: 'builder contact form submitted',
 		});
 	}, [hasSubmitted, hasErrors]);
 
