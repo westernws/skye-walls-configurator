@@ -19,6 +19,8 @@ export const ContactUsModel = types
 		debug: 0,
 		debugEmail: '',
 		emailOptIn: true,
+		// Used for email auto-responder.
+		pardotURL: 'https://build.skyewallsbywws.com/config/',
 		// firstName: 'Test firstname from the model',
 		// lastName: 'Test lastname',
 		// email: 'test@example.com',
@@ -53,6 +55,7 @@ export const ContactUsModel = types
 				'webtoLead',
 				'comments',
 				'industry',
+				'pardotURL',
 			]);
 		},
 		get debugFields() {
@@ -78,6 +81,7 @@ export const ContactUsModel = types
 				webtoLead: 'Created_By_WebTo_Lead__c',
 				firstName: 'first_name',
 				lastName: 'last_name',
+				pardotURL: '00N2J00000AHJ4W',
 			};
 		},
 		get emailOptOut() {
