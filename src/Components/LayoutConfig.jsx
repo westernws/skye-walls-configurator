@@ -13,7 +13,7 @@ import { ContactUs } from '~/Components/ContactUs';
 
 export const LayoutConfig = observer(({ children }) => {
 	const {
-		modals, page,
+		modals, page, contactUs = {},
 	} = useMst();
 
 	if (!page?.product) {
@@ -128,6 +128,7 @@ export const LayoutConfig = observer(({ children }) => {
 										className="Button Button--inverted xl:px-12"
 										type="button"
 										onClick={() => {
+											contactUs.reset();
 											modal.open({
 												title: 'Contact Us',
 												type: 'FROSTY',

@@ -46,6 +46,15 @@ export const ContactUs = observer(() => {
 		setTimeout(() => submitBtn.current.click(), 1500);
 	}, [hasSsrFormErrors]);
 
+	useEffect(() => {
+		if (!process.browser || !hasSubmitted || hasErrors) {
+			return;
+		}
+		window.dataLayer.push({
+			eventAction: 'builder contact form submitted',
+		});
+	}, [hasSubmitted, hasErrors]);
+
 	if (hasSubmitted) {
 		if (hasErrors) {
 			return (
