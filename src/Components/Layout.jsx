@@ -105,6 +105,21 @@ export const Layout = observer(({ children }) => {
 																</a>
 															</li>
 															<li className="Menu-item">
+																<a href="https://skyewallsbywws.com/financing/" className="Menu-heading">
+																	<div className="Menu-leftCol">
+																		<div className="Menu-labelIcon w-4">
+																			<ExternalLinkAltSolid />
+																		</div>
+																		<div className="Menu-label">Financing</div>
+																	</div>
+																	<div className="Menu-rightCol">
+																		<div className="Menu-control">
+																			<ChevronSolid direction="right" />
+																		</div>
+																	</div>
+																</a>
+															</li>
+															<li className="Menu-item">
 																<a href="https://skyewallsbywws.com/contact/" className="Menu-heading">
 																	<div className="Menu-leftCol">
 																		<div className="Menu-labelIcon w-4">
@@ -162,6 +177,9 @@ export const Layout = observer(({ children }) => {
 									</li>
 									<li className="font-semibold text-blue">
 										<a href="https://skyewallsbywws.com/tips-and-advice/">Tips & Advice</a>
+									</li>
+									<li className="font-semibold text-blue">
+										<a href="https://skyewallsbywws.com/financing/">Financing</a>
 									</li>
 									<li className="font-semibold text-blue">
 										<a href="https://skyewallsbywws.com/contact/">Contact</a>
