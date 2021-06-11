@@ -11,6 +11,7 @@ const ProductGroup = types
 		name: '',
 		displayName: types.string,
 		displayGroupName: types.string,
+		displayGroupNamePlural: types.string,
 		description: '',
 		products: types.optional(types.array(ProductModel), []),
 		image: ImageModel,

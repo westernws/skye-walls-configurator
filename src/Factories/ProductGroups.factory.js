@@ -8,7 +8,7 @@ export const ProductGroupsFactory = (productGroups) => {
 
 	return selectedProductGroups.map((productGroup) => {
 		const {
-			name, displayName, displayGroupName, description, products, image, animatedImage,
+			name, displayName, displayGroupName, displayGroupNamePlural, description, products, image, animatedImage,
 		} = productGroup;
 
 		return ProductGroupModel.create({
@@ -16,6 +16,7 @@ export const ProductGroupsFactory = (productGroups) => {
 			name,
 			displayName,
 			displayGroupName,
+			displayGroupNamePlural,
 			description,
 			...(products.length) && {
 				products: ProductsFactory(products),

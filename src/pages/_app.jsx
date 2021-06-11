@@ -1,4 +1,7 @@
 import React from 'react';
+import { DefaultSeo } from 'next-seo';
+
+import Seo from '../../next-seo.config';
 
 import '#/main.scss';
 
@@ -10,6 +13,7 @@ import '#/main.scss';
 export default function SkyeConfigurator({ Component, pageProps }) {
 	return (
 		<>
+			<DefaultSeo {...Seo} />
 			<Component {...pageProps} />
 			{/* Init dataLayer and Google Tag Manager */}
 			<script
