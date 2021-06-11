@@ -874,7 +874,7 @@ export default [
 	{
 		name: 'pamsd',
 		displayName: 'Performance Aluminum Sliding Door',
-		description: 'Energy effeciency and strength.',
+		description: 'Energy efficiency and strength.',
 		inheritedFeatures: 'Everything in Classic, PLUS',
 		inheritedFeaturesLong: 'Including everything from our CLASSIC models and more.',
 		features: [

@@ -13,6 +13,7 @@ export default function SkyeConfigurator({ Component, pageProps }) {
 			<Component {...pageProps} />
 			{/* Init dataLayer and Google Tag Manager */}
 			<script
+				suppressHydrationWarning
 				dangerouslySetInnerHTML={{
 					__html: `
 						window.dataLayer = [];
