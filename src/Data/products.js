@@ -845,6 +845,8 @@ export default [
 			'After-market screening solution',
 		],
 		baseImagePath: '/images/product/sliding/aluminum/classic-performance',
+		illustrationStatic: illustrations.static.sliding,
+		illustrationAnimated: illustrations.animated.sliding,
 		images: slidingClassicPerformanceImages,
 		selectionGroups: [
 			{
@@ -883,6 +885,8 @@ export default [
 			'Compliant with California’s rigorous Title 24 requirements',
 		],
 		baseImagePath: '/images/product/sliding/aluminum/classic-performance',
+		illustrationStatic: illustrations.static.sliding,
+		illustrationAnimated: illustrations.animated.sliding,
 		// TODO (aboyer) May want to add "short-name" field for image directory mapping.
 		images: slidingClassicPerformanceImages,
 		selectionGroups: [
@@ -1430,6 +1434,8 @@ export default [
 		],
 		isVinyl: true,
 		baseImagePath: '/images/product/sliding/vinyl',
+		illustrationStatic: illustrations.static.sliding,
+		illustrationAnimated: illustrations.animated.sliding,
 		images: [
 			{
 				color: 'almond',
@@ -1521,6 +1527,8 @@ export default [
 			'Optional single swinging access door for everyday use',
 		],
 		baseImagePath: '/images/product/folding/aluminum/classic-performance',
+		illustrationStatic: illustrations.static.folding,
+		illustrationAnimated: illustrations.animated.folding,
 		images: foldingClassicPerformanceImages,
 		selectionGroups: [
 			{
@@ -1559,6 +1567,8 @@ export default [
 			'Compliant with California’s rigorous Title 24 requirements',
 		],
 		baseImagePath: '/images/product/folding/aluminum/classic-performance',
+		illustrationStatic: illustrations.static.folding,
+		illustrationAnimated: illustrations.animated.folding,
 		images: foldingClassicPerformanceImages,
 		selectionGroups: [
 			{

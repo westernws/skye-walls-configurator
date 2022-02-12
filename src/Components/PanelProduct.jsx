@@ -87,7 +87,7 @@ export const PanelProduct = observer(({ product }) => {
 								width={productGroupImageWidth}
 								height={productGroupImageHeight}
 								layout="responsive"
-								alt=""
+								alt={illustrationImage.alt}
 							/>
 						</div>
 						<div className="PanelProduct-animatedImage">
@@ -96,7 +96,7 @@ export const PanelProduct = observer(({ product }) => {
 								width={productGroupImageWidth}
 								height={productGroupImageHeight}
 								layout="responsive"
-								alt=""
+								alt={illustrationAnimatedImage.alt}
 							/>
 						</div>
 					</div>

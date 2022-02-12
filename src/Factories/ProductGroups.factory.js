@@ -8,8 +8,8 @@ export const ProductGroupsFactory = (productGroups) => {
 
 	return selectedProductGroups.map((productGroup) => {
 		const {
-			name, seoTitle, displayName, displayGroupName, displayGroupNamePlural, description, products, image,
-			animatedImage,
+			name, seoTitle, seoDescription, displayName, displayGroupName, displayGroupNamePlural, description,
+			products, image, animatedImage,
 		} = productGroup;
 		const theSeoTitle = seoTitle || displayGroupNamePlural;
 
@@ -17,6 +17,7 @@ export const ProductGroupsFactory = (productGroups) => {
 			id: `ProductGroupModel_${name}`,
 			name,
 			seoTitle: theSeoTitle,
+			seoDescription,
 			displayName,
 			displayGroupName,
 			displayGroupNamePlural,
@@ -26,6 +27,7 @@ export const ProductGroupsFactory = (productGroups) => {
 			},
 			image: ImageModel.create({
 				id: `ImageModel_${image.fileName}`,
+				alt: image.alt,
 				aspectRatio: image.aspectRatio,
 				basePath: image.basePath,
 				fileName: image.fileName,
@@ -33,6 +35,7 @@ export const ProductGroupsFactory = (productGroups) => {
 			}),
 			animatedImage: ImageModel.create({
 				id: `ImageModel_${animatedImage.fileName}`,
+				alt: animatedImage.alt,
 				aspectRatio: animatedImage.aspectRatio,
 				basePath: animatedImage.basePath,
 				fileName: animatedImage.fileName,

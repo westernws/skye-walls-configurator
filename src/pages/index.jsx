@@ -12,7 +12,10 @@ import { Footer } from '~/Components/Footer';
 const Index = () => {
 	return (
 		<>
-			<NextSeo title="Design Your Doors | Sliding & Folding Doors" />
+			<NextSeo
+				title="Design Your Doors | Sliding & Folding Doors"
+				description="Design your door from the comfort of your home with our skyewalls door builder. Our interactive tool will help you find and visualize your Sliding & Folding Doors."
+			/>
 			<Provider value={appStore}>
 				<Layout>
 					<div className="SiteMaxWidth m-auto">

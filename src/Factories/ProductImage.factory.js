@@ -3,6 +3,7 @@ import { ProductImageModel } from '~/Models/ProductImage.model';
 export const ProductImageFactory = (images, colorOptions, baseImagePath, handleOptions) => {
 	return images.map((image) => {
 		const {
+			alt,
 			fileName = '',
 			width = 0,
 		} = image;
@@ -11,6 +12,7 @@ export const ProductImageFactory = (images, colorOptions, baseImagePath, handleO
 
 		return ProductImageModel.create({
 			id: `ProductImageModel_${color.id}`,
+			alt,
 			color: color.id,
 			handle: handle.id,
 			fileName,

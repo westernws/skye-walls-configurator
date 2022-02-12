@@ -27,7 +27,7 @@ export const Panel = ({
 							layout="intrinsic"
 							className="Panel-image"
 							sizes={imageSizes}
-							alt=""
+							alt={image.alt}
 						/>
 					</div>
 					<div className="Panel-img">
@@ -38,7 +38,7 @@ export const Panel = ({
 							layout="intrinsic"
 							className="Panel-animatedImage"
 							sizes={imageSizes}
-							alt=""
+							alt={animatedImage.alt}
 						/>
 					</div>
 				</div>

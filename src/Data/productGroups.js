@@ -4,6 +4,10 @@ export default [
 	{
 		name: 'aluminum-sliding',
 		seoTitle: 'Customizable Aluminum Sliding Doors',
+		seoDescription: `
+			Find home inspiration customizable aluminum sliding doors that have energy efficiency, smooth operation, and
+			clean design doors.
+		`,
 		displayName: 'Aluminum',
 		displayGroupName: 'Aluminum Sliding Door',
 		displayGroupNamePlural: 'Aluminum Sliding Doors',
@@ -18,6 +22,10 @@ export default [
 	{
 		name: 'vinyl-sliding',
 		seoTitle: 'Vinyl Sliding Door | Customize Vinyl Sliding Door',
+		seoDescription: `
+			The vinyl sliding patio door from skyeWalls is strong and maintenance-free. Our sliding glass patio door is
+			built on a stainless steel track for ease of use.
+		`,
 		displayName: 'Vinyl',
 		displayGroupName: 'Vinyl Sliding Door',
 		displayGroupNamePlural: 'Vinyl Sliding Doors',
@@ -32,6 +40,10 @@ export default [
 	{
 		name: 'aluminum-folding',
 		seoTitle: 'Customizable Aluminum Folding Doors',
+		seoDescription: `
+			Find home inspiration customizable aluminum folding doors that have energy efficiency, smooth operation, and
+			clean design doors.
+		`,
 		displayName: 'Aluminum',
 		displayGroupName: 'Aluminum Folding Door',
 		displayGroupNamePlural: 'Aluminum Folding Doors',

@@ -13,6 +13,7 @@ export const ImageModel = types
 		width: types.number,
 		useCdn: false,
 		aspectRatio: 1,
+		alt: '',
 	})
 	.views(self => ({
 		get height() {

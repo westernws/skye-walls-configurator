@@ -36,6 +36,7 @@ export const ProductsFactory = (products) => {
 			description,
 			illustrationAnimated: illustrationAnimated ? ImageModel.create({
 				id: `ImageModel_${name}`,
+				alt: illustrationAnimated.alt,
 				aspectRatio: illustrationAnimated.aspectRatio,
 				basePath: illustrationAnimated.basePath,
 				fileName: illustrationAnimated.fileName,
@@ -43,6 +44,7 @@ export const ProductsFactory = (products) => {
 			}) : null,
 			illustrationStatic: illustrationStatic ? ImageModel.create({
 				id: `ImageModel_${illustrationStatic.fileName}`,
+				alt: illustrationStatic.alt,
 				aspectRatio: illustrationStatic.aspectRatio,
 				basePath: illustrationStatic.basePath,
 				fileName: illustrationStatic.fileName,
