@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { NextSeo } from 'next-seo';
 
 import { Provider, appStore } from '~/Stores/App.store';
 import { Layout } from '~/Components/Layout';
@@ -11,6 +12,7 @@ import { Footer } from '~/Components/Footer';
 const Index = () => {
 	return (
 		<>
+			<NextSeo title="Design Your Doors | Sliding & Folding Doors" />
 			<Provider value={appStore}>
 				<Layout>
 					<div className="SiteMaxWidth m-auto">

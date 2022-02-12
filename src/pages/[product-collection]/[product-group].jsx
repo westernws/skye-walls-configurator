@@ -27,7 +27,7 @@ const ProductGroup = () => {
 	}, [selectedProducts]);
 	return (
 		<>
-			<NextSeo title={selectedProductGroup?.displayGroupNamePlural} />
+			<NextSeo title={selectedProductGroup?.seoTitle} />
 			<Provider value={appStore}>
 				<LayoutProductGroup>
 					{

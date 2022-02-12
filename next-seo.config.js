@@ -1,6 +1,6 @@
 export default {
-	defaultTitle: 'Skye Walls Builder — Design Your Own Door',
-	titleTemplate: 'Skye Walls Builder — %s',
+	defaultTitle: 'Design Your Own Door | SkyeWalls',
+	titleTemplate: '%s | SkyeWalls',
 	description: 'Build your own Skye Walls environment',
 	openGraph: {
 		title: 'Skye Walls Builder',

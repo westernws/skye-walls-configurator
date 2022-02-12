@@ -8,12 +8,15 @@ export const ProductGroupsFactory = (productGroups) => {
 
 	return selectedProductGroups.map((productGroup) => {
 		const {
-			name, displayName, displayGroupName, displayGroupNamePlural, description, products, image, animatedImage,
+			name, seoTitle, displayName, displayGroupName, displayGroupNamePlural, description, products, image,
+			animatedImage,
 		} = productGroup;
+		const theSeoTitle = seoTitle || displayGroupNamePlural;
 
 		return ProductGroupModel.create({
 			id: `ProductGroupModel_${name}`,
 			name,
+			seoTitle: theSeoTitle,
 			displayName,
 			displayGroupName,
 			displayGroupNamePlural,

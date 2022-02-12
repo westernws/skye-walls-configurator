@@ -9,6 +9,7 @@ const ProductGroup = types
 	.model({
 		id: types.refinement(types.identifier, identifier => identifier.indexOf('ProductGroupModel_') === 0),
 		name: '',
+		seoTitle: types.string,
 		displayName: types.string,
 		displayGroupName: types.string,
 		displayGroupNamePlural: types.string,

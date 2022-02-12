@@ -3,6 +3,7 @@ import illustrations from '~/Data/illustrations';
 export default [
 	{
 		name: 'aluminum-sliding',
+		seoTitle: 'Customizable Aluminum Sliding Doors',
 		displayName: 'Aluminum',
 		displayGroupName: 'Aluminum Sliding Door',
 		displayGroupNamePlural: 'Aluminum Sliding Doors',
@@ -16,6 +17,7 @@ export default [
 	},
 	{
 		name: 'vinyl-sliding',
+		seoTitle: 'Vinyl Sliding Door | Customize Vinyl Sliding Door',
 		displayName: 'Vinyl',
 		displayGroupName: 'Vinyl Sliding Door',
 		displayGroupNamePlural: 'Vinyl Sliding Doors',
@@ -29,6 +31,7 @@ export default [
 	},
 	{
 		name: 'aluminum-folding',
+		seoTitle: 'Customizable Aluminum Folding Doors',
 		displayName: 'Aluminum',
 		displayGroupName: 'Aluminum Folding Door',
 		displayGroupNamePlural: 'Aluminum Folding Doors',
