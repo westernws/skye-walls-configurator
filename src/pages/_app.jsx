@@ -29,6 +29,7 @@ export default function SkyeConfigurator({ Component, pageProps }) {
 					`,
 				}}
 			/>
+			<script src="//cdn.evgnet.com/beacon/westernwindowsystems/skywallsprod/scripts/evergage.min.js" />
 		</>
 	);
 }
