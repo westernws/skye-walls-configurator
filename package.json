@@ -47,7 +47,7 @@
 		"uri-parser": "^1.0.1"
 	},
 	"devDependencies": {
-		"aws-cdk": "^1.79.0",
+		"aws-cdk": "^1.174.0",
 		"babel-eslint": "^10.0.1",
 		"eslint": "7.14.0",
 		"eslint-config-airbnb": "18.2.1",
