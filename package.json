@@ -16,8 +16,8 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"@aws-cdk/aws-s3": "^1.79.0",
-		"@aws-cdk/core": "^1.79.0",
+		"@aws-cdk/aws-s3": "^1.180.0",
+		"@aws-cdk/core": "^1.180.0",
 		"@babel/core": "^7.12.7",
 		"@babel/plugin-proposal-optional-chaining": "^7.10.1",
 		"autoprefixer": "^9.8.0",
